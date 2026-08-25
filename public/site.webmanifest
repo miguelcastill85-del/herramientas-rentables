@@ -1,0 +1,10 @@
+{
+  "name": "Herramientas Rentables",
+  "short_name": "H. Rentables",
+  "description": "Calculadoras y recursos claros para tomar mejores decisiones de negocio.",
+  "lang": "es-CL",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbfaf5",
+  "theme_color": "#132a24"
+}
