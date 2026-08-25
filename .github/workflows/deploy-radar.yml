@@ -2,6 +2,12 @@ name: Deploy Radar Rentable
 
 on:
   workflow_dispatch:
+    inputs:
+      confirm_free_only:
+        description: 'Confirmar que este despliegue se hará únicamente con Workers Free + D1 Free, sin upgrades ni servicios de pago'
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -13,6 +19,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       MERCADOPUBLICO_TICKET: ${{ secrets.MERCADOPUBLICO_TICKET }}
+      CONFIRM_FREE_ONLY: ${{ inputs.confirm_free_only }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,6 +27,14 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: corepack enable && pnpm install --frozen-lockfile
+      - name: Enforce free-only deployment guard
+        shell: bash
+        run: |
+          test "$CONFIRM_FREE_ONLY" = "true" || {
+            echo 'Deployment blocked: free-only confirmation is required.'
+            exit 1
+          }
+          echo 'Free-only guard confirmed. This workflow does not enable or upgrade any Cloudflare paid plan.'
       - name: Validate required secrets
         shell: bash
         run: |
@@ -45,9 +60,11 @@ jobs:
           node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1',process.argv[1]))" "$DB_ID"
       - name: Apply D1 schemas
         working-directory: radar/phase0
+        shell: bash
         run: |
-          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/schema.sql
-          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/real-ingestion.sql
+          set -euo pipefail
+          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/001_schema.sql
+          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/002_real_ingestion.sql
       - name: Store Mercado Público ticket as Worker secret
         working-directory: radar/phase0
         run: printf '%s' "$MERCADOPUBLICO_TICKET" | pnpm exec wrangler secret put MERCADOPUBLICO_TICKET
