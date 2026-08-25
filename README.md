@@ -13,6 +13,7 @@
 - Diagnóstico de precios y cálculo de precio mínimo según margen objetivo.
 - Catálogo de herramientas con búsqueda y filtros.
 - Página independiente y compartible para cada herramienta, con explicación, metodología y ejemplos.
+- Página de recursos que conecta con los productos existentes gestionados por Payhip.
 - Navegación semántica, foco visible, enlace de salto y regiones dinámicas accesibles.
 - Metadatos SEO, Open Graph, Twitter Cards, JSON-LD, `robots.txt` y manifiesto web.
 - Validaciones automáticas de contenido, lint, TypeScript y build de producción.
@@ -53,6 +54,8 @@ pnpm validate
 app/
   components/        Calculadoras reutilizables ejecutadas en el navegador
   herramientas/      Rutas públicas individuales de las seis herramientas
+  pro/                Página de recursos gratuitos y premium disponibles en Payhip
+  lib/payhip-products.ts Configuración central de nombres y enlaces de Payhip
   lib/tools.ts       Catálogo, contenido SEO y relaciones entre herramientas
   globals.css        Estilos globales y responsive
   layout.tsx         Metadatos, idioma y datos estructurados

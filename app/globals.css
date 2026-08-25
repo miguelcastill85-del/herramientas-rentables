@@ -1804,3 +1804,349 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Payhip resource funnel */
+.hero-resource-link {
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+  margin-top: 1.35rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: rgba(19, 42, 36, 0.3);
+  text-underline-offset: 0.35rem;
+}
+
+.hero-resource-link:hover {
+  color: #4c6700;
+  text-decoration-color: currentColor;
+}
+
+.footer-text-link {
+  color: white;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--lime);
+  text-underline-offset: 0.3rem;
+}
+
+.calculator-payhip-funnel {
+  margin-top: 2.75rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.payhip-offers {
+  scroll-margin-top: 6rem;
+}
+
+.payhip-offers-heading {
+  max-width: 46rem;
+  margin-bottom: 1.75rem;
+}
+
+.payhip-offers-heading .section-kicker {
+  margin-bottom: 0.7rem;
+}
+
+.payhip-offers-heading h2 {
+  margin-bottom: 0.85rem;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 4vw, 3.25rem);
+}
+
+.payhip-offers-heading > p:last-child {
+  margin-bottom: 0;
+  color: var(--ink-soft);
+}
+
+.payhip-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.payhip-product-card {
+  display: flex;
+  min-width: 0;
+  min-height: 18rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: white;
+  box-shadow: 0 1.1rem 2.8rem rgba(19, 42, 36, 0.08);
+}
+
+.payhip-product-card.premium {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: white;
+}
+
+.payhip-product-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  margin-bottom: 1.35rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.payhip-product-card.premium .payhip-product-label {
+  background: var(--lime);
+}
+
+.payhip-product-card h3 {
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.payhip-product-card p {
+  margin-bottom: 1.5rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.payhip-product-card.premium p {
+  color: #c7d4d0;
+}
+
+.payhip-product-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.payhip-product-card.free .payhip-product-button {
+  background: transparent;
+  color: var(--ink);
+}
+
+.payhip-product-card.free .payhip-product-button:hover {
+  background: var(--ink);
+  color: white;
+}
+
+.payhip-product-card.premium .payhip-product-button {
+  border-color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 white;
+}
+
+.payhip-disclosure {
+  margin: 1.15rem 0 0;
+  color: #607a71;
+  font-size: 0.74rem;
+  line-height: 1.6;
+}
+
+.pro-page {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+.pro-hero {
+  overflow: hidden;
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  background:
+    radial-gradient(circle at 84% 18%, rgba(220, 255, 104, 0.28), transparent 22rem),
+    var(--cream);
+}
+
+.pro-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.37fr);
+  gap: clamp(2.5rem, 7vw, 6.5rem);
+  align-items: center;
+}
+
+.pro-hero h1 {
+  max-width: 14ch;
+  margin: 0.7rem 0 1.3rem;
+  color: var(--ink);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.pro-hero-lead {
+  max-width: 47rem;
+  margin-bottom: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+.pro-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.pro-summary-card {
+  padding: 1.75rem;
+  border-radius: 1.3rem;
+  background: var(--ink);
+  color: white;
+  box-shadow: var(--shadow);
+  transform: rotate(1.25deg);
+}
+
+.pro-summary-card p {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.pro-summary-card p:first-child {
+  padding-top: 0;
+}
+
+.pro-summary-card strong {
+  color: var(--lime);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.pro-summary-card span {
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.pro-summary-card small {
+  display: block;
+  margin-top: 1rem;
+  color: #a9beb6;
+  line-height: 1.55;
+}
+
+.pro-options,
+.pro-transparency {
+  padding: clamp(4.75rem, 9vw, 7.5rem) 0;
+}
+
+.pro-options {
+  background: var(--paper);
+}
+
+.payhip-offers-page .payhip-offers-heading {
+  margin-bottom: 2.5rem;
+}
+
+.pro-transparency {
+  background: var(--cream);
+}
+
+.pro-transparency-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+.pro-transparency h2 {
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.pro-transparency-grid > div:last-child {
+  color: var(--ink-soft);
+  font-size: 1.03rem;
+  line-height: 1.75;
+}
+
+.pro-back-section {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background: var(--ink);
+  color: white;
+}
+
+.pro-back-shell {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.pro-back-shell h2 {
+  max-width: 40rem;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.pro-back-shell .button {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .pro-hero-grid,
+  .pro-transparency-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pro-summary-card {
+    max-width: 36rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-resource-link {
+    margin-top: 1.1rem;
+  }
+
+  .calculator-payhip-funnel {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  .payhip-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payhip-product-card {
+    min-height: 0;
+  }
+
+  .payhip-product-button,
+  .pro-hero-actions .button,
+  .pro-back-shell .button {
+    width: 100%;
+  }
+
+  .pro-hero {
+    padding: 4rem 0 4.5rem;
+  }
+
+  .pro-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .pro-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pro-summary-card {
+    transform: none;
+  }
+
+  .pro-back-shell {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
