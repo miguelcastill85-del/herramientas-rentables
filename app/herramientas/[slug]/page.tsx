@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import { ToolCalculator } from '../../components/calculators';
 import { getToolById, getToolBySlug, siteUrl, tools } from '../../lib/tools';
 
+const socialImage =
+  'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
+
 type ToolPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -33,13 +36,20 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
       title: tool.seoTitle,
       description: tool.seoDescription,
       url: canonical,
-      images: [],
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${tool.name} | Herramientas Rentables`,
+        },
+      ],
     },
     twitter: {
       card: 'summary',
       title: tool.seoTitle,
       description: tool.seoDescription,
-      images: [],
+      images: [socialImage],
     },
   };
 }

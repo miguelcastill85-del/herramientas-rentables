@@ -64,7 +64,7 @@ const checks = [
   [toolPage.includes('generateMetadata'), 'Cada herramienta debe generar metadatos individuales.'],
   [toolPage.includes('alternates: { canonical }'), 'Cada herramienta debe declarar su URL canónica.'],
   [toolPage.includes('openGraph:') && toolPage.includes('twitter:'), 'Cada herramienta debe incluir Open Graph y Twitter metadata.'],
-  [toolPage.includes('images: []'), 'Las herramientas sin imagen propia no deben heredar una imagen social genérica.'],
+  [toolPage.includes('main/public/og.png') && toolPage.includes('images: [socialImage]'), 'Las herramientas deben usar la imagen social existente en Open Graph y Twitter.'],
   [toolPage.includes("'@type': 'WebApplication'") && toolPage.includes('application/ld+json'), 'Cada herramienta debe incluir JSON-LD de aplicación web.'],
   [toolPage.includes('<h1>{tool.name}</h1>'), 'Cada herramienta debe mostrar un H1 único.'],
   [toolPage.includes('ToolCalculator') && toolPage.includes('Herramientas relacionadas'), 'Cada página debe incluir calculadora y herramientas relacionadas.'],
