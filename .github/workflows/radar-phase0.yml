@@ -44,3 +44,5 @@ jobs:
           if (!['GO','REVIEW','NO_GO'].includes(decision.decision)) throw new Error('decision failed');
           console.log({range,margin,decision});
           JS
+      - name: Validate official API clients and vertical ranking
+        run: node radar/phase0/tests/real-ingestion-smoke.mjs
