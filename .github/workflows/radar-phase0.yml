@@ -1,0 +1,46 @@
+name: Radar Phase 0
+
+on:
+  pull_request:
+    paths:
+      - 'radar/phase0/**'
+      - '.github/workflows/radar-phase0.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'radar/phase0/**'
+      - '.github/workflows/radar-phase0.yml'
+
+jobs:
+  validate-radar-phase0:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run historical ETL fixture
+        run: |
+          python radar/phase0/etl/normalize.py radar/phase0/tests/sample_compra_agil.csv --out /tmp/radar-result.json
+          python - <<'PY'
+          import json
+          data=json.load(open('/tmp/radar-result.json'))
+          assert data['summary']['processes'] == 3
+          assert data['summary']['quotes'] == 4
+          assert data['category_metrics'][0]['category'] == 'TI'
+          print(json.dumps(data['summary'], indent=2))
+          PY
+      - name: Validate scoring smoke test
+        run: |
+          node --input-type=module - <<'JS'
+          import { opportunityDecision, priceRange, marginGuard } from './radar/phase0/src/scoring.js';
+          const range=priceRange([590000,610000,620000,640000,660000,680000]);
+          if (!range.median) throw new Error('price range failed');
+          const margin=marginGuard({price:range.median,cost:500000,shipping:20000,minMarginPct:10});
+          const decision=opportunityDecision({catalogMatch:.9,expectedMarginPct:margin.marginPct,buyerScore:.8,expectedCompetitors:3,logisticsScore:.9,cashflowScore:.8,dataConfidence:.8});
+          if (!['GO','REVIEW','NO_GO'].includes(decision.decision)) throw new Error('decision failed');
+          console.log({range,margin,decision});
+          JS
