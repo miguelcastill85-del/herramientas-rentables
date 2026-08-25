@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/sitemap.xml
