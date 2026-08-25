@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
+import { siteUrl } from './lib/tools';
 import './globals.css';
 
 const siteTitle = 'Herramientas Rentables';
 const siteDescription =
   'Seis herramientas gratuitas para calcular margen, punto de equilibrio, comisiones, enlaces UTM, cotizaciones y precios desde tu navegador.';
-const siteUrl = 'https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site';
 const socialImage =
   'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
 

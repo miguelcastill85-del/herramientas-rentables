@@ -12,7 +12,7 @@
 - Estimador de horas y cotización con multiplicadores de complejidad documentados.
 - Diagnóstico de precios y cálculo de precio mínimo según margen objetivo.
 - Catálogo de herramientas con búsqueda y filtros.
-- Panel de herramienta en la misma página con retorno accesible al catálogo.
+- Página independiente y compartible para cada herramienta, con explicación, metodología y ejemplos.
 - Navegación semántica, foco visible, enlace de salto y regiones dinámicas accesibles.
 - Metadatos SEO, Open Graph, Twitter Cards, JSON-LD, `robots.txt` y manifiesto web.
 - Validaciones automáticas de contenido, lint, TypeScript y build de producción.
@@ -51,9 +51,13 @@ pnpm validate
 
 ```text
 app/
+  components/        Calculadoras reutilizables ejecutadas en el navegador
+  herramientas/      Rutas públicas individuales de las seis herramientas
+  lib/tools.ts       Catálogo, contenido SEO y relaciones entre herramientas
   globals.css        Estilos globales y responsive
   layout.tsx         Metadatos, idioma y datos estructurados
-  page.tsx           Interfaz e interacciones del sitio
+  page.tsx           Portada, catálogo, búsqueda y filtros
+  sitemap.ts         Sitemap dinámico de las páginas públicas
 public/
   robots.txt         Reglas para rastreadores
   site.webmanifest   Metadatos de instalación
@@ -62,6 +66,15 @@ scripts/
 .github/workflows/
   validate.yml       Pipeline de validación
 ```
+
+## Rutas públicas
+
+- `/herramientas/margen`
+- `/herramientas/punto-de-equilibrio`
+- `/herramientas/comparador-comisiones`
+- `/herramientas/utm`
+- `/herramientas/cotizacion`
+- `/herramientas/diagnostico-precios`
 
 ## Privacidad y alcance
 
