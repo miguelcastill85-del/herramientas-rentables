@@ -1,0 +1,5 @@
+codigo_cotizacion;fecha_publicacion;rut_comprador;organismo;region;nombre;descripcion_item;cantidad;rut_proveedor;proveedor;monto_cotizado;seleccionado
+CA-1;2026-08-01;61.000.001-1;Municipalidad Demo;Metropolitana;Compra notebooks;Notebook i5 16GB SSD 512;10;76.000.001-2;Proveedor A;4500000;si
+CA-1;2026-08-01;61.000.001-1;Municipalidad Demo;Metropolitana;Compra notebooks;Notebook i5 16GB SSD 512;10;76.000.002-0;Proveedor B;4800000;no
+CA-2;2026-08-02;61.000.002-K;Hospital Demo;Biobío;Insumos limpieza;Detergente industrial 5 litros;20;76.000.003-9;Proveedor C;500000;si
+CA-3;2026-08-03;61.000.001-1;Municipalidad Demo;Metropolitana;Monitores oficina;Monitor 24 pulgadas;12;76.000.001-2;Proveedor A;1500000;si
