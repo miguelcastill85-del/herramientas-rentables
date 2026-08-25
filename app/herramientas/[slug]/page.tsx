@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Native anchors avoid a vinext RSC prefetch runtime error. */
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { PayhipOffers } from '../../components/payhip-offers';
 import { ToolCalculator } from '../../components/calculators';
 import { getToolById, getToolBySlug, siteUrl, tools } from '../../lib/tools';
 
@@ -99,6 +100,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </a>
           <nav className="desktop-nav" aria-label="Navegación principal">
             <a href="/#herramientas">Herramientas</a>
+            <a href="/pro">Recursos</a>
             <a href="/#metodo">Cómo funciona</a>
             <a href="/#preguntas">Preguntas frecuentes</a>
           </nav>
@@ -139,6 +141,11 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <div className="tool-workspace tool-page-workspace">
               <div className="tool-surface">
                 <ToolCalculator toolId={tool.id} idPrefix={`page-${tool.slug}`} />
+                {tool.id === 'estimate' && (
+                  <div className="calculator-payhip-funnel">
+                    <PayhipOffers />
+                  </div>
+                )}
               </div>
               <p className="workspace-privacy">
                 <span aria-hidden="true">🔒</span> Tus valores se procesan únicamente en este navegador y no se envían a servidores.
@@ -216,6 +223,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </div>
           <div className="footer-links">
             <a href="/#herramientas">Herramientas</a>
+            <a href="/pro">Recursos</a>
             <a href="/#preguntas">Preguntas frecuentes</a>
             <a href="https://www.instagram.com/herramientasrentables" rel="noreferrer" target="_blank">Instagram</a>
           </div>

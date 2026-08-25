@@ -29,7 +29,7 @@ export default function Home() {
             <span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span>
           </a>
           <nav className="desktop-nav" aria-label="Navegación principal">
-            <a href="#herramientas">Herramientas</a><a href="#metodo">Cómo funciona</a><a href="#preguntas">Preguntas</a>
+            <a href="#herramientas">Herramientas</a><a href="/pro">Recursos</a><a href="#metodo">Cómo funciona</a><a href="#preguntas">Preguntas</a>
           </nav>
           <a className="button button-small" href="#herramientas">Abrir herramientas</a>
         </div>
@@ -47,6 +47,7 @@ export default function Home() {
                 <a className="text-link" href="#calculadora">Calcular mi margen</a>
               </div>
               <ul className="trust-list" aria-label="Beneficios principales"><li>Sin registro</li><li>100% gratuitas</li><li>Datos en tu navegador</li></ul>
+              <a className="hero-resource-link" href="/pro">Conocer recursos para freelancers <span aria-hidden="true">→</span></a>
             </div>
             <div className="calculator-wrap" id="calculadora" tabIndex={-1}>
               <div className="calculator-card">
@@ -119,7 +120,7 @@ export default function Home() {
 
       <footer className="site-footer"><div className="container footer-grid">
         <a className="brand footer-brand" href="#inicio"><span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span></a>
-        <p>Seis herramientas gratuitas para tomar mejores decisiones de negocio.</p><p>© {new Date().getFullYear()} Herramientas Rentables</p>
+        <p>Seis herramientas gratuitas para tomar mejores decisiones de negocio. <a className="footer-text-link" href="/pro">Ver recursos</a></p><p>© {new Date().getFullYear()} Herramientas Rentables</p>
       </div></footer>
     </>
   );
