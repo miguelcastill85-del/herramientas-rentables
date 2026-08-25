@@ -1,12 +1,18 @@
 # Herramientas Rentables
 
-Primera versión profesional de **Herramientas Rentables**, una colección de calculadoras y recursos claros para tomar mejores decisiones de negocio. Incluye una calculadora de margen funcional, buscador y filtros por categoría.
+**Herramientas Rentables** es una colección de seis calculadoras gratuitas para tomar mejores decisiones de negocio. Todos los cálculos se ejecutan en el navegador, sin cuentas, APIs externas ni almacenamiento de los valores ingresados.
 
 ## Características
 
 - Diseño responsive para móvil, tablet y escritorio.
-- Calculadora de utilidad y margen mensual en tiempo real.
+- Calculadora de margen con utilidad, costos variables e indicador visual.
+- Punto de equilibrio en unidades y facturación.
+- Comparador de comisiones entre dos canales de venta.
+- Constructor de enlaces UTM con validación y copia al portapapeles.
+- Estimador de horas y cotización con multiplicadores de complejidad documentados.
+- Diagnóstico de precios y cálculo de precio mínimo según margen objetivo.
 - Catálogo de herramientas con búsqueda y filtros.
+- Panel de herramienta en la misma página con retorno accesible al catálogo.
 - Navegación semántica, foco visible, enlace de salto y regiones dinámicas accesibles.
 - Metadatos SEO, Open Graph, Twitter Cards, JSON-LD, `robots.txt` y manifiesto web.
 - Validaciones automáticas de contenido, lint, TypeScript y build de producción.
@@ -59,4 +65,14 @@ scripts/
 
 ## Privacidad y alcance
 
-Los cálculos se ejecutan en el navegador y esta versión no envía ni almacena los valores ingresados. Los resultados son estimaciones orientativas y no sustituyen asesoría contable, tributaria o legal.
+Los cálculos se ejecutan íntegramente en el navegador. El sitio no usa APIs externas, base de datos, autenticación ni suscripciones, y no envía ni almacena los valores ingresados. Los resultados son estimaciones orientativas y no sustituyen asesoría contable, tributaria o legal.
+
+### Multiplicadores de complejidad
+
+El estimador de cotización aplica estos multiplicadores al costo base (`horas × tarifa`):
+
+- Baja: `1,00`.
+- Media: `1,20`.
+- Alta: `1,40`.
+
+La contingencia se calcula después del ajuste por complejidad; los costos externos se agregan al final.

@@ -3,11 +3,13 @@ import './globals.css';
 
 const siteTitle = 'Herramientas Rentables';
 const siteDescription =
-  'Calculadoras y recursos claros para entender tus números, fijar mejores precios y tomar decisiones de negocio con confianza.';
+  'Seis herramientas gratuitas para calcular margen, punto de equilibrio, comisiones, enlaces UTM, cotizaciones y precios desde tu navegador.';
+const siteUrl = 'https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site';
 const socialImage =
   'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${siteTitle} | Decisiones simples para negocios sanos`,
     template: `%s | ${siteTitle}`,
@@ -23,12 +25,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteTitle }],
   creator: siteTitle,
+  alternates: { canonical: siteUrl },
   openGraph: {
     type: 'website',
     locale: 'es_CL',
     siteName: siteTitle,
     title: `${siteTitle} | Haz que cada peso cuente`,
     description: siteDescription,
+    url: siteUrl,
     images: [
       {
         url: socialImage,
@@ -58,6 +62,7 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: siteTitle,
+  url: siteUrl,
   description: siteDescription,
   inLanguage: 'es-CL',
 };
