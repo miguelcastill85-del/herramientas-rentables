@@ -7,8 +7,9 @@ import json
 import zipfile
 from pathlib import Path
 
-from normalize import classify, money, yes
+from normalize import money, yes
 from open_data_ingest import MAX_FREE_PROCESSES, build_metrics
+from taxonomy import classify
 
 
 def first(row, *keys):
