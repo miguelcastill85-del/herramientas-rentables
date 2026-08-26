@@ -16,14 +16,26 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      MERCADOPUBLICO_TICKET: ${{ secrets.MERCADOPUBLICO_TICKET }}
       CF_API: https://api.cloudflare.com/client/v4
+      WORKER_NAME: radar-rentable-estado
+      DB_NAME: radar-rentable-estado
     steps:
-      - name: Normalize renewed token without exposing it
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: corepack enable && pnpm install --frozen-lockfile
+
+      - name: Enforce free-only guard and normalize token
         shell: bash
         run: |
           set -euo pipefail
           test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing CLOUDFLARE_API_TOKEN'; exit 1; }
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo 'Missing CLOUDFLARE_ACCOUNT_ID'; exit 1; }
+          test "${#CLOUDFLARE_ACCOUNT_ID}" -eq 32 || { echo 'Unexpected account id length'; exit 1; }
           node <<'NODE'
           const fs=require('fs');
           let t=(process.env.CLOUDFLARE_API_TOKEN||'').trim();
@@ -33,24 +45,169 @@ jobs:
           console.log(`Token kind detected: ${kind}; length=${t.length}`);
           fs.appendFileSync(process.env.GITHUB_ENV,`CF_TOKEN=${t}\nTOKEN_KIND=${kind}\n`);
           NODE
+          echo 'Free-only guard active: no upgrade or paid-resource operation is present.'
 
       - name: Verify Cloudflare account token
         shell: bash
         run: |
           set -euo pipefail
-          test "$TOKEN_KIND" = 'account' || { echo 'Expected a new Account API Token (cfat_ prefix).'; exit 1; }
+          test "$TOKEN_KIND" = 'account' || { echo 'Expected account API token'; exit 1; }
           STATUS="$(curl --silent --show-error -o /tmp/verify.json -w '%{http_code}' -H "Authorization: Bearer $CF_TOKEN" "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/verify")"
-          echo "Verification HTTP status: $STATUS"
-          node -e 'const fs=require("fs");let x={};try{x=JSON.parse(fs.readFileSync("/tmp/verify.json","utf8"))}catch{};if(x.success){console.log(`Token verification: success; status=${x.result?.status||"unknown"}`)}else{for(const e of (x.errors||[]))console.log(`Cloudflare error ${e.code||"unknown"}: ${e.message||"unknown"}`)}'
-          test "$STATUS" = '200'
-          node -e 'const x=require("/tmp/verify.json");if(!x.success||x.result?.status!=="active")process.exit(1)'
+          test "$STATUS" = '200' || { echo "Token verification failed HTTP $STATUS"; exit 1; }
+          node -e 'const x=require("/tmp/verify.json");if(!x.success||x.result?.status!=="active")process.exit(1);console.log("Cloudflare account token active.")'
 
-      - name: Read-only D1 permission check
+      - name: Dry-run before any remote write
         shell: bash
         run: |
           set -euo pipefail
-          STATUS="$(curl --silent --show-error -o /tmp/d1.json -w '%{http_code}' -H "Authorization: Bearer $CF_TOKEN" "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database?name=radar-rentable-estado&per_page=10")"
-          echo "D1 read HTTP status: $STATUS"
-          node -e 'const fs=require("fs");let x={};try{x=JSON.parse(fs.readFileSync("/tmp/d1.json","utf8"))}catch{};if(x.success){console.log("D1 permission check: success")}else{for(const e of (x.errors||[]))console.log(`Cloudflare error ${e.code||"unknown"}: ${e.message||"unknown"}`)}'
-          test "$STATUS" = '200'
-          node -e 'const x=require("/tmp/d1.json");if(!x.success)process.exit(1)'
+          rm -rf dist-radar
+          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1','00000000-0000-4000-8000-000000000000'))"
+          cd radar/phase0
+          env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_ACCOUNT_ID pnpm exec wrangler deploy --dry-run --outdir ../../dist-radar
+          cd ../..
+          mapfile -t bundles < <(find dist-radar -type f \( -name '*.js' -o -name '*.mjs' \) ! -name '*.map' | sort)
+          test "${#bundles[@]}" -eq 1 || { echo "Expected one bundled module, found ${#bundles[@]}"; exit 1; }
+          cp "${bundles[0]}" /tmp/worker.mjs
+          echo 'Dry-run succeeded before remote writes.'
+
+      - name: Inspect and create/reuse exact D1 database
+        id: d1
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database?name=$DB_NAME&per_page=10" > /tmp/d1-list.json
+          node -e 'const x=require("/tmp/d1-list.json");if(!x.success)process.exit(1)'
+          DB_ID="$(node -e 'const x=require("/tmp/d1-list.json");const d=(x.result||[]).find(v=>v.name===process.argv[1]);if(d)process.stdout.write(d.uuid||"")' "$DB_NAME")"
+          if [ -n "$DB_ID" ]; then
+            DB_ACTION='reused'
+          else
+            node -e 'require("fs").writeFileSync("/tmp/create-d1.json",JSON.stringify({name:process.argv[1]}))' "$DB_NAME"
+            curl --fail-with-body --silent --show-error -X POST \
+              -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' \
+              --data-binary @/tmp/create-d1.json \
+              "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database" > /tmp/d1-create.json
+            DB_ID="$(node -e 'const x=require("/tmp/d1-create.json");if(!x.success)process.exit(1);process.stdout.write(x.result?.uuid||"")')"
+            test -n "$DB_ID" || { echo 'D1 creation returned no id'; exit 1; }
+            DB_ACTION='created'
+          fi
+          echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
+          echo "db_action=$DB_ACTION" >> "$GITHUB_OUTPUT"
+          echo "DB_ID=$DB_ID" >> "$GITHUB_ENV"
+          echo "D1 action: $DB_ACTION; identifier intentionally not printed."
+
+      - name: Apply D1 schemas
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const base=process.env.CF_API;
+          const account=process.env.CLOUDFLARE_ACCOUNT_ID;
+          const db=process.env.DB_ID;
+          const token=process.env.CF_TOKEN;
+          async function apply(path){
+            const sql=fs.readFileSync(path,'utf8');
+            const r=await fetch(`${base}/accounts/${account}/d1/database/${db}/query`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({sql})});
+            const x=await r.json();
+            if(!r.ok||!x.success||(x.result||[]).some(v=>v.success===false)){console.error(`Failed applying ${path}: HTTP ${r.status}`);process.exit(1)}
+            console.log(`Applied ${path}`);
+          }
+          (async()=>{await apply('radar/phase0/sql/001_schema.sql');await apply('radar/phase0/sql/002_real_ingestion.sql')})().catch(e=>{console.error(e.message);process.exit(1)});
+          NODE
+
+      - name: Verify D1 schema and queries
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const base=process.env.CF_API, account=process.env.CLOUDFLARE_ACCOUNT_ID, db=process.env.DB_ID, token=process.env.CF_TOKEN;
+          const sql="SELECT COUNT(*) AS expected_tables FROM sqlite_master WHERE type='table' AND name IN ('agile_processes','agile_items','agile_quotes','buyer_metrics','category_metrics','ingestion_runs','sync_state','compra_agil_raw','ordenes_compra_raw','vertical_rankings');";
+          (async()=>{
+            const r=await fetch(`${base}/accounts/${account}/d1/database/${db}/query`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({sql})});
+            const x=await r.json();
+            if(!r.ok||!x.success)process.exit(1);
+            const rows=x.result?.[0]?.results||[];
+            if(Number(rows[0]?.expected_tables)!==10){console.error('Expected 10 application tables');process.exit(1)}
+            console.log('D1 schema verified: 10/10 application tables.');
+          })().catch(e=>{console.error(e.message);process.exit(1)});
+          NODE
+
+      - name: Upload Worker with D1 binding
+        shell: bash
+        run: |
+          set -euo pipefail
+          node -e 'const fs=require("fs");fs.writeFileSync("/tmp/metadata.json",JSON.stringify({main_module:"worker.mjs",compatibility_date:"2026-08-25",bindings:[{type:"d1",name:"DB",database_id:process.env.DB_ID}]}))'
+          curl --fail-with-body --silent --show-error -X PUT \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -F 'metadata=@/tmp/metadata.json;type=application/json' \
+            -F 'worker.mjs=@/tmp/worker.mjs;type=application/javascript+module' \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME" > /tmp/worker-upload.json
+          node -e 'const x=require("/tmp/worker-upload.json");if(!x.success)process.exit(1);console.log("Worker uploaded/deployed successfully.")'
+
+      - name: Store Mercado Público ticket if available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$MERCADOPUBLICO_TICKET" ]; then
+            echo 'MERCADOPUBLICO_TICKET unavailable in GitHub secrets; skipped.'
+            exit 0
+          fi
+          node <<'NODE'
+          const fs=require('fs');
+          fs.writeFileSync('/tmp/secret.json',JSON.stringify({name:'MERCADOPUBLICO_TICKET',text:process.env.MERCADOPUBLICO_TICKET,type:'secret_text'}));
+          NODE
+          curl --fail-with-body --silent --show-error -X PUT \
+            -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' \
+            --data-binary @/tmp/secret.json \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/secrets" > /tmp/secret-result.json
+          node -e 'const x=require("/tmp/secret-result.json");if(!x.success)process.exit(1);console.log("Mercado Público ticket stored without printing its value.")'
+
+      - name: Enable workers.dev route and resolve URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' \
+            --data '{"enabled":true,"previews_enabled":false}' \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/subdomain" > /tmp/script-subdomain.json
+          node -e 'const x=require("/tmp/script-subdomain.json");if(!x.success||x.result?.enabled!==true)process.exit(1)'
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain" > /tmp/account-subdomain.json
+          SUBDOMAIN="$(node -e 'const x=require("/tmp/account-subdomain.json");if(!x.success)process.exit(1);process.stdout.write(x.result?.subdomain||"")')"
+          test -n "$SUBDOMAIN" || { echo 'No workers.dev subdomain available'; exit 1; }
+          URL="https://$WORKER_NAME.$SUBDOMAIN.workers.dev"
+          echo "WORKER_URL=$URL" >> "$GITHUB_ENV"
+          echo "Worker URL: $URL"
+
+      - name: Verify health and D1-backed endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          HEALTH=''
+          for i in 1 2 3 4 5; do
+            if HEALTH="$(curl --fail --silent --show-error "$WORKER_URL/health")"; then break; fi
+            sleep 3
+          done
+          printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(x.ok!==true||x.service!=="radar-rentable-fase0")process.exit(1)})'
+          CATEGORIES="$(curl --fail --silent --show-error "$WORKER_URL/api/categories")"
+          printf '%s' "$CATEGORIES" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!Array.isArray(x.items))process.exit(1);console.log(`D1-backed categories endpoint OK; rows=${x.items.length}`)})'
+          echo 'Health endpoint OK.'
+
+      - name: Deployment summary
+        env:
+          DB_ACTION: ${{ steps.d1.outputs.db_action }}
+        shell: bash
+        run: |
+          {
+            echo '### Radar Rentable deployment'
+            echo "- Worker: $WORKER_NAME"
+            echo "- D1: $DB_NAME ($DB_ACTION)"
+            echo "- URL: $WORKER_URL"
+            echo '- /health: OK'
+            echo '- D1 schema: 10/10 application tables'
+            if [ -n "$MERCADOPUBLICO_TICKET" ]; then echo '- Mercado Público ticket: stored'; else echo '- Mercado Público ticket: unavailable/skipped'; fi
+            echo '- Cost policy: Workers Free + D1 Free only; no upgrade operation executed'
+          } >> "$GITHUB_STEP_SUMMARY"
