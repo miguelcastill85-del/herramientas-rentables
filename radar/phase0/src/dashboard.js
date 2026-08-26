@@ -1,10 +1,3 @@
-const escapeHtml = (value) => String(value ?? '')
-  .replaceAll('&', '&amp;')
-  .replaceAll('<', '&lt;')
-  .replaceAll('>', '&gt;')
-  .replaceAll('"', '&quot;')
-  .replaceAll("'", '&#039;');
-
 export function radarDashboard() {
   const html = `<!doctype html>
 <html lang="es-CL">
@@ -35,7 +28,7 @@ export function radarDashboard() {
 <script>
 const money = new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0});
 const el = id => document.getElementById(id);
-const safe = value => ${escapeHtml.toString()}(value);
+const safe = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
 function bandLabel(band){return band==='objetivo'?'Objetivo':band==='secundario'?'Secundario':'Fuera de rango'}
 function renderOpportunity(item){
   const budget=item.monto_disponible_clp?money.format(item.monto_disponible_clp):'Presupuesto no informado';
@@ -55,7 +48,7 @@ async function load(){
       const items=Array.isArray(live.items)?live.items:[];el('total').textContent=String(items.length);el('op-note').textContent='Procesos publicados que coinciden con el foco del Radar.';
       el('opportunities').innerHTML=items.length?items.map(renderOpportunity).join(''):'<div class="empty">No hay oportunidades filtradas en este momento.</div>';
     }else{
-      const searches=Array.isArray(live.searches)?live.searches:[];el('total').textContent='6 búsquedas';el('op-note').textContent='La API autenticada no está disponible; usa estos accesos oficiales del buscador público.';
+      const searches=Array.isArray(live.searches)?live.searches:[];el('total').textContent=searches.length+' búsquedas';el('op-note').textContent='La API autenticada no está disponible; usa estos accesos oficiales del buscador público.';
       el('opportunities').innerHTML='<div class="searches">'+searches.map(s=>'<a href="'+safe(s.url)+'" target="_blank" rel="noopener noreferrer">Buscar '+safe(s.keyword)+' en Mercado Público ↗</a>').join('')+'</div>';
     }
     const rows=Array.isArray(cats.items)?cats.items.slice(0,10):[];
