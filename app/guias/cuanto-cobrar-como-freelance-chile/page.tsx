@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Native anchors avoid the vinext RSC prefetch runtime error used elsewhere in this site. */
 import type { Metadata } from 'next';
-import { payhipProducts } from '../../../lib/payhip-products';
-import { siteUrl } from '../../../lib/tools';
+import { payhipProducts } from '../../lib/payhip-products';
+import { siteUrl } from '../../lib/tools';
 
 const path = '/guias/cuanto-cobrar-como-freelance-chile';
 const canonical = `${siteUrl}${path}`;
