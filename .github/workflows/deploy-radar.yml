@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       confirm_free_only:
-        description: 'Confirmar que este despliegue se hará únicamente con Workers Free + D1 Free, sin upgrades ni servicios de pago'
+        description: 'Confirmar Workers Free + D1 Free solamente'
         required: true
         type: boolean
         default: false
@@ -26,9 +26,9 @@ jobs:
       WORKER_NAME: radar-rentable-estado
       DB_NAME: radar-rentable-estado
       CONFIRM_FREE_ONLY: ${{ github.event_name == 'push' && 'true' || inputs.confirm_free_only }}
+      CF_API: https://api.cloudflare.com/client/v4
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -36,147 +36,184 @@ jobs:
       - name: Install dependencies
         run: corepack enable && pnpm install --frozen-lockfile
 
-      - name: Enforce free-only deployment guard
+      - name: Enforce free-only guard
         shell: bash
         run: |
           set -euo pipefail
-          test "$CONFIRM_FREE_ONLY" = "true" || {
-            echo 'Deployment blocked: free-only confirmation is required.'
-            exit 1
-          }
-          echo 'Free-only guard confirmed. No plan upgrade or paid resource operation is present.'
-
-      - name: Validate Cloudflare credentials are available
-        shell: bash
-        run: |
-          set -euo pipefail
+          test "$CONFIRM_FREE_ONLY" = "true" || { echo 'Blocked: free-only confirmation required'; exit 1; }
           test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing CLOUDFLARE_API_TOKEN'; exit 1; }
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo 'Missing CLOUDFLARE_ACCOUNT_ID'; exit 1; }
           test "${#CLOUDFLARE_ACCOUNT_ID}" -eq 32 || { echo 'CLOUDFLARE_ACCOUNT_ID has unexpected length'; exit 1; }
-          echo 'Cloudflare credentials are present (values intentionally not printed).'
+          echo 'Free-only guard and credentials presence verified; values not printed.'
 
-      - name: Verify Cloudflare authentication
-        run: pnpm exec wrangler whoami
-
-      - name: Inspect D1 without creating duplicates
-        id: inspect_d1
+      - name: Dry-run and bundle before any remote write
         shell: bash
         run: |
           set -euo pipefail
-          DB_ID="$(pnpm exec wrangler d1 list --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const db=x.find(v=>v.name===process.argv[1]);if(db)process.stdout.write(db.uuid||db.id||"")})' "$DB_NAME")"
+          rm -rf dist-radar
+          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1','00000000-0000-4000-8000-000000000000'))"
+          cd radar/phase0
+          env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_ACCOUNT_ID pnpm exec wrangler deploy --dry-run --outdir ../../dist-radar
+          cd ../..
+          mapfile -t bundles < <(find dist-radar -type f \( -name '*.js' -o -name '*.mjs' \) ! -name '*.map' | sort)
+          test "${#bundles[@]}" -eq 1 || { echo "Expected one bundled JS module, found ${#bundles[@]}"; exit 1; }
+          echo 'Dry-run succeeded before remote writes.'
+
+      - name: Verify account token against D1 API and inspect exact database
+        id: inspect
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database?name=$DB_NAME&per_page=5" > /tmp/d1-list.json
+          node -e 'const x=require("/tmp/d1-list.json");if(!x.success)process.exit(1)'
+          DB_ID="$(node -e 'const x=require("/tmp/d1-list.json");const d=(x.result||[]).find(v=>v.name===process.argv[1]);if(d)process.stdout.write(d.uuid||d.id||"")' "$DB_NAME")"
           if [ -n "$DB_ID" ]; then
-            echo 'D1 database with the exact requested name already exists; it will be reused.'
-            echo "db_exists=true" >> "$GITHUB_OUTPUT"
+            echo 'Exact D1 database exists and will be reused.'
+            echo 'db_exists=true' >> "$GITHUB_OUTPUT"
             echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
           else
-            echo 'No D1 database with the exact requested name exists; one will be created only after dry-run succeeds.'
-            echo "db_exists=false" >> "$GITHUB_OUTPUT"
+            echo 'Exact D1 database does not exist; it may now be created after successful dry-run.'
+            echo 'db_exists=false' >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Prepare config for dry-run
+      - name: Create D1 only if absent
+        id: ensure
         shell: bash
         env:
-          EXISTING_DB_ID: ${{ steps.inspect_d1.outputs.db_id }}
+          DB_EXISTS: ${{ steps.inspect.outputs.db_exists }}
+          EXISTING_DB_ID: ${{ steps.inspect.outputs.db_id }}
         run: |
           set -euo pipefail
-          DRY_DB_ID="${EXISTING_DB_ID:-00000000-0000-4000-8000-000000000000}"
-          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1',process.argv[1]))" "$DRY_DB_ID"
-
-      - name: Dry-run before remote changes
-        working-directory: radar/phase0
-        run: pnpm exec wrangler deploy --dry-run
-
-      - name: Create D1 only if absent and bind exact database
-        id: ensure_d1
-        shell: bash
-        env:
-          DB_EXISTS: ${{ steps.inspect_d1.outputs.db_exists }}
-          EXISTING_DB_ID: ${{ steps.inspect_d1.outputs.db_id }}
-        run: |
-          set -euo pipefail
-          if [ "$DB_EXISTS" = "true" ]; then
+          if [ "$DB_EXISTS" = 'true' ]; then
             DB_ID="$EXISTING_DB_ID"
-            DB_ACTION='reused'
+            ACTION='reused'
           else
-            pnpm exec wrangler d1 create "$DB_NAME"
-            DB_ID="$(pnpm exec wrangler d1 list --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const db=x.find(v=>v.name===process.argv[1]);if(db)process.stdout.write(db.uuid||db.id||"")})' "$DB_NAME")"
-            test -n "$DB_ID" || { echo 'Could not resolve newly created D1 database id'; exit 1; }
-            DB_ACTION='created'
+            node -e 'require("fs").writeFileSync("/tmp/create-d1.json",JSON.stringify({name:process.argv[1]}))' "$DB_NAME"
+            curl --fail-with-body --silent --show-error -X POST \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data-binary @/tmp/create-d1.json \
+              "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database" > /tmp/d1-create.json
+            node -e 'const x=require("/tmp/d1-create.json");if(!x.success||!x.result)process.exit(1)'
+            DB_ID="$(node -e 'const x=require("/tmp/d1-create.json");process.stdout.write(x.result.uuid||x.result.id||"")')"
+            test -n "$DB_ID" || { echo 'Created D1 but could not resolve identifier'; exit 1; }
+            ACTION='created'
           fi
-          echo "db_action=$DB_ACTION" >> "$GITHUB_OUTPUT"
           echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
-          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';const s=fs.readFileSync(p,'utf8');fs.writeFileSync(p,s.replace(/[0-9a-f]{8}-[0-9a-f-]{27,}/i,process.argv[1]))" "$DB_ID"
-          echo "D1 action: $DB_ACTION (identifier intentionally not printed)."
+          echo "db_action=$ACTION" >> "$GITHUB_OUTPUT"
+          echo "D1 action: $ACTION"
 
-      - name: Apply D1 schemas
-        working-directory: radar/phase0
+      - name: Apply both SQL schemas through D1 API
         shell: bash
+        env:
+          DB_ID: ${{ steps.ensure.outputs.db_id }}
         run: |
           set -euo pipefail
-          pnpm exec wrangler d1 execute "$DB_NAME" --remote --file ./sql/001_schema.sql --yes
-          pnpm exec wrangler d1 execute "$DB_NAME" --remote --file ./sql/002_real_ingestion.sql --yes
+          apply_sql() {
+            local file="$1" out="$2" payload="$3"
+            node -e 'const fs=require("fs");fs.writeFileSync(process.argv[2],JSON.stringify({sql:fs.readFileSync(process.argv[1],"utf8")}))' "$file" "$payload"
+            curl --fail-with-body --silent --show-error -X POST \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data-binary "@$payload" \
+              "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database/$DB_ID/query" > "$out"
+            node -e 'const x=require(process.argv[1]);if(!x.success||!(x.result||[]).every(r=>r.success!==false))process.exit(1)' "$out"
+          }
+          apply_sql radar/phase0/sql/001_schema.sql /tmp/schema1-out.json /tmp/schema1.json
+          apply_sql radar/phase0/sql/002_real_ingestion.sql /tmp/schema2-out.json /tmp/schema2.json
+          echo 'Both SQL schema files applied.'
 
       - name: Verify D1 schema
-        working-directory: radar/phase0
         shell: bash
+        env:
+          DB_ID: ${{ steps.ensure.outputs.db_id }}
         run: |
           set -euo pipefail
-          SQL="SELECT COUNT(*) AS expected_tables FROM sqlite_master WHERE type='table' AND name IN ('agile_processes','agile_items','agile_quotes','buyer_metrics','category_metrics','ingestion_runs','sync_state','compra_agil_raw','ordenes_compra_raw','vertical_rankings');"
-          OUT="$(pnpm exec wrangler d1 execute "$DB_NAME" --remote --command "$SQL" --json)"
-          COUNT="$(printf '%s' "$OUT" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const r=Array.isArray(x)?x[0]:x;const rows=(r&&r.results)||(r&&r.result&&r.result[0]&&r.result[0].results)||[];const n=rows[0]&&rows[0].expected_tables;process.stdout.write(String(n??""))})')"
-          test "$COUNT" = "10" || { echo "D1 schema verification failed: expected 10 tables, got ${COUNT:-unknown}"; exit 1; }
-          echo 'D1 schema verified: all 10 expected application tables exist.'
+          node -e 'require("fs").writeFileSync("/tmp/verify.json",JSON.stringify({sql:"SELECT COUNT(*) AS expected_tables FROM sqlite_master WHERE type=\"table\" AND name IN (\"agile_processes\",\"agile_items\",\"agile_quotes\",\"buyer_metrics\",\"category_metrics\",\"ingestion_runs\",\"sync_state\",\"compra_agil_raw\",\"ordenes_compra_raw\",\"vertical_rankings\")"}))'
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data-binary @/tmp/verify.json \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database/$DB_ID/query" > /tmp/verify-out.json
+          COUNT="$(node -e 'const x=require("/tmp/verify-out.json");if(!x.success)process.exit(2);process.stdout.write(String(x.result?.[0]?.results?.[0]?.expected_tables??""))')"
+          test "$COUNT" = '10' || { echo "Expected 10 application tables, got ${COUNT:-unknown}"; exit 1; }
+          echo 'D1 schema verified: 10/10 expected application tables.'
+
+      - name: Upload and deploy Worker through account-compatible API
+        shell: bash
+        env:
+          DB_ID: ${{ steps.ensure.outputs.db_id }}
+        run: |
+          set -euo pipefail
+          mapfile -t bundles < <(find dist-radar -type f \( -name '*.js' -o -name '*.mjs' \) ! -name '*.map' | sort)
+          test "${#bundles[@]}" -eq 1
+          BUNDLE="${bundles[0]}"
+          PART="$(basename "$BUNDLE")"
+          METADATA="$(node -e 'process.stdout.write(JSON.stringify({main_module:process.argv[1],bindings:[{type:"d1",name:"DB",id:process.argv[2]}],compatibility_date:"2026-08-25"}))' "$PART" "$DB_ID")"
+          curl --fail-with-body --silent --show-error -X PUT \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -F "metadata=$METADATA;type=application/json" \
+            -F "$PART=@$BUNDLE;filename=$PART;type=application/javascript+module" \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME" > /tmp/worker-upload.json
+          node -e 'const x=require("/tmp/worker-upload.json");if(!x.success)process.exit(1)'
+          echo 'Worker uploaded and deployed with D1 binding.'
 
       - name: Store Mercado Público ticket if available
-        working-directory: radar/phase0
         shell: bash
         run: |
           set -euo pipefail
           if [ -n "$MERCADOPUBLICO_TICKET" ]; then
-            printf '%s' "$MERCADOPUBLICO_TICKET" | pnpm exec wrangler secret put MERCADOPUBLICO_TICKET
-            echo 'MERCADOPUBLICO_TICKET stored as Worker secret (value not printed).'
+            node -e 'require("fs").writeFileSync("/tmp/secret.json",JSON.stringify({name:"MERCADOPUBLICO_TICKET",text:process.env.MERCADOPUBLICO_TICKET,type:"secret_text"}))'
+            curl --fail-with-body --silent --show-error -X PUT \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -H 'Content-Type: application/json' \
+              --data-binary @/tmp/secret.json \
+              "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/secrets" > /tmp/secret-out.json
+            node -e 'const x=require("/tmp/secret-out.json");if(!x.success)process.exit(1)'
+            echo 'Mercado Público ticket stored; value not printed.'
           else
-            echo 'MERCADOPUBLICO_TICKET is not available; skipping secret creation.'
+            echo 'Mercado Público ticket unavailable; skipped without blocking deployment.'
           fi
 
-      - name: Deploy Worker
-        working-directory: radar/phase0
-        run: pnpm exec wrangler deploy
-
-      - name: Resolve Worker URL and verify workers.dev route
-        id: worker_url
+      - name: Enable workers.dev route and resolve URL
         shell: bash
         run: |
           set -euo pipefail
-          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
-          ACCOUNT_JSON="$(curl --fail --silent --show-error -H "$AUTH" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain")"
-          SUBDOMAIN="$(printf '%s' "$ACCOUNT_JSON" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!x.success)process.exit(2);process.stdout.write(x.result&&x.result.subdomain||"")})')"
-          test -n "$SUBDOMAIN" || { echo 'Could not resolve account workers.dev subdomain'; exit 1; }
-          SCRIPT_JSON="$(curl --fail --silent --show-error -H "$AUTH" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/subdomain")"
-          ENABLED="$(printf '%s' "$SCRIPT_JSON" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!x.success)process.exit(2);process.stdout.write(String(Boolean(x.result&&x.result.enabled)))})')"
-          test "$ENABLED" = "true" || { echo 'Worker deployed but workers.dev route is disabled'; exit 1; }
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain" > /tmp/account-subdomain.json
+          SUBDOMAIN="$(node -e 'const x=require("/tmp/account-subdomain.json");if(!x.success)process.exit(2);process.stdout.write(x.result?.subdomain||"")')"
+          test -n "$SUBDOMAIN" || { echo 'Worker deployed, but account workers.dev subdomain is not configured.'; exit 1; }
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data '{"enabled":true}' \
+            "$CF_API/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/subdomain" > /tmp/script-subdomain.json
+          node -e 'const x=require("/tmp/script-subdomain.json");if(!x.success)process.exit(1)'
           URL="https://$WORKER_NAME.$SUBDOMAIN.workers.dev"
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "WORKER_URL=$URL" >> "$GITHUB_ENV"
           echo "Worker URL: $URL"
 
-      - name: Verify health and D1-backed endpoint
+      - name: Verify health and D1-backed query
         shell: bash
         run: |
           set -euo pipefail
+          HEALTH=''
           for i in 1 2 3 4 5; do
             if HEALTH="$(curl --fail --silent --show-error "$WORKER_URL/health")"; then break; fi
             sleep 3
           done
           printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(x.ok!==true||x.service!=="radar-rentable-fase0")process.exit(1)})'
           CATEGORIES="$(curl --fail --silent --show-error "$WORKER_URL/api/categories")"
-          printf '%s' "$CATEGORIES" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!Array.isArray(x.items))process.exit(1);console.log(`D1-backed categories endpoint OK; rows=${x.items.length}`)})'
+          printf '%s' "$CATEGORIES" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!Array.isArray(x.items))process.exit(1);console.log(`D1-backed endpoint OK; rows=${x.items.length}`)})'
           echo 'Health endpoint OK.'
 
-      - name: Deployment summary
+      - name: Summary
         shell: bash
         env:
-          DB_ACTION: ${{ steps.ensure_d1.outputs.db_action }}
+          DB_ACTION: ${{ steps.ensure.outputs.db_action }}
         run: |
           {
             echo '### Radar Rentable deployment'
@@ -184,7 +221,7 @@ jobs:
             echo "- D1: $DB_NAME ($DB_ACTION)"
             echo "- URL: $WORKER_URL"
             echo '- /health: OK'
-            echo '- D1 schema: 10/10 expected tables'
+            echo '- D1: 10/10 expected application tables; D1-backed endpoint OK'
             if [ -n "$MERCADOPUBLICO_TICKET" ]; then echo '- Mercado Público ticket: stored'; else echo '- Mercado Público ticket: unavailable/skipped'; fi
             echo '- Cost policy: Workers Free + D1 Free only; no upgrade operation executed'
           } >> "$GITHUB_STEP_SUMMARY"
