@@ -1,0 +1,167 @@
+name: Analyze Radar Lab Products From Official Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [analysis/radar-vertical-decision]
+    paths:
+      - '.github/workflows/analyze-radar-lab-products-official.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: extract lower-regulation lab products from official data'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download official July 2026 Compra Agil data
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            --output /tmp/compra-agil.zip \
+            'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
+          unzip -t /tmp/compra-agil.zip >/dev/null
+
+      - name: Extract product-level lower-regulation opportunities
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=radar/phase0/etl python - <<'PY'
+          import csv, io, re, statistics, unicodedata, zipfile
+          from collections import Counter, defaultdict
+          from taxonomy import classify
+          from normalize import money, yes
+
+          LIMIT=15000
+          def first(row,*keys):
+              for k in keys:
+                  v=row.get(k)
+                  if v is not None and str(v).strip(): return str(v).strip()
+              return None
+
+          def norm(s):
+              s=''.join(c for c in unicodedata.normalize('NFD', s or '') if unicodedata.category(c)!='Mn').lower()
+              return ' '.join(re.findall(r'[a-z0-9]+',s))
+
+          high_risk=[
+              'reactiv','diagnost','pcr','test ',' test','examen','muestra humana','sangre','serolog','inmuno',
+              'hematolog','bioquim','coagul','antigen','anticuerpo','microbiolog','bacteriolog','cultivo',
+              'elisa','cobas','hba1c','virus','sars','cov2','glucosa','esteril','hipoderm','jering','aguja',
+              'cateter','paciente','transfusion','donacion','hemodial','kit diagnost','kit extraccion',
+              'analizador','autoclave','centrifug','microscop','desfibril','rayos x','mamograf','tomograf',
+              'ventilador mecanico','esterilizacion','esfigmoman','cpap','bpap','implante','stent'
+          ]
+          health_terms=['hospital','servicio de salud','cesfam','salud municipal','subsecretaria de salud','seremi de salud','consultorio','clinica']
+
+          themes={
+              'VIDRIERIA':['vaso precipitado','matraz','probeta','vidrieria','frasco vidrio','botella vidrio','portaobjeto','cubreobjeto'],
+              'PIPETEO':['pipeta','micropipeta','punta pipeta','puntas pipeta'],
+              'FILTRACION':['papel filtro','papel filtrante','filtro laboratorio','membrana filtr'],
+              'RECIPIENTES_PLASTICOS':['tubo plast','tubos plast','frasco plast','botella plast','recipiente plast','caja plast','cubeta'],
+              'SOPORTES':['gradilla','rack laboratorio','soporte laboratorio'],
+              'AGUA_LAB':['agua destilada','agua desionizada'],
+              'MATERIAL_DIDACTICO_CIENCIA':['material de ciencia','materiales de ciencia','material didactico laboratorio','material laboratorio escolar'],
+              'INSUMOS_GENERALES':['materiales generales laboratorio','insumos generales laboratorio','materiales varios laboratorio','insumos laboratorio'],
+              'HIELO_SECO':['hielo seco'],
+          }
+
+          archive='/tmp/compra-agil.zip'
+          selected=[]; selected_set=set(); data={}
+          with zipfile.ZipFile(archive) as z:
+              for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv')):
+                  with z.open(name) as raw:
+                      sample=raw.read(131072)
+                      try: sample.decode('utf-8-sig'); enc='utf-8-sig'
+                      except UnicodeDecodeError: enc='cp1252'
+                  with z.open(name) as raw:
+                      reader=csv.DictReader(io.TextIOWrapper(raw,encoding=enc,errors='strict',newline=''),delimiter=';',quotechar='"')
+                      for row in reader:
+                          code=first(row,'CodigoCotizacion')
+                          if not code: continue
+                          if code not in selected_set:
+                              if len(selected_set)>=LIMIT: continue
+                              selected_set.add(code); selected.append(code)
+                              data[code]={
+                                  'title':first(row,'NombreCotizacion') or '',
+                                  'buyer':first(row,'RazonSocialUnidaddeCompra','NombreUnidaddeCompra','NombreOOPP') or '',
+                                  'budget':money(first(row,'MontoTotalDisponble','MontoTotalDisponible')),
+                                  'supplier':set(), 'texts':[], 'products':set()
+                              }
+                          if code not in selected_set: continue
+                          p=data[code]
+                          sup=first(row,'RUTProveedor','RutProveedor','RazonSocialProveedor')
+                          if sup: p['supplier'].add(sup)
+                          fields=[first(row,'NombreCotizacion'),first(row,'DescripcionCotizacion'),first(row,'ProductoCotizado'),first(row,'NombreProductoGenerico'),first(row,'DetalleCotizacion')]
+                          text=' '.join(x for x in fields if x)
+                          if text and text not in p['texts'] and len(p['texts'])<8: p['texts'].append(text)
+                          for key in ['ProductoCotizado','NombreProductoGenerico']:
+                              v=first(row,key)
+                              if v and len(p['products'])<30: p['products'].add(v)
+
+          lab=[]
+          for code in selected:
+              p=data[code]
+              full=' '.join(p['texts'])
+              if classify(full)!='LABORATORIO': continue
+              blob=norm(' '.join([p['title'],full,*p['products']]))
+              buyer_norm=norm(p['buyer'])
+              sector='SALUD' if any(t in buyer_norm for t in health_terms) else ('ACADEMIA_INVESTIGACION' if any(t in buyer_norm for t in ['universidad','investigaciones agropecuarias','instituto de investigacion','instituto investigaciones']) else 'PUBLICO_NO_SALUD')
+              risky=any(t in blob for t in high_risk)
+              matched=[name for name,keys in themes.items() if any(k in blob for k in keys)]
+              lab.append({**p,'code':code,'blob':blob,'sector':sector,'risky':risky,'themes':matched or ['OTRO']})
+
+          print(f'Selected cohort={len(selected_set)}; LABORATORIO={len(lab)}')
+          sectors=Counter(p['sector'] for p in lab)
+          print('LAB sectors:',dict(sectors))
+          safe=[p for p in lab if not p['risky'] and p['sector']!='SALUD']
+          print(f'Conservative non-health lower-regulation pool={len(safe)} ({len(safe)/len(lab):.2%})')
+
+          grouped=defaultdict(list)
+          for p in safe:
+              for t in p['themes']: grouped[t].append(p)
+          print('\nSAFE THEME METRICS')
+          for theme,items in sorted(grouped.items(),key=lambda kv:len(kv[1]),reverse=True):
+              budgets=[p['budget'] for p in items if p['budget']]
+              comps=[len(p['supplier']) for p in items]
+              low=sum(1 for c in comps if 1<=c<=3)/len(comps) if comps else 0
+              buyers=Counter(p['buyer'] for p in items if p['buyer'])
+              print(f'{theme}: processes={len(items)}, median_budget={statistics.median(budgets) if budgets else 0:.0f}, median_competitors={statistics.median(comps) if comps else 0:.1f}, low_comp={low:.2%}, buyers={len(buyers)}, repeat_buyers={sum(1 for n in buyers.values() if n>=2)}')
+
+          labels=defaultdict(lambda:{'processes':set(),'buyers':set(),'budgets':[],'comps':[]})
+          for p in safe:
+              for product in p['products']:
+                  key=norm(product)
+                  if len(key)<4 or len(key)>100: continue
+                  if any(t in key for t in high_risk): continue
+                  d=labels[key]; d['processes'].add(p['code']); d['buyers'].add(p['buyer'])
+                  if p['budget']: d['budgets'].append(p['budget'])
+                  d['comps'].append(len(p['supplier']))
+          scored=[]
+          for label,d in labels.items():
+              n=len(d['processes'])
+              if n<2: continue
+              medc=statistics.median(d['comps']) if d['comps'] else 99
+              low=sum(1 for c in d['comps'] if 1<=c<=3)/len(d['comps']) if d['comps'] else 0
+              scored.append((n,low,-medc,label,len(d['buyers']),statistics.median(d['budgets']) if d['budgets'] else 0))
+          print('\nREPEATED PRODUCT LABELS — conservative non-health pool')
+          for n,low,negc,label,buyers,medb in sorted(scored,reverse=True)[:40]:
+              print(f'processes={n} buyers={buyers} median_budget={medb:.0f} median_comp={-negc:.1f} low_comp={low:.2%} | {label}')
+
+          print('\nSAFE LOW-COMP PROCESS EXAMPLES')
+          shown=0
+          for p in sorted(safe,key=lambda x:(len(x['supplier']) if x['supplier'] else 999,-(x['budget'] or 0))):
+              c=len(p['supplier'])
+              if 1<=c<=3:
+                  products=' | '.join(sorted(p['products'])[:5])
+                  print(f'c={c} budget={p["budget"]} sector={p["sector"]} buyer={p["buyer"]} | {p["title"]} | PRODUCTS: {products}')
+                  shown+=1
+                  if shown>=50: break
+          PY
+
+      - name: Confirm no Cloudflare access
+        run: echo 'Official-data product analysis completed. No Cloudflare credentials, D1 query, D1 write, or resource operation used.'
