@@ -1,0 +1,30 @@
+name: qros-failover-smoke
+on:
+  push:
+    branches: [qros-failover-runner-v1]
+    paths:
+      - 'qros_failover/**'
+      - '.github/workflows/qros-failover-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deterministic-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run deterministic capsule
+        run: python qros_failover/runner.py
+      - name: Verify receipt hash
+        run: cd qros_failover/out && sha256sum -c receipt.sha256
+      - name: Upload immutable receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-failover-receipt-${{ github.sha }}
+          path: qros_failover/out/
+          if-no-files-found: error
+          retention-days: 30
