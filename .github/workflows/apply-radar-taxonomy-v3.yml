@@ -1,5 +1,6 @@
 name: Apply Radar Taxonomy V3
 
+# One-shot execution on the taxonomy branch; neutralized after the run.
 on:
   workflow_dispatch:
   push:
