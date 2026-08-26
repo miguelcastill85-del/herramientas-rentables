@@ -16,10 +16,6 @@ on:
         required: true
         type: boolean
         default: false
-  push:
-    branches: [feat/radar-public-data-ingestion]
-    paths:
-      - '.github/workflows/ingest-radar-public-data.yml'
 
 concurrency:
   group: ingest-radar-public-data
@@ -32,9 +28,9 @@ jobs:
   ingest:
     runs-on: ubuntu-latest
     env:
-      PERIOD: ${{ github.event.inputs.period || '2026-07' }}
-      MAX_PROCESSES: ${{ github.event.inputs.max_processes || '15000' }}
-      CONFIRM_FREE_ONLY: ${{ github.event_name == 'push' && 'true' || github.event.inputs.confirm_free_only }}
+      PERIOD: ${{ inputs.period }}
+      MAX_PROCESSES: ${{ inputs.max_processes }}
+      CONFIRM_FREE_ONLY: ${{ inputs.confirm_free_only }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       WORKER_URL: https://radar-rentable-estado.miguelcastill85.workers.dev
