@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python radar/phase0/etl/open_data_ingest.py prepare /tmp/compra-agil.zip \
+          python radar/phase0/etl/prepare_open_data.py /tmp/compra-agil.zip \
             --period "$PERIOD" \
             --max-processes 15000 \
             --out /tmp/prepared.json
