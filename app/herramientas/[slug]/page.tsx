@@ -187,6 +187,21 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </div>
         </section>
 
+        {tool.id === 'estimate' && (
+          <section className="tool-related-section" aria-labelledby="freelance-guide-heading">
+            <div className="container">
+              <div className="section-heading tool-page-section-heading">
+                <p className="eyebrow">Guía 2026 para Chile</p>
+                <h2 id="freelance-guide-heading">¿No sabes cuánto cobrar como freelance?</h2>
+                <p>Revisa cómo combinar ingreso objetivo, costos, horas facturables, margen de seguridad y la retención aplicable a boletas de honorarios en Chile.</p>
+              </div>
+              <div className="tool-page-all-link">
+                <a className="button button-primary" href="/guias/cuanto-cobrar-como-freelance-chile">Leer guía para calcular mi tarifa →</a>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="tool-related-section" aria-labelledby="related-heading">
           <div className="container">
             <div className="section-heading tool-page-section-heading">
