@@ -1,4 +1,4 @@
-name: Inspect ChileCompra Item Fields
+name: Validate Fastening SKU Economics
 
 on:
   push:
@@ -9,40 +9,157 @@ permissions:
   contents: read
 
 jobs:
-  inspect:
+  analyze:
     if: >-
-      github.event.head_commit.message == 'analysis: inspect official item price fields'
+      github.event.head_commit.message == 'analysis: validate fastening sku economics on full July data'
     runs-on: ubuntu-latest
     steps:
       - name: Download official July 2026 Compra Agil data
         run: |
           curl --fail --location --retry 3 --output /tmp/cot.zip 'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
           unzip -t /tmp/cot.zip >/dev/null
-      - name: Print official CSV headers relevant to pricing and items
+      - name: Analyze exact fastening SKUs
         shell: bash
         run: |
           python - <<'PY'
-          import csv, io, zipfile
+          import csv, io, math, re, statistics, unicodedata, zipfile
+          from collections import Counter, defaultdict
+
+          TARGETS=[
+            'tornillos para madera','clavo tornillo','tornillos de anclaje','pernos de anclaje',
+            'tornillos para metales','tornillos de apriete','tornillos roscalata','tornillos roscadores'
+          ]
+          def norm(s):
+              s=''.join(c for c in unicodedata.normalize('NFD',s or '') if unicodedata.category(c)!='Mn').lower()
+              return ' '.join(re.findall(r'[a-z0-9]+',s))
+          TARGETS={norm(x) for x in TARGETS}
+          def num(v):
+              if v is None: return None
+              s=str(v).strip().replace('$','').replace(' ','')
+              if not s: return None
+              if ',' in s and '.' not in s: s=s.replace(',','.')
+              elif ',' in s and '.' in s: s=s.replace('.','').replace(',','.')
+              try:
+                  x=float(s); return x if math.isfinite(x) else None
+              except: return None
+          def yes(v): return norm(v) in {'si','1','true','seleccionado','ganador','adjudicado'}
+          health=['hospital','servicio de salud','cesfam','clinica','consultorio','salud municipal','hospital militar']
+          medical_stems=['ortoped','quirurg','implante','protes','trauma','craneal','kirschner','endomedular','trocant','peri protes','system gamma','placa matta']
+
+          data={}; rows=0
           with zipfile.ZipFile('/tmp/cot.zip') as z:
               for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv')):
                   with z.open(name) as f:
                       sample=f.read(131072)
                       try: sample.decode('utf-8-sig'); enc='utf-8-sig'
                       except UnicodeDecodeError: enc='cp1252'
+                  print(f'{name}: {enc}')
                   with z.open(name) as f:
                       rd=csv.DictReader(io.TextIOWrapper(f,encoding=enc,errors='replace',newline=''),delimiter=';',quotechar='"')
-                      fields=rd.fieldnames or []
-                      print(name, enc, 'columns=',len(fields))
-                      for field in fields:
-                          low=field.lower()
-                          if any(k in low for k in ['precio','monto','cantidad','unidad','producto','proveedor','seleccion','cotizacion','item','codigooc']):
-                              print('  ',repr(field))
-                      first=next(rd,None) or {}
-                      print('SAMPLE NONEMPTY RELEVANT VALUES')
-                      for field in fields:
-                          low=field.lower()
-                          if any(k in low for k in ['precio','monto','cantidad','unidad','producto','proveedor','seleccion','item']) and first.get(field):
-                              print('  ',repr(field),'=',repr(str(first[field])[:160]))
+                      for r in rd:
+                          rows+=1
+                          code=(r.get('CodigoCotizacion') or '').strip()
+                          if not code: continue
+                          generic=norm(r.get('NombreProductoGenerico'))
+                          detail=' '.join(filter(None,[r.get('ProductoCotizado'),r.get('NombreProductoGenerico'),r.get('DetalleCotizacion')]))
+                          if code not in data:
+                              data[code]={
+                                'buyer':(r.get('RazonSocialUnidaddeCompra') or r.get('NombreUnidaddeCompra') or '').strip(),
+                                'region':(r.get('Region') or '').strip(),
+                                'budget':num(r.get('MontoTotalDisponble')),
+                                'suppliers':set(),'selected_supplier':None,'selected_amount':None,
+                                'labels':set(),'quantities':defaultdict(set),'details':defaultdict(set)
+                              }
+                          p=data[code]
+                          sup=(r.get('RUTProveedor') or r.get('RazonSocialProveedor') or '').strip()
+                          if sup: p['suppliers'].add(sup)
+                          if generic:
+                              p['labels'].add(generic)
+                              q=num(r.get('CantidadSolicitada'))
+                              if q and q>0: p['quantities'][generic].add(q)
+                              if detail and len(p['details'][generic])<6: p['details'][generic].add(detail.strip())
+                          if yes(r.get('ProveedorSeleccionado')):
+                              p['selected_supplier']=sup or p['selected_supplier']
+                              a=num(r.get('MontoTotal'))
+                              if a and a>0: p['selected_amount']=a
+
+          groups=defaultdict(list); excluded_health=0; excluded_medical=0
+          for code,p in data.items():
+              buyer=norm(p['buyer'])
+              if any(x in buyer for x in health):
+                  if p['labels'] & TARGETS: excluded_health+=1
+                  continue
+              for label in sorted(p['labels'] & TARGETS):
+                  details=' '.join(p['details'][label]).lower()
+                  if any(stem in norm(details) for stem in medical_stems):
+                      excluded_medical+=1; continue
+                  groups[label].append((code,p))
+
+          def clean_prices(xs):
+              xs=[x for x in xs if x and x>0]
+              if len(xs)<5: return xs
+              logs=[math.log(x) for x in xs]
+              med=statistics.median(logs); mad=statistics.median(abs(x-med) for x in logs) or 1e-9
+              return [orig for orig,l in zip(xs,logs) if abs(0.6745*(l-med)/mad)<=4.5]
+
+          print(f'archive_rows={rows} distinct_processes={len(data)} excluded_health_processes={excluded_health} excluded_medical_matches={excluded_medical}')
+          print('\nFASTENING SKU RANKING')
+          ranked=[]
+          for label,items in groups.items():
+              comps=[len(p['suppliers']) for _,p in items]
+              observed=[c for c in comps if c>0]
+              low=sum(1<=c<=3 for c in observed)/len(observed) if observed else 0
+              buyers=Counter(p['buyer'] for _,p in items if p['buyer'])
+              regions=Counter(p['region'] for _,p in items if p['region'])
+              selected=[p for _,p in items if p['selected_supplier']]
+              winners=Counter(p['selected_supplier'] for p in selected)
+              top_supplier=(max(winners.values())/sum(winners.values())) if winners else 0
+              top_buyer=(max(buyers.values())/sum(buyers.values())) if buyers else 0
+              implied=[]; single_item_awards=0
+              for _,p in items:
+                  # Only divide a selected total when the process contains one generic product label.
+                  if p['selected_amount'] and len(p['labels'])==1:
+                      qs=p['quantities'].get(label,set())
+                      if len(qs)==1:
+                          q=next(iter(qs))
+                          if q>0:
+                              implied.append(p['selected_amount']/q); single_item_awards+=1
+              implied=clean_prices(implied)
+              med_price=statistics.median(implied) if implied else None
+              med_budget=statistics.median([p['budget'] for _,p in items if p['budget']]) if any(p['budget'] for _,p in items) else None
+              med_comp=statistics.median(comps) if comps else 0
+              repeat=sum(v>=2 for v in buyers.values())
+              n=len(items)
+              # Favor volume, low competition, buyer/supplier fragmentation and observable single-item awards.
+              volume=min(1,n/100); buyer_frag=1-top_buyer; supplier_frag=1-top_supplier if len(selected)>=10 else 0.5
+              price_obs=min(1,len(implied)/20)
+              score=100*(0.27*low+0.22*volume+0.13*buyer_frag+0.13*supplier_frag+0.10*(1-min(med_comp,10)/10)+0.08*min(1,repeat/25)+0.07*price_obs)
+              ranked.append((score,label,n,med_budget,med_comp,low,len(buyers),repeat,len(regions),len(selected),top_supplier,len(implied),med_price))
+          for x in sorted(ranked,reverse=True):
+              score,label,n,budget,medc,low,buyers,repeat,regions,awards,top_supplier,price_n,med_price=x
+              print(f'{label}: entry={score:.2f} n={n} med_budget={budget or 0:.0f} med_comp={medc:.1f} low_comp={low:.2%} buyers={buyers} repeat_buyers={repeat} regions={regions} awards={awards} top_supplier={top_supplier:.2%} single_item_prices={price_n} implied_unit_median={med_price if med_price is not None else "n/a"}')
+
+          print('\nTOP WINNING SUPPLIERS + REGIONS')
+          for _,label,*_ in sorted(ranked,reverse=True)[:4]:
+              items=groups[label]
+              winners=Counter(p['selected_supplier'] for _,p in items if p['selected_supplier'])
+              regions=Counter(p['region'] for _,p in items if p['region'])
+              print('--',label,'--')
+              print('regions:',regions.most_common(8))
+              print('winner_counts:',winners.most_common(8))
+
+          print('\nREPRESENTATIVE NON-HEALTH SPECS')
+          for _,label,*_ in sorted(ranked,reverse=True)[:3]:
+              print('--',label,'--')
+              shown=0
+              for _,p in groups[label]:
+                  if 1<=len(p['suppliers'])<=3:
+                      for d in sorted(p['details'][label]):
+                          if not any(stem in norm(d) for stem in medical_stems):
+                              print(d[:500].replace('\n',' '))
+                              shown+=1
+                              break
+                  if shown>=8: break
           PY
       - name: Confirm no Cloudflare access
-        run: echo 'Header inspection used only public ChileCompra data; no Cloudflare credentials or writes.'
+        run: echo 'Fastening economics analysis used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
