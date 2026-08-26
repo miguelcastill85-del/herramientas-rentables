@@ -6,6 +6,12 @@ on:
     branches: [feat/radar-taxonomy-v2]
     paths:
       - '.github/workflows/analyze-radar-taxonomy.yml'
+      - 'radar/phase0/etl/taxonomy.py'
+      - 'radar/phase0/etl/prepare_open_data.py'
+
+concurrency:
+  group: analyze-radar-taxonomy
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -25,51 +31,40 @@ jobs:
             'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
           unzip -t /tmp/compra-agil.zip >/dev/null
 
-      - name: Prepare same 15000-process cohort with taxonomy v2
+      - name: Prepare same 15000-process cohort with taxonomy v3
         shell: bash
         run: |
           set -euo pipefail
           python radar/phase0/etl/prepare_open_data.py /tmp/compra-agil.zip \
             --period 2026-07 \
             --max-processes 15000 \
-            --out /tmp/v2.json
+            --out /tmp/v3.json
 
-      - name: Measure coverage and remaining uncategorized demand
+      - name: Measure connector-insensitive coverage and ranking
         shell: bash
         run: |
           python - <<'PY'
-          import json, re, unicodedata
-          from collections import Counter
-          x=json.load(open('/tmp/v2.json', encoding='utf-8'))
+          import json
+          x=json.load(open('/tmp/v3.json', encoding='utf-8'))
           metrics=x['metrics']; total=x['summary']['processes']
-          otros_rows=[p for p in x['processes'] if p['category']=='OTROS']
-          share=len(otros_rows)/total
-          baseline=10611/15000
+          otros=next((m['process_count'] for m in metrics if m['category']=='OTROS'), 0)
+          share=otros/total if total else 1
+          v1=10611/15000
+          v2=4729/15000
           print(f'Processes: {total}')
           print(f'Categories: {len(metrics)}')
-          print(f'OTROS v1 share: {baseline:.2%}')
-          print(f'OTROS v2 share: {share:.2%}')
-          print(f'Coverage improvement: {(baseline-share):.2%} points')
-          print('\nRANKING V2')
+          print(f'OTROS v1 share: {v1:.2%}')
+          print(f'OTROS v2 share: {v2:.2%}')
+          print(f'OTROS v3 share: {share:.2%}')
+          print(f'V3 improvement over v2: {(v2-share):.2%} points')
+          print('\nRANKING V3')
           for m in metrics:
-            print(f"{m['category']}: score={m['opportunity_market_score']}, processes={m['process_count']}, competitors={m['median_competitors']}, low_comp={m['low_competition_share']}, confidence={m['score_confidence']}")
-
-          stop={'adquisicion','adquisici','compra','cotizacion','servicio','servicios','para','del','de','la','el','los','las','y','en','por','con','un','una','se','que','su','sus','al','2026','2025','municipalidad','solicitud','contratacion','suministro','provision','requerimiento','segun','mediante','correspondiente','unidad','programa','julio','agosto','adq','requiere','regional','direccion','municipal','centro','departamento','comuna','proyecto','uso','varios','generales','tipo','actividad','actividades'}
-          def toks(s):
-            s=''.join(c for c in unicodedata.normalize('NFD', s or '') if unicodedata.category(c)!='Mn').lower()
-            return [t for t in re.findall(r'[a-z0-9]{3,}', s) if t not in stop and not t.isdigit()]
-          words=Counter(); bigrams=Counter()
-          for p in otros_rows:
-            ts=toks(p.get('title'))
-            words.update(set(ts))
-            bigrams.update(set(' '.join(ts[i:i+2]) for i in range(len(ts)-1)))
-          print('\nV2 OTROS TOP WORDS')
-          for k,v in words.most_common(100): print(f'{v:5d}  {k}')
-          print('\nV2 OTROS TOP BIGRAMS')
-          for k,v in bigrams.most_common(100): print(f'{v:5d}  {k}')
-          if total != 15000 or share >= baseline:
-            raise SystemExit('Taxonomy validation failed')
+            print(f"{m['category']}: score={m['opportunity_market_score']}, processes={m['process_count']}, median_budget={m['median_budget_clp']}, competitors={m['median_competitors']}, low_comp={m['low_competition_share']}, repeat={m['repeated_buyer_share']}, coverage={m['price_observability']}, confidence={m['score_confidence']}")
+          if total != 15000:
+            raise SystemExit('Unexpected cohort size')
+          if share >= v2:
+            raise SystemExit('Taxonomy v3 did not improve over v2')
           PY
 
       - name: Confirm no writes
-        run: echo 'Public archive analysis only; no Cloudflare or D1 write was executed.'
+        run: echo 'Public archive analysis only; no Cloudflare credential or D1 write was used.'
