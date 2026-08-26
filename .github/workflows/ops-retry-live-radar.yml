@@ -1,0 +1,51 @@
+name: Ops Retry Live Radar
+
+on:
+  push:
+    branches: [ops/deploy-live-fasteners]
+    paths: ['.github/workflows/ops-retry-live-radar.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  retry-live:
+    if: >-
+      github.event.head_commit.message == 'ops: retry live Radar endpoint'
+    runs-on: ubuntu-latest
+    env:
+      WORKER_URL: https://radar-rentable-estado.miguelcastill85.workers.dev
+    steps:
+      - name: Read-only retry guard
+        run: |
+          echo 'Read-only public endpoint check only.'
+          echo 'No secrets, D1 writes, deployments, resource creation, billing changes, or paid services.'
+      - name: Retry health and live endpoint
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const base=process.env.WORKER_URL;
+          const health=await fetch(base+'/health',{headers:{Accept:'application/json'}});
+          const healthText=await health.text();
+          console.log(`/health HTTP ${health.status}`);
+          if(!health.ok) throw new Error(healthText.slice(0,500));
+
+          let last;
+          for(let i=0;i<5;i++){
+            const r=await fetch(base+'/api/opportunities/live',{headers:{Accept:'application/json'}});
+            const text=await r.text();
+            last={status:r.status,text};
+            console.log(`live attempt ${i+1}: HTTP ${r.status}`);
+            if(r.ok){
+              const data=JSON.parse(text);
+              console.log(`LIVE_OK total=${data.total ?? (Array.isArray(data.items)?data.items.length:'unknown')}`);
+              for(const item of (data.items||[]).slice(0,10)){
+                console.log('LIVE '+JSON.stringify({codigo:item.codigo,nombre:item.nombre,monto_disponible_clp:item.monto_disponible_clp,ofertas_recibidas:item.ofertas_recibidas,organismo:item.organismo,region:item.region,fecha_cierre:item.fecha_cierre,score:item.score}));
+              }
+              process.exit(0);
+            }
+            if(i<4) await new Promise(resolve=>setTimeout(resolve,5000));
+          }
+          console.log('LIVE_LAST_BODY '+last.text.slice(0,800));
+          throw new Error(`Live endpoint still unavailable: HTTP ${last.status}`);
+          NODE
