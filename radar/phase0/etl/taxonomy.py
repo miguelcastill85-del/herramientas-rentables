@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 import re
 
+CONNECTORS = {
+    'a', 'al', 'con', 'de', 'del', 'e', 'el', 'en', 'la', 'las', 'los',
+    'para', 'por', 'un', 'una', 'y',
+}
+
 
 def norm_text(value):
     text = (value or '').strip().lower().translate(str.maketrans('áéíóúñü', 'aeiounu'))
-    return re.sub(r'[^a-z0-9]+', ' ', text).strip()
+    tokens = re.findall(r'[a-z0-9]+', text)
+    return ' '.join(token for token in tokens if token not in CONNECTORS)
 
 
 # Specific product/service families come before the generic SERVICIOS bucket so
