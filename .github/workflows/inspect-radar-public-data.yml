@@ -1,0 +1,50 @@
+name: Inspect Radar Public Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      period:
+        description: 'Periodo AAAA-MM de Compra Ágil'
+        required: true
+        default: '2026-07'
+
+concurrency:
+  group: inspect-radar-public-data
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    env:
+      PERIOD: ${{ inputs.period }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official public Compra Agil archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://transparenciachc.blob.core.windows.net/trnspchc/COT_${PERIOD}.zip"
+          echo "Source: ChileCompra public open-data archive for ${PERIOD}"
+          curl --fail --location --retry 3 --output /tmp/compra-agil.zip "$URL"
+          unzip -t /tmp/compra-agil.zip >/dev/null
+          ls -lh /tmp/compra-agil.zip
+      - name: Prepare 15000 real processes without remote writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python radar/phase0/etl/prepare_open_data.py /tmp/compra-agil.zip \
+            --period "$PERIOD" \
+            --max-processes 15000 \
+            --out /tmp/prepared.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/prepared.json', encoding='utf-8'))
+          assert x['summary']['processes'] == 15000, x['summary']
+          assert x['summary']['categories'] > 0, x['summary']
+          assert any((p.get('buyer_id') or '').strip() for p in x['processes']), 'buyer_id mapping failed'
+          assert any((p.get('selected_supplier_id') or '').strip() for p in x['processes']), 'selected supplier mapping failed'
+          print('Prepared dataset validated; no Cloudflare writes were performed.')
+          PY
