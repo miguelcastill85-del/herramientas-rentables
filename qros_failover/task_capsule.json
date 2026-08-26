@@ -1,0 +1,1 @@
+{"schema":"QROS_TASK_CAPSULE_v1","task_id":"QEF_PREIMPL_SYNTH_0001","scientific_scope":"SYNTHETIC_ONLY_NO_HOLDOUT","rng_algorithm":"SHA256_COUNTER_V1","rng_seed_material":"QEF_PREIMPL_SYNTH_0001","work_units":100000,"expected":{"sum_i_0_n_minus_1":4999950000},"constraints":{"network_during_worker":false,"holdout_access":false,"idempotent":true}}
