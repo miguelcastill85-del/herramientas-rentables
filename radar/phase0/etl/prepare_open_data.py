@@ -7,8 +7,9 @@ import json
 import zipfile
 from pathlib import Path
 
-from normalize import classify, money, yes
+from normalize import money, yes
 from open_data_ingest import MAX_FREE_PROCESSES, build_metrics
+from taxonomy import classify
 
 
 def first(row, *keys):
@@ -17,6 +18,19 @@ def first(row, *keys):
         if value is not None and str(value).strip():
             return str(value).strip()
     return None
+
+
+def detect_encoding(archive, name):
+    # ChileCompra documents the files as UTF-8, but some monthly extracts contain
+    # legacy Windows-1252 text. Detect from a multi-megabyte sample rather than
+    # replacing invalid bytes silently, because broken accents hurt taxonomy.
+    with archive.open(name) as probe:
+        sample = probe.read(4 * 1024 * 1024)
+    try:
+        sample.decode('utf-8-sig', errors='strict')
+        return 'utf-8-sig'
+    except UnicodeDecodeError:
+        return 'cp1252'
 
 
 def period_end(period):
@@ -33,14 +47,18 @@ def prepare(archive_path, period, limit):
     rows_scanned = 0
     rows_used = 0
     files = []
+    encodings = {}
 
     with zipfile.ZipFile(archive_path) as archive:
         for name in sorted(archive.namelist()):
             if not name.lower().endswith('.csv'):
                 continue
             files.append(name)
+            encoding = detect_encoding(archive, name)
+            encodings[name] = encoding
+            print(f'CSV encoding: {name} -> {encoding}')
             with archive.open(name) as raw:
-                text = io.TextIOWrapper(raw, encoding='utf-8-sig', errors='replace', newline='')
+                text = io.TextIOWrapper(raw, encoding=encoding, errors='replace', newline='')
                 reader = csv.DictReader(text, delimiter=';', quotechar='"')
                 fields = set(reader.fieldnames or [])
                 required = {'CodigoCotizacion', 'NombreCotizacion'}
@@ -137,6 +155,7 @@ def prepare(archive_path, period, limit):
             'processes': len(processes),
             'categories': len(metrics),
             'files': files,
+            'encodings': encodings,
         },
         'processes': processes,
         'metrics': metrics,
