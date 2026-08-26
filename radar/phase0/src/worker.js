@@ -1,10 +1,12 @@
 import { opportunityDecision, priceRange, marginGuard } from './scoring.js';
 import { listCompraAgil } from './mercado-publico.js';
+import { publicSearchFallback } from './public-search-fallback.js';
 
 const LIVE_KEYWORDS = ['tornillo', 'perno', 'anclaje', 'fijacion'];
 const RELEVANCE_TERMS = ['tornill', 'perno', 'anclaj', 'fijacion', 'tirafondo', 'autoperfor', 'vulcanita'];
 const EXCLUDE_TERMS = ['quirurg', 'ortoped', 'implante', 'protes', 'osteosint', 'hospital', 'cateter', 'jeringa'];
 const LIVE_CACHE_SECONDS = 900;
+const FALLBACK_CACHE_SECONDS = 300;
 
 function json(payload, status = 200, headers = {}) {
   return new Response(JSON.stringify(payload, null, 2), {
@@ -106,9 +108,24 @@ function cleanOpportunity(item) {
   };
 }
 
+function fallbackResponse(reason) {
+  return json(publicSearchFallback(LIVE_KEYWORDS, reason), 200, {
+    'cache-control': `public, max-age=60, s-maxage=${FALLBACK_CACHE_SECONDS}`,
+  });
+}
+
+function externalApiFailureReason(error) {
+  const message = String(error?.message || error);
+  if (/Mercado Público HTTP 403|Forbidden/i.test(message)) return 'forbidden';
+  if (/Mercado Público HTTP 401|Unauthorized/i.test(message)) return 'unauthorized';
+  if (/Mercado Público HTTP 429/i.test(message)) return 'rate_limited';
+  if (/Mercado Público HTTP 5\d\d|fetch failed|network|ECONN|ETIMEDOUT/i.test(message)) return 'api_unavailable';
+  return null;
+}
+
 async function liveFasteningOpportunities(env) {
   if (!env.MERCADOPUBLICO_TICKET) {
-    return json({ error: 'mercadopublico_ticket_missing' }, 503);
+    return fallbackResponse('ticket_missing');
   }
 
   const seen = new Map();
@@ -139,6 +156,7 @@ async function liveFasteningOpportunities(env) {
   return json(
     {
       source: 'Mercado Público API v2 - Compra Ágil',
+      mode: 'api_v2',
       status: 'publicada',
       keywords: LIVE_KEYWORDS,
       queries,
@@ -171,6 +189,8 @@ export default {
       try {
         return await liveFasteningOpportunities(env);
       } catch (error) {
+        const reason = externalApiFailureReason(error);
+        if (reason) return fallbackResponse(reason);
         return json({ error: 'mercadopublico_unavailable', detail: String(error?.message || error).slice(0, 300) }, 502);
       }
     }
