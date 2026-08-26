@@ -2,11 +2,24 @@ import { opportunityDecision, priceRange, marginGuard } from './scoring.js';
 import { listCompraAgil } from './mercado-publico.js';
 import { publicSearchFallback } from './public-search-fallback.js';
 
-const LIVE_KEYWORDS = ['tornillo', 'perno', 'anclaje', 'fijacion'];
-const RELEVANCE_TERMS = ['tornill', 'perno', 'anclaj', 'fijacion', 'tirafondo', 'autoperfor', 'vulcanita'];
+const LIVE_KEYWORDS = [
+  'tornillo',
+  'perno',
+  'anclaje',
+  'fijacion',
+  'ferreteria',
+  'materiales construccion',
+];
+const FASTENER_TERMS = ['tornill', 'perno', 'anclaj', 'fijacion', 'tirafondo', 'autoperfor', 'vulcanita'];
+const BASKET_TERMS = ['ferreter', 'materiales de construccion', 'materiales construccion', 'materiales para reparacion'];
 const EXCLUDE_TERMS = ['quirurg', 'ortoped', 'implante', 'protes', 'osteosint', 'hospital', 'cateter', 'jeringa'];
+const SERVICE_PREFIXES = ['servicio ', 'reparacion ', 'mantencion ', 'mantenimiento ', 'instalacion ', 'capacitacion ', 'arriendo '];
 const LIVE_CACHE_SECONDS = 900;
 const FALLBACK_CACHE_SECONDS = 300;
+const TARGET_MIN_CLP = 300_000;
+const TARGET_MAX_CLP = 3_000_000;
+const SECONDARY_MIN_CLP = 150_000;
+const SECONDARY_MAX_CLP = 7_000_000;
 
 function json(payload, status = 200, headers = {}) {
   return new Response(JSON.stringify(payload, null, 2), {
@@ -21,6 +34,12 @@ function json(payload, status = 200, headers = {}) {
 
 function text(value) {
   return String(value || '').toLowerCase();
+}
+
+function normalize(value) {
+  return text(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
 }
 
 function flattenText(value) {
@@ -67,23 +86,46 @@ function getClosing(item) {
   return item?.fechas?.fecha_cierre || item?.fecha_cierre || null;
 }
 
+function ticketBand(budget) {
+  if (budget >= TARGET_MIN_CLP && budget <= TARGET_MAX_CLP) return 'objetivo';
+  if (budget >= SECONDARY_MIN_CLP && budget <= SECONDARY_MAX_CLP) return 'secundario';
+  return 'bajo_o_fuera_de_rango';
+}
+
+function isLikelyService(item) {
+  const title = normalize(item?.nombre || item?.titulo || '').trim();
+  return SERVICE_PREFIXES.some((prefix) => title.startsWith(prefix));
+}
+
+function relevanceScore(item) {
+  const combined = normalize(flattenText(item));
+  const fastenerHits = FASTENER_TERMS.filter((term) => combined.includes(term)).length;
+  const basketHits = BASKET_TERMS.filter((term) => combined.includes(term)).length;
+  if (fastenerHits > 0 && basketHits > 0) return 1;
+  if (fastenerHits > 0) return Math.min(1, 0.72 + fastenerHits * 0.1);
+  if (basketHits > 0) return Math.min(0.82, 0.62 + basketHits * 0.08);
+  return 0;
+}
+
 function scoreLiveOpportunity(item) {
   const budget = getBudget(item);
   const offers = getOffers(item);
   const call = getCall(item);
-  const combined = text(flattenText(item));
-  const relevance = Math.min(1, RELEVANCE_TERMS.filter((term) => combined.includes(term)).length / 3);
+  const relevance = relevanceScore(item);
   const competition = offers == null ? 0.45 : Math.max(0, 1 - Math.min(offers, 10) / 10);
-  const ticketFit = budget >= 100_000 && budget <= 7_000_000 ? 1 : budget > 0 ? 0.5 : 0.35;
+  const band = ticketBand(budget);
+  const ticketFit = band === 'objetivo' ? 1 : band === 'secundario' ? 0.65 : budget > 0 ? 0.2 : 0.3;
   const firstCall = call === 1 ? 1 : call === 2 ? 0.6 : 0.5;
-  return Math.round(100 * (0.35 * relevance + 0.3 * competition + 0.2 * ticketFit + 0.15 * firstCall));
+  return Math.round(100 * (0.38 * relevance + 0.27 * competition + 0.25 * ticketFit + 0.1 * firstCall));
 }
 
 function cleanOpportunity(item) {
-  const combined = text(flattenText(item));
-  if (!RELEVANCE_TERMS.some((term) => combined.includes(term))) return null;
+  const combined = normalize(flattenText(item));
+  if (relevanceScore(item) <= 0) return null;
   if (EXCLUDE_TERMS.some((term) => combined.includes(term))) return null;
+  if (isLikelyService(item)) return null;
 
+  const budget = getBudget(item);
   return {
     codigo: item?.codigo || item?.id || null,
     nombre: item?.nombre || item?.titulo || null,
@@ -92,7 +134,8 @@ function cleanOpportunity(item) {
     llamado: getCall(item) || null,
     fecha_publicacion: item?.fechas?.fecha_publicacion || item?.fecha_publicacion || null,
     fecha_cierre: getClosing(item),
-    monto_disponible_clp: getBudget(item) || null,
+    monto_disponible_clp: budget || null,
+    ticket_band: ticketBand(budget),
     ofertas_recibidas: getOffers(item),
     organismo: item?.institucion?.organismo_comprador || item?.organismo_comprador || null,
     region: item?.institucion?.nombre_region || item?.institucion?.region || item?.region || null,
@@ -109,7 +152,10 @@ function cleanOpportunity(item) {
 }
 
 function fallbackResponse(reason) {
-  return json(publicSearchFallback(LIVE_KEYWORDS, reason), 200, {
+  const payload = publicSearchFallback(LIVE_KEYWORDS, reason);
+  payload.focus = 'canastas_ferreteria_mantenimiento';
+  payload.target_budget_clp = { min: TARGET_MIN_CLP, max: TARGET_MAX_CLP };
+  return json(payload, 200, {
     'cache-control': `public, max-age=60, s-maxage=${FALLBACK_CACHE_SECONDS}`,
   });
 }
@@ -123,7 +169,7 @@ function externalApiFailureReason(error) {
   return null;
 }
 
-async function liveFasteningOpportunities(env) {
+async function liveMaintenanceOpportunities(env) {
   if (!env.MERCADOPUBLICO_TICKET) {
     return fallbackResponse('ticket_missing');
   }
@@ -150,14 +196,23 @@ async function liveFasteningOpportunities(env) {
   const items = [...seen.values()]
     .map(cleanOpportunity)
     .filter(Boolean)
-    .sort((a, b) => b.score - a.score || String(a.fecha_cierre || '').localeCompare(String(b.fecha_cierre || '')))
+    .sort((a, b) => {
+      const bandWeight = { objetivo: 2, secundario: 1, bajo_o_fuera_de_rango: 0 };
+      return (
+        (bandWeight[b.ticket_band] || 0) - (bandWeight[a.ticket_band] || 0) ||
+        b.score - a.score ||
+        String(a.fecha_cierre || '').localeCompare(String(b.fecha_cierre || ''))
+      );
+    })
     .slice(0, 50);
 
   return json(
     {
       source: 'Mercado Público API v2 - Compra Ágil',
       mode: 'api_v2',
+      focus: 'canastas_ferreteria_mantenimiento',
       status: 'publicada',
+      target_budget_clp: { min: TARGET_MIN_CLP, max: TARGET_MAX_CLP },
       keywords: LIVE_KEYWORDS,
       queries,
       total: items.length,
@@ -187,7 +242,7 @@ export default {
 
     if (url.pathname === '/api/opportunities/live' && req.method === 'GET') {
       try {
-        return await liveFasteningOpportunities(env);
+        return await liveMaintenanceOpportunities(env);
       } catch (error) {
         const reason = externalApiFailureReason(error);
         if (reason) return fallbackResponse(reason);
