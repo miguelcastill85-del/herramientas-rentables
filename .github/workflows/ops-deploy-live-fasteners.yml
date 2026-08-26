@@ -49,6 +49,7 @@ jobs:
         shell: bash
         run: |
           node - <<'NODE'
+          const fs = await import('node:fs');
           const account=process.env.CLOUDFLARE_ACCOUNT_ID;
           const token=process.env.CF_TOKEN;
           const dbName=process.env.DB_NAME;
@@ -68,7 +69,7 @@ jobs:
           if(matches.length!==1) throw new Error(`Expected exactly one existing D1 named ${dbName}; found ${matches.length}. No writes performed.`);
           const id=matches[0].uuid||matches[0].id;
           if(!id) throw new Error('Existing D1 has no id');
-          require('fs').appendFileSync(process.env.GITHUB_ENV,`DB_ID=${id}\n`);
+          fs.appendFileSync(process.env.GITHUB_ENV,`DB_ID=${id}\n`);
           console.log(`Existing D1 resolved exactly once: ${dbName}; reused=true; created=false`);
           NODE
       - name: Patch local config only
@@ -89,7 +90,7 @@ jobs:
         shell: bash
         run: |
           node - <<'NODE'
-          const fs=require('fs'); const path=require('path');
+          const fs=await import('node:fs'); const path=await import('node:path');
           const account=process.env.CLOUDFLARE_ACCOUNT_ID; const token=process.env.CF_TOKEN;
           const worker=process.env.WORKER_NAME; const dbId=process.env.DB_ID; const file=process.env.BUNDLE_PATH;
           const moduleName=path.basename(file);
