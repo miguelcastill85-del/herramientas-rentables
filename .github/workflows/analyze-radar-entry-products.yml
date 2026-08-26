@@ -1,4 +1,4 @@
-name: Confirm Clean Fastening Demand
+name: Extract Recurring Fastening Pack Specs
 
 on:
   push:
@@ -11,29 +11,27 @@ permissions:
 jobs:
   analyze:
     if: >-
-      github.event.head_commit.message == 'analysis: confirm clean fastening demand on full July data'
+      github.event.head_commit.message == 'analysis: extract recurring fastening pack specs'
     runs-on: ubuntu-latest
     steps:
       - name: Download official July 2026 Compra Agil data
         run: |
           curl --fail --location --retry 3 --output /tmp/cot.zip 'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
           unzip -t /tmp/cot.zip >/dev/null
-      - name: Apply process-wide medical exclusion and confirm demand
+      - name: Extract clean repeated dimensions and pack formats
         shell: bash
         run: |
           python - <<'PY'
-          import csv, io, re, statistics, unicodedata, zipfile
+          import csv, io, re, unicodedata, zipfile
           from collections import Counter, defaultdict
 
           TARGETS={'tornillos para madera','clavo tornillo','tornillos de anclaje','pernos de anclaje'}
-          BASELINE={'tornillos para madera':154,'clavo tornillo':117,'tornillos de anclaje':86,'pernos de anclaje':77}
           def norm(s):
               s=''.join(c for c in unicodedata.normalize('NFD',s or '') if unicodedata.category(c)!='Mn').lower()
-              return ' '.join(re.findall(r'[a-z0-9]+',s))
+              return ' '.join(re.findall(r'[a-z0-9/"\.]+',s))
           TARGETS={norm(x) for x in TARGETS}
           health=['hospital','servicio de salud','cesfam','clinica','consultorio','salud municipal','hospital militar','centro asistencial']
-          medical=['ortoped','quirurg','implante','protes','trauma','crane','kirsch','endomed','trocant','gamma','fractura','osteosint','artrosc','artroplast','femur','tibia','perone','placa matta','tejido blando','instrumental medico','instrumental quirurg','paciente']
-          physical=['tornill','perno','clavo','autoperfor','vulcanita','yeso carton','madera','anclaje','metal','roscalata','roscador','lenteja','punta broca','hexagonal','cemento','techo','fijacion']
+          medical=['ortoped','quirurg','implante','protes','trauma','crane','kirsch','endomed','trocant','gamma','fractura','osteosint','artrosc','artroplast','femur','tibia','perone','paciente']
 
           proc={}
           with zipfile.ZipFile('/tmp/cot.zip') as z:
@@ -47,40 +45,44 @@ jobs:
                       for r in rd:
                           code=(r.get('CodigoCotizacion') or '').strip()
                           if not code: continue
-                          p=proc.setdefault(code,{'buyer':(r.get('RazonSocialUnidaddeCompra') or r.get('NombreUnidaddeCompra') or '').strip(),'region':(r.get('Region') or '').strip(),'suppliers':set(),'labels':set(),'blob':[]})
-                          sup=(r.get('RUTProveedor') or r.get('RazonSocialProveedor') or '').strip()
-                          if sup: p['suppliers'].add(sup)
+                          p=proc.setdefault(code,{'buyer':(r.get('RazonSocialUnidaddeCompra') or r.get('NombreUnidaddeCompra') or '').strip(),'labels':set(),'texts':defaultdict(set)})
                           generic=norm(r.get('NombreProductoGenerico'))
                           if generic: p['labels'].add(generic)
-                          p['blob'].append(' '.join(filter(None,[r.get('NombreCotizacion'),r.get('DescripcionCotizacion'),r.get('ProductoCotizado'),r.get('NombreProductoGenerico'),r.get('DetalleCotizacion')])))
+                          if generic in TARGETS:
+                              text=' '.join(filter(None,[r.get('ProductoCotizado'),r.get('DetalleCotizacion')]))
+                              if text: p['texts'][generic].add(text.strip())
 
-          groups=defaultdict(list); reasons=Counter()
-          for code,p in proc.items():
-              targets=p['labels'] & TARGETS
-              if not targets: continue
-              b=norm(p['buyer']); blob=norm(' '.join(p['blob']))
-              if any(x in b for x in health): reasons['health_buyer']+=1; continue
-              if any(x in blob for x in medical): reasons['medical_text']+=1; continue
-              if not any(x in blob for x in physical): reasons['not_physical_fastener']+=1; continue
-              for label in targets: groups[label].append((code,p))
+          sizes=defaultdict(Counter); packs=defaultdict(Counter); features=defaultdict(Counter); examples=defaultdict(list)
+          for p in proc.values():
+              b=norm(p['buyer'])
+              all_text=norm(' '.join(t for vals in p['texts'].values() for t in vals))
+              if any(x in b for x in health) or any(x in all_text for x in medical): continue
+              for label in p['labels'] & TARGETS:
+                  text=' '.join(p['texts'][label]); nt=norm(text)
+                  if not nt: continue
+                  # Common inch dimensions: e.g. 1 1/4", 2 1/2", 1/2", 2"; and gauge x length forms like 6x1 1/4.
+                  found=[]
+                  for m in re.findall(r'(?<!\d)(\d{1,2}(?:\s+\d/\d|/\d)?)(?:\s*(?:pulgadas?|pulg|\"))', nt):
+                      found.append(m.strip()+' pulg')
+                  for m in re.findall(r'(?<!\d)(\d{1,2})\s*[xX]\s*(\d{1,2}(?:\s+\d/\d|/\d)?)(?:\s*(?:pulgadas?|pulg|\"))?', text, flags=re.I):
+                      found.append(f'{m[0]} x {m[1]}')
+                  for s in set(found): sizes[label][s]+=1
+                  for m in re.findall(r'(?:caja|bolsa|pack|paquete)(?:\s+de)?\s+(\d{2,5})\s+(?:unidades?|unid|uds?)', nt):
+                      packs[label][m+' unidades']+=1
+                  for m in re.findall(r'(\d{2,5})\s+(?:unidades?|unid|uds?)', nt):
+                      if int(m)<=5000: packs[label][m+' unidades']+=1
+                  for key in ['autoperforante','punta broca','cabeza lenteja','cabeza trompeta','zincado','hexagonal','yeso carton','vulcanita','roscalata']:
+                      if key in nt: features[label][key]+=1
+                  if len(examples[label])<15:
+                      examples[label].append(text[:300].replace('\n',' '))
 
-          print('ULTRA-STRICT CLEAN FASTENING DEMAND')
-          stable=True
           for label in sorted(TARGETS):
-              items=groups[label]; n=len(items); base=BASELINE[label]
-              retained=n/base if base else 0
-              comps=[len(p['suppliers']) for _,p in items]
-              observed=[c for c in comps if c>0]
-              low=sum(1<=c<=3 for c in observed)/len(observed) if observed else 0
-              buyers=Counter(p['buyer'] for _,p in items if p['buyer'])
-              regions=Counter(p['region'] for _,p in items if p['region'])
-              medc=statistics.median(comps) if comps else 0
-              print(f'{label}: clean_n={n} baseline_n={base} retained={retained:.2%} med_comp={medc:.1f} low_comp={low:.2%} buyers={len(buyers)} repeat_buyers={sum(v>=2 for v in buyers.values())} regions={len(regions)} top_buyer={(max(buyers.values())/sum(buyers.values()) if buyers else 0):.2%}')
-              if retained < 0.85: stable=False
-          print('exclusions=',dict(reasons))
-          print('HYPOTHESIS_STABLE=',stable)
-          if not stable:
-              raise SystemExit('Fastening hypothesis lost more than 15% after strict cleaning')
+              print('\n--',label,'--')
+              print('TOP_SIZES',sizes[label].most_common(12))
+              print('TOP_PACKS',packs[label].most_common(12))
+              print('TOP_FEATURES',features[label].most_common(12))
+              print('EXAMPLES')
+              for e in examples[label][:8]: print(e)
           PY
       - name: Confirm no Cloudflare access
-        run: echo 'Strict fastening validation used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
+        run: echo 'Pack-spec analysis used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
