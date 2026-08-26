@@ -29,31 +29,20 @@ jobs:
           URL="https://transparenciachc.blob.core.windows.net/trnspchc/COT_${PERIOD}.zip"
           echo "Source: ChileCompra public open-data archive for ${PERIOD}"
           curl --fail --location --retry 3 --output /tmp/compra-agil.zip "$URL"
-          ls -lh /tmp/compra-agil.zip
           unzip -t /tmp/compra-agil.zip >/dev/null
-      - name: Inspect archive structure and CSV header
+          ls -lh /tmp/compra-agil.zip
+      - name: Prepare 15000 real processes without remote writes
         shell: bash
         run: |
           set -euo pipefail
-          unzip -Z1 /tmp/compra-agil.zip | sed -n '1,20p'
-          CSV="$(unzip -Z1 /tmp/compra-agil.zip | grep -Ei '\.csv$' | head -n 1)"
-          test -n "$CSV" || { echo 'No CSV found in archive'; exit 1; }
-          echo "Selected CSV: $CSV"
-          echo 'Header:'
-          unzip -p /tmp/compra-agil.zip "$CSV" | head -n 1
-          ROWS="$(unzip -p /tmp/compra-agil.zip "$CSV" | awk 'END {print NR-1}')"
-          echo "CSV data rows: $ROWS"
-      - name: Safe sample normalization
-        shell: bash
-        run: |
-          set -euo pipefail
-          CSV="$(unzip -Z1 /tmp/compra-agil.zip | grep -Ei '\.csv$' | head -n 1)"
-          unzip -p /tmp/compra-agil.zip "$CSV" | head -n 5001 > /tmp/sample.csv
-          python radar/phase0/etl/normalize.py /tmp/sample.csv --out /tmp/sample-output.json
+          python radar/phase0/etl/open_data_ingest.py prepare /tmp/compra-agil.zip \
+            --period "$PERIOD" \
+            --max-processes 15000 \
+            --out /tmp/prepared.json
           python - <<'PY'
           import json
-          x=json.load(open('/tmp/sample-output.json', encoding='utf-8'))
-          print(json.dumps({'summary': x['summary'], 'top_categories': x['category_metrics'][:5]}, ensure_ascii=False, indent=2))
-          if x['summary']['processes'] == 0:
-              raise SystemExit('Normalizer did not recognize any process rows')
+          x=json.load(open('/tmp/prepared.json', encoding='utf-8'))
+          assert x['summary']['processes'] == 15000, x['summary']
+          assert x['summary']['categories'] > 0, x['summary']
+          print('Prepared dataset validated; no Cloudflare writes were performed.')
           PY
