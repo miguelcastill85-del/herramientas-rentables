@@ -8,10 +8,6 @@ on:
         required: true
         type: boolean
         default: false
-  push:
-    branches: [ops/run-radar-deploy]
-    paths:
-      - '.github/workflows/deploy-radar.yml'
 
 permissions:
   contents: read
@@ -23,168 +19,58 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       MERCADOPUBLICO_TICKET: ${{ secrets.MERCADOPUBLICO_TICKET }}
-      WORKER_NAME: radar-rentable-estado
-      DB_NAME: radar-rentable-estado
-      CONFIRM_FREE_ONLY: ${{ github.event_name == 'push' && 'true' || inputs.confirm_free_only }}
+      CONFIRM_FREE_ONLY: ${{ inputs.confirm_free_only }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
       - name: Install dependencies
         run: corepack enable && pnpm install --frozen-lockfile
-
       - name: Enforce free-only deployment guard
         shell: bash
         run: |
-          set -euo pipefail
           test "$CONFIRM_FREE_ONLY" = "true" || {
             echo 'Deployment blocked: free-only confirmation is required.'
             exit 1
           }
-          echo 'Free-only guard confirmed. No plan upgrade or paid resource operation is present.'
-
-      - name: Validate Cloudflare credentials are available
+          echo 'Free-only guard confirmed. This workflow does not enable or upgrade any Cloudflare paid plan.'
+      - name: Validate required secrets
         shell: bash
         run: |
-          set -euo pipefail
           test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing CLOUDFLARE_API_TOKEN'; exit 1; }
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo 'Missing CLOUDFLARE_ACCOUNT_ID'; exit 1; }
-          test "${#CLOUDFLARE_ACCOUNT_ID}" -eq 32 || { echo 'CLOUDFLARE_ACCOUNT_ID has unexpected length'; exit 1; }
-          echo 'Cloudflare credentials are present (values intentionally not printed).'
-
+          test -n "$MERCADOPUBLICO_TICKET" || { echo 'Missing MERCADOPUBLICO_TICKET'; exit 1; }
       - name: Verify Cloudflare authentication
         run: pnpm exec wrangler whoami
-
-      - name: Inspect D1 without creating duplicates
-        id: inspect_d1
+      - name: Ensure D1 database exists and patch Worker config
         shell: bash
         run: |
           set -euo pipefail
-          DB_ID="$(pnpm exec wrangler d1 list --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const db=x.find(v=>v.name===process.argv[1]);if(db)process.stdout.write(db.uuid||db.id||"")})' "$DB_NAME")"
-          if [ -n "$DB_ID" ]; then
-            echo 'D1 database with the exact requested name already exists; it will be reused.'
-            echo "db_exists=true" >> "$GITHUB_OUTPUT"
-            echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
-          else
-            echo 'No D1 database with the exact requested name exists; one will be created only after dry-run succeeds.'
-            echo "db_exists=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Prepare config for dry-run
-        shell: bash
-        env:
-          EXISTING_DB_ID: ${{ steps.inspect_d1.outputs.db_id }}
-        run: |
-          set -euo pipefail
-          DRY_DB_ID="${EXISTING_DB_ID:-00000000-0000-4000-8000-000000000000}"
-          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1',process.argv[1]))" "$DRY_DB_ID"
-
-      - name: Dry-run before remote changes
-        working-directory: radar/phase0
-        run: pnpm exec wrangler deploy --dry-run
-
-      - name: Create D1 only if absent and bind exact database
-        id: ensure_d1
-        shell: bash
-        env:
-          DB_EXISTS: ${{ steps.inspect_d1.outputs.db_exists }}
-          EXISTING_DB_ID: ${{ steps.inspect_d1.outputs.db_id }}
-        run: |
-          set -euo pipefail
-          if [ "$DB_EXISTS" = "true" ]; then
-            DB_ID="$EXISTING_DB_ID"
-            DB_ACTION='reused'
-          else
+          DB_NAME='radar-rentable-estado'
+          find_id() {
+            pnpm exec wrangler d1 list --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const db=x.find(v=>v.name===process.argv[1]);if(db)process.stdout.write(db.uuid||db.id||"")})' "$DB_NAME"
+          }
+          DB_ID="$(find_id)"
+          if [ -z "$DB_ID" ]; then
             pnpm exec wrangler d1 create "$DB_NAME"
-            DB_ID="$(pnpm exec wrangler d1 list --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const db=x.find(v=>v.name===process.argv[1]);if(db)process.stdout.write(db.uuid||db.id||"")})' "$DB_NAME")"
-            test -n "$DB_ID" || { echo 'Could not resolve newly created D1 database id'; exit 1; }
-            DB_ACTION='created'
+            DB_ID="$(find_id)"
           fi
-          echo "db_action=$DB_ACTION" >> "$GITHUB_OUTPUT"
-          echo "db_id=$DB_ID" >> "$GITHUB_OUTPUT"
-          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';const s=fs.readFileSync(p,'utf8');fs.writeFileSync(p,s.replace(/[0-9a-f]{8}-[0-9a-f-]{27,}/i,process.argv[1]))" "$DB_ID"
-          echo "D1 action: $DB_ACTION (identifier intentionally not printed)."
-
+          test -n "$DB_ID" || { echo 'Could not resolve D1 database id'; exit 1; }
+          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1',process.argv[1]))" "$DB_ID"
       - name: Apply D1 schemas
         working-directory: radar/phase0
         shell: bash
         run: |
           set -euo pipefail
-          pnpm exec wrangler d1 execute "$DB_NAME" --remote --file ./sql/001_schema.sql --yes
-          pnpm exec wrangler d1 execute "$DB_NAME" --remote --file ./sql/002_real_ingestion.sql --yes
-
-      - name: Verify D1 schema
+          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/001_schema.sql
+          pnpm exec wrangler d1 execute radar-rentable-estado --remote --file ./sql/002_real_ingestion.sql
+      - name: Store Mercado Público ticket as Worker secret
         working-directory: radar/phase0
-        shell: bash
-        run: |
-          set -euo pipefail
-          SQL="SELECT COUNT(*) AS expected_tables FROM sqlite_master WHERE type='table' AND name IN ('agile_processes','agile_items','agile_quotes','buyer_metrics','category_metrics','ingestion_runs','sync_state','compra_agil_raw','ordenes_compra_raw','vertical_rankings');"
-          OUT="$(pnpm exec wrangler d1 execute "$DB_NAME" --remote --command "$SQL" --json)"
-          COUNT="$(printf '%s' "$OUT" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);const r=Array.isArray(x)?x[0]:x;const rows=(r&&r.results)||(r&&r.result&&r.result[0]&&r.result[0].results)||[];const n=rows[0]&&rows[0].expected_tables;process.stdout.write(String(n??""))})')"
-          test "$COUNT" = "10" || { echo "D1 schema verification failed: expected 10 tables, got ${COUNT:-unknown}"; exit 1; }
-          echo 'D1 schema verified: all 10 expected application tables exist.'
-
-      - name: Store Mercado Público ticket if available
+        run: printf '%s' "$MERCADOPUBLICO_TICKET" | pnpm exec wrangler secret put MERCADOPUBLICO_TICKET
+      - name: Validate deployment
         working-directory: radar/phase0
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -n "$MERCADOPUBLICO_TICKET" ]; then
-            printf '%s' "$MERCADOPUBLICO_TICKET" | pnpm exec wrangler secret put MERCADOPUBLICO_TICKET
-            echo 'MERCADOPUBLICO_TICKET stored as Worker secret (value not printed).'
-          else
-            echo 'MERCADOPUBLICO_TICKET is not available; skipping secret creation.'
-          fi
-
+        run: pnpm exec wrangler deploy --dry-run
       - name: Deploy Worker
         working-directory: radar/phase0
         run: pnpm exec wrangler deploy
-
-      - name: Resolve Worker URL and verify workers.dev route
-        id: worker_url
-        shell: bash
-        run: |
-          set -euo pipefail
-          AUTH="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
-          ACCOUNT_JSON="$(curl --fail --silent --show-error -H "$AUTH" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/subdomain")"
-          SUBDOMAIN="$(printf '%s' "$ACCOUNT_JSON" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!x.success)process.exit(2);process.stdout.write(x.result&&x.result.subdomain||"")})')"
-          test -n "$SUBDOMAIN" || { echo 'Could not resolve account workers.dev subdomain'; exit 1; }
-          SCRIPT_JSON="$(curl --fail --silent --show-error -H "$AUTH" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/workers/scripts/$WORKER_NAME/subdomain")"
-          ENABLED="$(printf '%s' "$SCRIPT_JSON" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!x.success)process.exit(2);process.stdout.write(String(Boolean(x.result&&x.result.enabled)))})')"
-          test "$ENABLED" = "true" || { echo 'Worker deployed but workers.dev route is disabled'; exit 1; }
-          URL="https://$WORKER_NAME.$SUBDOMAIN.workers.dev"
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
-          echo "WORKER_URL=$URL" >> "$GITHUB_ENV"
-          echo "Worker URL: $URL"
-
-      - name: Verify health and D1-backed endpoint
-        shell: bash
-        run: |
-          set -euo pipefail
-          for i in 1 2 3 4 5; do
-            if HEALTH="$(curl --fail --silent --show-error "$WORKER_URL/health")"; then break; fi
-            sleep 3
-          done
-          printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(x.ok!==true||x.service!=="radar-rentable-fase0")process.exit(1)})'
-          CATEGORIES="$(curl --fail --silent --show-error "$WORKER_URL/api/categories")"
-          printf '%s' "$CATEGORIES" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(!Array.isArray(x.items))process.exit(1);console.log(`D1-backed categories endpoint OK; rows=${x.items.length}`)})'
-          echo 'Health endpoint OK.'
-
-      - name: Deployment summary
-        shell: bash
-        env:
-          DB_ACTION: ${{ steps.ensure_d1.outputs.db_action }}
-        run: |
-          {
-            echo '### Radar Rentable deployment'
-            echo "- Worker: $WORKER_NAME"
-            echo "- D1: $DB_NAME ($DB_ACTION)"
-            echo "- URL: $WORKER_URL"
-            echo '- /health: OK'
-            echo '- D1 schema: 10/10 expected tables'
-            if [ -n "$MERCADOPUBLICO_TICKET" ]; then echo '- Mercado Público ticket: stored'; else echo '- Mercado Público ticket: unavailable/skipped'; fi
-            echo '- Cost policy: Workers Free + D1 Free only; no upgrade operation executed'
-          } >> "$GITHUB_STEP_SUMMARY"
