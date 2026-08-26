@@ -1,0 +1,224 @@
+name: Analyze Radar Vertical Decision
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [analysis/radar-vertical-decision]
+    paths:
+      - '.github/workflows/analyze-radar-vertical-decision.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: rank Radar verticals read only'
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Enforce read-only scope and resolve exact D1
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          [[ "$CLOUDFLARE_API_TOKEN" == cfat_* ]]
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database?name=radar-rentable-estado&per_page=10" >/tmp/d1.json
+          DB_ID="$(node -e 'const x=require("/tmp/d1.json");const m=(x.result||[]).filter(v=>v.name==="radar-rentable-estado");if(!x.success||m.length!==1)process.exit(1);process.stdout.write(m[0].uuid)')"
+          echo "DB_ID=$DB_ID" >> "$GITHUB_ENV"
+          echo 'Read-only analysis: exact existing D1 resolved; no mutation statement exists in this workflow.'
+
+      - name: Read category, buyer, supplier and region concentration
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat >/tmp/query.sql <<'SQL'
+          WITH named AS (
+            SELECT
+              category,
+              process_count,
+              median_budget_clp,
+              median_competitors,
+              low_competition_share,
+              repeated_buyer_share,
+              price_observability,
+              opportunity_market_score,
+              score_confidence
+            FROM category_metrics
+            WHERE category <> 'OTROS'
+          ),
+          buyer_counts AS (
+            SELECT
+              p.category,
+              COALESCE(NULLIF(p.buyer_id,''), NULLIF(p.buyer_name,'')) AS buyer_key,
+              COUNT(*) AS n
+            FROM compra_agil_raw p
+            JOIN named n ON n.category = p.category
+            WHERE COALESCE(NULLIF(p.buyer_id,''), NULLIF(p.buyer_name,'')) IS NOT NULL
+            GROUP BY p.category, buyer_key
+          ),
+          buyer_stats AS (
+            SELECT
+              category,
+              COUNT(*) AS unique_buyers,
+              SUM(n) AS buyer_processes,
+              MAX(n) * 1.0 / SUM(n) AS top_buyer_share,
+              SUM(n * n) * 1.0 / (SUM(n) * SUM(n)) AS buyer_hhi,
+              SUM(CASE WHEN n >= 2 THEN 1 ELSE 0 END) AS repeat_buyers,
+              SUM(CASE WHEN n >= 3 THEN 1 ELSE 0 END) AS recurring_buyers_3plus
+            FROM buyer_counts
+            GROUP BY category
+          ),
+          supplier_counts AS (
+            SELECT
+              p.category,
+              p.selected_supplier_id AS supplier_key,
+              COUNT(*) AS n
+            FROM compra_agil_raw p
+            JOIN named n ON n.category = p.category
+            WHERE p.selected_supplier_id IS NOT NULL AND p.selected_supplier_id <> ''
+            GROUP BY p.category, p.selected_supplier_id
+          ),
+          supplier_stats AS (
+            SELECT
+              category,
+              COUNT(*) AS unique_winning_suppliers,
+              SUM(n) AS observed_wins,
+              MAX(n) * 1.0 / SUM(n) AS top_supplier_share,
+              SUM(n * n) * 1.0 / (SUM(n) * SUM(n)) AS supplier_hhi
+            FROM supplier_counts
+            GROUP BY category
+          ),
+          region_counts AS (
+            SELECT
+              p.category,
+              p.region,
+              COUNT(*) AS n
+            FROM compra_agil_raw p
+            JOIN named n ON n.category = p.category
+            WHERE p.region IS NOT NULL AND p.region <> ''
+            GROUP BY p.category, p.region
+          ),
+          region_stats AS (
+            SELECT
+              category,
+              COUNT(*) AS unique_regions,
+              SUM(n) AS region_processes,
+              MAX(n) * 1.0 / SUM(n) AS top_region_share
+            FROM region_counts
+            GROUP BY category
+          )
+          SELECT
+            n.category,
+            n.process_count,
+            n.median_budget_clp,
+            n.median_competitors,
+            n.low_competition_share,
+            n.repeated_buyer_share,
+            n.price_observability,
+            n.opportunity_market_score,
+            n.score_confidence,
+            COALESCE(b.unique_buyers,0) AS unique_buyers,
+            COALESCE(b.top_buyer_share,0) AS top_buyer_share,
+            COALESCE(b.buyer_hhi,0) AS buyer_hhi,
+            COALESCE(b.repeat_buyers,0) AS repeat_buyers,
+            COALESCE(b.recurring_buyers_3plus,0) AS recurring_buyers_3plus,
+            COALESCE(s.unique_winning_suppliers,0) AS unique_winning_suppliers,
+            COALESCE(s.observed_wins,0) AS observed_wins,
+            COALESCE(s.top_supplier_share,0) AS top_supplier_share,
+            COALESCE(s.supplier_hhi,0) AS supplier_hhi,
+            COALESCE(r.unique_regions,0) AS unique_regions,
+            COALESCE(r.top_region_share,0) AS top_region_share
+          FROM named n
+          LEFT JOIN buyer_stats b ON b.category=n.category
+          LEFT JOIN supplier_stats s ON s.category=n.category
+          LEFT JOIN region_stats r ON r.category=n.category
+          ORDER BY n.opportunity_market_score DESC;
+          SQL
+          python - <<'PY'
+          import json
+          sql=open('/tmp/query.sql', encoding='utf-8').read()
+          forbidden=['INSERT ','UPDATE ','DELETE ','CREATE ','DROP ','ALTER ','REPLACE ','PRAGMA ']
+          upper=sql.upper()
+          if any(token in upper for token in forbidden):
+              raise SystemExit('Blocked: non-read-only SQL detected')
+          open('/tmp/query.json','w',encoding='utf-8').write(json.dumps({'sql':sql}, ensure_ascii=False))
+          PY
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H 'Content-Type: application/json' \
+            --data-binary @/tmp/query.json \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database/$DB_ID/query" >/tmp/result.json
+          node -e 'const x=require("/tmp/result.json");if(!x.success)process.exit(1);const m=x.result?.[0]?.meta||{};console.log(`D1 rows_read=${m.rows_read??"n/a"}; rows_written=${m.rows_written??0}`);if((m.rows_written||0)!==0)process.exit(1)'
+
+      - name: Calculate entry attractiveness without mutating data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/result.json', encoding='utf-8'))
+          rows=(x.get('result') or [{}])[0].get('results') or []
+          if len(rows) < 10:
+              raise SystemExit('Unexpectedly few named categories')
+
+          for r in rows:
+              market=float(r['opportunity_market_score'] or 0)/100
+              low=float(r['low_competition_share'] or 0)
+              repeat=float(r['repeated_buyer_share'] or 0)
+              coverage=float(r['price_observability'] or 0)
+              confidence=float(r['score_confidence'] or 0)
+              buyer_frag=max(0, 1-float(r['top_buyer_share'] or 0))
+              supplier_frag=max(0, 1-float(r['top_supplier_share'] or 0)) if int(r['observed_wins'] or 0) >= 20 else 0.5
+              r['entry_score']=round(100*(
+                  0.30*low +
+                  0.20*market +
+                  0.10*repeat +
+                  0.10*coverage +
+                  0.10*buyer_frag +
+                  0.10*supplier_frag +
+                  0.10*confidence
+              ),2)
+
+          print('ENTRY RANKING — all named categories')
+          ranked=sorted(rows, key=lambda r:r['entry_score'], reverse=True)
+          for r in ranked:
+              print(
+                  f"{r['category']}: entry={r['entry_score']}, market={r['opportunity_market_score']}, "
+                  f"processes={r['process_count']}, ticket={r['median_budget_clp']}, competitors={r['median_competitors']}, "
+                  f"low_comp={float(r['low_competition_share']):.2%}, buyers={r['unique_buyers']}, "
+                  f"top_buyer={float(r['top_buyer_share']):.2%}, winners={r['unique_winning_suppliers']}, "
+                  f"top_supplier={float(r['top_supplier_share']):.2%}, regions={r['unique_regions']}, "
+                  f"top_region={float(r['top_region_share']):.2%}, confidence={r['score_confidence']}"
+              )
+
+          product_exclusions={'SERVICIOS'}
+          product=[r for r in ranked if r['category'] not in product_exclusions]
+          print('\nPRODUCT-FIRST TOP 7')
+          for r in product[:7]:
+              print(f"{r['category']}: entry={r['entry_score']}, market={r['opportunity_market_score']}, competitors={r['median_competitors']}, low_comp={float(r['low_competition_share']):.2%}, confidence={r['score_confidence']}")
+
+          lead=product[0]
+          print('\nDATA LEAD')
+          print(json.dumps({
+              'category':lead['category'],
+              'entry_score':lead['entry_score'],
+              'market_score':lead['opportunity_market_score'],
+              'process_count':lead['process_count'],
+              'median_budget_clp':lead['median_budget_clp'],
+              'median_competitors':lead['median_competitors'],
+              'low_competition_share':lead['low_competition_share'],
+              'unique_buyers':lead['unique_buyers'],
+              'top_buyer_share':lead['top_buyer_share'],
+              'unique_winning_suppliers':lead['unique_winning_suppliers'],
+              'top_supplier_share':lead['top_supplier_share'],
+              'score_confidence':lead['score_confidence'],
+          }, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Confirm zero writes
+        run: echo 'Read-only vertical analysis completed. No D1 mutation, Worker deploy, resource creation, or upgrade executed.'
