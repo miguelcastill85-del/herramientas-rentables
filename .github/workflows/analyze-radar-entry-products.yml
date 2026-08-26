@@ -1,4 +1,4 @@
-name: Analyze Radar Entry Products
+name: Analyze Radar Refined Entry Products
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ permissions:
 jobs:
   analyze:
     if: >-
-      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: compare entry products on full July data'
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: refine physical entry products on full July data'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
         run: |
           curl --fail --location --retry 3 --output /tmp/cot.zip 'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
           unzip -t /tmp/cot.zip >/dev/null
-      - name: Compare product subsegments on every July process
+      - name: Rank clean physical-product subsegments
         shell: bash
         run: |
           PYTHONPATH=radar/phase0/etl python - <<'PY'
@@ -37,39 +37,45 @@ jobs:
           def norm(s):
               s=''.join(c for c in unicodedata.normalize('NFD',s or '') if unicodedata.category(c)!='Mn').lower()
               return ' '.join(re.findall(r'[a-z0-9]+',s))
+          def has_phrase(text, phrase):
+              return f' {norm(phrase)} ' in f' {norm(text)} '
+          def any_phrase(text, phrases):
+              return any(has_phrase(text,p) for p in phrases)
 
           themes={
             'ALIMENTOS':{
-              'AGUA_BEBIDAS':['agua purificada','agua mineral','agua embotellada','botella de agua','bebida','bebidas','jugo','jugos'],
-              'ABARROTES':['abarrote','abarrotes','arroz','fideos','pasta','aceite vegetal','azucar','harina','sal ',' sal','legumbre','legumbres','conserva','conservas'],
-              'CAFE_TEA':['cafe','te ',' te','infusion','infusiones'],
-              'COLACIONES_SNACK':['colacion','colaciones','snack','snacks','galleta','galletas','barra cereal','frutos secos'],
-              'COFFEE_BREAK_CATERING':['coffee break','coffe break','catering','coctel','cocktail'],
-              'PANADERIA':['pan ',' pan','panaderia','panes','empanada','empanadas'],
-              'FRUTAS_VERDURAS':['fruta','frutas','verdura','verduras','hortaliza','hortalizas'],
-              'LACTEOS':['leche','yogur','yoghurt','queso','lacteo','lacteos'],
-              'CARNES_PESCADOS':['carne','carnes','pollo','pescado','pescados','marisco','mariscos'],
+              'ABARROTES_SECOS':['arroz','fideos','pasta','aceite vegetal','azucar','harina','sal','lentejas','porotos','garbanzos','legumbres','conservas','avena'],
+              'AGUA_BEBIDAS_ENVASADAS':['agua mineral','agua purificada','agua embotellada','jugos y nectar envasados','jugo envasado','bebidas'],
+              'CAFE_TE_INFUSIONES':['cafe','cafe instantaneo','te','bolsitas de te','infusion','infusiones'],
+              'SNACKS_ENVASADOS':['galletas dulces','galletas saladas','cereales en barra','barra de cereal','frutos secos','papas fritas','snack','snacks'],
+              'LACTEOS':['leche','leche en polvo','queso','yogur','yoghurt'],
+              'PANADERIA':['pan fresco','pan','panes'],
+              'FRUTAS_VERDURAS':['fruta fresca','frutas','verduras','hortalizas'],
+              'CARNES_PESCADOS':['carne de ave','carne congelada','carne','pollo','pescado','mariscos']
             },
             'VEHICULOS':{
-              'NEUMATICOS':['neumatico','neumaticos','neumático','neumáticos'],
-              'BATERIAS':['bateria automotriz','baterias automotrices','bateria vehiculo','bateria de vehiculo'],
-              'LUBRICANTES':['lubricante','lubricantes','aceite motor','aceite de motor','aceite automotriz','grasa automotriz'],
-              'FILTROS_MANTENCION':['filtro aceite','filtro de aceite','filtro aire','filtro de aire','filtro combustible','filtro de combustible','kit mantencion','kit mantenimiento'],
-              'REPUESTOS':['repuesto vehiculo','repuestos vehiculo','repuestos automotrices','repuesto automotriz','repuestos para vehiculos','repuestos para vehiculo'],
-              'ACCESORIOS':['accesorio vehiculo','accesorios vehiculo','accesorios automotrices','alfombra vehiculo','fundas asiento','plumilla','plumillas'],
-              'SERVICIO_MANTENCION':['mantencion vehicular','mantenimiento vehicular','reparacion vehiculo','reparacion vehicular'],
+              'NEUMATICOS':['neumaticos para camionetas o automoviles','neumaticos para camiones pesados','neumaticos','neumatico'],
+              'LUBRICANTES':['aceite de motor','aceite motor','lubricantes de uso general','aceite hidraulico','refrigerante de motor','lubricantes anticorrosivos'],
+              'FILTROS':['filtros de aceite','filtro de aceite','filtros de aire','filtro de aire','filtros de combustible','filtro de combustible'],
+              'BATERIAS':['baterias para vehiculos','bateria para vehiculo','bateria automotriz','baterias automotrices'],
+              'FRENOS':['kits de reparacion de frenos','kit de frenos','pastillas de freno','discos de freno'],
+              'AMORTIGUADORES':['amortiguadores para automoviles','amortiguadores'],
+              'PARABRISAS':['parabrisas para automoviles','parabrisas'],
+              'PLUMILLAS':['plumillas limpiaparabrisas','limpiaparabrisas']
             },
             'FERRETERIA':{
-              'HERRAMIENTAS_MANUALES':['herramienta manual','herramientas manuales','martillo','destornillador','alicate','llave ajustable','llave inglesa','set herramientas'],
-              'PINTURAS':['pintura','pinturas','esmalte','anticorrosivo','barniz'],
-              'MATERIAL_ELECTRICO':['material electrico','materiales electricos','cable electrico','cables electricos','enchufe','interruptor','canaleta electrica'],
-              'FIJACIONES':['tornillo','tornillos','perno','pernos','tuerca','tuercas','arandela','arandelas','tarugo','tarugos'],
-              'PLOMERIA_TUBERIAS':['tuberia','tuberias','caneria','canerias','fitting','fittings','valvula','valvulas','llave paso','codo pvc','pvc sanitario'],
-              'SOLDADURA':['soldadura','electrodo','electrodos','estaño','estano'],
-              'MADERA_TABLEROS':['madera','terciado','melamina','tablero osb','osb'],
-              'CONSTRUCCION_PESADA':['cemento','hormigon','mortero','arena','ripio','ladrillo','ladrillos'],
+              'FIJACIONES':['tornillos para madera','tornillos de anclaje','pernos de anclaje','clavo tornillo','clavos','tornillos','pernos','tuercas','arandelas','tarugos'],
+              'MADERA_TABLEROS':['tablas de madera','madera','terciado','melamina','tablero osb','osb'],
+              'PINTURA_ACCESORIOS':['pinturas al esmalte','pintura','pinturas','brochas','rodillos de pintar','diluyentes para pinturas','esmaltes'],
+              'PLOMERIA':['tuberia de plastico','tuberias','canerias','fittings','valvulas','codo pvc','pvc sanitario','siliconas'],
+              'ABRASIVOS':['papeles de lija','discos abrasivos','lijas'],
+              'ELECTRICO':['accesorios electricos','enchufes electricos','cables electricos','cable electrico','interruptores electricos'],
+              'HERRAMIENTAS':['taladro de mano o empuje','conjuntos generales de herramientas','martillos','destornilladores','alicates','brocas','palas']
             }
           }
+          medical=['quirurg','ortoped','implante','trauma','hospital','dental','bisturi','cateter','protesis','medico','medica','paciente','esteril','jeringa','aguja kirschner','clavo endomedular']
+          service=['servicio','servicios','arriendo','reparacion','mantencion','mantenimiento','instalacion','capacitacion','catering','banquete','coctel','hotel','restaurante','transporte','seguro']
+          animal=['perros','gatos','canes','alimento animal','alimento para mascotas']
 
           data={}; rows=0
           with zipfile.ZipFile('/tmp/cot.zip') as z:
@@ -95,75 +101,83 @@ jobs:
                           if txt and txt not in p['texts'] and len(p['texts'])<4: p['texts'].append(txt)
                           for k in ('ProductoCotizado','NombreProductoGenerico'):
                               v=first(r,k)
-                              if v and len(p['products'])<25: p['products'].add(v)
+                              if v and len(p['products'])<40: p['products'].add(v)
 
-          cats=Counter(); grouped=defaultdict(list); uncategorized=defaultdict(list)
+          grouped=defaultdict(dict)
           labels=defaultdict(lambda:{'processes':set(),'buyers':set(),'budgets':[],'comps':[]})
+          category_counts=Counter(); excluded=Counter()
           for p in data.values():
-              full=' '.join(p['texts'])
-              cat=classify(full)
+              cat=classify(' '.join(p['texts']))
               if cat not in TARGET: continue
-              cats[cat]+=1
-              blob=norm(' '.join([full,*p['products']]))
-              hits=[theme for theme,keys in themes[cat].items() if any(norm(k) in blob for k in keys)]
-              if not hits: uncategorized[cat].append(p)
-              for theme in hits:
-                  grouped[(cat,theme)].append(p)
-              for product in p['products']:
-                  label=norm(product)
-                  if not 4<=len(label)<=90: continue
-                  d=labels[(cat,label)]
-                  d['processes'].add(p['code']); d['buyers'].add(p['buyer']); d['comps'].append(len(p['suppliers']))
-                  if p['budget']: d['budgets'].append(p['budget'])
+              category_counts[cat]+=1
+              clean=[]
+              for raw in p['products']:
+                  x=norm(raw)
+                  if len(x)<3 or len(x)>180: continue
+                  if any_phrase(x,medical): excluded['medical']+=1; continue
+                  if any_phrase(x,service): excluded['service']+=1; continue
+                  if cat=='ALIMENTOS' and any_phrase(x,animal): excluded['animal']+=1; continue
+                  clean.append((raw,x))
+              for theme,keys in themes[cat].items():
+                  matched=[raw for raw,x in clean if any_phrase(x,keys)]
+                  if matched:
+                      grouped[(cat,theme)][p['code']]=(p,matched)
+                      for raw in matched:
+                          label=norm(raw)
+                          d=labels[(cat,theme,label)]
+                          d['processes'].add(p['code']); d['buyers'].add(p['buyer']); d['comps'].append(len(p['suppliers']))
+                          if p['budget']: d['budgets'].append(p['budget'])
 
-          print(f'archive_rows={rows} distinct_processes={len(data)} target_counts={dict(cats)}')
-          print('\nSUBSEGMENT METRICS')
+          operational_fit={
+            ('ALIMENTOS','ABARROTES_SECOS'):0.85,('ALIMENTOS','AGUA_BEBIDAS_ENVASADAS'):0.75,('ALIMENTOS','CAFE_TE_INFUSIONES'):0.90,('ALIMENTOS','SNACKS_ENVASADOS'):0.90,
+            ('ALIMENTOS','LACTEOS'):0.55,('ALIMENTOS','PANADERIA'):0.45,('ALIMENTOS','FRUTAS_VERDURAS'):0.35,('ALIMENTOS','CARNES_PESCADOS'):0.25,
+            ('VEHICULOS','NEUMATICOS'):0.70,('VEHICULOS','LUBRICANTES'):0.85,('VEHICULOS','FILTROS'):0.90,('VEHICULOS','BATERIAS'):0.75,('VEHICULOS','FRENOS'):0.85,('VEHICULOS','AMORTIGUADORES'):0.80,('VEHICULOS','PARABRISAS'):0.55,('VEHICULOS','PLUMILLAS'):0.90,
+            ('FERRETERIA','FIJACIONES'):0.95,('FERRETERIA','MADERA_TABLEROS'):0.55,('FERRETERIA','PINTURA_ACCESORIOS'):0.75,('FERRETERIA','PLOMERIA'):0.80,('FERRETERIA','ABRASIVOS'):0.95,('FERRETERIA','ELECTRICO'):0.85,('FERRETERIA','HERRAMIENTAS'):0.85
+          }
+
+          print(f'archive_rows={rows} distinct_processes={len(data)} target_counts={dict(category_counts)} excluded_product_labels={dict(excluded)}')
+          print('\nREFINED PHYSICAL-GOODS RANKING')
           scored=[]
-          for (cat,theme),items in grouped.items():
+          for key,bycode in grouped.items():
+              cat,theme=key; items=[v[0] for v in bycode.values()]
               cs=[len(p['suppliers']) for p in items]
               bs=[p['budget'] for p in items if p['budget']]
               buyers=Counter(p['buyer'] for p in items if p['buyer'])
+              n=len(items); medc=statistics.median(cs) if cs else 99; medb=statistics.median(bs) if bs else 0
               low=sum(1 for c in cs if 1<=c<=3)/len(cs) if cs else 0
-              medc=statistics.median(cs) if cs else 99
-              medb=statistics.median(bs) if bs else 0
-              repeat=sum(1 for v in buyers.values() if v>=2)
-              # Transparent screening score: volume, low competition, buyer recurrence, manageable ticket.
-              volume=min(1,len(items)/250)
-              repeat_rate=repeat/max(1,len(buyers))
-              ticket_fit=1 if 250000<=medb<=2500000 else 0.6
-              score=round(100*(0.35*low+0.25*volume+0.20*repeat_rate+0.10*(1-min(medc,10)/10)+0.10*ticket_fit),2)
-              scored.append((score,cat,theme,len(items),medb,medc,low,len(buyers),repeat))
+              repeat=sum(1 for v in buyers.values() if v>=2); repeat_rate=repeat/max(1,len(buyers))
+              volume=min(1,n/200); ticket=1 if 250000<=medb<=2500000 else 0.6; op=operational_fit[key]
+              score=round(100*(0.30*low+0.22*volume+0.18*repeat_rate+0.10*(1-min(medc,10)/10)+0.08*ticket+0.12*op),2)
+              scored.append((score,cat,theme,n,medb,medc,low,len(buyers),repeat,op))
           for x in sorted(scored,reverse=True):
-              score,cat,theme,n,medb,medc,low,buyers,repeat=x
-              print(f'{cat}/{theme}: entry={score} n={n} med_budget={medb:.0f} med_comp={medc:.1f} low_comp={low:.2%} buyers={buyers} repeat_buyers={repeat}')
+              score,cat,theme,n,medb,medc,low,buyers,repeat,op=x
+              print(f'{cat}/{theme}: entry={score} n={n} med_budget={medb:.0f} med_comp={medc:.1f} low_comp={low:.2%} buyers={buyers} repeat_buyers={repeat} op_fit={op:.2f}')
 
-          print('\nTOP REPEATED PRODUCT LABELS BY CATEGORY')
-          for cat in sorted(TARGET):
+          print('\nBEST REPEATED EXACT PRODUCT LABELS')
+          for score,cat,theme,*_ in sorted(scored,reverse=True)[:12]:
               candidates=[]
-              for (c,label),d in labels.items():
-                  if c!=cat: continue
+              for (c,t,label),d in labels.items():
+                  if (c,t)!=(cat,theme): continue
                   n=len(d['processes'])
                   if n<3: continue
                   medc=statistics.median(d['comps']) if d['comps'] else 99
-                  low=sum(1 for x in d['comps'] if 1<=x<=3)/len(d['comps']) if d['comps'] else 0
+                  low=sum(1 for z in d['comps'] if 1<=z<=3)/len(d['comps']) if d['comps'] else 0
                   medb=statistics.median(d['budgets']) if d['budgets'] else 0
-                  candidates.append((n,-medc,low,len(d['buyers']),medb,label))
-              print(f'-- {cat} --')
-              for n,negc,low,buyers,medb,label in sorted(candidates,reverse=True)[:30]:
+                  candidates.append((n,low,-medc,len(d['buyers']),medb,label))
+              print(f'-- {cat}/{theme} --')
+              for n,low,negc,buyers,medb,label in sorted(candidates,reverse=True)[:12]:
                   print(f'n={n} buyers={buyers} med_budget={medb:.0f} med_comp={-negc:.1f} low={low:.2%} | {label}')
 
-          print('\nLOW-COMP EXAMPLES FROM TOP THEMES')
-          top_keys=[(cat,theme) for _,cat,theme,*_ in sorted(scored,reverse=True)[:8]]
-          for key in top_keys:
-              cat,theme=key
+          print('\nTOP-3 CLEAN LOW-COMP EXAMPLES')
+          for score,cat,theme,*_ in sorted(scored,reverse=True)[:3]:
               print(f'-- {cat}/{theme} --')
               shown=0
-              for p in sorted(grouped[key],key=lambda x:(len(x['suppliers']) or 999,-(x['budget'] or 0))):
+              for p,matched in sorted(grouped[(cat,theme)].values(),key=lambda x:(len(x[0]['suppliers']) or 999,-(x[0]['budget'] or 0))):
                   c=len(p['suppliers'])
                   if 1<=c<=3:
-                      print(f'c={c} budget={p["budget"]} buyer={p["buyer"]} | PRODUCTS: {" | ".join(sorted(p["products"])[:6])}')
+                      print(f'c={c} budget={p["budget"]} buyer={p["buyer"]} | PRODUCTS: {" | ".join(sorted(matched)[:5])}')
                       shown+=1
                       if shown>=8: break
           PY
       - name: Confirm no Cloudflare access
-        run: echo 'Entry-product comparison used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
+        run: echo 'Refined product analysis used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
