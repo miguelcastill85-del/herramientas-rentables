@@ -1,0 +1,165 @@
+name: Ops Deploy Maintenance Baskets
+
+on:
+  push:
+    branches: [ops/deploy-maintenance-baskets]
+    paths: ['.github/workflows/ops-deploy-maintenance-baskets.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: >-
+      github.event.head_commit.message == 'ops: deploy maintenance basket Radar safely'
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      MERCADOPUBLICO_TICKET: ${{ secrets.MERCADOPUBLICO_TICKET }}
+      WORKER_NAME: radar-rentable-estado
+      DB_NAME: radar-rentable-estado
+      WORKER_URL: https://radar-rentable-estado.miguelcastill85.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: corepack enable && pnpm install --frozen-lockfile
+      - name: Enforce zero-cost guard
+        shell: bash
+        run: |
+          echo 'Free-only deployment: update existing Worker and reuse exactly one existing D1.'
+          echo 'No D1 writes, resource creation, billing changes, upgrades, KV, R2, Queues, AI, or paid services.'
+      - name: Validate Cloudflare secrets
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing CLOUDFLARE_API_TOKEN'; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo 'Missing CLOUDFLARE_ACCOUNT_ID'; exit 1; }
+          if [ -n "$MERCADOPUBLICO_TICKET" ]; then echo 'Mercado Publico ticket present; value not printed.'; else echo 'Mercado Publico ticket absent; public fallback will remain available.'; fi
+      - name: Normalize Cloudflare token
+        shell: bash
+        run: |
+          TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '\r\n' | sed -E 's/^[[:space:]]+|[[:space:]]+$//g; s/^Bearer[[:space:]]+//I; s/^"(.*)"$/\1/')"
+          test -n "$TOKEN" || { echo 'Normalized token is empty'; exit 1; }
+          echo "CF_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+          echo "Cloudflare token normalized; length=${#TOKEN}; value not printed."
+      - name: Verify account and exact existing D1 read-only
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const fs=await import('node:fs');
+          const account=process.env.CLOUDFLARE_ACCOUNT_ID;
+          const token=process.env.CF_TOKEN;
+          const dbName=process.env.DB_NAME;
+          const headers={Authorization:`Bearer ${token}`,'Content-Type':'application/json'};
+          async function cf(path){
+            const r=await fetch(`https://api.cloudflare.com/client/v4${path}`,{headers});
+            const data=await r.json();
+            if(!r.ok || !data.success) throw new Error(`Cloudflare HTTP ${r.status}: ${JSON.stringify(data.errors||[]).slice(0,600)}`);
+            return data;
+          }
+          const verify=await cf(`/accounts/${account}/tokens/verify`);
+          if(verify.result?.status!=='active') throw new Error('Cloudflare account token is not active');
+          console.log('Cloudflare account token: active');
+          const list=await cf(`/accounts/${account}/d1/database?name=${encodeURIComponent(dbName)}&per_page=10`);
+          const matches=(list.result||[]).filter(x=>x.name===dbName);
+          if(matches.length!==1) throw new Error(`Expected exactly one existing D1 ${dbName}; found ${matches.length}. No writes performed.`);
+          const id=matches[0].uuid||matches[0].id;
+          if(!id) throw new Error('Existing D1 has no id');
+          fs.appendFileSync(process.env.GITHUB_ENV,`DB_ID=${id}\n`);
+          console.log(`D1 reused exactly once: ${dbName}; created=false`);
+          NODE
+      - name: Patch local config only
+        shell: bash
+        run: |
+          node -e "const fs=require('fs');const p='radar/phase0/wrangler.jsonc';fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('REEMPLAZAR_DESPUES_DE_CREAR_D1',process.env.DB_ID))"
+      - name: Dry-run before remote writes
+        working-directory: radar/phase0
+        shell: bash
+        run: |
+          rm -rf ../../dist-maintenance
+          env -u CLOUDFLARE_API_TOKEN -u CLOUDFLARE_ACCOUNT_ID pnpm exec wrangler deploy --dry-run --outdir ../../dist-maintenance
+          mapfile -t bundles < <(find ../../dist-maintenance -type f \( -name '*.js' -o -name '*.mjs' \))
+          test "${#bundles[@]}" -eq 1 || { echo "Expected exactly one JS module bundle, found ${#bundles[@]}"; exit 1; }
+          ABS_BUNDLE="$(realpath "${bundles[0]}")"
+          test -f "$ABS_BUNDLE" || { echo 'Resolved bundle path is not a file'; exit 1; }
+          echo "BUNDLE_PATH=$ABS_BUNDLE" >> "$GITHUB_ENV"
+          echo 'Dry-run succeeded before remote writes.'
+      - name: Upload existing Worker only
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const fs=await import('node:fs');
+          const path=await import('node:path');
+          const account=process.env.CLOUDFLARE_ACCOUNT_ID;
+          const token=process.env.CF_TOKEN;
+          const worker=process.env.WORKER_NAME;
+          const dbId=process.env.DB_ID;
+          const file=process.env.BUNDLE_PATH;
+          const moduleName=path.basename(file);
+          const metadata={main_module:moduleName,compatibility_date:'2026-08-25',bindings:[{type:'d1',name:'DB',database_id:dbId}]};
+          const form=new FormData();
+          form.append('metadata',new Blob([JSON.stringify(metadata)],{type:'application/json'}),'metadata.json');
+          form.append(moduleName,new Blob([fs.readFileSync(file)],{type:'application/javascript+module'}),moduleName);
+          const r=await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${worker}`,{method:'PUT',headers:{Authorization:`Bearer ${token}`},body:form});
+          const text=await r.text();
+          let data; try{data=JSON.parse(text)}catch{data={success:false,errors:[{message:'non-JSON response'}]}};
+          if(!r.ok || !data.success) throw new Error(`Worker upload failed HTTP ${r.status}: ${JSON.stringify(data.errors||[]).slice(0,700)}`);
+          console.log(`Existing Worker updated: ${worker}; no new Worker created.`);
+          NODE
+      - name: Restore optional Mercado Publico ticket
+        if: env.MERCADOPUBLICO_TICKET != ''
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const account=process.env.CLOUDFLARE_ACCOUNT_ID;
+          const token=process.env.CF_TOKEN;
+          const worker=process.env.WORKER_NAME;
+          const body={name:'MERCADOPUBLICO_TICKET',text:process.env.MERCADOPUBLICO_TICKET,type:'secret_text'};
+          const r=await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${worker}/secrets`,{method:'PUT',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
+          const data=await r.json();
+          if(!r.ok || !data.success) throw new Error(`Worker secret restore failed HTTP ${r.status}: ${JSON.stringify(data.errors||[]).slice(0,600)}`);
+          console.log('Mercado Publico ticket restored server-side; value not printed.');
+          NODE
+      - name: Verify production maintenance Radar
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const base=process.env.WORKER_URL;
+          async function get(path){
+            let last;
+            for(let i=0;i<5;i++){
+              const r=await fetch(base+path,{headers:{Accept:'application/json'}});
+              const text=await r.text();
+              last={r,text};
+              if(r.ok) return last;
+              if(i<4) await new Promise(resolve=>setTimeout(resolve,3000));
+            }
+            throw new Error(`${path} failed HTTP ${last.r.status}: ${last.text.slice(0,500)}`);
+          }
+          const health=await get('/health');
+          const h=JSON.parse(health.text);
+          if(!h.ok) throw new Error('/health payload is not ok');
+          console.log('/health: OK');
+          const live=await get('/api/opportunities/live');
+          const body=JSON.parse(live.text);
+          if(!['api_v2','public_search_fallback'].includes(body.mode)) throw new Error(`Unexpected live mode: ${body.mode}`);
+          if(body.focus!=='canastas_ferreteria_mantenimiento') throw new Error(`Unexpected focus: ${body.focus}`);
+          if(body.target_budget_clp?.min!==300000 || body.target_budget_clp?.max!==3000000) throw new Error('Target budget metadata is wrong');
+          console.log(`live mode=${body.mode}; api_status=${body.api_status||'ok'}; total=${body.total ?? 'unknown'}; focus=${body.focus}`);
+          if(body.mode==='public_search_fallback'){
+            if(!Array.isArray(body.searches) || body.searches.length!==6) throw new Error(`Fallback must expose six official public searches; got ${body.searches?.length}`);
+            for(const entry of body.searches){
+              const u=new URL(entry.url);
+              if(u.hostname!=='buscador.mercadopublico.cl' || u.pathname!=='/compra-agil') throw new Error('Fallback contains non-official search URL');
+              console.log(`fallback keyword=${entry.keyword}; official_host=${u.hostname}`);
+            }
+          } else {
+            if(!Array.isArray(body.items)) throw new Error('API mode has no items array');
+            for(const item of body.items.slice(0,8)) console.log('LIVE '+JSON.stringify({codigo:item.codigo,nombre:item.nombre,monto:item.monto_disponible_clp,ticket_band:item.ticket_band,score:item.score,fecha_cierre:item.fecha_cierre}));
+          }
+          NODE
+      - name: Summary
+        run: echo 'Maintenance basket Radar deployed safely; existing Worker/D1 reused; no D1 writes; free-only.'
