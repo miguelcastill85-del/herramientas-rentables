@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 const dashboardUrl = 'https://radar-rentable-estado.miguelcastill85.workers.dev/dashboard';
 
@@ -15,11 +16,11 @@ export default function RadarPage() {
       <a className="skip-link" href="#contenido">Saltar al contenido</a>
       <header className="site-header">
         <div className="container nav-shell">
-          <a className="brand" href="/" aria-label="Herramientas Rentables, inicio">
+          <Link className="brand" href="/" aria-label="Herramientas Rentables, inicio">
             <span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span>
-          </a>
+          </Link>
           <nav className="desktop-nav" aria-label="Navegación principal">
-            <a href="/">Herramientas</a>
+            <Link href="/">Herramientas</Link>
             <a href="/radar" aria-current="page">Radar Compra Ágil</a>
             <a href="/guias/cuanto-cobrar-como-freelance-chile">Guía freelance 2026</a>
             <a href="/pro">Recursos</a>
@@ -63,7 +64,7 @@ export default function RadarPage() {
 
       <footer className="site-footer">
         <div className="container footer-grid">
-          <a className="brand footer-brand" href="/"><span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span></a>
+          <Link className="brand footer-brand" href="/"><span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span></Link>
           <p>Radar gratuito para explorar oportunidades de Compra Ágil junto a nuestras herramientas de negocio.</p>
           <p>© {new Date().getFullYear()} Herramientas Rentables</p>
         </div>
