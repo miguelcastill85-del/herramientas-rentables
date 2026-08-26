@@ -48,6 +48,7 @@ export default function Home() {
               </div>
               <ul className="trust-list" aria-label="Beneficios principales"><li>Sin registro</li><li>100% gratuitas</li><li>Datos en tu navegador</li></ul>
               <a className="hero-resource-link" href="/pro">Conocer recursos para freelancers <span aria-hidden="true">→</span></a>
+              <a className="hero-resource-link" href="/guias/cuanto-cobrar-como-freelance-chile">Guía 2026: cuánto cobrar como freelance en Chile <span aria-hidden="true">→</span></a>
             </div>
             <div className="calculator-wrap" id="calculadora" tabIndex={-1}>
               <div className="calculator-card">
