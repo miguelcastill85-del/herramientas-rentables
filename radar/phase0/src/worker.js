@@ -94,9 +94,6 @@ function ticketBand(budget) {
 
 function isLikelyService(item) {
   const title = normalize(item?.nombre || item?.titulo || '').trim();
-  if (!title) return false;
-  if (BASKET_TERMS.some((term) => title.includes(term))) return false;
-  if (FASTENER_TERMS.some((term) => title.includes(term))) return false;
   return SERVICE_PREFIXES.some((prefix) => title.startsWith(prefix));
 }
 
