@@ -1,0 +1,131 @@
+name: Analyze Radar Lab Products From Official Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [analysis/radar-vertical-decision]
+    paths: ['.github/workflows/analyze-radar-lab-products-official.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: extract lower-regulation lab products from official data'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official July 2026 Compra Agil data
+        run: |
+          curl --fail --location --retry 3 --output /tmp/cot.zip 'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
+          unzip -t /tmp/cot.zip >/dev/null
+      - name: Analyze corrected product fields
+        shell: bash
+        run: |
+          PYTHONPATH=radar/phase0/etl python - <<'PY'
+          import csv, io, re, statistics, unicodedata, zipfile
+          from collections import Counter, defaultdict
+          from taxonomy import classify
+          from normalize import money
+
+          LIMIT=15000
+          def first(r,*ks):
+              for k in ks:
+                  v=r.get(k)
+                  if v is not None and str(v).strip(): return str(v).strip()
+          def norm(s):
+              s=''.join(c for c in unicodedata.normalize('NFD',s or '') if unicodedata.category(c)!='Mn').lower()
+              return ' '.join(re.findall(r'[a-z0-9]+',s))
+          risk=['reactiv','diagnost','pcr','test ',' test','examen','muestra humana','sangre','serolog','inmuno','hematolog','bioquim','coagul','antigen','anticuerpo','microbiolog','bacteriolog','cultivo','elisa','cobas','hba1c','virus','sars','cov2','glucosa','esteril','hipoderm','jering','aguja','cateter','transfusion','donacion','hemodial','kit diagnost','kit extraccion','analizador','autoclave','centrifug','microscop','desfibril','rayos x','mamograf','tomograf','ventilador mecanico','esterilizacion','esfigmoman','cpap','bpap','implante','stent']
+          health=['hospital','servicio de salud','cesfam','salud municipal','subsecretaria de salud','seremi de salud','consultorio','clinica']
+          themes={
+            'VIDRIERIA':['vaso precipitado','matraz','probeta','vidrieria','frasco vidrio','botella vidrio','portaobjeto','cubreobjeto'],
+            'PIPETEO':['pipeta','micropipeta','punta pipeta','puntas pipeta'],
+            'FILTRACION':['papel filtro','papel filtrante','filtro laboratorio','membrana filtr'],
+            'RECIPIENTES_PLASTICOS':['tubo plast','tubos plast','frasco plast','botella plast','recipiente plast','caja plast','cubeta'],
+            'SOPORTES':['gradilla','rack laboratorio','soporte laboratorio'],
+            'AGUA_LAB':['agua destilada','agua desionizada'],
+            'MATERIAL_CIENCIA':['material de ciencia','materiales de ciencia','material didactico laboratorio','material laboratorio escolar'],
+            'INSUMOS_GENERALES':['materiales generales laboratorio','insumos generales laboratorio','materiales varios laboratorio','insumos laboratorio'],
+            'HIELO_SECO':['hielo seco']}
+
+          order=[]; chosen=set(); data={}
+          with zipfile.ZipFile('/tmp/cot.zip') as z:
+              for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv')):
+                  with z.open(name) as f:
+                      sample=f.read(131072)
+                      try: sample.decode('utf-8-sig'); enc='utf-8-sig'
+                      except UnicodeDecodeError: enc='cp1252'
+                  print(f'{name}: {enc}')
+                  with z.open(name) as f:
+                      rd=csv.DictReader(io.TextIOWrapper(f,encoding=enc,errors='replace',newline=''),delimiter=';',quotechar='"')
+                      for r in rd:
+                          code=first(r,'CodigoCotizacion')
+                          if not code: continue
+                          if code not in chosen:
+                              if len(chosen)>=LIMIT: continue
+                              chosen.add(code); order.append(code)
+                              data[code]={'title':first(r,'NombreCotizacion') or '', 'buyer':first(r,'RazonSocialUnidaddeCompra','NombreUnidaddeCompra','NombreOOPP') or '', 'budget':money(first(r,'MontoTotalDisponble','MontoTotalDisponible')), 'suppliers':set(), 'texts':[], 'products':set()}
+                          if code not in chosen: continue
+                          p=data[code]
+                          s=first(r,'RUTProveedor','RutProveedor','RazonSocialProveedor')
+                          if s: p['suppliers'].add(s)
+                          vals=[first(r,k) for k in ('NombreCotizacion','DescripcionCotizacion','ProductoCotizado','NombreProductoGenerico','DetalleCotizacion')]
+                          txt=' '.join(v for v in vals if v)
+                          if txt and txt not in p['texts'] and len(p['texts'])<8: p['texts'].append(txt)
+                          for k in ('ProductoCotizado','NombreProductoGenerico'):
+                              v=first(r,k)
+                              if v and len(p['products'])<40: p['products'].add(v)
+
+          lab=[]
+          for code in order:
+              p=data[code]; full=' '.join(p['texts'])
+              if classify(full)!='LABORATORIO': continue
+              blob=norm(' '.join([p['title'],full,*p['products']]))
+              b=norm(p['buyer'])
+              sector='SALUD' if any(x in b for x in health) else ('ACADEMIA_INVESTIGACION' if any(x in b for x in ['universidad','investigaciones agropecuarias','instituto de investigacion','instituto investigaciones']) else 'PUBLICO_NO_SALUD')
+              lab.append({**p,'code':code,'blob':blob,'sector':sector,'risky':any(x in blob for x in risk)})
+
+          sectors=Counter(p['sector'] for p in lab)
+          safe=[p for p in lab if not p['risky'] and p['sector']!='SALUD']
+          print(f'cohort={len(chosen)} LABORATORIO={len(lab)} sectors={dict(sectors)}')
+          print(f'conservative_non_health_pool={len(safe)} share={len(safe)/len(lab):.2%}')
+
+          grouped=defaultdict(list)
+          for p in safe:
+              hits=[n for n,ks in themes.items() if any(k in p['blob'] for k in ks)] or ['OTRO']
+              for h in hits: grouped[h].append(p)
+          print('\nTHEMES')
+          for h,items in sorted(grouped.items(),key=lambda x:len(x[1]),reverse=True):
+              cs=[len(p['suppliers']) for p in items]; bs=[p['budget'] for p in items if p['budget']]
+              buyers=Counter(p['buyer'] for p in items if p['buyer'])
+              low=sum(1 for c in cs if 1<=c<=3)/len(cs) if cs else 0
+              print(f'{h}: n={len(items)} med_budget={statistics.median(bs) if bs else 0:.0f} med_comp={statistics.median(cs) if cs else 0:.1f} low_comp={low:.2%} buyers={len(buyers)} repeat_buyers={sum(v>=2 for v in buyers.values())}')
+
+          labels=defaultdict(lambda:{'p':set(),'b':set(),'bud':[],'c':[]})
+          for p in safe:
+              for product in p['products']:
+                  k=norm(product)
+                  if not 4<=len(k)<=100 or any(x in k for x in risk): continue
+                  d=labels[k]; d['p'].add(p['code']); d['b'].add(p['buyer']); d['c'].append(len(p['suppliers']))
+                  if p['budget']: d['bud'].append(p['budget'])
+          repeated=[]
+          for k,d in labels.items():
+              n=len(d['p'])
+              if n>=2:
+                  repeated.append((n,len(d['b']),statistics.median(d['c']),sum(1 for c in d['c'] if 1<=c<=3)/len(d['c']),statistics.median(d['bud']) if d['bud'] else 0,k))
+          print('\nREPEATED PRODUCT LABELS')
+          for n,b,c,low,bud,k in sorted(repeated,key=lambda x:(-x[0],x[2],-x[3]))[:40]: print(f'n={n} buyers={b} med_comp={c:.1f} low={low:.2%} med_budget={bud:.0f} | {k}')
+
+          print('\nLOW-COMP NON-HEALTH EXAMPLES')
+          shown=0
+          for p in sorted(safe,key=lambda x:(len(x['suppliers']) or 999,-(x['budget'] or 0))):
+              c=len(p['suppliers'])
+              if 1<=c<=3:
+                  print(f'c={c} budget={p["budget"]} {p["sector"]} {p["buyer"]} | {p["title"]} | PRODUCTS: {" | ".join(sorted(p["products"])[:8])}')
+                  shown+=1
+                  if shown>=50: break
+          PY
+      - name: Confirm no Cloudflare access
+        run: echo 'Analysis used only the official public ZIP; no Cloudflare credentials or D1 operations.'
