@@ -7,12 +7,6 @@ on:
         description: 'Periodo AAAA-MM de Compra Ágil'
         required: true
         default: '2026-07'
-  push:
-    branches: [feat/radar-public-data-ingestion]
-    paths:
-      - '.github/workflows/inspect-radar-public-data.yml'
-      - 'radar/phase0/etl/prepare_open_data.py'
-      - 'radar/phase0/etl/open_data_ingest.py'
 
 concurrency:
   group: inspect-radar-public-data
@@ -25,7 +19,7 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     env:
-      PERIOD: ${{ github.event.inputs.period || '2026-07' }}
+      PERIOD: ${{ inputs.period }}
     steps:
       - uses: actions/checkout@v4
       - name: Download official public Compra Agil archive
