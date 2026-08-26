@@ -1,13 +1,155 @@
 import { opportunityDecision, priceRange, marginGuard } from './scoring.js';
+import { listCompraAgil } from './mercado-publico.js';
 
-function json(payload, status = 200) {
+const LIVE_KEYWORDS = ['tornillo', 'perno', 'anclaje', 'fijacion'];
+const RELEVANCE_TERMS = ['tornill', 'perno', 'anclaj', 'fijacion', 'tirafondo', 'autoperfor', 'vulcanita'];
+const EXCLUDE_TERMS = ['quirurg', 'ortoped', 'implante', 'protes', 'osteosint', 'hospital', 'cateter', 'jeringa'];
+const LIVE_CACHE_SECONDS = 900;
+
+function json(payload, status = 200, headers = {}) {
   return new Response(JSON.stringify(payload, null, 2), {
     status,
     headers: {
       'content-type': 'application/json; charset=utf-8',
       'cache-control': 'no-store',
+      ...headers,
     },
   });
+}
+
+function text(value) {
+  return String(value || '').toLowerCase();
+}
+
+function flattenText(value) {
+  if (value == null) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (Array.isArray(value)) return value.map(flattenText).join(' ');
+  if (typeof value === 'object') return Object.values(value).map(flattenText).join(' ');
+  return '';
+}
+
+function numeric(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function unwrapList(payload) {
+  if (!payload || payload.success !== 'OK') return [];
+  const root = payload.payload || {};
+  return Array.isArray(root.items) ? root.items : [];
+}
+
+function getBudget(item) {
+  return numeric(
+    item?.montos?.monto_disponible_clp ??
+      item?.presupuesto?.monto_disponible_clp ??
+      item?.monto_disponible_clp,
+  );
+}
+
+function getOffers(item) {
+  const raw =
+    item?.resumen?.total_ofertas_recibidas ??
+    item?.total_ofertas_recibidas ??
+    item?.resumen?.cantidad_ofertas;
+  const n = Number(raw);
+  return Number.isFinite(n) ? n : null;
+}
+
+function getCall(item) {
+  return numeric(item?.convocatoria?.estado_convocatoria ?? item?.estado_convocatoria, 0);
+}
+
+function getClosing(item) {
+  return item?.fechas?.fecha_cierre || item?.fecha_cierre || null;
+}
+
+function scoreLiveOpportunity(item) {
+  const budget = getBudget(item);
+  const offers = getOffers(item);
+  const call = getCall(item);
+  const combined = text(flattenText(item));
+  const relevance = Math.min(1, RELEVANCE_TERMS.filter((term) => combined.includes(term)).length / 3);
+  const competition = offers == null ? 0.45 : Math.max(0, 1 - Math.min(offers, 10) / 10);
+  const ticketFit = budget >= 100_000 && budget <= 7_000_000 ? 1 : budget > 0 ? 0.5 : 0.35;
+  const firstCall = call === 1 ? 1 : call === 2 ? 0.6 : 0.5;
+  return Math.round(100 * (0.35 * relevance + 0.3 * competition + 0.2 * ticketFit + 0.15 * firstCall));
+}
+
+function cleanOpportunity(item) {
+  const combined = text(flattenText(item));
+  if (!RELEVANCE_TERMS.some((term) => combined.includes(term))) return null;
+  if (EXCLUDE_TERMS.some((term) => combined.includes(term))) return null;
+
+  return {
+    codigo: item?.codigo || item?.id || null,
+    nombre: item?.nombre || item?.titulo || null,
+    descripcion: item?.descripcion || null,
+    estado: item?.estado?.codigo || item?.estado || 'publicada',
+    llamado: getCall(item) || null,
+    fecha_publicacion: item?.fechas?.fecha_publicacion || item?.fecha_publicacion || null,
+    fecha_cierre: getClosing(item),
+    monto_disponible_clp: getBudget(item) || null,
+    ofertas_recibidas: getOffers(item),
+    organismo: item?.institucion?.organismo_comprador || item?.organismo_comprador || null,
+    region: item?.institucion?.nombre_region || item?.institucion?.region || item?.region || null,
+    productos: Array.isArray(item?.productos_solicitados)
+      ? item.productos_solicitados.slice(0, 12).map((p) => ({
+          nombre: p?.nombre || null,
+          descripcion: p?.descripcion || null,
+          cantidad: p?.cantidad ?? null,
+          unidad: p?.unidad_medida || p?.unidad || null,
+        }))
+      : [],
+    score: scoreLiveOpportunity(item),
+  };
+}
+
+async function liveFasteningOpportunities(env) {
+  if (!env.MERCADOPUBLICO_TICKET) {
+    return json({ error: 'mercadopublico_ticket_missing' }, 503);
+  }
+
+  const seen = new Map();
+  const queries = [];
+  for (const q of LIVE_KEYWORDS) {
+    const response = await listCompraAgil({
+      ticket: env.MERCADOPUBLICO_TICKET,
+      estado: 'publicada',
+      q,
+      tamano_pagina: 50,
+      numero_pagina: 1,
+      ordenar_por: 'FechaPublicacion',
+    });
+    const items = unwrapList(response);
+    queries.push({ q, count: items.length });
+    for (const item of items) {
+      const codigo = item?.codigo || item?.id;
+      if (codigo && !seen.has(codigo)) seen.set(codigo, item);
+    }
+  }
+
+  const items = [...seen.values()]
+    .map(cleanOpportunity)
+    .filter(Boolean)
+    .sort((a, b) => b.score - a.score || String(a.fecha_cierre || '').localeCompare(String(b.fecha_cierre || '')))
+    .slice(0, 50);
+
+  return json(
+    {
+      source: 'Mercado Público API v2 - Compra Ágil',
+      status: 'publicada',
+      keywords: LIVE_KEYWORDS,
+      queries,
+      total: items.length,
+      items,
+      generated_at: new Date().toISOString(),
+      disclaimer: 'Radar informativo. Verifica especificaciones, plazos y condiciones en Mercado Público antes de cotizar.',
+    },
+    200,
+    { 'cache-control': `public, max-age=60, s-maxage=${LIVE_CACHE_SECONDS}` },
+  );
 }
 
 export default {
@@ -23,6 +165,14 @@ export default {
         'SELECT * FROM category_metrics ORDER BY opportunity_market_score DESC',
       ).all();
       return json({ items: query.results || [] });
+    }
+
+    if (url.pathname === '/api/opportunities/live' && req.method === 'GET') {
+      try {
+        return await liveFasteningOpportunities(env);
+      } catch (error) {
+        return json({ error: 'mercadopublico_unavailable', detail: String(error?.message || error).slice(0, 300) }, 502);
+      }
     }
 
     if (url.pathname === '/api/analyze' && req.method === 'POST') {
