@@ -1,0 +1,3 @@
+QROS_FAILOVER_SMOKE_TRIGGER_v1
+synthetic_only=true
+holdout_access=false
