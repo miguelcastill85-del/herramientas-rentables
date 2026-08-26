@@ -1,0 +1,123 @@
+name: Apply Radar Taxonomy V3
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/radar-taxonomy-v2]
+    paths:
+      - '.github/workflows/apply-radar-taxonomy-v3.yml'
+
+concurrency:
+  group: apply-radar-taxonomy-v3
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'ops: apply taxonomy v3 to existing D1'
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      WORKER_URL: https://radar-rentable-estado.miguelcastill85.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enforce zero-cost and exact-resource guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo 'Missing CLOUDFLARE_ACCOUNT_ID'; exit 1; }
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing CLOUDFLARE_API_TOKEN'; exit 1; }
+          [[ "$CLOUDFLARE_API_TOKEN" == cfat_* ]] || { echo 'Expected Account API Token'; exit 1; }
+          echo 'Free-only mode: existing D1 only; no resource creation, no upgrade, no Worker deploy.'
+
+      - name: Verify active token and exact existing D1
+        shell: bash
+        run: |
+          set -euo pipefail
+          STATUS="$(curl --silent --show-error -o /tmp/verify.json -w '%{http_code}' \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/tokens/verify")"
+          test "$STATUS" = 200 || { echo "Token verification HTTP $STATUS"; exit 1; }
+          node -e 'const x=require("/tmp/verify.json");if(!x.success||x.result?.status!=="active")process.exit(1)'
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database?name=radar-rentable-estado&per_page=10" >/tmp/d1.json
+          node - <<'NODE'
+          const x=require('/tmp/d1.json');
+          const matches=(x.result||[]).filter(d=>d.name==='radar-rentable-estado');
+          if(!x.success||matches.length!==1){console.error(`Expected exactly one existing D1; found ${matches.length}`);process.exit(1)}
+          console.log('Exact D1 verified; no creation path exists in this workflow.');
+          NODE
+
+      - name: Download official July 2026 Compra Agil archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            --output /tmp/compra-agil.zip \
+            'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
+          unzip -t /tmp/compra-agil.zip >/dev/null
+
+      - name: Prepare corrected 15000-process snapshot before writes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python radar/phase0/etl/prepare_open_data.py /tmp/compra-agil.zip \
+            --period 2026-07 \
+            --max-processes 15000 \
+            --out /tmp/prepared-v3.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/prepared-v3.json', encoding='utf-8'))
+          assert x['summary']['processes'] == 15000
+          assert x['summary']['encodings']['COT1_2026-07.csv'] == 'cp1252'
+          assert x['summary']['encodings']['COT2_2026-07.csv'] == 'cp1252'
+          otros=next(m for m in x['metrics'] if m['category']=='OTROS')
+          share=otros['process_count']/15000
+          assert share < 0.25, share
+          print(f'Prepared v3 snapshot: categories={len(x["metrics"])} OTROS={share:.2%}')
+          PY
+
+      - name: Apply only changed categories and replace ranking snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python radar/phase0/etl/reclassify_existing.py /tmp/prepared-v3.json --confirm-free-only | tee /tmp/apply.log
+
+      - name: Verify Worker health and corrected D1-backed ranking
+        shell: bash
+        run: |
+          set -euo pipefail
+          HEALTH="$(curl --fail --silent --show-error "$WORKER_URL/health")"
+          printf '%s' "$HEALTH" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const x=JSON.parse(s);if(x.ok!==true)process.exit(1)})'
+          curl --fail --silent --show-error "$WORKER_URL/api/categories" >/tmp/categories.json
+          node - <<'NODE'
+          const x=require('/tmp/categories.json');
+          if(!Array.isArray(x.items)||x.items.length<10){console.error('Expected expanded corrected categories');process.exit(1)}
+          const byName=new Map(x.items.map(v=>[v.category,v]));
+          for(const name of ['SERVICIOS','SALUD','LABORATORIO','TRANSPORTE','ALIMENTOS']){
+            if(!byName.has(name)){console.error(`Missing ${name}`);process.exit(1)}
+          }
+          const named=x.items.filter(v=>v.category!=='OTROS').slice(0,10);
+          console.log(`Corrected D1-backed endpoint OK; rows=${x.items.length}`);
+          for(const v of named) console.log(`${v.category}: score=${v.opportunity_market_score}, processes=${v.process_count}, competitors=${v.median_competitors}`);
+          NODE
+
+      - name: Zero-cost reclassification summary
+        shell: bash
+        run: |
+          {
+            echo '### Radar taxonomy v3 reclassification'
+            echo '- Source cohort: 15,000 existing Compra Agil processes, July 2026'
+            echo '- CSV encoding: cp1252 detected for COT1 and COT2'
+            echo '- D1: radar-rentable-estado (existing only)'
+            echo '- Writes: changed categories only + category_metrics + vertical_rankings'
+            echo '- Worker: not redeployed'
+            echo '- Resource creation: none'
+            echo '- Paid upgrade: none'
+            echo '- Free-only guard: abort if changed processes > 9,000'
+          } >> "$GITHUB_STEP_SUMMARY"
