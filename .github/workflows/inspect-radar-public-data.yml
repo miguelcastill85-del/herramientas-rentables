@@ -11,6 +11,12 @@ on:
     branches: [feat/radar-public-data-ingestion]
     paths:
       - '.github/workflows/inspect-radar-public-data.yml'
+      - 'radar/phase0/etl/prepare_open_data.py'
+      - 'radar/phase0/etl/open_data_ingest.py'
+
+concurrency:
+  group: inspect-radar-public-data
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -44,5 +50,7 @@ jobs:
           x=json.load(open('/tmp/prepared.json', encoding='utf-8'))
           assert x['summary']['processes'] == 15000, x['summary']
           assert x['summary']['categories'] > 0, x['summary']
+          assert any((p.get('buyer_id') or '').strip() for p in x['processes']), 'buyer_id mapping failed'
+          assert any((p.get('selected_supplier_id') or '').strip() for p in x['processes']), 'selected supplier mapping failed'
           print('Prepared dataset validated; no Cloudflare writes were performed.')
           PY
