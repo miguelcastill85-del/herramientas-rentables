@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${siteUrl}/guias/cuanto-cobrar-como-freelance-chile`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     ...tools.map((tool) => ({
       url: `${siteUrl}${tool.path}`,
       lastModified,
