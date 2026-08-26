@@ -163,10 +163,13 @@ jobs:
         run: |
           node - <<'NODE'
           const base=process.env.WORKER_URL;
+          const nonce=Date.now();
           async function get(path){
             let last;
             for(let i=0;i<5;i++){
-              const r=await fetch(base+path,{headers:{Accept:'application/json'}});
+              const separator=path.includes('?')?'&':'?';
+              const url=`${base}${path}${separator}verify=${nonce}-${i}`;
+              const r=await fetch(url,{headers:{Accept:'application/json','cache-control':'no-cache'}});
               const text=await r.text();
               last={r,text};
               if(r.ok) return last;
@@ -177,18 +180,20 @@ jobs:
           const health=await get('/health');
           const h=JSON.parse(health.text);
           if(!h.ok) throw new Error('/health payload is not ok');
-          console.log('/health: OK');
+          console.log('/health cache-busted: OK');
           const live=await get('/api/opportunities/live');
           const body=JSON.parse(live.text);
           if(!['api_v2','public_search_fallback'].includes(body.mode)) throw new Error(`Unexpected live mode: ${body.mode}`);
-          console.log(`live mode=${body.mode}; api_status=${body.api_status||'ok'}; total=${body.total ?? 'unknown'}`);
+          if(body.focus!=='canastas_ferreteria_mantenimiento') throw new Error(`Unexpected focus: ${body.focus}`);
+          if(body.target_budget_clp?.min!==300000 || body.target_budget_clp?.max!==3000000) throw new Error('Target budget metadata is wrong');
+          console.log(`live mode=${body.mode}; api_status=${body.api_status||'ok'}; total=${body.total ?? 'unknown'}; focus=${body.focus}`);
           if(body.mode==='public_search_fallback'){
-            if(!Array.isArray(body.searches) || body.searches.length!==4) throw new Error('Fallback must expose four official public searches');
+            if(!Array.isArray(body.searches) || body.searches.length!==6) throw new Error(`Fallback must expose six official public searches; got ${body.searches?.length}`);
             for(const entry of body.searches){
               const u=new URL(entry.url);
               if(u.hostname!=='buscador.mercadopublico.cl' || u.pathname!=='/compra-agil') throw new Error('Fallback contains non-official search URL');
             }
-            console.log('Public-search fallback verified with four official Mercado Público links.');
+            console.log('Public-search fallback verified with six official Mercado Público links.');
           } else if(!Array.isArray(body.items)) {
             throw new Error('API mode has no items array');
           }
