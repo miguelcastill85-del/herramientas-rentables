@@ -42,7 +42,7 @@ def prepare(archive_path, period, limit):
             with archive.open(name) as raw:
                 text = io.TextIOWrapper(raw, encoding='utf-8-sig', errors='replace', newline='')
                 reader = csv.DictReader(text, delimiter=';', quotechar='"')
-                required = {'CodigoCotizacion', 'NombreCotizacion', 'RUTProveedor'}
+                required = {'CodigoCotizacion', 'NombreCotizacion', 'RutProveedor'}
                 missing = sorted(required.difference(reader.fieldnames or []))
                 if missing:
                     raise SystemExit(f'Unexpected ChileCompra schema in {name}; missing {missing}')
@@ -60,7 +60,7 @@ def prepare(archive_path, period, limit):
                             'estado': first(row, 'Estado'),
                             'published_at': first(row, 'FechaPublicacionParaCotizar'),
                             'changed_at': first(row, 'FechaAceptacionOCProveedor'),
-                            'buyer_id': first(row, 'RUTUnidaddeCompra', 'CodigoUnidaddeCompra'),
+                            'buyer_id': first(row, 'RutUnidaddeCompra', 'RUTUnidaddeCompra', 'CodigoUnidaddeCompra'),
                             'buyer_name': first(row, 'RazonSocialUnidaddeCompra', 'NombreUnidaddeCompra', 'NombreOOPP'),
                             'region': first(row, 'Region'),
                             'title': first(row, 'NombreCotizacion'),
@@ -77,11 +77,11 @@ def prepare(archive_path, period, limit):
 
                     rows_used += 1
                     p = data[code]
-                    supplier = first(row, 'RUTProveedor', 'RazonSocialProveedor')
+                    supplier = first(row, 'RutProveedor', 'RUTProveedor', 'RazonSocialProveedor')
                     if supplier:
                         p['supplier_keys'].add(supplier)
                     if yes(first(row, 'ProveedorSeleccionado')):
-                        p['selected_supplier_id'] = first(row, 'RUTProveedor') or p['selected_supplier_id']
+                        p['selected_supplier_id'] = first(row, 'RutProveedor', 'RUTProveedor') or p['selected_supplier_id']
                         amount = money(first(row, 'MontoTotal'))
                         if amount and amount > 0:
                             p['selected_amount_clp'] = amount
