@@ -1,7 +1,6 @@
-name: Analyze Radar Refined Entry Products
+name: Inspect ChileCompra Item Fields
 
 on:
-  workflow_dispatch:
   push:
     branches: [analysis/radar-vertical-decision]
     paths: ['.github/workflows/analyze-radar-entry-products.yml']
@@ -10,174 +9,39 @@ permissions:
   contents: read
 
 jobs:
-  analyze:
-    if: >-
-      github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'analysis: refine physical entry products on full July data'
+  inspect:
+    if: github.event.head_commit.message == 'analysis: inspect official item price fields'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Download official July 2026 Compra Agil data
         run: |
           curl --fail --location --retry 3 --output /tmp/cot.zip 'https://transparenciachc.blob.core.windows.net/trnspchc/COT_2026-07.zip'
           unzip -t /tmp/cot.zip >/dev/null
-      - name: Rank clean physical-product subsegments
+      - name: Print official CSV headers relevant to pricing and items
         shell: bash
         run: |
-          PYTHONPATH=radar/phase0/etl python - <<'PY'
-          import csv, io, re, statistics, unicodedata, zipfile
-          from collections import Counter, defaultdict
-          from taxonomy import classify
-          from normalize import money
-
-          TARGET={'ALIMENTOS','VEHICULOS','FERRETERIA'}
-          def first(r,*ks):
-              for k in ks:
-                  v=r.get(k)
-                  if v is not None and str(v).strip(): return str(v).strip()
-          def norm(s):
-              s=''.join(c for c in unicodedata.normalize('NFD',s or '') if unicodedata.category(c)!='Mn').lower()
-              return ' '.join(re.findall(r'[a-z0-9]+',s))
-          def has_phrase(text, phrase):
-              return f' {norm(phrase)} ' in f' {norm(text)} '
-          def any_phrase(text, phrases):
-              return any(has_phrase(text,p) for p in phrases)
-
-          themes={
-            'ALIMENTOS':{
-              'ABARROTES_SECOS':['arroz','fideos','pasta','aceite vegetal','azucar','harina','sal','lentejas','porotos','garbanzos','legumbres','conservas','avena'],
-              'AGUA_BEBIDAS_ENVASADAS':['agua mineral','agua purificada','agua embotellada','jugos y nectar envasados','jugo envasado','bebidas'],
-              'CAFE_TE_INFUSIONES':['cafe','cafe instantaneo','te','bolsitas de te','infusion','infusiones'],
-              'SNACKS_ENVASADOS':['galletas dulces','galletas saladas','cereales en barra','barra de cereal','frutos secos','papas fritas','snack','snacks'],
-              'LACTEOS':['leche','leche en polvo','queso','yogur','yoghurt'],
-              'PANADERIA':['pan fresco','pan','panes'],
-              'FRUTAS_VERDURAS':['fruta fresca','frutas','verduras','hortalizas'],
-              'CARNES_PESCADOS':['carne de ave','carne congelada','carne','pollo','pescado','mariscos']
-            },
-            'VEHICULOS':{
-              'NEUMATICOS':['neumaticos para camionetas o automoviles','neumaticos para camiones pesados','neumaticos','neumatico'],
-              'LUBRICANTES':['aceite de motor','aceite motor','lubricantes de uso general','aceite hidraulico','refrigerante de motor','lubricantes anticorrosivos'],
-              'FILTROS':['filtros de aceite','filtro de aceite','filtros de aire','filtro de aire','filtros de combustible','filtro de combustible'],
-              'BATERIAS':['baterias para vehiculos','bateria para vehiculo','bateria automotriz','baterias automotrices'],
-              'FRENOS':['kits de reparacion de frenos','kit de frenos','pastillas de freno','discos de freno'],
-              'AMORTIGUADORES':['amortiguadores para automoviles','amortiguadores'],
-              'PARABRISAS':['parabrisas para automoviles','parabrisas'],
-              'PLUMILLAS':['plumillas limpiaparabrisas','limpiaparabrisas']
-            },
-            'FERRETERIA':{
-              'FIJACIONES':['tornillos para madera','tornillos de anclaje','pernos de anclaje','clavo tornillo','clavos','tornillos','pernos','tuercas','arandelas','tarugos'],
-              'MADERA_TABLEROS':['tablas de madera','madera','terciado','melamina','tablero osb','osb'],
-              'PINTURA_ACCESORIOS':['pinturas al esmalte','pintura','pinturas','brochas','rodillos de pintar','diluyentes para pinturas','esmaltes'],
-              'PLOMERIA':['tuberia de plastico','tuberias','canerias','fittings','valvulas','codo pvc','pvc sanitario','siliconas'],
-              'ABRASIVOS':['papeles de lija','discos abrasivos','lijas'],
-              'ELECTRICO':['accesorios electricos','enchufes electricos','cables electricos','cable electrico','interruptores electricos'],
-              'HERRAMIENTAS':['taladro de mano o empuje','conjuntos generales de herramientas','martillos','destornilladores','alicates','brocas','palas']
-            }
-          }
-          medical=['quirurg','ortoped','implante','trauma','hospital','dental','bisturi','cateter','protesis','medico','medica','paciente','esteril','jeringa','aguja kirschner','clavo endomedular']
-          service=['servicio','servicios','arriendo','reparacion','mantencion','mantenimiento','instalacion','capacitacion','catering','banquete','coctel','hotel','restaurante','transporte','seguro']
-          animal=['perros','gatos','canes','alimento animal','alimento para mascotas']
-
-          data={}; rows=0
+          python - <<'PY'
+          import csv, io, zipfile
           with zipfile.ZipFile('/tmp/cot.zip') as z:
               for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv')):
                   with z.open(name) as f:
                       sample=f.read(131072)
                       try: sample.decode('utf-8-sig'); enc='utf-8-sig'
                       except UnicodeDecodeError: enc='cp1252'
-                  print(f'{name}: {enc}')
                   with z.open(name) as f:
                       rd=csv.DictReader(io.TextIOWrapper(f,encoding=enc,errors='replace',newline=''),delimiter=';',quotechar='"')
-                      for r in rd:
-                          rows+=1
-                          code=first(r,'CodigoCotizacion')
-                          if not code: continue
-                          if code not in data:
-                              data[code]={'code':code,'buyer':first(r,'RazonSocialUnidaddeCompra','NombreUnidaddeCompra','NombreOOPP') or '', 'budget':money(first(r,'MontoTotalDisponble','MontoTotalDisponible')), 'suppliers':set(), 'texts':[], 'products':set()}
-                          p=data[code]
-                          s=first(r,'RUTProveedor','RutProveedor','RazonSocialProveedor')
-                          if s: p['suppliers'].add(s)
-                          vals=[first(r,k) for k in ('NombreCotizacion','DescripcionCotizacion','ProductoCotizado','NombreProductoGenerico','DetalleCotizacion')]
-                          txt=' '.join(v for v in vals if v)
-                          if txt and txt not in p['texts'] and len(p['texts'])<4: p['texts'].append(txt)
-                          for k in ('ProductoCotizado','NombreProductoGenerico'):
-                              v=first(r,k)
-                              if v and len(p['products'])<40: p['products'].add(v)
-
-          grouped=defaultdict(dict)
-          labels=defaultdict(lambda:{'processes':set(),'buyers':set(),'budgets':[],'comps':[]})
-          category_counts=Counter(); excluded=Counter()
-          for p in data.values():
-              cat=classify(' '.join(p['texts']))
-              if cat not in TARGET: continue
-              category_counts[cat]+=1
-              clean=[]
-              for raw in p['products']:
-                  x=norm(raw)
-                  if len(x)<3 or len(x)>180: continue
-                  if any_phrase(x,medical): excluded['medical']+=1; continue
-                  if any_phrase(x,service): excluded['service']+=1; continue
-                  if cat=='ALIMENTOS' and any_phrase(x,animal): excluded['animal']+=1; continue
-                  clean.append((raw,x))
-              for theme,keys in themes[cat].items():
-                  matched=[raw for raw,x in clean if any_phrase(x,keys)]
-                  if matched:
-                      grouped[(cat,theme)][p['code']]=(p,matched)
-                      for raw in matched:
-                          label=norm(raw)
-                          d=labels[(cat,theme,label)]
-                          d['processes'].add(p['code']); d['buyers'].add(p['buyer']); d['comps'].append(len(p['suppliers']))
-                          if p['budget']: d['budgets'].append(p['budget'])
-
-          operational_fit={
-            ('ALIMENTOS','ABARROTES_SECOS'):0.85,('ALIMENTOS','AGUA_BEBIDAS_ENVASADAS'):0.75,('ALIMENTOS','CAFE_TE_INFUSIONES'):0.90,('ALIMENTOS','SNACKS_ENVASADOS'):0.90,
-            ('ALIMENTOS','LACTEOS'):0.55,('ALIMENTOS','PANADERIA'):0.45,('ALIMENTOS','FRUTAS_VERDURAS'):0.35,('ALIMENTOS','CARNES_PESCADOS'):0.25,
-            ('VEHICULOS','NEUMATICOS'):0.70,('VEHICULOS','LUBRICANTES'):0.85,('VEHICULOS','FILTROS'):0.90,('VEHICULOS','BATERIAS'):0.75,('VEHICULOS','FRENOS'):0.85,('VEHICULOS','AMORTIGUADORES'):0.80,('VEHICULOS','PARABRISAS'):0.55,('VEHICULOS','PLUMILLAS'):0.90,
-            ('FERRETERIA','FIJACIONES'):0.95,('FERRETERIA','MADERA_TABLEROS'):0.55,('FERRETERIA','PINTURA_ACCESORIOS'):0.75,('FERRETERIA','PLOMERIA'):0.80,('FERRETERIA','ABRASIVOS'):0.95,('FERRETERIA','ELECTRICO'):0.85,('FERRETERIA','HERRAMIENTAS'):0.85
-          }
-
-          print(f'archive_rows={rows} distinct_processes={len(data)} target_counts={dict(category_counts)} excluded_product_labels={dict(excluded)}')
-          print('\nREFINED PHYSICAL-GOODS RANKING')
-          scored=[]
-          for key,bycode in grouped.items():
-              cat,theme=key; items=[v[0] for v in bycode.values()]
-              cs=[len(p['suppliers']) for p in items]
-              bs=[p['budget'] for p in items if p['budget']]
-              buyers=Counter(p['buyer'] for p in items if p['buyer'])
-              n=len(items); medc=statistics.median(cs) if cs else 99; medb=statistics.median(bs) if bs else 0
-              low=sum(1 for c in cs if 1<=c<=3)/len(cs) if cs else 0
-              repeat=sum(1 for v in buyers.values() if v>=2); repeat_rate=repeat/max(1,len(buyers))
-              volume=min(1,n/200); ticket=1 if 250000<=medb<=2500000 else 0.6; op=operational_fit[key]
-              score=round(100*(0.30*low+0.22*volume+0.18*repeat_rate+0.10*(1-min(medc,10)/10)+0.08*ticket+0.12*op),2)
-              scored.append((score,cat,theme,n,medb,medc,low,len(buyers),repeat,op))
-          for x in sorted(scored,reverse=True):
-              score,cat,theme,n,medb,medc,low,buyers,repeat,op=x
-              print(f'{cat}/{theme}: entry={score} n={n} med_budget={medb:.0f} med_comp={medc:.1f} low_comp={low:.2%} buyers={buyers} repeat_buyers={repeat} op_fit={op:.2f}')
-
-          print('\nBEST REPEATED EXACT PRODUCT LABELS')
-          for score,cat,theme,*_ in sorted(scored,reverse=True)[:12]:
-              candidates=[]
-              for (c,t,label),d in labels.items():
-                  if (c,t)!=(cat,theme): continue
-                  n=len(d['processes'])
-                  if n<3: continue
-                  medc=statistics.median(d['comps']) if d['comps'] else 99
-                  low=sum(1 for z in d['comps'] if 1<=z<=3)/len(d['comps']) if d['comps'] else 0
-                  medb=statistics.median(d['budgets']) if d['budgets'] else 0
-                  candidates.append((n,low,-medc,len(d['buyers']),medb,label))
-              print(f'-- {cat}/{theme} --')
-              for n,low,negc,buyers,medb,label in sorted(candidates,reverse=True)[:12]:
-                  print(f'n={n} buyers={buyers} med_budget={medb:.0f} med_comp={-negc:.1f} low={low:.2%} | {label}')
-
-          print('\nTOP-3 CLEAN LOW-COMP EXAMPLES')
-          for score,cat,theme,*_ in sorted(scored,reverse=True)[:3]:
-              print(f'-- {cat}/{theme} --')
-              shown=0
-              for p,matched in sorted(grouped[(cat,theme)].values(),key=lambda x:(len(x[0]['suppliers']) or 999,-(x[0]['budget'] or 0))):
-                  c=len(p['suppliers'])
-                  if 1<=c<=3:
-                      print(f'c={c} budget={p["budget"]} buyer={p["buyer"]} | PRODUCTS: {" | ".join(sorted(matched)[:5])}')
-                      shown+=1
-                      if shown>=8: break
+                      fields=rd.fieldnames or []
+                      print(name, enc, 'columns=',len(fields))
+                      for field in fields:
+                          low=field.lower()
+                          if any(k in low for k in ['precio','monto','cantidad','unidad','producto','proveedor','seleccion','cotizacion','item','codigooc']):
+                              print('  ',repr(field))
+                      first=next(rd,None) or {}
+                      print('SAMPLE NONEMPTY RELEVANT VALUES')
+                      for field in fields:
+                          low=field.lower()
+                          if any(k in low for k in ['precio','monto','cantidad','unidad','producto','proveedor','seleccion','item']) and first.get(field):
+                              print('  ',repr(field),'=',repr(str(first[field])[:160]))
           PY
       - name: Confirm no Cloudflare access
-        run: echo 'Refined product analysis used only public ChileCompra data; no Cloudflare credentials, D1 operations, or paid resources.'
+        run: echo 'Header inspection used only public ChileCompra data; no Cloudflare credentials or writes.'
