@@ -100,6 +100,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </a>
           <nav className="desktop-nav" aria-label="Navegación principal">
             <a href="/#herramientas">Herramientas</a>
+            <a href="/cotizacion-freelance-chile">Cotización freelance</a>
             <a href="/pro">Recursos</a>
             <a href="/#metodo">Cómo funciona</a>
             <a href="/#preguntas">Preguntas frecuentes</a>
@@ -188,6 +189,21 @@ export default async function ToolPage({ params }: ToolPageProps) {
         </section>
 
         {tool.id === 'estimate' && (
+          <section className="tool-related-section" aria-labelledby="professional-quote-heading">
+            <div className="container">
+              <div className="section-heading tool-page-section-heading">
+                <p className="eyebrow">Siguiente paso</p>
+                <h2 id="professional-quote-heading">Convierte el cálculo en una cotización profesional</h2>
+                <p>Usa la experiencia completa para proteger precio mínimo y margen, definir anticipo, revisiones, vigencia, plazo y alcance, y generar un resumen listo para cliente.</p>
+              </div>
+              <div className="tool-page-all-link">
+                <a className="button button-primary" href="/cotizacion-freelance-chile">Construir mi cotización profesional →</a>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {tool.id === 'estimate' && (
           <section className="tool-related-section" aria-labelledby="freelance-guide-heading">
             <div className="container">
               <div className="section-heading tool-page-section-heading">
@@ -238,6 +254,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </div>
           <div className="footer-links">
             <a href="/#herramientas">Herramientas</a>
+            <a href="/cotizacion-freelance-chile">Cotización freelance</a>
             <a href="/pro">Recursos</a>
             <a href="/#preguntas">Preguntas frecuentes</a>
             <a href="https://www.instagram.com/herramientasrentables" rel="noreferrer" target="_blank">Instagram</a>
