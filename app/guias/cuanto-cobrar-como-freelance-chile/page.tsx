@@ -28,8 +28,8 @@ export default function FreelanceChileGuide() {
       <header className="site-header">
         <div className="container nav-shell">
           <a className="brand" href="/"><span className="brand-mark" aria-hidden="true">HR</span><span>Herramientas Rentables</span></a>
-          <nav className="desktop-nav" aria-label="Navegación principal"><a href="/#herramientas">Herramientas</a><a href="/pro">Recursos</a></nav>
-          <a className="button button-small button-outline" href="/herramientas/cotizacion">Crear cotización</a>
+          <nav className="desktop-nav" aria-label="Navegación principal"><a href="/#herramientas">Herramientas</a><a href="/cotizacion-freelance-chile">Cotización profesional</a><a href="/pro">Recursos</a></nav>
+          <a className="button button-small button-outline" href="/cotizacion-freelance-chile">Crear cotización profesional</a>
         </div>
       </header>
 
@@ -63,8 +63,8 @@ export default function FreelanceChileGuide() {
 
         <section className="tool-related-section">
           <div className="container">
-            <div className="section-heading tool-page-section-heading"><p className="eyebrow">Pasa de la teoría a tus números</p><h2>Convierte tu tarifa en una cotización</h2><p>Una tarifa útil debe terminar en una propuesta que puedas presentar a un cliente. Usa la herramienta gratuita para calcular un proyecto con tus propios datos.</p></div>
-            <div className="tool-page-all-link"><a className="button button-primary" href="/herramientas/cotizacion">Calcular y crear mi cotización →</a></div>
+            <div className="section-heading tool-page-section-heading"><p className="eyebrow">De tarifa a propuesta profesional</p><h2>Convierte tu tarifa en una cotización que proteja tu rentabilidad</h2><p>Cuando ya tienes una tarifa de referencia, el siguiente paso no es rellenar una plantilla vacía. Define precio mínimo, margen, anticipo, revisiones, vigencia y alcance antes de presentar la propuesta al cliente.</p></div>
+            <div className="tool-page-all-link"><a className="button button-primary" href="/cotizacion-freelance-chile">Construir mi cotización profesional →</a></div>
           </div>
         </section>
 
