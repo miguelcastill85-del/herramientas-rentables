@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import styles from './freelance-quote-builder.module.css';
 
 const money = new Intl.NumberFormat('es-CL', {
   style: 'currency',
@@ -50,21 +51,11 @@ export function FreelanceQuoteBuilder() {
     const adjustedSubtotal = baseCost * complexityMultiplier;
     const contingency = adjustedSubtotal * safetyValue;
     const protectedMinimum = adjustedSubtotal + contingency + externalValue;
-    const recommendedPrice = marginValue > 0
-      ? protectedMinimum / (1 - marginValue)
-      : protectedMinimum;
+    const recommendedPrice = marginValue > 0 ? protectedMinimum / (1 - marginValue) : protectedMinimum;
     const deposit = recommendedPrice * depositValue;
     const balance = recommendedPrice - deposit;
 
-    return {
-      baseCost,
-      adjustedSubtotal,
-      contingency,
-      protectedMinimum,
-      recommendedPrice,
-      deposit,
-      balance,
-    };
+    return { baseCost, contingency, protectedMinimum, recommendedPrice, deposit, balance };
   }, [hours, hourlyRate, complexity, safety, externalCosts, targetMargin, depositRate]);
 
   const summary = useMemo(() => {
@@ -82,96 +73,63 @@ export function FreelanceQuoteBuilder() {
   }
 
   return (
-    <div className="tool-form">
-      <div className="tool-content-grid">
-        <div className="tool-info-card">
-          <p className="eyebrow">1 · Rentabilidad</p>
-          <div className="tool-field-grid two-columns">
-            <label className="field-group">
-              <span className="field-label">Horas estimadas</span>
-              <span className="input-shell"><input type="number" min="1" step="1" value={hours} onChange={(e) => setHours(e.target.value)} /></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Tarifa por hora</span>
-              <span className="input-shell"><span aria-hidden="true">$</span><input type="number" min="1" step="1000" value={hourlyRate} onChange={(e) => setHourlyRate(e.target.value)} /></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Complejidad</span>
-              <span className="input-shell">
-                <select value={complexity} onChange={(e) => setComplexity(e.target.value as Complexity)}>
-                  <option value="low">Baja · ×1,00</option>
-                  <option value="medium">Media · ×1,20</option>
-                  <option value="high">Alta · ×1,40</option>
-                </select>
-              </span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Contingencia</span>
-              <span className="input-shell"><input type="number" min="0" max="100" step="1" value={safety} onChange={(e) => setSafety(e.target.value)} /><span aria-hidden="true">%</span></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Costos externos</span>
-              <span className="input-shell"><span aria-hidden="true">$</span><input type="number" min="0" step="1000" value={externalCosts} onChange={(e) => setExternalCosts(e.target.value)} /></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Margen objetivo</span>
-              <span className="input-shell"><input type="number" min="0" max="80" step="1" value={targetMargin} onChange={(e) => setTargetMargin(e.target.value)} /><span aria-hidden="true">%</span></span>
-            </label>
+    <div className={styles.quoteBuilder}>
+      <div className={styles.quoteGrid}>
+        <section className={`tool-info-card ${styles.stageCard}`}>
+          <div className={styles.stageHeader}>
+            <span className={styles.stageNumber}>01</span>
+            <div><h3>Protege tu rentabilidad</h3><p>Define el piso económico antes de negociar con el cliente.</p></div>
           </div>
-        </div>
+          <div className="tool-field-grid two-columns">
+            <label className="field-group"><span className="field-label">Horas estimadas</span><span className="input-shell"><input type="number" min="1" step="1" value={hours} onChange={(e) => setHours(e.target.value)} /></span></label>
+            <label className="field-group"><span className="field-label">Tarifa por hora</span><span className="input-shell"><span aria-hidden="true">$</span><input type="number" min="1" step="1000" value={hourlyRate} onChange={(e) => setHourlyRate(e.target.value)} /></span></label>
+            <label className="field-group"><span className="field-label">Complejidad</span><span className="input-shell"><select value={complexity} onChange={(e) => setComplexity(e.target.value as Complexity)}><option value="low">Baja · ×1,00</option><option value="medium">Media · ×1,20</option><option value="high">Alta · ×1,40</option></select></span></label>
+            <label className="field-group"><span className="field-label">Contingencia</span><span className="input-shell"><input type="number" min="0" max="100" step="1" value={safety} onChange={(e) => setSafety(e.target.value)} /><span aria-hidden="true">%</span></span></label>
+            <label className="field-group"><span className="field-label">Costos externos</span><span className="input-shell"><span aria-hidden="true">$</span><input type="number" min="0" step="1000" value={externalCosts} onChange={(e) => setExternalCosts(e.target.value)} /></span></label>
+            <label className="field-group"><span className="field-label">Margen objetivo</span><span className="input-shell"><input type="number" min="0" max="80" step="1" value={targetMargin} onChange={(e) => setTargetMargin(e.target.value)} /><span aria-hidden="true">%</span></span></label>
+          </div>
+        </section>
 
-        <div className="tool-info-card">
-          <p className="eyebrow">2 · Condiciones</p>
-          <div className="tool-field-grid two-columns">
-            <label className="field-group full-width-field">
-              <span className="field-label">Nombre del proyecto</span>
-              <span className="input-shell text-input-shell"><input value={projectName} onChange={(e) => setProjectName(e.target.value)} /></span>
-            </label>
-            <label className="field-group full-width-field">
-              <span className="field-label">Cliente (opcional)</span>
-              <span className="input-shell text-input-shell"><input value={clientName} onChange={(e) => setClientName(e.target.value)} /></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Anticipo</span>
-              <span className="input-shell"><input type="number" min="0" max="100" step="5" value={depositRate} onChange={(e) => setDepositRate(e.target.value)} /><span aria-hidden="true">%</span></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Revisiones incluidas</span>
-              <span className="input-shell"><input type="number" min="0" step="1" value={revisions} onChange={(e) => setRevisions(e.target.value)} /></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Vigencia</span>
-              <span className="input-shell"><input type="number" min="1" step="1" value={validityDays} onChange={(e) => setValidityDays(e.target.value)} /><span aria-hidden="true">días</span></span>
-            </label>
-            <label className="field-group">
-              <span className="field-label">Plazo estimado</span>
-              <span className="input-shell text-input-shell"><input value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} /></span>
-            </label>
-            <label className="field-group full-width-field">
-              <span className="field-label">Alcance / entregables</span>
-              <textarea rows={4} value={scope} onChange={(e) => setScope(e.target.value)} />
-            </label>
+        <section className={`tool-info-card ${styles.stageCard}`}>
+          <div className={styles.stageHeader}>
+            <span className={styles.stageNumber}>02</span>
+            <div><h3>Define condiciones claras</h3><p>Reduce ambigüedad, retrabajo y negociaciones después de empezar.</p></div>
           </div>
-        </div>
+          <div className="tool-field-grid two-columns">
+            <label className="field-group full-width-field"><span className="field-label">Nombre del proyecto</span><span className="input-shell text-input-shell"><input value={projectName} onChange={(e) => setProjectName(e.target.value)} /></span></label>
+            <label className="field-group full-width-field"><span className="field-label">Cliente (opcional)</span><span className="input-shell text-input-shell"><input value={clientName} onChange={(e) => setClientName(e.target.value)} /></span></label>
+            <label className="field-group"><span className="field-label">Anticipo</span><span className="input-shell"><input type="number" min="0" max="100" step="5" value={depositRate} onChange={(e) => setDepositRate(e.target.value)} /><span aria-hidden="true">%</span></span></label>
+            <label className="field-group"><span className="field-label">Revisiones incluidas</span><span className="input-shell"><input type="number" min="0" step="1" value={revisions} onChange={(e) => setRevisions(e.target.value)} /></span></label>
+            <label className="field-group"><span className="field-label">Vigencia</span><span className="input-shell"><input type="number" min="1" step="1" value={validityDays} onChange={(e) => setValidityDays(e.target.value)} /><span aria-hidden="true">días</span></span></label>
+            <label className="field-group"><span className="field-label">Plazo estimado</span><span className="input-shell text-input-shell"><input value={deliveryTime} onChange={(e) => setDeliveryTime(e.target.value)} /></span></label>
+            <label className="field-group full-width-field"><span className="field-label">Alcance / entregables</span><textarea className={styles.scopeArea} rows={4} value={scope} onChange={(e) => setScope(e.target.value)} /></label>
+          </div>
+        </section>
       </div>
 
-      <div className="result-panel tool-results" aria-live="polite">
-        <div className="result-item"><span>Costo base</span><strong>{money.format(result.baseCost)}</strong></div>
-        <div className="result-item"><span>Precio mínimo protegido</span><strong>{money.format(result.protectedMinimum)}</strong></div>
-        <div className="result-item"><span>Precio recomendado</span><strong className="positive">{money.format(result.recommendedPrice)}</strong></div>
-        <div className="result-item"><span>Anticipo</span><strong>{money.format(result.deposit)}</strong></div>
-        <div className="result-item"><span>Saldo</span><strong>{money.format(result.balance)}</strong></div>
-        <div className="recommendation"><span aria-hidden="true">✓</span><strong>El precio recomendado incorpora complejidad, contingencia, costos externos y el margen objetivo que definiste.</strong></div>
-      </div>
+      <section className={styles.resultShell} aria-live="polite">
+        <p className={styles.resultKicker}>Diagnóstico comercial</p>
+        <div className={styles.heroResult}><span>Precio recomendado para presentar</span><strong>{money.format(result.recommendedPrice)}</strong></div>
+        <div className={styles.resultGrid}>
+          <div className={styles.metric}><span>Precio mínimo protegido</span><strong>{money.format(result.protectedMinimum)}</strong></div>
+          <div className={styles.metric}><span>Anticipo</span><strong>{money.format(result.deposit)}</strong></div>
+          <div className={styles.metric}><span>Saldo</span><strong>{money.format(result.balance)}</strong></div>
+          <div className={styles.metric}><span>Colchón de contingencia</span><strong>{money.format(result.contingency)}</strong></div>
+        </div>
+        <p className={styles.protectionNote}>El mínimo protegido cubre horas, complejidad, contingencia y costos externos. El recomendado añade el margen objetivo para que la propuesta no dependa solo de “cubrir costos”.</p>
+      </section>
 
-      <div className="tool-info-card">
-        <p className="eyebrow">3 · Resumen listo para cliente</p>
-        <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'inherit', margin: 0, color: 'var(--ink-soft)' }}>{summary}</pre>
-        <div className="tool-actions" style={{ marginTop: '1rem' }}>
+      <section className={`tool-info-card ${styles.summaryCard}`}>
+        <div className={styles.summaryTop}>
+          <div><h3>03 · Cotización lista para cliente</h3><p>Un resumen limpio para copiar, adaptar y enviar.</p></div>
+          <span className="live-badge">Lista</span>
+        </div>
+        <pre className={styles.summaryText}>{summary}</pre>
+        <div className={styles.copyBar}>
           <button className="secondary-button" type="button" onClick={copySummary}>Copiar resumen</button>
-          <span aria-live="polite">{copyStatus}</span>
+          <span className={styles.copyStatus} aria-live="polite">{copyStatus}</span>
         </div>
-      </div>
+      </section>
 
       <p className="tool-orientation-note"><strong>Importante:</strong> esta herramienta es orientativa. Ajusta las condiciones a tu servicio y revisa aspectos legales, tributarios o contractuales con un profesional cuando corresponda.</p>
     </div>
