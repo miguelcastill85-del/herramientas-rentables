@@ -14,6 +14,10 @@ for (const expected of [
   '/api/categories?dashboard=',
   'Búsqueda pública de respaldo',
   'Ranking histórico',
+  'Ver ficha oficial',
+  'https://buscador.mercadopublico.cl/ficha?code=',
+  'ofertas recibidas',
+  'class="products"',
 ]) {
   if (!html.includes(expected)) throw new Error(`dashboard missing: ${expected}`);
 }
