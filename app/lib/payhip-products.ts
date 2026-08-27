@@ -27,3 +27,12 @@ export const payhipProducts = {
 } as const satisfies Record<'free' | 'premium', PayhipProduct>;
 
 export const payhipProductList: PayhipProduct[] = [payhipProducts.free, payhipProducts.premium];
+
+export function trackedPayhipUrl(product: PayhipProduct, campaign: string) {
+  const url = new URL(product.url);
+  url.searchParams.set('utm_source', 'herramientas-rentables');
+  url.searchParams.set('utm_medium', 'referral');
+  url.searchParams.set('utm_campaign', campaign);
+  url.searchParams.set('utm_content', product.kind);
+  return url.toString();
+}
