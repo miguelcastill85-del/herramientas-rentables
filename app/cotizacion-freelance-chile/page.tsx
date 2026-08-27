@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Native anchors avoid vinext prefetch issues used elsewhere in the site. */
 import type { Metadata } from 'next';
 import { FreelanceQuoteBuilder } from '../components/freelance-quote-builder';
-import { payhipProducts } from '../lib/payhip-products';
+import { payhipProducts, trackedPayhipUrl } from '../lib/payhip-products';
 import { siteUrl } from '../lib/tools';
 
 const path = '/cotizacion-freelance-chile';
@@ -74,7 +74,7 @@ export default function FreelanceQuotePage() {
           <div className="container">
             <div className="section-heading tool-page-section-heading"><p className="eyebrow">Cuando cotizar deja de ser algo ocasional</p><h2>Convierte el proceso en un sistema</h2><p>Esta herramienta resuelve una cotización puntual. Si cotizas proyectos con frecuencia, el siguiente paso es ordenar precios, cotizaciones y márgenes de forma reutilizable.</p></div>
             <div className="tool-content-grid">
-              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><a className="button button-primary" href={payhipProducts.premium.url} target="_blank" rel="noreferrer">{payhipProducts.premium.buttonLabel}</a></article>
+              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><a className="button button-primary" href={trackedPayhipUrl(payhipProducts.premium, 'cotizacion-profesional')} target="_blank" rel="noreferrer">{payhipProducts.premium.buttonLabel}</a></article>
               <article className="tool-info-card"><p className="eyebrow">Aprende antes de cotizar</p><h3>¿Cuánto cobrar como freelance en Chile?</h3><p>Si todavía estás definiendo tu tarifa, usa la guía para estimar un piso sostenible antes de construir la propuesta.</p><a className="button button-primary" href="/guias/cuanto-cobrar-como-freelance-chile">Ver guía de tarifas</a></article>
             </div>
           </div>
