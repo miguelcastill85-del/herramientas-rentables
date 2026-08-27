@@ -1,6 +1,7 @@
 import { opportunityDecision, priceRange, marginGuard } from './scoring.js';
 import { listCompraAgil } from './mercado-publico.js';
 import { publicSearchFallback } from './public-search-fallback.js';
+import { radarDashboard } from './dashboard.js';
 
 const LIVE_KEYWORDS = [
   'tornillo',
@@ -228,6 +229,10 @@ async function liveMaintenanceOpportunities(env) {
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
+
+    if (url.pathname === '/dashboard' && req.method === 'GET') {
+      return radarDashboard();
+    }
 
     if (url.pathname === '/health') {
       return json({ ok: true, service: 'radar-rentable-fase0' });

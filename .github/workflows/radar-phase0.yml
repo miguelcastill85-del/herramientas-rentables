@@ -48,3 +48,5 @@ jobs:
         run: node radar/phase0/tests/real-ingestion-smoke.mjs
       - name: Validate live opportunities endpoint
         run: node radar/phase0/tests/live-opportunities-smoke.mjs
+      - name: Validate Radar dashboard
+        run: node radar/phase0/tests/dashboard-smoke.mjs
