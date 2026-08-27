@@ -1,0 +1,231 @@
+.quoteBuilder {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.stageCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(20, 58, 49, 0.12);
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfaf5 100%);
+  box-shadow: 0 1.2rem 2.8rem rgba(20, 58, 49, 0.08);
+}
+
+.stageCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--lime);
+}
+
+.stageHeader {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.stageNumber {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--lime);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.stageHeader h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.stageHeader p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.scopeArea {
+  width: 100%;
+  min-height: 7.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(20, 58, 49, 0.18);
+  border-radius: 0.85rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.scopeArea:focus {
+  border-color: rgba(79, 109, 0, 0.65);
+  outline: 3px solid rgba(220, 255, 104, 0.35);
+}
+
+.resultShell {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid rgba(220, 255, 104, 0.38);
+  border-radius: 1.4rem;
+  background: linear-gradient(135deg, #132a24 0%, #1d3a32 100%);
+  color: #fff;
+  box-shadow: 0 1.5rem 3.6rem rgba(19, 42, 36, 0.2);
+}
+
+.resultKicker {
+  margin: 0;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heroResult {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.heroResult span {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.95rem;
+}
+
+.heroResult strong {
+  color: var(--lime);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.resultGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.metric {
+  padding: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0.9rem;
+  background: rgba(255,255,255,0.055);
+}
+
+.metric span,
+.metric strong {
+  display: block;
+}
+
+.metric span {
+  margin-bottom: 0.35rem;
+  color: rgba(255,255,255,0.62);
+  font-size: 0.78rem;
+}
+
+.metric strong {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.protectionNote {
+  margin: 0;
+  color: rgba(255,255,255,0.76);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.summaryCard {
+  border: 1px solid rgba(20, 58, 49, 0.15);
+  border-radius: 1.4rem;
+  background: #fff;
+  box-shadow: 0 1.1rem 2.7rem rgba(20, 58, 49, 0.08);
+}
+
+.summaryTop {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.summaryTop h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+.summaryTop p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.summaryText {
+  margin: 0;
+  padding: 1.15rem;
+  border: 1px dashed rgba(20, 58, 49, 0.24);
+  border-radius: 1rem;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: inherit;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.copyBar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.copyStatus {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 900px) {
+  .quoteGrid,
+  .resultGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .quoteGrid,
+  .resultGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroResult,
+  .summaryTop,
+  .copyBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .heroResult strong {
+    font-size: 2.4rem;
+  }
+}
