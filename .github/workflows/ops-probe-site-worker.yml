@@ -1,0 +1,36 @@
+name: Ops Probe Site Worker
+
+on:
+  push:
+    branches: [ops/probe-site-worker]
+    paths: ['.github/workflows/ops-probe-site-worker.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WORKER_NAME: herramientas-rentables
+    steps:
+      - name: Read-only Cloudflare check
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const account=process.env.CLOUDFLARE_ACCOUNT_ID;
+          const raw=process.env.CLOUDFLARE_API_TOKEN || '';
+          const token=raw.trim().replace(/^Bearer\s+/i,'').replace(/^"|"$/g,'');
+          if(!account || !token) throw new Error('Cloudflare credentials missing');
+          const headers={Authorization:`Bearer ${token}`};
+          const verify=await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/tokens/verify`,{headers});
+          const v=await verify.json();
+          if(!verify.ok || !v.success || v.result?.status!=='active') throw new Error('Cloudflare token inactive');
+          const r=await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts`,{headers});
+          const data=await r.json();
+          if(!r.ok || !data.success) throw new Error(`Workers list HTTP ${r.status}`);
+          const matches=(data.result||[]).filter(x=>x.id===process.env.WORKER_NAME || x.name===process.env.WORKER_NAME);
+          console.log(JSON.stringify({token_active:true,worker_name:process.env.WORKER_NAME,exact_matches:matches.length,exists:matches.length===1,duplicate:matches.length>1}));
+          NODE
