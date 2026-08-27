@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Native anchors avoid the vinext RSC prefetch runtime error used elsewhere in this site. */
 import type { Metadata } from 'next';
-import { payhipProducts } from '../../lib/payhip-products';
+import { payhipProducts, trackedPayhipUrl } from '../../lib/payhip-products';
 import { siteUrl } from '../../lib/tools';
 
 const path = '/guias/cuanto-cobrar-como-freelance-chile';
@@ -143,8 +143,8 @@ export default function FreelanceChileGuide() {
           <div className="container">
             <div className="section-heading tool-page-section-heading"><p className="eyebrow">Siguiente paso</p><h2>¿Quieres llevarte el cálculo?</h2><p>Empieza gratis. Si después necesitas un sistema más completo para ordenar precios y rentabilidad, tienes una opción premium.</p></div>
             <div className="tool-content-grid">
-              <article className="tool-info-card"><p className="eyebrow">Gratis</p><h3>{payhipProducts.free.name}</h3><p>{payhipProducts.free.description}</p><a className="button button-primary" href={payhipProducts.free.url} rel="noreferrer" target="_blank">{payhipProducts.free.buttonLabel}</a></article>
-              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><a className="button button-primary" href={payhipProducts.premium.url} rel="noreferrer" target="_blank">{payhipProducts.premium.buttonLabel}</a></article>
+              <article className="tool-info-card"><p className="eyebrow">Gratis</p><h3>{payhipProducts.free.name}</h3><p>{payhipProducts.free.description}</p><a className="button button-primary" href={trackedPayhipUrl(payhipProducts.free, 'guia-tarifa-freelance')} rel="noreferrer" target="_blank">{payhipProducts.free.buttonLabel}</a></article>
+              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><a className="button button-primary" href={trackedPayhipUrl(payhipProducts.premium, 'guia-tarifa-freelance')} rel="noreferrer" target="_blank">{payhipProducts.premium.buttonLabel}</a></article>
             </div>
           </div>
         </section>
