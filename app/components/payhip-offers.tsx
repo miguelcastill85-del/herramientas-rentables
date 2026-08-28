@@ -12,8 +12,8 @@ export function PayhipOffers({ variant = 'compact' }: { variant?: 'compact' | 'p
         </h2>
         <p>
           {variant === 'compact'
-            ? 'Continúa en Payhip con una opción gratuita o conoce el sistema premium.'
-            : 'Puedes empezar con el recurso gratuito o revisar la alternativa premium más completa.'}
+            ? 'El cotizador gratuito resuelve una propuesta puntual. Descarga el recurso de tarifa para empezar o revisa el archivo premium para trabajar con precios y márgenes de forma recurrente.'
+            : 'Empieza por tu tarifa con el recurso gratuito. Si necesitas repetir el proceso y revisar la rentabilidad de tus proyectos, conoce el archivo premium.'}
         </p>
       </div>
 
@@ -23,6 +23,7 @@ export function PayhipOffers({ variant = 'compact' }: { variant?: 'compact' | 'p
             <span className="payhip-product-label">{product.label}</span>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
+            <p><strong>{product.details}</strong></p>
             <a
               className={`button payhip-product-button ${product.kind === 'free' ? 'button-outline' : ''}`}
               href={trackedPayhipUrl(product, campaign)}
@@ -37,7 +38,7 @@ export function PayhipOffers({ variant = 'compact' }: { variant?: 'compact' | 'p
       </div>
 
       <p className="payhip-disclosure">
-        Checkout, pago y entrega se gestionan en Payhip. Revisa allí la información vigente de cada producto.
+        Pago y entrega se gestionan en Payhip. Antes de comprar, confirma allí el contenido, el precio final y las condiciones vigentes.
       </p>
     </section>
   );

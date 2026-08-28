@@ -5,6 +5,7 @@ export type PayhipProduct = {
   url: string;
   buttonLabel: string;
   description: string;
+  details: string;
 };
 
 export const payhipProducts = {
@@ -14,7 +15,8 @@ export const payhipProducts = {
     name: 'Calculadora Gratis de Tarifa Freelance',
     url: 'https://payhip.com/b/lAtSg',
     buttonLabel: 'Descargar gratis',
-    description: 'Una opción gratuita disponible en Payhip para empezar con un recurso centrado en la tarifa freelance.',
+    description: 'Empieza por tu tarifa: un recurso para estimar cuánto necesitas cobrar por tu tiempo antes de preparar una cotización.',
+    details: 'Gratis · Recurso descargable en Payhip',
   },
   premium: {
     kind: 'premium',
@@ -22,7 +24,8 @@ export const payhipProducts = {
     name: 'Sistema Freelance Rentable',
     url: 'https://payhip.com/b/doK54',
     buttonLabel: 'Ver sistema completo',
-    description: 'Una opción premium disponible en Payhip para quienes buscan un sistema más completo.',
+    description: 'Organiza precios, cotizaciones y control de margen en un archivo reutilizable. Para evaluar tus proyectos y revisar su rentabilidad cuando cotizar se vuelve parte habitual de tu trabajo.',
+    details: 'CLP 8.990 · Archivo Excel (.xlsx)',
   },
 } as const satisfies Record<'free' | 'premium', PayhipProduct>;
 

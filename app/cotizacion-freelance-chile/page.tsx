@@ -72,9 +72,9 @@ export default function FreelanceQuotePage() {
 
         <section className="tool-related-section">
           <div className="container">
-            <div className="section-heading tool-page-section-heading"><p className="eyebrow">Cuando cotizar deja de ser algo ocasional</p><h2>Convierte el proceso en un sistema</h2><p>Esta herramienta resuelve una cotización puntual. Si cotizas proyectos con frecuencia, el siguiente paso es ordenar precios, cotizaciones y márgenes de forma reutilizable.</p></div>
+            <div className="section-heading tool-page-section-heading"><p className="eyebrow">Cuando cotizar deja de ser algo ocasional</p><h2>De una cotización puntual al control de tus proyectos</h2><p>El cotizador gratuito te ayuda a definir el precio y las condiciones de una propuesta. El premium es un archivo de trabajo reutilizable para ordenar precios, evaluar proyectos y revisar su margen. Si solo necesitas esta cotización, puedes seguir usando la herramienta gratis.</p></div>
             <div className="tool-content-grid">
-              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><a className="button button-primary" href={trackedPayhipUrl(payhipProducts.premium, 'cotizacion-profesional')} target="_blank" rel="noreferrer">{payhipProducts.premium.buttonLabel}</a></article>
+              <article className="tool-info-card"><p className="eyebrow">Premium</p><h3>{payhipProducts.premium.name}</h3><p>{payhipProducts.premium.description}</p><p><strong>{payhipProducts.premium.details}</strong></p><p>Antes de comprar, confirma el contenido, el precio final y las condiciones en Payhip.</p><a className="button button-primary" href={trackedPayhipUrl(payhipProducts.premium, 'cotizacion-profesional')} target="_blank" rel="noreferrer">{payhipProducts.premium.buttonLabel}</a></article>
               <article className="tool-info-card"><p className="eyebrow">Aprende antes de cotizar</p><h3>¿Cuánto cobrar como freelance en Chile?</h3><p>Si todavía estás definiendo tu tarifa, usa la guía para estimar un piso sostenible antes de construir la propuesta.</p><a className="button button-primary" href="/guias/cuanto-cobrar-como-freelance-chile">Ver guía de tarifas</a></article>
             </div>
           </div>
