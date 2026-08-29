@@ -13,7 +13,7 @@ No persiste email, nombre, IP, `customer_id` ni otros datos personales del compr
 
 ## Seguridad y semántica
 
-Payhip envía la firma en la propiedad JSON `signature`. Se valida comparándola con SHA-256 de `PAYHIP_API_KEY`.
+Payhip envía la firma en la propiedad JSON `signature`. Se valida comparándola con SHA-256 de la clave de desarrollador configurada como secreto `WEBHOOK_KEY`.
 
 Payhip documenta los importes en unidades menores (centavos/pennies); se almacenan como enteros sin conversión prematura.
 
@@ -29,7 +29,7 @@ El repositorio deja un `database_id` marcador. No debe desplegarse hasta crear l
 
 1. Crear la base D1 `payhip-telemetry` en la cuenta Cloudflare y copiar su ID a `wrangler.jsonc`.
 2. Aplicar `sql/001_schema.sql` a esa base.
-3. Guardar dos secretos del Worker: `PAYHIP_API_KEY` y un `METRICS_TOKEN` aleatorio.
+3. Guardar dos secretos del Worker: `WEBHOOK_KEY` con la clave de desarrollador de Payhip y `READ_TOKEN` con un valor aleatorio.
 4. Desplegar el Worker en el plan Free.
 5. En Payhip > Settings > Developer, registrar `https://<worker>/webhooks/payhip` y habilitar `paid`, `refunded`, `subscription.created` y `subscription.deleted`.
 
@@ -37,7 +37,7 @@ Después de esa configuración no se requiere atención rutinaria del titular.
 
 ## Lectura de métricas
 
-`GET /metrics` con `Authorization: Bearer <METRICS_TOKEN>` devuelve por moneda:
+`GET /metrics` con `Authorization: Bearer <READ_TOKEN>` devuelve por moneda:
 
 - `gross_minor`
 - `payhip_fee_minor`
