@@ -29,9 +29,9 @@ async function sha256Hex(value) {
   return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
-async function validSignature(body, apiKey) {
-  if (!body?.signature || !apiKey) return false;
-  return safeEqual(body.signature, await sha256Hex(apiKey));
+async function validSignature(body, webhookKey) {
+  if (!body?.signature || !webhookKey) return false;
+  return safeEqual(body.signature, await sha256Hex(webhookKey));
 }
 
 function productKeys(body) {
@@ -154,7 +154,7 @@ export default {
     }
 
     if (url.pathname === '/webhooks/payhip' && request.method === 'POST') {
-      if (!env.PAYHIP_API_KEY) return json({ error: 'payhip_api_key_missing' }, 503);
+      if (!env.WEBHOOK_KEY) return json({ error: 'webhook_key_missing' }, 503);
 
       let body;
       try {
@@ -163,7 +163,7 @@ export default {
         return json({ error: 'invalid_json' }, 400);
       }
 
-      if (!(await validSignature(body, env.PAYHIP_API_KEY))) {
+      if (!(await validSignature(body, env.WEBHOOK_KEY))) {
         return json({ error: 'invalid_signature' }, 401);
       }
 
@@ -179,9 +179,9 @@ export default {
     }
 
     if (url.pathname === '/metrics' && request.method === 'GET') {
-      if (!env.METRICS_TOKEN) return json({ error: 'metrics_token_missing' }, 503);
+      if (!env.READ_TOKEN) return json({ error: 'read_token_missing' }, 503);
       const auth = request.headers.get('authorization') || '';
-      if (!safeEqual(auth, `Bearer ${env.METRICS_TOKEN}`)) return json({ error: 'unauthorized' }, 401);
+      if (!safeEqual(auth, `Bearer ${env.READ_TOKEN}`)) return json({ error: 'unauthorized' }, 401);
       return json(await metrics(env.DB));
     }
 
