@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { payhipProducts, trackedPayhipUrl } from '../lib/payhip-products';
 import styles from './freelance-quote-builder.module.css';
 
 const money = new Intl.NumberFormat('es-CL', {
@@ -14,6 +15,8 @@ const complexityMultipliers = {
   medium: 1.2,
   high: 1.4,
 } as const;
+
+const premiumAfterQuoteUrl = trackedPayhipUrl(payhipProducts.premium, 'cotizacion-resultado');
 
 type Complexity = keyof typeof complexityMultipliers;
 
@@ -129,6 +132,22 @@ export function FreelanceQuoteBuilder() {
           <button className="secondary-button" type="button" onClick={copySummary}>Copiar resumen</button>
           <span className={styles.copyStatus} aria-live="polite">{copyStatus}</span>
         </div>
+      </section>
+
+      <section className={`tool-info-card ${styles.summaryCard}`} aria-labelledby="premium-after-quote-heading">
+        <p className={styles.resultKicker}>Siguiente paso</p>
+        <h3 id="premium-after-quote-heading">¿Cotizas proyectos con frecuencia?</h3>
+        <p>Esta cotización ya está lista. Si necesitas repetir el proceso y controlar precios, proyectos y margen en un archivo reutilizable, conoce <strong>{payhipProducts.premium.name}</strong>.</p>
+        <p><strong>{payhipProducts.premium.details}</strong></p>
+        <a
+          className="button button-primary"
+          href={premiumAfterQuoteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${payhipProducts.premium.buttonLabel} en Payhip (se abre en una pestaña nueva)`}
+        >
+          {payhipProducts.premium.buttonLabel} <span aria-hidden="true">↗</span>
+        </a>
       </section>
 
       <p className="tool-orientation-note"><strong>Importante:</strong> esta herramienta es orientativa. Ajusta las condiciones a tu servicio y revisa aspectos legales, tributarios o contractuales con un profesional cuando corresponda.</p>
