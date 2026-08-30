@@ -6,7 +6,7 @@ type PayhipOffersProps = {
 };
 
 export function PayhipOffers({ variant = 'compact', campaign }: PayhipOffersProps) {
-  const trackedCampaign = campaign ?? (variant === 'compact' ? 'cotizador-generico' : 'recursos-freelance');
+  const trackedCampaign = campaign ?? (variant === 'compact' ? 'estimador-horas-cotizacion' : 'recursos-freelance');
 
   return (
     <section className={`payhip-offers payhip-offers-${variant}`} aria-labelledby={`payhip-heading-${variant}`}>
