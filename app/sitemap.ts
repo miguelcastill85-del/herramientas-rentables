@@ -14,8 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${siteUrl}/radar`,
       lastModified,
-      changeFrequency: 'daily',
-      priority: 0.9,
+      changeFrequency: 'yearly',
+      priority: 0.1,
     },
     {
       url: `${siteUrl}/pro`,
