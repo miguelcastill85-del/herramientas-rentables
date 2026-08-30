@@ -1,0 +1,103 @@
+name: Deploy Payhip telemetry
+
+on:
+  workflow_dispatch:
+    inputs:
+      d1_database_id:
+        description: "ID de la base D1 payhip-telemetry"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-payhip-telemetry
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Migrar y desplegar telemetría
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      WEBHOOK_KEY: ${{ secrets.PAYHIP_WEBHOOK_KEY }}
+      READ_TOKEN: ${{ secrets.PAYHIP_METRICS_READ_TOKEN }}
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+          run_install: false
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.13.0
+          cache: pnpm
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Comprobar credenciales requeridas
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID WEBHOOK_KEY READ_TOKEN; do
+            if [ -z "${!name:-}" ]; then
+              echo "::error::Falta el secreto requerido: $name"
+              exit 1
+            fi
+          done
+
+      - name: Generar configuración temporal
+        working-directory: commerce/payhip-telemetry
+        env:
+          D1_DATABASE_ID: ${{ inputs.d1_database_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const source = readFileSync('wrangler.jsonc', 'utf8');
+          const id = process.env.D1_DATABASE_ID?.trim();
+          if (!id || !/^[0-9a-f-]{20,}$/i.test(id)) {
+            throw new Error('d1_database_id no parece un ID D1 válido');
+          }
+          const rendered = source.replace('REPLACE_WITH_D1_DATABASE_ID', id);
+          if (rendered.includes('REPLACE_WITH_D1_DATABASE_ID')) {
+            throw new Error('No se pudo materializar database_id');
+          }
+          writeFileSync('wrangler.deploy.jsonc', rendered);
+          NODE
+
+      - name: Aplicar esquema D1
+        working-directory: commerce/payhip-telemetry
+        run: pnpm exec wrangler d1 execute payhip-telemetry --remote --file=sql/001_schema.sql --config=wrangler.deploy.jsonc
+
+      - name: Preparar secretos efímeros
+        working-directory: commerce/payhip-telemetry
+        run: |
+          node --input-type=module <<'NODE'
+          import { writeFileSync } from 'node:fs';
+          const path = `${process.env.RUNNER_TEMP}/payhip-telemetry-secrets.json`;
+          writeFileSync(path, JSON.stringify({
+            WEBHOOK_KEY: process.env.WEBHOOK_KEY,
+            READ_TOKEN: process.env.READ_TOKEN,
+          }));
+          NODE
+
+      - name: Desplegar Worker y secretos
+        working-directory: commerce/payhip-telemetry
+        run: pnpm exec wrangler deploy --config=wrangler.deploy.jsonc --secrets-file="$RUNNER_TEMP/payhip-telemetry-secrets.json"
+
+      - name: Limpiar archivos efímeros
+        if: always()
+        working-directory: commerce/payhip-telemetry
+        run: |
+          rm -f wrangler.deploy.jsonc
+          rm -f "$RUNNER_TEMP/payhip-telemetry-secrets.json"
