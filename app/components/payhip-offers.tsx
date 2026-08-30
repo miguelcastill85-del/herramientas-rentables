@@ -1,7 +1,12 @@
 import { payhipProductList, trackedPayhipUrl } from '../lib/payhip-products';
 
-export function PayhipOffers({ variant = 'compact' }: { variant?: 'compact' | 'page' }) {
-  const campaign = variant === 'compact' ? 'cotizador-generico' : 'recursos-freelance';
+type PayhipOffersProps = {
+  variant?: 'compact' | 'page';
+  campaign?: string;
+};
+
+export function PayhipOffers({ variant = 'compact', campaign }: PayhipOffersProps) {
+  const trackedCampaign = campaign ?? (variant === 'compact' ? 'estimador-horas-cotizacion' : 'recursos-freelance');
 
   return (
     <section className={`payhip-offers payhip-offers-${variant}`} aria-labelledby={`payhip-heading-${variant}`}>
@@ -26,7 +31,7 @@ export function PayhipOffers({ variant = 'compact' }: { variant?: 'compact' | 'p
             <p><strong>{product.details}</strong></p>
             <a
               className={`button payhip-product-button ${product.kind === 'free' ? 'button-outline' : ''}`}
-              href={trackedPayhipUrl(product, campaign)}
+              href={trackedPayhipUrl(product, trackedCampaign)}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${product.buttonLabel} en Payhip (se abre en una pestaña nueva)`}
