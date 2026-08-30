@@ -10,11 +10,14 @@ const requiredFiles = [
   'app/lib/payhip-products.ts',
   'app/lib/tools.ts',
   'app/pro/page.tsx',
+  'app/cotizacion-freelance-chile/page.tsx',
+  'app/guias/cuanto-cobrar-como-freelance-chile/page.tsx',
   'app/sitemap.ts',
   'public/robots.txt',
   'public/site.webmanifest',
   'README.md',
   '.github/workflows/validate.yml',
+  '.github/workflows/deploy-radar.yml',
 ];
 
 const errors = [];
@@ -35,8 +38,11 @@ const toolPage = await readFile('app/herramientas/[slug]/page.tsx', 'utf8');
 const payhipProducts = await readFile('app/lib/payhip-products.ts', 'utf8');
 const toolData = await readFile('app/lib/tools.ts', 'utf8');
 const proPage = await readFile('app/pro/page.tsx', 'utf8');
+const quotePage = await readFile('app/cotizacion-freelance-chile/page.tsx', 'utf8');
+const guidePage = await readFile('app/guias/cuanto-cobrar-como-freelance-chile/page.tsx', 'utf8');
 const sitemap = await readFile('app/sitemap.ts', 'utf8');
 const robots = await readFile('public/robots.txt', 'utf8');
+const radarWorkflow = await readFile('.github/workflows/deploy-radar.yml', 'utf8');
 const toolNames = [
   'Calculadora de margen',
   'Punto de equilibrio',
@@ -107,10 +113,14 @@ const checks = [
   [payhipOffers.includes('target="_blank"') && payhipOffers.includes('rel="noopener noreferrer"'), 'Los enlaces a Payhip deben abrirse de forma segura.'],
   [toolPage.includes("tool.id === 'estimate'") && toolPage.includes('<PayhipOffers />'), 'La calculadora de cotización debe mostrar el embudo después del resultado.'],
   [page.includes('href="/pro"'), 'La portada debe enlazar discretamente a /pro.'],
+  [!page.includes('href="/radar"'), 'La portada no debe promocionar la línea cerrada de Radar.'],
   [proPage.includes('<h1 id="pro-title">') && proPage.includes('<PayhipOffers variant="page" />') && proPage.includes('payhipProducts.free.name') && proPage.includes('payhipProducts.premium.name'), '/pro debe presentar ambas opciones con un H1 único.'],
   [proPage.includes('alternates: { canonical }') && proPage.includes('openGraph:') && proPage.includes('twitter:'), '/pro debe incluir canonical, Open Graph y Twitter metadata.'],
   [proPage.includes('main/public/og.png'), '/pro debe usar la imagen social existente.'],
   [sitemap.includes("url: `${siteUrl}/pro`"), 'El sitemap debe incluir /pro.'],
+  [sitemap.includes("url: `${siteUrl}/radar`") && sitemap.includes("changeFrequency: 'yearly'") && sitemap.includes('priority: 0.1'), 'Radar debe conservar su ruta con prioridad SEO mínima.'],
+  [quotePage.includes("title: 'Cotización Freelance Profesional en Chile'") && guidePage.includes("title: 'Cuánto cobrar como freelance en Chile en 2026'"), 'Las páginas freelance no deben duplicar la marca en el título generado.'],
+  [radarWorkflow.includes("node --input-type=module - <<'NODE'") && radarWorkflow.includes("run: |\n          echo 'Safe manual deploy complete:"), 'El workflow manual de Radar debe usar módulos Node válidos y YAML sin escalares ambiguos.'],
   [sitemap.includes('tools.map') && sitemap.includes('siteUrl'), 'El sitemap debe incluir la portada y las seis herramientas.'],
   [/User-agent:\s*\*/i.test(robots), 'robots.txt debe declarar un agente.'],
   [/Allow:\s*\//i.test(robots), 'robots.txt debe permitir el rastreo del sitio.'],
