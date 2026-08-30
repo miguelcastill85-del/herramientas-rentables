@@ -60,7 +60,7 @@ jobs:
       - name: Verify account token and resolve exact existing D1 read-only
         shell: bash
         run: |
-          node - <<'NODE'
+          node --input-type=module - <<'NODE'
           const fs=await import('node:fs');
           const account=process.env.CLOUDFLARE_ACCOUNT_ID;
           const token=process.env.CF_TOKEN;
@@ -87,7 +87,7 @@ jobs:
       - name: Patch local config and read compatibility date
         shell: bash
         run: |
-          node - <<'NODE'
+          node --input-type=module - <<'NODE'
           const fs=require('fs');
           const p='radar/phase0/wrangler.jsonc';
           let text=fs.readFileSync(p,'utf8');
@@ -199,4 +199,5 @@ jobs:
           }
           NODE
       - name: Summary
-        run: echo 'Safe manual deploy complete: dry-run before writes, exact D1 reused, existing Worker updated, free-only.'
+        run: |
+          echo 'Safe manual deploy complete: dry-run before writes, exact D1 reused, existing Worker updated, free-only.'
