@@ -9,7 +9,7 @@ const socialImage =
   'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
 
 export const metadata: Metadata = {
-  title: 'Cuánto cobrar como freelance en Chile en 2026 | Herramientas Rentables',
+  title: 'Cuánto cobrar como freelance en Chile en 2026',
   description: 'Aprende cuánto cobrar como freelance en Chile con un ejemplo en CLP: tarifa por hora, precio del proyecto, margen, anticipo y retención 2026.',
   alternates: { canonical },
   openGraph: {

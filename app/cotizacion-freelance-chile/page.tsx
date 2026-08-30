@@ -8,7 +8,7 @@ const path = '/cotizacion-freelance-chile';
 const canonical = `${siteUrl}${path}`;
 
 export const metadata: Metadata = {
-  title: 'Cotización Freelance Profesional en Chile | Herramientas Rentables',
+  title: 'Cotización Freelance Profesional en Chile',
   description: 'Calcula precio, margen, anticipo y condiciones para cotizar proyectos freelance en Chile. Genera un resumen profesional listo para enviar al cliente.',
   alternates: { canonical },
 };
