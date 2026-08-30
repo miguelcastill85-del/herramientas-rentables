@@ -21,19 +21,21 @@ Los webhooks válidos siempre responden HTTP 200, incluso si son duplicados, par
 
 ## Infraestructura
 
-Diseñado para Cloudflare Workers + D1 en el plan Free. No requiere Workers AI ni servicios pagos.
+Diseñado para Cloudflare Workers + D1 en capa gratuita. No requiere Workers AI ni servicios pagos.
 
-El repositorio deja un `database_id` marcador. No debe desplegarse hasta crear la base D1 gratuita y sustituirlo por el ID real.
+El repositorio conserva un `database_id` marcador en `wrangler.jsonc`; el workflow genera una configuración temporal durante el despliegue y nunca escribe credenciales ni IDs privados en el código fuente.
 
-## Configuración que requiere al titular una sola vez
+## Activación única por el titular
 
-1. Crear la base D1 `payhip-telemetry` en la cuenta Cloudflare y copiar su ID a `wrangler.jsonc`.
-2. Aplicar `sql/001_schema.sql` a esa base.
-3. Guardar dos secretos del Worker: `WEBHOOK_KEY` con la clave de desarrollador de Payhip y `READ_TOKEN` con un valor aleatorio.
-4. Desplegar el Worker en el plan Free.
+La automatización `.github/workflows/deploy-payhip-telemetry.yml` reduce la configuración manual a una sola preparación de cuenta:
+
+1. Crear o habilitar la base D1 `payhip-telemetry` y conservar su ID.
+2. Guardar en GitHub Actions los secretos `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`, `PAYHIP_WEBHOOK_KEY` y `PAYHIP_METRICS_READ_TOKEN`.
+3. Ejecutar manualmente `Deploy Payhip telemetry` introduciendo únicamente el ID de D1.
+4. El workflow aplica `sql/001_schema.sql`, materializa una configuración efímera, carga los secretos del Worker y despliega el servicio.
 5. En Payhip > Settings > Developer, registrar `https://<worker>/webhooks/payhip` y habilitar `paid`, `refunded`, `subscription.created` y `subscription.deleted`.
 
-Después de esa configuración no se requiere atención rutinaria del titular.
+Los archivos efímeros de configuración y secretos se eliminan del runner incluso cuando el despliegue falla. Después de esta activación no se requiere atención rutinaria del titular.
 
 ## Lectura de métricas
 
