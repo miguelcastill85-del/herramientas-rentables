@@ -1,0 +1,20 @@
+{
+  "brand":"SIGMA",
+  "template":"T02",
+  "publicationId":"PUB-C001-D06",
+  "knowledgeId":"KV-000003",
+  "franchise":"El número que importa",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "slides":[
+    {"headlineLines":["¿Cuánto tienes que", "vender para quedar", "en cero?"]},
+    {"headlineLines":["Costos fijos: 1.000", "Precio: 50", "Costo variable: 30"]},
+    {"headlineLines":["Cada unidad aporta 20"], "bodyLines":["50 - 30 = 20", "para cubrir costos fijos."]},
+    {"headlineLines":["Punto de equilibrio:"], "bodyLines":["1.000 / 20", "= 50 unidades"]},
+    {"headlineLines":["50 unidades"], "bodyLines":["cubren los costos considerados", "en este ejemplo."]},
+    {"headlineLines":["El número cambia"], "bodyLines":["si cambian precio, costos fijos", "o costo variable."]},
+    {"headlineLines":["Primero calcula el cero."], "bodyLines":["Después habla de crecimiento."]}
+  ],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
