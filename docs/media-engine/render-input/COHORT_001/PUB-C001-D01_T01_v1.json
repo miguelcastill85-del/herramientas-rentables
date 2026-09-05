@@ -7,8 +7,8 @@
   "width":1080,
   "height":1350,
   "dark":false,
-  "headlineLines":["10% de descuento", "no significa 10%", "más ventas."],
-  "anchor":"≈33%",
-  "support":["En el ejemplo: precio 100,", "costo variable 60,", "nuevo precio 90."],
+  "headlineLines":["Un 10% de descuento", "puede exigir mucho más", "de 10% más ventas."],
+  "anchor":"33% MÁS",
+  "support":["unidades para conservar", "la misma contribución", "en este ejemplo."],
   "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
 }
