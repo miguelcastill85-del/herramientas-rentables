@@ -1,0 +1,20 @@
+{
+  "brand":"SIGMA",
+  "template":"T02",
+  "publicationId":"PUB-C001-D02",
+  "knowledgeId":"KV-000001",
+  "franchise":"El número que importa",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "slides":[
+    {"headlineLines":["50% de markup", "no es 50%", "de margen."]},
+    {"headlineLines":["Costo: 40", "Precio: 60", "Diferencia: 20"]},
+    {"headlineLines":["Markup: 50%"], "bodyLines":["20 / 40 = 50%", "Se calcula sobre el costo."]},
+    {"headlineLines":["Margen: 33,3%"], "bodyLines":["20 / 60 = 33,3%", "Se calcula sobre el precio de venta."]},
+    {"headlineLines":["Misma diferencia: 20."], "bodyLines":["Dos porcentajes distintos", "porque cambia la base."]},
+    {"headlineLines":["Antes de fijar precio:"], "bodyLines":["¿Calculas sobre costo", "o sobre venta?"]},
+    {"headlineLines":["Guarda esta cuenta", "antes de cotizar."]}
+  ],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}

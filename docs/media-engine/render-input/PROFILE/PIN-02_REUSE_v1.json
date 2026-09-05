@@ -1,0 +1,11 @@
+{
+  "brand":"SIGMA",
+  "publicationId":"PIN-02",
+  "role":"PROOF_OF_VALUE",
+  "render_policy":"REUSE_EXISTING_APPROVED_ASSET",
+  "source_publication_id":"PUB-C001-D01",
+  "source_knowledge_id":"KV-000002",
+  "source_render_input":"docs/media-engine/render-input/COHORT_001/PUB-C001-D01_T01_v1.json",
+  "replacement_rule":"After enough organic data exists, replace PIN-02 only with a higher-quality proven winner that still represents SIGMA accurately.",
+  "status":"PENDING_SOURCE_FINAL_VISUAL_PROMOTION"
+}

@@ -1,0 +1,34 @@
+{
+  "ledger":"PUBLICATION_CONFIRMATION_LEDGER_v1",
+  "brand":"SIGMA",
+  "status":"EMPTY_READY_FOR_CONTROLLED_LAUNCH",
+  "append_only_policy":true,
+  "created_at":"2026-09-05",
+  "schema":{
+    "ledger_id":"unique confirmation record ID",
+    "publication_id":"manifest publication ID",
+    "platform":"instagram|facebook|linkedin",
+    "account_identifier":"exact confirmed account/page identifier",
+    "scheduled_at":"ISO-8601 or null",
+    "publish_attempted_at":"ISO-8601",
+    "confirmed_visible_at":"ISO-8601 or null",
+    "final_url":"platform URL or null",
+    "asset_receipt":"render receipt path/hash reference",
+    "caption_version":"approved master/version",
+    "duplicate_check":"PASS|FAIL|UNKNOWN",
+    "crop_media_check":"PASS|FAIL|UNKNOWN",
+    "confirmation_status":"CONFIRMED|FAILED|PARTIAL|UNKNOWN",
+    "attempt_number":"positive integer",
+    "error_code":"string or null",
+    "incident_id":"INC ID or null",
+    "notes":"string or null"
+  },
+  "records":[],
+  "rules":[
+    "Never treat API/send success alone as confirmed publication.",
+    "A post is CONFIRMED only after a visible platform object/final URL or equivalent platform confirmation is observed.",
+    "Do not overwrite prior attempts; append a new record for retries or corrections.",
+    "A confirmed duplicate triggers incident handling before further automated publication.",
+    "Unknown is not PASS."
+  ]
+}

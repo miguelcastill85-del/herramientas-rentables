@@ -102,9 +102,9 @@ function renderT01(d, logo) {
   return `${open}
 ${croppedLogo(logo, 'symbol', 72, 50, 118, 118)}
 <text class="label" x="72" y="225" font-size="24">${esc((d.franchise ?? '').toUpperCase())}</text>
-${lineText(lines, 72, 340, d.headlineSize ?? 72, 88, 'headline', 3)}
+${lineText(lines, 72, 340, d.headlineSize ?? 72, d.headlineLineGap ?? 88, 'headline', 3)}
 ${d.anchor ? `<text class="headline" x="72" y="760" font-size="${d.anchorSize ?? 150}" style="fill:${PALETTE.gold}">${esc(d.anchor)}</text>` : ''}
-${d.support ? lineText(d.support, 72, d.anchor ? 900 : 700, 34, 48, 'body', 4) : ''}
+${d.support ? lineText(d.support, 72, d.anchor ? 900 : 700, d.bodySize ?? 34, d.bodyLineGap ?? 48, 'body', 4) : ''}
 ${footer(width, height)}
 </svg>`;
 }
@@ -117,8 +117,8 @@ function renderT03(d, logo) {
 ${croppedLogo(logo, 'symbol', 72, 48, 106, 106)}
 <text class="label" x="72" y="205" font-size="23">${esc((d.franchise ?? 'EL NÚMERO QUE IMPORTA').toUpperCase())}</text>
 <text class="headline" x="72" y="500" font-size="${d.numberSize ?? 180}" style="fill:${PALETTE.gold}">${esc(d.number)}</text>
-${lineText(d.meaningLines ?? [d.meaning], 72, 630, 44, 58, 'headline', 3)}
-${d.consequence ? lineText(d.consequence, 72, 820, 30, 42, 'body', 3) : ''}
+${lineText(d.meaningLines ?? [d.meaning], 72, 630, d.headlineSize ?? 44, d.headlineLineGap ?? 58, 'headline', 3)}
+${d.consequence ? lineText(d.consequence, 72, 820, d.bodySize ?? 30, d.bodyLineGap ?? 42, 'body', 3) : ''}
 ${footer(width, height)}
 </svg>`;
 }
@@ -130,8 +130,8 @@ function renderT04(d, logo) {
   return `${open}
 ${croppedLogo(logo, 'symbol', 76, 54, 112, 112)}
 <text class="label" x="76" y="220" font-size="24">SIGMA · ${esc((d.franchise ?? 'ANÁLISIS').toUpperCase())}</text>
-${lineText(d.headlineLines ?? [d.headline], 76, 360, 68, 82, 'headline', 3)}
-${d.statementLines ? lineText(d.statementLines, 76, 690, 36, 52, 'body', 5) : ''}
+${lineText(d.headlineLines ?? [d.headline], 76, 360, d.headlineSize ?? 68, d.headlineLineGap ?? 82, 'headline', 3)}
+${d.statementLines ? lineText(d.statementLines, 76, 690, d.bodySize ?? 36, d.bodyLineGap ?? 52, 'body', 5) : ''}
 ${footer(width, height)}
 </svg>`;
 }
@@ -149,6 +149,10 @@ function renderT02(d, logo, outputPath) {
       statementLines: slide.bodyLines ?? slide.statementLines,
       anchor: slide.anchor,
       support: slide.bodyLines,
+      headlineSize: slide.headlineSize ?? d.headlineSize,
+      headlineLineGap: slide.headlineLineGap ?? d.headlineLineGap,
+      bodySize: slide.bodySize ?? d.bodySize,
+      bodyLineGap: slide.bodyLineGap ?? d.bodyLineGap,
       publicationId: `${d.publicationId}-S${String(index + 1).padStart(2, '0')}`,
     };
     const svg = index === 0 ? renderT01(one, logo) : renderT04(one, logo);

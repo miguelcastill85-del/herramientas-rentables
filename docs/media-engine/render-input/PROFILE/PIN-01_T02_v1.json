@@ -1,0 +1,18 @@
+{
+  "brand":"SIGMA",
+  "template":"T02",
+  "publicationId":"PIN-01",
+  "knowledgeId":"BRAND-PROMISE",
+  "franchise":"Qué es SIGMA",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "slides":[
+    {"headlineLines":["No necesitas", "más información."], "bodyLines":["Necesitas entender", "qué importa."]},
+    {"headlineLines":["SIGMA explica"], "bodyLines":["dinero, negocios, trabajo", "y tecnología práctica", "sin humo."]},
+    {"headlineLines":["Abrimos lo cotidiano"], "bodyLines":["cálculos, decisiones", "y mecanismos que suelen", "estar mal explicados."]},
+    {"headlineLines":["No prometemos hacerte rico."], "headlineSize":60, "bodyLines":["No publicamos motivación vacía.", "No convertimos rumores en hechos."]},
+    {"headlineLines":["Entender mejor.", "Decidir mejor."], "bodyLines":["Sigue SIGMA si prefieres", "entender antes de decidir."]}
+  ],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}

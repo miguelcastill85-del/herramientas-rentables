@@ -1,0 +1,15 @@
+{
+  "brand":"SIGMA",
+  "template":"T01",
+  "publicationId":"PUB-C001-D03",
+  "knowledgeId":"KV-000012",
+  "franchise":"Errores caros",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "headlineLines":["El precio no cambió.", "Tu tarifa real", "sí puede caer."],
+  "anchor":"66,67/h",
+  "anchorSize":132,
+  "support":["Proyecto de 1.000:", "10 horas = 100/h", "15 horas = 66,67/h"],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
