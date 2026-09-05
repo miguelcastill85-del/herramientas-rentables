@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Herramientas Rentables Knowledge Vault Item v1",
+  "type": "object",
+  "required": [
+    "idea_id",
+    "title_internal",
+    "topic",
+    "problem_or_decision",
+    "main_claim",
+    "practical_value",
+    "source_status",
+    "qa_tier",
+    "status",
+    "platform_potential",
+    "created_at"
+  ],
+  "properties": {
+    "idea_id": {"type": "string", "pattern": "^KV-[0-9]{6}$"},
+    "title_internal": {"type": "string", "minLength": 3},
+    "topic": {"type": "string"},
+    "subtopic": {"type": "string"},
+    "problem_or_decision": {"type": "string"},
+    "audience": {"type": "array", "items": {"type": "string"}},
+    "main_claim": {"type": "string"},
+    "practical_value": {"type": "string"},
+    "explanation": {"type": "string"},
+    "example": {"type": "string"},
+    "primary_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url_or_reference"],
+        "properties": {
+          "title": {"type": "string"},
+          "publisher": {"type": "string"},
+          "published_at": {"type": ["string", "null"]},
+          "url_or_reference": {"type": "string"},
+          "retrieved_at": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "secondary_sources": {"type": "array", "items": {"type": "string"}},
+    "source_status": {"enum": ["UNSOURCED", "RESEARCHING", "SUPPORTED", "PRIMARY_VERIFIED", "REJECTED"]},
+    "confidence": {"enum": ["A", "B", "C"]},
+    "qa_tier": {"enum": ["QA-A", "QA-B", "QA-C"]},
+    "interpretation_risks": {"type": "array", "items": {"type": "string"}},
+    "forbidden_overclaims": {"type": "array", "items": {"type": "string"}},
+    "content_franchise": {"type": ["string", "null"]},
+    "angles": {"type": "array", "items": {"type": "string"}},
+    "hooks": {"type": "array", "items": {"type": "string"}},
+    "search_intent": {
+      "type": "object",
+      "properties": {
+        "primary_query": {"type": "string"},
+        "secondary_queries": {"type": "array", "items": {"type": "string"}},
+        "audience_question": {"type": "string"},
+        "topic_entities": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "platform_potential": {
+      "type": "object",
+      "required": ["instagram", "facebook", "linkedin"],
+      "properties": {
+        "instagram": {"type": "integer", "minimum": 0, "maximum": 10},
+        "facebook": {"type": "integer", "minimum": 0, "maximum": 10},
+        "linkedin": {"type": "integer", "minimum": 0, "maximum": 10}
+      }
+    },
+    "score": {
+      "type": "object",
+      "properties": {
+        "utility": {"type": "integer", "minimum": 0, "maximum": 10},
+        "novelty": {"type": "integer", "minimum": 0, "maximum": 10},
+        "clarity": {"type": "integer", "minimum": 0, "maximum": 10},
+        "shareability": {"type": "integer", "minimum": 0, "maximum": 10},
+        "saveability": {"type": "integer", "minimum": 0, "maximum": 10},
+        "brand_fit": {"type": "integer", "minimum": 0, "maximum": 10},
+        "commercial_signal": {"type": "integer", "minimum": 0, "maximum": 10}
+      }
+    },
+    "status": {"enum": ["DRAFT", "RESEARCHED", "VERIFIED", "APPROVED", "SCHEDULED", "PUBLISHED", "MEASURED", "LEARNED", "ARCHIVED", "REJECTED"]},
+    "publication_ids": {"type": "array", "items": {"type": "string", "pattern": "^PUB-[0-9]{6}$"}},
+    "experiment_ids": {"type": "array", "items": {"type": "string", "pattern": "^EXP-[0-9]{4}$"}},
+    "created_at": {"type": "string"},
+    "verified_at": {"type": ["string", "null"]},
+    "last_updated_at": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

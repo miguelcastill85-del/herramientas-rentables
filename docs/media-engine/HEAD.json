@@ -1,0 +1,64 @@
+{
+  "project": "Herramientas Rentables Media Engine",
+  "authority_version": "MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
+  "status": "ACTIVE_DEVELOPMENT",
+  "source_of_truth": "GitHub",
+  "repository": "miguelcastill85-del/herramientas-rentables",
+  "branch": "feat/media-engine-v1-1-growth-patch",
+  "base_main_sha": "923ff863dd33349f6c303189b11a13f7b84e64f9",
+  "created_at": "2026-09-05",
+  "constraints": {
+    "additional_cost_target_usd": 0,
+    "do_not_modify_live_site_during_foundation": true,
+    "do_not_buy_followers": true,
+    "do_not_publish_unverified_material_claims": true,
+    "do_not_automate_human_conversation_blindly": true
+  },
+  "operating_model": {
+    "tracks": ["FOUNDATION_ENGINE", "GROWTH_LAB"],
+    "knowledge_seed_before_launch": "15-20 verified ideas",
+    "content_mix": {
+      "evergreen": 0.60,
+      "responsive": 0.25,
+      "experimental": 0.15
+    },
+    "explore_exploit_initial": {
+      "explore": 0.60,
+      "exploit": 0.40,
+      "note": "Shift toward exploitation only after repeated winners exist."
+    }
+  },
+  "progress": {
+    "seed_backlog_total": 20,
+    "seed_verified": 15,
+    "seed_target_minimum": 15,
+    "seed_target_full": 20,
+    "cohort_001_days_planned": 7,
+    "master_content_pieces_created": 1
+  },
+  "gates": {
+    "METHODOLOGY_V1_0": "PASS",
+    "GROWTH_PATCH_V1_1": "PASS",
+    "DURABLE_GITHUB_AUTHORITY": "PASS",
+    "BRAND_ARCHITECTURE_V1": "PASS",
+    "KNOWLEDGE_SCHEMA_V1": "PASS",
+    "SEED_KNOWLEDGE_MINIMUM_15": "PASS",
+    "SEED_KNOWLEDGE_FULL_20": "IN_PROGRESS_15_OF_20",
+    "MINIMUM_VIABLE_FORMAT_SPEC": "PASS",
+    "CONTENT_QA_SPEC": "PASS",
+    "COHORT_001_PLAN": "PASS",
+    "VISUAL_TEMPLATE_RENDERING": "PENDING",
+    "PROFILE_CONVERSION_SPEC": "PENDING",
+    "CLOSED_CONTENT_QA": "PENDING",
+    "AUTONOMOUS_PUBLISHING": "NOT_AUTHORIZED"
+  },
+  "current_phase": "COHORT_001_PREP_AND_PROFILE_CONVERSION",
+  "next_actions": [
+    "Create profile-conversion specification for Instagram, Facebook and LinkedIn",
+    "Create remaining cohort master pieces",
+    "Create visual template rendering specification",
+    "Run closed QA on first publication set",
+    "Keep verifying KV-000013 through KV-000020 in parallel",
+    "Do not enable autonomous publishing until closed QA passes"
+  ]
+}
