@@ -1,51 +1,53 @@
 # DEC-0001 — Brand Architecture v1
 
-Status: APPROVED
+Status: SUPERSEDED_BY_DEC-0002
 Date: 2026-09-05
 Authority: MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH
 
-## Decision
+> Historical record only. This decision is no longer forward authority. See `DEC-0002-sigma-brand-architecture.md`.
+
+## Historical decision
 
 Use **Herramientas Rentables as the master brand** and build recognizable editorial franchises inside the brand instead of creating a separate standalone media brand at launch.
 
-This is the selected version of architecture option B: a master brand with editorial franchises.
+This was the selected version of architecture option B: a master brand with editorial franchises.
 
-## Why this architecture wins now
+## Why this architecture originally won
 
 ### Speed
-It avoids spending the first growth cycle building a second independent brand, second site, second commercial identity and second trust layer.
+It avoided spending the first growth cycle building a second independent brand, second site, second commercial identity and second trust layer.
 
 ### Existing assets
-Herramientas Rentables already has a public site, useful tools, SEO work and commercial infrastructure. The media engine can send attention toward those owned assets rather than starting with zero utility behind the social profiles.
+Herramientas Rentables already had a public site, useful tools, SEO work and commercial infrastructure. The media engine could send attention toward those owned assets rather than starting with zero utility behind the social profiles.
 
 ### Monetization fit
-The proposed editorial territory—money, business, freelancing, pricing, marketing, practical technology, AI and useful tools—fits the existing promise of helping people make more profitable decisions.
+The proposed editorial territory—money, business, freelancing, pricing, marketing, practical technology, AI and useful tools—fit the existing promise of helping people make more profitable decisions.
 
 ### Scalability
-Editorial franchises can later become larger verticals or independent brands if audience data proves that separation creates more value.
+Editorial franchises could later become larger verticals or independent brands if audience data proved that separation created more value.
 
 ### Reversibility
-A franchise can be spun out later. Creating a second master brand now and later recombining audiences would be harder.
+A franchise could be spun out later. Creating a second master brand immediately and later recombining audiences would have been harder.
 
-## Master brand
+## Historical master brand
 
 **Herramientas Rentables**
 
-## Working master promise
+## Historical working master promise
 
 > Entender mejor cómo funcionan el dinero, los negocios, el trabajo y la tecnología práctica para tomar decisiones más rentables.
 
-This sentence is a positioning authority, not necessarily the final social bio.
+This sentence was positioning authority under DEC-0001, not necessarily the final social bio.
 
-## Editorial identity
+## Historical editorial identity
 
-The master brand should not behave like a catalog of calculators or constant sales content. It becomes a useful media brand that also owns tools and products.
+The master brand was not to behave like a catalog of calculators or constant sales content. It was to become a useful media brand that also owned tools and products.
 
 The audience should follow because the content itself is valuable, even if they never buy.
 
 ## Initial editorial franchises
 
-These are working franchises for validation, not all mandatory every week:
+These remain usable as editorial franchises unless separately superseded:
 
 1. **Lo que nadie te explica** — mechanisms people encounter but rarely understand clearly.
 2. **Errores caros** — mistakes that cost money, time, margin or opportunity.
@@ -55,7 +57,7 @@ These are working franchises for validation, not all mandatory every week:
 6. **Una idea para guardar** — compact, high-save practical insight.
 7. **Caso real / experimento** — evidence, examples, tests or deconstruction of a business mechanism.
 
-## Editorial boundary
+## Editorial boundary retained historically
 
 Include content when understanding it can materially help someone work, sell, buy, save, decide, negotiate or use technology better.
 
@@ -84,42 +86,12 @@ Exclude from the core brand:
 - get-rich-quick promises
 - claims that cannot be responsibly supported
 
-## Social-profile principle
+## Supersession note
 
-At launch, use the same master identity across Instagram, Facebook and LinkedIn wherever possible.
-
-The profile must communicate in seconds:
-
-1. what Herramientas Rentables explains;
-2. what the person gets by following;
-3. that useful knowledge appears repeatedly;
-4. where deeper tools/resources live.
-
-## Monetization rule
-
-Do not make the feed a sales catalog.
-
-Initial operating target:
-
-- 90–95% direct value / audience building
-- 5–10% commercial or owned-asset routing
-
-This is a working range, not a permanent fixed quota.
-
-## Spin-out trigger
-
-An editorial franchise may become an independent brand only after evidence such as:
-
-- sustained audience substantially different from the master brand;
-- enough independent demand to support its own publishing cadence;
-- distinct product opportunities;
-- clear dilution/confusion inside the master brand;
-- expected benefit greater than the cost of splitting audience and operations.
-
-No spin-out before evidence.
+On 2026-09-05 the user explicitly selected **SIGMA** as the new forward-looking master media brand before autonomous publication. `DEC-0002` therefore supersedes the master-brand choice in this file while preserving Herramientas Rentables as an owned tools/product property.
 
 ## Gate result
 
-BRAND_ARCHITECTURE_V1 = PASS
+`BRAND_ARCHITECTURE_V1_LEGACY = SUPERSEDED`
 
-Next authority action: define Knowledge Vault schema and start Seed Knowledge cohort.
+Forward authority: `DEC-0002-sigma-brand-architecture.md`.
