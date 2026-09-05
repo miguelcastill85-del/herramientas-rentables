@@ -30,9 +30,11 @@
   },
   "progress": {
     "seed_backlog_total": 20,
-    "seed_verified": 9,
+    "seed_verified": 15,
     "seed_target_minimum": 15,
-    "seed_target_full": 20
+    "seed_target_full": 20,
+    "cohort_001_days_planned": 7,
+    "master_content_pieces_created": 1
   },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
@@ -40,18 +42,23 @@
     "DURABLE_GITHUB_AUTHORITY": "PASS",
     "BRAND_ARCHITECTURE_V1": "PASS",
     "KNOWLEDGE_SCHEMA_V1": "PASS",
-    "SEED_KNOWLEDGE_15_20": "IN_PROGRESS_9_OF_20",
-    "MINIMUM_VIABLE_TEMPLATES": "PENDING",
-    "CONTENT_QA": "PENDING",
-    "FIRST_30_DAY_COHORT": "PENDING",
+    "SEED_KNOWLEDGE_MINIMUM_15": "PASS",
+    "SEED_KNOWLEDGE_FULL_20": "IN_PROGRESS_15_OF_20",
+    "MINIMUM_VIABLE_FORMAT_SPEC": "PASS",
+    "CONTENT_QA_SPEC": "PASS",
+    "COHORT_001_PLAN": "PASS",
+    "VISUAL_TEMPLATE_RENDERING": "PENDING",
+    "PROFILE_CONVERSION_SPEC": "PENDING",
+    "CLOSED_CONTENT_QA": "PENDING",
     "AUTONOMOUS_PUBLISHING": "NOT_AUTHORIZED"
   },
-  "current_phase": "SEED_KNOWLEDGE_15_20",
+  "current_phase": "COHORT_001_PREP_AND_PROFILE_CONVERSION",
   "next_actions": [
-    "Verify at least 6 additional seed ideas to reach launch minimum 15",
-    "Rank verified ideas for first content cohort",
-    "Create minimum viable formats: Reel, carousel, professional post",
-    "Activate Content QA and profile-conversion specification",
-    "Run closed QA before enabling publication"
+    "Create profile-conversion specification for Instagram, Facebook and LinkedIn",
+    "Create remaining cohort master pieces",
+    "Create visual template rendering specification",
+    "Run closed QA on first publication set",
+    "Keep verifying KV-000013 through KV-000020 in parallel",
+    "Do not enable autonomous publishing until closed QA passes"
   ]
 }
