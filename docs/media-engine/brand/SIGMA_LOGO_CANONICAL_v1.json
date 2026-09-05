@@ -1,0 +1,27 @@
+{
+  "asset_role": "SIGMA canonical logo identity",
+  "status": "CANONICAL_IDENTITY_CONFIRMED_BY_USER",
+  "confirmed_at": "2026-09-05",
+  "source_context": "Image explicitly shown by the user in ChatGPT as the selected SIGMA logo; no image edit or regeneration requested.",
+  "source_runtime_path": "/mnt/data/1000028326.png",
+  "source_runtime_note": "Runtime path is ephemeral and is recorded only for provenance; it is not the durable asset location.",
+  "pixel_dimensions": {
+    "width": 1536,
+    "height": 1536,
+    "aspect_ratio": "1:1"
+  },
+  "decoded_image_format": "JPEG",
+  "runtime_filename_extension": ".png",
+  "sha256": "48929e9baf789d3d587b44412a71adcf13dd3e5eceb3218335a3a18b7c54c4ca",
+  "visual_identity": {
+    "symbol": "angular abstract sigma/S mark",
+    "symbol_finish": "dark brushed metallic bronze/graphite with warm gold highlight seam",
+    "wordmark": "SIGMA",
+    "wordmark_style": "wide geometric uppercase black/charcoal lettering with stylized A",
+    "background": "light/off-white",
+    "composition": "centered symbol above wordmark"
+  },
+  "immutability_rule": "Any future asset claimed to be the canonical SIGMA logo must match this SHA-256 exactly unless a new versioned brand decision explicitly supersedes it.",
+  "binary_repository_status": "NOT_YET_STORED_AS_BINARY_IN_GITHUB_BY_THIS_CONNECTOR",
+  "binary_ingest_rule": "When binary upload is available, store this exact source asset without visual modification and verify SHA-256 after ingest. Do not substitute another generated logo variant."
+}
