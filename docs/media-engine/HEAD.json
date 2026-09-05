@@ -1,0 +1,51 @@
+{
+  "project": "Herramientas Rentables Media Engine",
+  "authority_version": "MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
+  "status": "ACTIVE_DEVELOPMENT",
+  "source_of_truth": "GitHub",
+  "repository": "miguelcastill85-del/herramientas-rentables",
+  "branch": "feat/media-engine-v1-1-growth-patch",
+  "base_main_sha": "923ff863dd33349f6c303189b11a13f7b84e64f9",
+  "created_at": "2026-09-05",
+  "constraints": {
+    "additional_cost_target_usd": 0,
+    "do_not_modify_live_site_during_foundation": true,
+    "do_not_buy_followers": true,
+    "do_not_publish_unverified_material_claims": true,
+    "do_not_automate_human_conversation_blindly": true
+  },
+  "operating_model": {
+    "tracks": ["FOUNDATION_ENGINE", "GROWTH_LAB"],
+    "knowledge_seed_before_launch": "15-20 verified ideas",
+    "content_mix": {
+      "evergreen": 0.60,
+      "responsive": 0.25,
+      "experimental": 0.15
+    },
+    "explore_exploit_initial": {
+      "explore": 0.60,
+      "exploit": 0.40,
+      "note": "Shift toward exploitation only after repeated winners exist."
+    }
+  },
+  "gates": {
+    "METHODOLOGY_V1_0": "PASS",
+    "GROWTH_PATCH_V1_1": "PASS",
+    "DURABLE_GITHUB_AUTHORITY": "PASS",
+    "BRAND_ARCHITECTURE_V1": "IN_PROGRESS",
+    "KNOWLEDGE_SCHEMA_V1": "PENDING",
+    "SEED_KNOWLEDGE_15_20": "PENDING",
+    "MINIMUM_VIABLE_TEMPLATES": "PENDING",
+    "CONTENT_QA": "PENDING",
+    "FIRST_30_DAY_COHORT": "PENDING",
+    "AUTONOMOUS_PUBLISHING": "NOT_AUTHORIZED"
+  },
+  "current_phase": "BRAND_ARCHITECTURE_V1",
+  "next_actions": [
+    "Freeze the fastest scalable brand architecture",
+    "Create Knowledge Vault schema",
+    "Build 15-20 verified seed ideas",
+    "Create minimum viable formats: Reel, carousel, professional post",
+    "Run closed QA before enabling publication"
+  ]
+}
