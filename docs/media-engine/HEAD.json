@@ -28,13 +28,19 @@
       "note": "Shift toward exploitation only after repeated winners exist."
     }
   },
+  "progress": {
+    "seed_backlog_total": 20,
+    "seed_verified": 9,
+    "seed_target_minimum": 15,
+    "seed_target_full": 20
+  },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
     "GROWTH_PATCH_V1_1": "PASS",
     "DURABLE_GITHUB_AUTHORITY": "PASS",
     "BRAND_ARCHITECTURE_V1": "PASS",
     "KNOWLEDGE_SCHEMA_V1": "PASS",
-    "SEED_KNOWLEDGE_15_20": "IN_PROGRESS",
+    "SEED_KNOWLEDGE_15_20": "IN_PROGRESS_9_OF_20",
     "MINIMUM_VIABLE_TEMPLATES": "PENDING",
     "CONTENT_QA": "PENDING",
     "FIRST_30_DAY_COHORT": "PENDING",
@@ -42,10 +48,10 @@
   },
   "current_phase": "SEED_KNOWLEDGE_15_20",
   "next_actions": [
-    "Create diversified 20-item seed backlog",
-    "Verify the strongest seed ideas with reliable sources",
-    "Select first content franchises from evidence and utility",
+    "Verify at least 6 additional seed ideas to reach launch minimum 15",
+    "Rank verified ideas for first content cohort",
     "Create minimum viable formats: Reel, carousel, professional post",
+    "Activate Content QA and profile-conversion specification",
     "Run closed QA before enabling publication"
   ]
 }
