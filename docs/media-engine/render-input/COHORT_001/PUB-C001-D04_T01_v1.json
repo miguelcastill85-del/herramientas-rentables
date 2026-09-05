@@ -8,8 +8,8 @@
   "height":1350,
   "dark":false,
   "headlineLines":["La IA puede sonar", "completamente segura", "y estar equivocada."],
-  "anchor":"FLUIDEZ NO ES EVIDENCIA",
-  "anchorSize":82,
+  "anchor":"FLUIDEZ NO ES PRUEBA",
+  "anchorSize":74,
   "support":["Si una afirmación importa,", "compruébala en la fuente", "original antes de actuar."],
   "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
 }
