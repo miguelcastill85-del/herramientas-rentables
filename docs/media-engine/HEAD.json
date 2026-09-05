@@ -32,19 +32,19 @@
     "METHODOLOGY_V1_0": "PASS",
     "GROWTH_PATCH_V1_1": "PASS",
     "DURABLE_GITHUB_AUTHORITY": "PASS",
-    "BRAND_ARCHITECTURE_V1": "IN_PROGRESS",
-    "KNOWLEDGE_SCHEMA_V1": "PENDING",
-    "SEED_KNOWLEDGE_15_20": "PENDING",
+    "BRAND_ARCHITECTURE_V1": "PASS",
+    "KNOWLEDGE_SCHEMA_V1": "PASS",
+    "SEED_KNOWLEDGE_15_20": "IN_PROGRESS",
     "MINIMUM_VIABLE_TEMPLATES": "PENDING",
     "CONTENT_QA": "PENDING",
     "FIRST_30_DAY_COHORT": "PENDING",
     "AUTONOMOUS_PUBLISHING": "NOT_AUTHORIZED"
   },
-  "current_phase": "BRAND_ARCHITECTURE_V1",
+  "current_phase": "SEED_KNOWLEDGE_15_20",
   "next_actions": [
-    "Freeze the fastest scalable brand architecture",
-    "Create Knowledge Vault schema",
-    "Build 15-20 verified seed ideas",
+    "Create diversified 20-item seed backlog",
+    "Verify the strongest seed ideas with reliable sources",
+    "Select first content franchises from evidence and utility",
     "Create minimum viable formats: Reel, carousel, professional post",
     "Run closed QA before enabling publication"
   ]
