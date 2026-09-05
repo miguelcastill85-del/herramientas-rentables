@@ -1,0 +1,34 @@
+{
+  "schema":"SIGMA_ANALYTICS_SCHEMA_v1",
+  "status":"APPROVED_SPEC",
+  "authority":"MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
+  "measurement_windows_hours":[24,72,168],
+  "primary_fields":[
+    "publication_id","knowledge_id","platform","format","published_at","url",
+    "followers_at_publish","impressions","reach","non_follower_reach","video_views","watch_time_seconds","avg_watch_time_seconds","completion_rate",
+    "likes","comments","shares","saves","profile_visits","new_follows","link_clicks"
+  ],
+  "derived_metrics":{
+    "share_rate":"shares / reach",
+    "save_rate":"saves / reach",
+    "comment_rate":"comments / reach",
+    "profile_visit_rate":"profile_visits / non_follower_reach when available; otherwise profile_visits / reach",
+    "follow_conversion":"new_follows / profile_visits",
+    "link_click_rate":"link_clicks / profile_visits",
+    "useful_engagement_rate":"(shares + saves + comments) / reach"
+  },
+  "zero_division_rule":"Return null, not zero, when denominator is zero or unavailable.",
+  "comparison_rule":"Do not compare raw counts across platforms as if exposure were equal. Prefer normalized rates and within-platform baselines.",
+  "winner_rule_v1":{
+    "status":"PREREGISTERED_WORKING_RULE",
+    "minimum":"At least one primary growth metric materially above the same-platform rolling baseline without a material brand/quality failure.",
+    "primary_growth_metrics":["share_rate","save_rate","profile_visit_rate","follow_conversion"],
+    "replication_requirement":"A single outlier can trigger fast-follow content but does not change strategy until repeated evidence exists."
+  },
+  "data_integrity":{
+    "retain_raw_snapshots":true,
+    "never_overwrite_historical_window":true,
+    "record_missing_as_null":true,
+    "record_platform_definition_changes":true
+  }
+}
