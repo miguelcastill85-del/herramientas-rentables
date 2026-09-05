@@ -1,0 +1,14 @@
+{
+  "brand":"SIGMA",
+  "template":"T01",
+  "publicationId":"PUB-C001-D01",
+  "knowledgeId":"KV-000002",
+  "franchise":"Errores caros",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "headlineLines":["10% de descuento", "no significa 10%", "más ventas."],
+  "anchor":"≈33%",
+  "support":["En el ejemplo: precio 100,", "costo variable 60,", "nuevo precio 90."],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
