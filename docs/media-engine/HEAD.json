@@ -2,17 +2,19 @@
   "project": "Herramientas Rentables Media Engine",
   "authority_version": "MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
   "status": "ACTIVE_DEVELOPMENT",
-  "source_of_truth": "GitHub",
+  "source_of_truth": "GitHub main",
   "repository": "miguelcastill85-del/herramientas-rentables",
-  "branch": "feat/media-engine-v1-1-growth-patch",
-  "base_main_sha": "923ff863dd33349f6c303189b11a13f7b84e64f9",
+  "branch": "main",
+  "merged_via_pr": 40,
+  "authority_main_sha_at_merge": "eb002cdf34df827fb6ad80af0139e66dcb2d7d61",
+  "original_base_main_sha": "923ff863dd33349f6c303189b11a13f7b84e64f9",
   "created_at": "2026-09-05",
   "constraints": {
     "additional_cost_target_usd": 0,
-    "do_not_modify_live_site_during_foundation": true,
     "do_not_buy_followers": true,
     "do_not_publish_unverified_material_claims": true,
-    "do_not_automate_human_conversation_blindly": true
+    "do_not_automate_human_conversation_blindly": true,
+    "live_site_runtime_changes_require_separate_explicit_work": true
   },
   "operating_model": {
     "tracks": ["FOUNDATION_ENGINE", "GROWTH_LAB"],
@@ -39,7 +41,7 @@
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
     "GROWTH_PATCH_V1_1": "PASS",
-    "DURABLE_GITHUB_AUTHORITY": "PASS",
+    "DURABLE_GITHUB_AUTHORITY": "PASS_MAIN",
     "BRAND_ARCHITECTURE_V1": "PASS",
     "KNOWLEDGE_SCHEMA_V1": "PASS",
     "SEED_KNOWLEDGE_MINIMUM_15": "PASS",
