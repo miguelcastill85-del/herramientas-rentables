@@ -1,0 +1,17 @@
+{
+  "brand":"SIGMA",
+  "template":"T02",
+  "publicationId":"PIN-03",
+  "knowledgeId":"UTILITY-LAYER",
+  "franchise":"Herramientas útiles",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "slides":[
+    {"headlineLines":["Entender está bien."], "bodyLines":["Poder calcularlo tú mismo", "es mejor."]},
+    {"headlineLines":["SIGMA conecta"], "bodyLines":["conocimiento", "con herramientas prácticas."]},
+    {"headlineLines":["Parte de esas herramientas"], "bodyLines":["viven hoy en", "Herramientas Rentables."]},
+    {"headlineLines":["Lleva la idea", "a tus propios números."], "bodyLines":["Explora las herramientas gratuitas", "desde el enlace del perfil."]}
+  ],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
