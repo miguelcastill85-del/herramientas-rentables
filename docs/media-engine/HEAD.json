@@ -36,7 +36,8 @@
     "seed_target_minimum": 15,
     "seed_target_full": 20,
     "cohort_001_days_planned": 7,
-    "master_content_pieces_created": 1
+    "master_content_pieces_created": 1,
+    "profile_conversion_spec_created": true
   },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
@@ -49,14 +50,13 @@
     "MINIMUM_VIABLE_FORMAT_SPEC": "PASS",
     "CONTENT_QA_SPEC": "PASS",
     "COHORT_001_PLAN": "PASS",
+    "PROFILE_CONVERSION_SPEC": "PASS",
     "VISUAL_TEMPLATE_RENDERING": "PENDING",
-    "PROFILE_CONVERSION_SPEC": "PENDING",
     "CLOSED_CONTENT_QA": "PENDING",
     "AUTONOMOUS_PUBLISHING": "NOT_AUTHORIZED"
   },
-  "current_phase": "COHORT_001_PREP_AND_PROFILE_CONVERSION",
+  "current_phase": "COHORT_001_CONTENT_AND_VISUAL_PREP",
   "next_actions": [
-    "Create profile-conversion specification for Instagram, Facebook and LinkedIn",
     "Create remaining cohort master pieces",
     "Create visual template rendering specification",
     "Run closed QA on first publication set",
