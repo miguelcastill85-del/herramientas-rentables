@@ -1,9 +1,11 @@
-# PROFILE_CONVERSION v1
+# PROFILE CONVERSION v1
 
-Status: APPROVED_SPEC
+Status: SUPERSEDED_BY_PROFILE_CONVERSION_v2_SIGMA
 Authority: MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH
 
-## Objective
+> Historical record only. Forward profile authority is `PROFILE_CONVERSION_v2_SIGMA.md`.
+
+## Historical objective
 
 Convert discovery into recurring audience. A profile visit should answer in seconds:
 
@@ -12,13 +14,13 @@ Convert discovery into recurring audience. A profile visit should answer in seco
 3. What will I receive repeatedly?
 4. Where can I get deeper/free utility?
 
-## Master profile promise
+## Historical master profile promise
 
 **Dinero, negocios y tecnología práctica explicados para tomar mejores decisiones.**
 
 The social identity should feel like a useful media brand, not a catalog of calculators.
 
-## Instagram working profile
+## Historical Instagram working profile
 
 ### Name field
 
@@ -36,21 +38,21 @@ Use the owned Herramientas Rentables site as the primary destination unless an e
 
 Do not send the default profile link directly to a paid product during the audience-building phase.
 
-## Facebook working description
+## Historical Facebook working description
 
 Herramientas, cálculos e ideas prácticas para entender mejor el dinero, los negocios, el trabajo y la tecnología. Explicamos mecanismos que suelen pasar desapercibidos con ejemplos simples y fuentes verificables.
 
-## LinkedIn working tagline
+## Historical LinkedIn working tagline
 
 Herramientas Rentables | Dinero, negocios y tecnología práctica explicados con datos, ejemplos y herramientas.
 
-## LinkedIn about positioning
+## Historical LinkedIn about positioning
 
 Herramientas Rentables convierte conceptos que suelen ser confusos —precios, márgenes, ventas, decisiones, herramientas digitales e IA práctica— en explicaciones claras que puedan usarse para tomar mejores decisiones.
 
 El contenido debe aportar valor por sí mismo. Las herramientas y productos de la marca amplían ese valor; no sustituyen al contenido.
 
-## Pinned-content system
+## Historical pinned-content system
 
 Pin/feature three orientation assets where the platform allows it.
 
@@ -75,7 +77,7 @@ Show the useful free tools available on the Herramientas Rentables site.
 
 Purpose: move a portion of audience to an owned asset without making the profile primarily commercial.
 
-## Visual identity rule for profiles
+## Historical visual identity rule for profiles
 
 - same master brand name across platforms;
 - same recognizable avatar/logo where supported;
@@ -83,7 +85,7 @@ Purpose: move a portion of audience to an owned asset without making the profile
 - no platform should look like a separate unrelated company;
 - editorial franchise names appear in content, not as competing master-brand names.
 
-## Conversion metrics
+## Conversion metrics retained
 
 Track where available:
 
@@ -93,7 +95,7 @@ Track where available:
 - free-tool sessions from social
 - returning users from social
 
-## Failure diagnosis
+## Historical failure diagnosis
 
 High reach + low profile visits -> content may entertain without generating brand curiosity.
 
@@ -103,14 +105,16 @@ High follows + low returning audience -> content promise may not be delivered co
 
 High link clicks + low useful-tool engagement -> landing destination or intent match is weak.
 
-## Commercial guardrail
+## Historical commercial guardrail retained
 
 During initial discovery cohorts, the profile should primarily sell the **follow** and the **free utility**, not the paid product.
 
 Paid offers remain available inside the broader business but are not the dominant first impression.
 
+## Supersession
+
+SIGMA is now the forward master media brand. See `PROFILE_CONVERSION_v2_SIGMA.md`.
+
 ## Gate
 
-PROFILE_CONVERSION_SPEC = PASS
-
-Next: render profile visuals/headers and run them through brand QA before any platform changes are executed.
+`PROFILE_CONVERSION_V1_LEGACY = SUPERSEDED`
