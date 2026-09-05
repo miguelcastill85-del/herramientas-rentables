@@ -1,0 +1,15 @@
+{
+  "brand":"SIGMA",
+  "template":"T01",
+  "publicationId":"PUB-C001-D05",
+  "knowledgeId":"KV-000016",
+  "franchise":"Lo que nadie te explica",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "headlineLines":["Un QR puede verse", "normal y enviarte", "al sitio equivocado."],
+  "anchor":"MIRA LA URL",
+  "anchorSize":110,
+  "support":["El problema no es el QR.", "El problema puede ser", "adónde te lleva."],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
