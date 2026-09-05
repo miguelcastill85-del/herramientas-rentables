@@ -1,0 +1,17 @@
+{
+  "experiment_set":"COHORT_001_DISCOVERY_LAB_v1",
+  "brand":"SIGMA",
+  "status":"PREREGISTERED_NOT_STARTED",
+  "authority":"MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
+  "experiments":[
+    {"experiment_id":"EXP-C001-01","knowledge_id":"KV-000002","variable":"hook framing","variant_a":"Un 10% de descuento puede obligarte a vender bastante más de 10% extra.","variant_b":"Antes de dar 10% de descuento, calcula cuántas ventas extra necesitas.","target_metrics":["non_follower_reach","share_rate","save_rate","profile_visit_rate"],"decision_rule":"Use the stronger hook family for a fast-follow derivative only if the comparison is interpretable; do not infer causality from unequal distribution alone."},
+    {"experiment_id":"EXP-C001-02","knowledge_id":"KV-000001","variable":"cover framing","variant_a":"number-first","variant_b":"concept-first","target_metrics":["save_rate","share_rate","profile_visit_rate"],"decision_rule":"Prefer the framing with stronger save/share behavior without loss of comprehension."},
+    {"experiment_id":"EXP-C001-03","knowledge_id":"KV-000012","variable":"pain vs calculation framing","variant_a":"personal pain framing","variant_b":"neutral calculation framing","target_metrics":["comment_rate","save_rate","profile_visit_rate"],"decision_rule":"Do not amplify emotionally stronger framing if it distorts the scope-creep caveat."},
+    {"experiment_id":"EXP-C001-04","knowledge_id":"KV-000017","variable":"AI framing","variant_a":"confident but wrong","variant_b":"fluency is not evidence","target_metrics":["share_rate","profile_visit_rate","follow_conversion"],"decision_rule":"Favor authority and accuracy over sensational AI-fear framing."},
+    {"experiment_id":"EXP-C001-05","knowledge_id":"KV-000016","variable":"security framing","variant_a":"practical QR example","variant_b":"generic QR principle","target_metrics":["share_rate","completion_rate"],"decision_rule":"Reject any variant that implies QR codes are inherently unsafe."},
+    {"experiment_id":"EXP-C001-06","knowledge_id":"KV-000003","variable":"explanation order","variant_a":"formula-first","variant_b":"story-first","target_metrics":["save_rate","completion_rate","profile_visit_rate"],"decision_rule":"Use formula-first only if mobile comprehension remains strong."},
+    {"experiment_id":"EXP-C001-07","knowledge_id":"KV-000004","variable":"anchoring example","variant_a":"consumer purchase","variant_b":"negotiation","target_metrics":["share_rate","comment_rate","follow_conversion"],"decision_rule":"No deterministic manipulation claim is allowed in either variant."}
+  ],
+  "fast_follow_window_hours":72,
+  "strategy_change_rule":"Operational winners may be amplified quickly; core positioning changes require repeated evidence across multiple independent observations."
+}
