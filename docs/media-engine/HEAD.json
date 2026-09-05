@@ -10,6 +10,8 @@
     "brand_decision": "docs/media-engine/decisions/DEC-0002-sigma-brand-architecture.md",
     "brand_system": "docs/media-engine/brand/SIGMA_BRAND_SYSTEM_v1.md",
     "profile_system": "docs/media-engine/profiles/PROFILE_CONVERSION_v2_SIGMA.md",
+    "canonical_logo_identity": "docs/media-engine/brand/SIGMA_LOGO_CANONICAL_v1.json",
+    "canonical_logo_sha256": "48929e9baf789d3d587b44412a71adcf13dd3e5eceb3218335a3a18b7c54c4ca",
     "legacy_decision": "docs/media-engine/decisions/DEC-0001-brand-architecture.md",
     "legacy_profile": "docs/media-engine/profiles/PROFILE_CONVERSION_v1.md",
     "legacy_utility_property": "Herramientas Rentables"
@@ -48,7 +50,8 @@
     "master_content_pieces_created": 1,
     "sigma_brand_system_created": true,
     "sigma_profile_conversion_spec_created": true,
-    "canonical_sigma_logo_ingested": false
+    "canonical_sigma_logo_identity_confirmed": true,
+    "canonical_sigma_logo_binary_in_github": false
   },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
@@ -60,10 +63,11 @@
     "SIGMA_POSITIONING_AND_VOICE": "PASS",
     "SIGMA_VISUAL_SYSTEM_SPEC": "PASS",
     "SIGMA_PROFILE_CONVERSION_V2": "PASS",
+    "SIGMA_CANONICAL_LOGO_IDENTITY": "PASS_SHA256_RECORDED",
+    "SIGMA_CANONICAL_LOGO_BINARY_INGEST": "PENDING_CONNECTOR_BINARY_WRITE",
     "SIGMA_NAME_COLLISION_REVIEW": "WARNING_HIGH",
     "SIGMA_TRADEMARK_LEGAL_CLEARANCE": "PENDING_SPECIALIST_REVIEW",
     "SIGMA_HANDLE_AND_DOMAIN_CLEARANCE": "PENDING",
-    "SIGMA_CANONICAL_LOGO_INGEST": "PENDING",
     "KNOWLEDGE_SCHEMA_V1": "PASS",
     "SEED_KNOWLEDGE_MINIMUM_15": "PASS",
     "SEED_KNOWLEDGE_FULL_20": "IN_PROGRESS_15_OF_20",
@@ -77,10 +81,9 @@
   },
   "current_phase": "SIGMA_MVB_FINALIZATION_AND_COHORT_ADAPTATION",
   "next_actions": [
-    "Ingest the exact user-selected SIGMA logo asset into the repository and record canonical identity; do not guess which generated option was selected",
     "Check candidate social handles and domain options before freezing profile identifiers",
     "Perform appropriate trademark/legal clearance before any costly or irreversible public SIGMA rebrand",
-    "Render SIGMA visual templates using the approved brand system",
+    "Render SIGMA visual templates using the approved brand system and the canonical logo identity",
     "Adapt Cohort 001 master pieces and profile orientation assets to SIGMA",
     "Run closed QA on the first SIGMA publication set",
     "Keep verifying KV-000013 through KV-000020 in parallel",
