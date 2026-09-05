@@ -14,6 +14,8 @@
     "name_handle_clearance": "docs/media-engine/brand/SIGMA_NAME_HANDLE_CLEARANCE_v1.md",
     "visual_template_system": "docs/media-engine/templates/SIGMA_VISUAL_TEMPLATES_v1.md",
     "canonical_logo_identity": "docs/media-engine/brand/SIGMA_LOGO_CANONICAL_v1.json",
+    "canonical_logo_binary": "docs/media-engine/brand/assets/sigma-logo-canonical.jpg",
+    "canonical_logo_git_blob_sha": "7e57d9726dc1d4904e71aa8f114e151d47b0890e",
     "canonical_logo_sha256": "48929e9baf789d3d587b44412a71adcf13dd3e5eceb3218335a3a18b7c54c4ca",
     "legacy_decision": "docs/media-engine/decisions/DEC-0001-brand-architecture.md",
     "legacy_profile": "docs/media-engine/profiles/PROFILE_CONVERSION_v1.md",
@@ -34,16 +36,8 @@
   "operating_model": {
     "tracks": ["FOUNDATION_ENGINE", "GROWTH_LAB"],
     "knowledge_seed_before_launch": "15-20 verified ideas",
-    "content_mix": {
-      "evergreen": 0.60,
-      "responsive": 0.25,
-      "experimental": 0.15
-    },
-    "explore_exploit_initial": {
-      "explore": 0.60,
-      "exploit": 0.40,
-      "note": "Shift toward exploitation only after repeated winners exist."
-    }
+    "content_mix": {"evergreen": 0.60, "responsive": 0.25, "experimental": 0.15},
+    "explore_exploit_initial": {"explore": 0.60, "exploit": 0.40, "note": "Shift toward exploitation only after repeated winners exist."}
   },
   "progress": {
     "seed_backlog_total": 20,
@@ -59,7 +53,7 @@
     "cohort_001_sigma_adapted": true,
     "cohort_001_text_qa_passed": true,
     "canonical_sigma_logo_identity_confirmed": true,
-    "canonical_sigma_logo_binary_in_github": false
+    "canonical_sigma_logo_binary_in_github": true
   },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
@@ -74,7 +68,7 @@
     "SIGMA_PROFILE_CONVERSION_V2": "PASS",
     "SIGMA_PINNED_ORIENTATION_COPY": "PASS",
     "SIGMA_CANONICAL_LOGO_IDENTITY": "PASS_SHA256_RECORDED",
-    "SIGMA_CANONICAL_LOGO_BINARY_INGEST": "PENDING_CONNECTOR_BINARY_WRITE",
+    "SIGMA_CANONICAL_LOGO_BINARY_INGEST": "PASS_EXACT_BINARY_IN_GITHUB",
     "SIGMA_NAME_COLLISION_REVIEW": "WARNING_HIGH",
     "SIGMA_HANDLE_SHORTLIST": "PASS",
     "SIGMA_HANDLE_DIRECT_AVAILABILITY": "PENDING",
@@ -98,7 +92,7 @@
     "Confirm the preferred handle family directly in Instagram, Facebook and LinkedIn; current first candidate is sigmadecide, but it is not frozen until direct confirmation",
     "Confirm domain availability directly with a registrar; search-engine absence is not sufficient",
     "Perform appropriate trademark/legal clearance before any costly or irreversible public SIGMA rebrand",
-    "Render Cohort 001 assets using T01-T04, canonical logo identity and handle-neutral artwork until handle freeze",
+    "Render Cohort 001 assets using T01-T04, the exact durable canonical logo and handle-neutral artwork until handle freeze",
     "Render PIN-01, PIN-02 and PIN-03 orientation assets",
     "Run visual/mobile/crop/source/logo QA on rendered assets",
     "Promote CLOSED_CONTENT_QA only after text and visual layers both pass",
