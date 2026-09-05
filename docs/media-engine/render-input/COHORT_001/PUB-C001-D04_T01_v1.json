@@ -1,0 +1,15 @@
+{
+  "brand":"SIGMA",
+  "template":"T01",
+  "publicationId":"PUB-C001-D04",
+  "knowledgeId":"KV-000017",
+  "franchise":"Cómo funciona realmente",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "headlineLines":["La IA puede sonar", "completamente segura", "y estar equivocada."],
+  "anchor":"FLUIDEZ NO ES EVIDENCIA",
+  "anchorSize":82,
+  "support":["Si una afirmación importa,", "compruébala en la fuente", "original antes de actuar."],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
