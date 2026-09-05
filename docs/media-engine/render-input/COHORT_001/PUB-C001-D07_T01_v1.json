@@ -8,6 +8,7 @@
   "height":1350,
   "dark":false,
   "headlineLines":["El primer número", "puede cambiar cómo juzgas", "los siguientes."],
+  "headlineSize":66,
   "anchor":"ANCLA",
   "anchorSize":132,
   "support":["Vuelve a tus propios criterios:", "valor, alternativas,", "presupuesto y necesidad."],
