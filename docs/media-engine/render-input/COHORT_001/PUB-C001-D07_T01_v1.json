@@ -1,0 +1,15 @@
+{
+  "brand":"SIGMA",
+  "template":"T01",
+  "publicationId":"PUB-C001-D07",
+  "knowledgeId":"KV-000004",
+  "franchise":"Cómo funciona realmente",
+  "width":1080,
+  "height":1350,
+  "dark":false,
+  "headlineLines":["El primer número", "puede cambiar cómo juzgas", "los siguientes."],
+  "anchor":"ANCLA",
+  "anchorSize":132,
+  "support":["Vuelve a tus propios criterios:", "valor, alternativas,", "presupuesto y necesidad."],
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+}
