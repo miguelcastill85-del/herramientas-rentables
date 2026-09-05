@@ -23,7 +23,9 @@
     "publication_manifest": "docs/media-engine/operations/COHORT_001_PUBLICATION_MANIFEST_v1.json",
     "analytics_schema": "docs/media-engine/analytics/SIGMA_ANALYTICS_SCHEMA_v1.json",
     "discovery_lab": "docs/media-engine/experiments/COHORT_001_DISCOVERY_LAB_v1.json",
-    "prelaunch_runbook": "docs/media-engine/operations/SIGMA_PRELAUNCH_RUNBOOK_v1.md"
+    "prelaunch_runbook": "docs/media-engine/operations/SIGMA_PRELAUNCH_RUNBOOK_v1.md",
+    "renderer_spec": "docs/media-engine/templates/SIGMA_RENDERER_v1.md",
+    "renderer_code": "scripts/media-engine/render-sigma-svg.mjs"
   },
   "created_at": "2026-09-05",
   "updated_at": "2026-09-05",
@@ -60,6 +62,8 @@
     "cohort_001_discovery_lab_preregistered": true,
     "sigma_analytics_schema_created": true,
     "sigma_prelaunch_runbook_created": true,
+    "sigma_renderer_code_created": true,
+    "sigma_first_render_input_created": true,
     "canonical_sigma_logo_identity_confirmed": true,
     "canonical_sigma_logo_binary_in_github": false
   },
@@ -93,6 +97,7 @@
     "COHORT_001_DISCOVERY_LAB_PREREGISTERED": "PASS",
     "SIGMA_ANALYTICS_SCHEMA": "PASS",
     "SIGMA_PRELAUNCH_RUNBOOK": "PASS",
+    "SIGMA_RENDERER_CODE_V1": "IMPLEMENTED_PENDING_RUNTIME_SMOKE_TEST",
     "CLOSED_CONTENT_QA": "PARTIAL_PASS_TEXT_ONLY",
     "VISUAL_TEMPLATE_RENDERING": "PENDING",
     "VISUAL_RENDER_QA": "PENDING",
@@ -101,6 +106,7 @@
   },
   "current_phase": "SIGMA_ASSET_RENDERING_AND_PRELAUNCH_QA",
   "next_actions": [
+    "Run SIGMA renderer runtime smoke test against the exact canonical logo and verify SHA mismatch rejection",
     "Confirm the preferred handle family directly in Instagram, Facebook and LinkedIn; current first candidate is sigmadecide, but it is not frozen until direct confirmation",
     "Confirm domain availability directly with a registrar; search-engine absence is not sufficient",
     "Perform appropriate trademark/legal clearance before any costly or irreversible public SIGMA rebrand",
