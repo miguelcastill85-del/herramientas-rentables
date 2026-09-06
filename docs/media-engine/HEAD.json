@@ -54,6 +54,7 @@
   },
   "external_checks": {
     "public_web_screen": "docs/media-engine/brand/SIGMANOUVA_EXTERNAL_IDENTITY_SCREEN_v1.md",
+    "domain_and_name_screen": "docs/media-engine/brand/SIGMANOUVA_DOMAIN_AND_NAME_SCREEN_v1.md",
     "public_web_screen_result": "PASS_NO_CLEAR_EXACT_SIGMANOUVA_RESULTS",
     "exact_name_rescreen_2026_09_06": "NO_EXACT_PUBLIC_RESULTS_FOR_SIGMANOUVA_ON_INSTAGRAM_FACEBOOK_LINKEDIN_DOTCOM_DOTCL",
     "sigmanouva_exact_web_collision_screen": "PASS_NO_CLEAR_EXACT_INDEXED_MATCH",
@@ -61,7 +62,10 @@
     "instagram_handle": "PENDING_DIRECT_CHECK",
     "facebook_handle": "PENDING_DIRECT_CHECK",
     "linkedin_identifier": "PENDING_DIRECT_CHECK",
-    "domain": "PENDING_REGISTRAR_CHECK",
+    "domain_com": "PENDING_DIRECT_REGISTRAR_CHECK",
+    "domain_cl": "PENDING_DIRECT_NIC_CHILE_CHECK",
+    "domain_cl_public_price_1y_clp": 9990,
+    "domain_com_low_cost_option": "Cloudflare Registrar at-cost pricing; exact domain availability and checkout price pending",
     "trademark_legal_clearance": "PENDING_SPECIALIST_REVIEW"
   },
   "publication": {
@@ -85,9 +89,9 @@
   "current_phase": "SIGMANOUVA_EXTERNAL_IDENTITY_BEFORE_CONTROLLED_LAUNCH",
   "next_actions": [
     "Check @sigmanouva directly in Instagram, Facebook and LinkedIn and freeze one coherent identity only after confirmation.",
-    "Check domain availability and renewal cost directly with a registrar; do not buy without user approval.",
+    "Check sigmanouva.com directly with a registrar and sigmanouva.cl directly with NIC Chile; do not buy without user approval.",
     "Perform appropriate trademark/legal clearance before costly or irreversible brand investment.",
-    "After external profile checks pass, authorize the first supervised publication only.",
+    "After external profile checks pass, configure the profiles and authorize the first supervised publication only.",
     "Keep autonomous publishing disabled until real posts prove routing, duplicate prevention, confirmation logging and cost safety."
   ]
 }
