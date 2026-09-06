@@ -1,0 +1,39 @@
+{
+  "receipt": "SIGMANOUVA_PRODUCTION_RENDER_RECEIPT_v1",
+  "brand": "SIGMANOUVA",
+  "status": "PASS_RUNTIME_RENDER_22_OF_22",
+  "date": "2026-09-06",
+  "asset_count": 22,
+  "dimensions": "1080x1350",
+  "total_bytes": 1335650,
+  "package_sha256": "96ba339100d976fe3bc1c12079888b791bfd6422efde9199e23c8083d4821d65",
+  "logo_used": {
+    "role": "avatar_symbol_durable",
+    "sha256": "cd134d25eec3dd4d3df69ac0569b95ecbe384f444297c8e1c1e0fd4fb5405e6a"
+  },
+  "assets": [
+    {"file":"PIN-01.png","sha256":"87753a3c7fa8b7823644b0612528038baed50a71d09d87b455c68cfc151b39ff"},
+    {"file":"PIN-02.png","sha256":"8f8ff6983d7b275943490e97e6328a1821d11391f96e71d2c018916ef8e56115"},
+    {"file":"PIN-03.png","sha256":"dc952b07aad0c14d58d7e9f669216703bd825f8960a4514a304c3a18edebe3e6"},
+    {"file":"PUB-C001-D01.png","sha256":"bb98e3a32c0cfa9308b82c959f0a7e74510b97bbf990996d7a82fc0e646d3da6"},
+    {"file":"PUB-C001-D02_S01.png","sha256":"d5fd8233e81775b6063f45a584b67c349d40194ca0e8919c4521383b1e6b7516"},
+    {"file":"PUB-C001-D02_S02.png","sha256":"e0e914cd0e6bf4a18e106a0d54e67b539052343088bd63b5c3eb0cba04fdd72c"},
+    {"file":"PUB-C001-D02_S03.png","sha256":"4253ad7978ac1beeaa924eb444c5cb5800e1328ed139a159a10e8bc21bb67760"},
+    {"file":"PUB-C001-D02_S04.png","sha256":"7763e9849e0363d84df85aad4445e0e829bfc2fe60a8e90b836143d9f0fb8707"},
+    {"file":"PUB-C001-D02_S05.png","sha256":"e2b9a8170be83efcb5a620ffe2ac9463e8442022bbd2c5ac77692fa8f0386dd9"},
+    {"file":"PUB-C001-D02_S06.png","sha256":"623d54cedbb965eedb199d043a7a4cb68e2c54ff7056815ade232322dadddcf3"},
+    {"file":"PUB-C001-D02_S07.png","sha256":"6b5e970b66a5192d3ff1acf22f82769c5184dac6fe9162c859c7674117dd2dc5"},
+    {"file":"PUB-C001-D03.png","sha256":"a5c0d3ad26a775d96406ff4fe712c0699c8e7c2cdcf74a368b740db961ffef43"},
+    {"file":"PUB-C001-D04.png","sha256":"e8420543592216bc55bc0b2b28b09e65dbbddbdda66ef0de1f9a79c85c23e63a"},
+    {"file":"PUB-C001-D05.png","sha256":"fb237e37ca64f9341bb165ce5710dc693a8eccb7522ef7ad9bd2bffdcef3ae3c"},
+    {"file":"PUB-C001-D06_S01.png","sha256":"b10dc956a369c02ded9bcf1cff1d8c33ab5b9a37ad95a588c5dc7540747709af"},
+    {"file":"PUB-C001-D06_S02.png","sha256":"bdc122b8457175fb53258e29220b67e5ca40ac612ccb2b00e6c66dd1b4fa1aae"},
+    {"file":"PUB-C001-D06_S03.png","sha256":"9f3f053207e6bac624383fb4ab829a42d14a17fb2c372ee40d819ededd62662a"},
+    {"file":"PUB-C001-D06_S04.png","sha256":"4bed0ffd837f985e6ecd221503bfa6f0baa1d6a096e7fa89a58e05c7f9edecb1"},
+    {"file":"PUB-C001-D06_S05.png","sha256":"da275ccad1860aec57e3b43411c2dee5717051dc1525b5aedefc741dcaea320c"},
+    {"file":"PUB-C001-D06_S06.png","sha256":"77610c41f279a2dbd7ba16c797205b4ff9bc527b1e5ac9137298ac49729092af"},
+    {"file":"PUB-C001-D06_S07.png","sha256":"358b10fbbb436274a32399a9ec5896539edb344b4ca713b1e033538cf2859195"},
+    {"file":"PUB-C001-D07.png","sha256":"0712c4670a66e1fab969b13cdb8ec15ed3acbf3161329995db1bdc5de74dd2bd"}
+  ],
+  "note": "Files were rendered and visually inspected in the current runtime. Exact image bytes still require durable connected-storage/GitHub binary ingest before public publishing is authorized."
+}
