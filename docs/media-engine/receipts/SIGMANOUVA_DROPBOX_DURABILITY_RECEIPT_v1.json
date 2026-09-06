@@ -1,0 +1,46 @@
+{
+  "receipt":"SIGMANOUVA_DROPBOX_DURABILITY_RECEIPT_v1",
+  "date":"2026-09-06",
+  "status":"PASS_VERIFIED",
+  "purpose":"Durable storage of the exact approved SIGMANOUVA launch package and core logo files outside the temporary chat runtime.",
+  "dropbox_folder":"/SIGMANOUVA",
+  "verification_method":"Compared Dropbox content hashes against locally computed Dropbox content hashes from the original source files. All five matched exactly.",
+  "files":[
+    {
+      "path":"/SIGMANOUVA/SIGMANOUVA_COHORT_001_PACKAGE_v1.zip",
+      "dropbox_file_id":"id:3hcdcMy0pHAAAAAAAAAAIQ",
+      "size_bytes":1375923,
+      "sha256":"6c561075b386fea586355d2c7c7645186a8b573163da48c711db2bcd76f64923",
+      "dropbox_content_hash":"8e9df52fefc99f57c5368a30cf7e4405be8bfc47d2d05f39387e40c8c95b7ad5"
+    },
+    {
+      "path":"/SIGMANOUVA/avatar_symbol.jpg",
+      "dropbox_file_id":"id:3hcdcMy0pHAAAAAAAAAAIg",
+      "size_bytes":19844,
+      "sha256":"cd134d25eec3dd4d3df69ac0569b95ecbe384f444297c8e1c1e0fd4fb5405e6a",
+      "dropbox_content_hash":"7deb4bfc8f45f019c4b17afb02e7fe1361477bed16e770f4ee0eb6bbafa7220d"
+    },
+    {
+      "path":"/SIGMANOUVA/core_logo.jpg",
+      "dropbox_file_id":"id:3hcdcMy0pHAAAAAAAAAAIw",
+      "size_bytes":15491,
+      "sha256":"bfd2666385b05871eabd668d982dafaa79f184320679cacf9d5e2aed9430d2b9",
+      "dropbox_content_hash":"647e6566dcd1dddc750b88e189edf9c031a09218c1f76f32b1a25cae8e178cd7"
+    },
+    {
+      "path":"/SIGMANOUVA/hero_logo.jpg",
+      "dropbox_file_id":"id:3hcdcMy0pHAAAAAAAAAAJA",
+      "size_bytes":16394,
+      "sha256":"4e4b96b63e80ab142634ac358a721366b0a1a520487abccc591ed5aa56ee951b",
+      "dropbox_content_hash":"bda5fbec9041bab724ac9ded8a12bc771e29b65f1033afe482698fa4c9aa4a4f"
+    },
+    {
+      "path":"/SIGMANOUVA/horizontal_logo.jpg",
+      "dropbox_file_id":"id:3hcdcMy0pHAAAAAAAAAAJQ",
+      "size_bytes":10175,
+      "sha256":"09ac82248e8ef4789bd2801eae1153645ddf382cba228650d4a3c46cf825ea40",
+      "dropbox_content_hash":"9d2adcddc8bc3a10ce1105f53752ef2c367fd734b383f5b631147392b2740d2f"
+    }
+  ],
+  "result":"SIGMANOUVA launch package and core logo family are now durably recoverable from Dropbox. No public sharing link was created."
+}
