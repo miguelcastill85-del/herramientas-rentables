@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T01",
   "publicationId":"PUB-C001-D03",
   "knowledgeId":"KV-000012",
@@ -11,5 +11,5 @@
   "anchor":"66,67/h",
   "anchorSize":132,
   "support":["Proyecto de 1.000:", "10 horas = 100/h", "15 horas = 66,67/h"],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
