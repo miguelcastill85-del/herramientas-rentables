@@ -1,8 +1,9 @@
 {
   "experiment_set":"COHORT_001_DISCOVERY_LAB_v1",
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "status":"PREREGISTERED_NOT_STARTED",
-  "authority":"MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH",
+  "authority":"MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH + DEC-0003",
+  "brand_migration_note":"Only the master-brand identifier changed from SIGMA to SIGMANOUVA before the experiment set started. Hypotheses, variants, metrics and decision rules are unchanged.",
   "experiments":[
     {"experiment_id":"EXP-C001-01","knowledge_id":"KV-000002","variable":"hook framing","variant_a":"Un 10% de descuento puede obligarte a vender bastante más de 10% extra.","variant_b":"Antes de dar 10% de descuento, calcula cuántas ventas extra necesitas.","target_metrics":["non_follower_reach","share_rate","save_rate","profile_visit_rate"],"decision_rule":"Use the stronger hook family for a fast-follow derivative only if the comparison is interpretable; do not infer causality from unequal distribution alone."},
     {"experiment_id":"EXP-C001-02","knowledge_id":"KV-000001","variable":"cover framing","variant_a":"number-first","variant_b":"concept-first","target_metrics":["save_rate","share_rate","profile_visit_rate"],"decision_rule":"Prefer the framing with stronger save/share behavior without loss of comprehension."},
