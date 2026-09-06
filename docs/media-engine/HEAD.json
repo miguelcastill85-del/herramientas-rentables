@@ -44,6 +44,7 @@
   },
   "operations": {
     "launch_readiness": "docs/media-engine/operations/SIGMANOUVA_LAUNCH_READINESS_v1.md",
+    "profile_activation_card": "docs/media-engine/operations/SIGMANOUVA_PROFILE_ACTIVATION_CARD_v1.md",
     "publication_manifest": "docs/media-engine/operations/COHORT_001_PUBLICATION_MANIFEST_v1.json",
     "analytics_schema": "docs/media-engine/analytics/SIGMANOUVA_ANALYTICS_SCHEMA_v1.json",
     "discovery_lab": "docs/media-engine/experiments/COHORT_001_DISCOVERY_LAB_v1.json",
@@ -91,7 +92,8 @@
     "Check @sigmanouva directly in Instagram, Facebook and LinkedIn and freeze one coherent identity only after confirmation.",
     "Check sigmanouva.com directly with a registrar and sigmanouva.cl directly with NIC Chile; do not buy without user approval.",
     "Perform appropriate trademark/legal clearance before costly or irreversible brand investment.",
-    "After external profile checks pass, configure the profiles and authorize the first supervised publication only.",
+    "Use the prepared profile activation card to configure all three profiles once the handle is confirmed.",
+    "After external profile checks pass, authorize the first supervised publication only.",
     "Keep autonomous publishing disabled until real posts prove routing, duplicate prevention, confirmation logging and cost safety."
   ]
 }
