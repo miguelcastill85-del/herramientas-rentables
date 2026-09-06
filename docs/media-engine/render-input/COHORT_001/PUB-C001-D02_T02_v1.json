@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T02",
   "publicationId":"PUB-C001-D02",
   "knowledgeId":"KV-000001",
@@ -16,5 +16,5 @@
     {"headlineLines":["Antes de fijar precio:"], "bodyLines":["¿Calculas sobre costo", "o sobre venta?"]},
     {"headlineLines":["Guarda esta cuenta", "antes de cotizar."]}
   ],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
