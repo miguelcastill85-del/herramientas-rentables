@@ -1,0 +1,15 @@
+{
+  "brand":"SIGMANOUVA",
+  "status":"PASS_LAYOUT_PREFLIGHT",
+  "runtime_asset_count":22,
+  "cohort_days":7,
+  "pinned_assets":3,
+  "canvas":"1080x1350",
+  "safe_area":"PASS",
+  "brand_migration":"PASS_NO_LEGACY_SIGMA_PUBLIC_LABELS_IN_PREFLIGHT_SET",
+  "content_hierarchy":"PASS",
+  "carousel_consistency":"PASS",
+  "mobile_legibility":"PASS_PREFLIGHT_FINAL_NATIVE_PLATFORM_PREVIEW_REQUIRED",
+  "production_render":"PENDING_DURABLE_BINARY_INGEST_AND_PRODUCTION_RECEIPT",
+  "controlled_publication":false
+}
