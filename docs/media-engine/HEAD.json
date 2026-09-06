@@ -21,9 +21,11 @@
     "profile_package": "docs/media-engine/brand/SIGMANOUVA_PROFILE_PACKAGE_v1.md",
     "logo_family_manifest": "docs/media-engine/brand/SIGMANOUVA_LOGO_FAMILY_MANIFEST_v1.json",
     "durable_asset_manifest": "docs/media-engine/brand/SIGMANOUVA_DURABLE_ASSET_MANIFEST_v1.json",
+    "dropbox_durability_receipt": "docs/media-engine/receipts/SIGMANOUVA_DROPBOX_DURABILITY_RECEIPT_v1.json",
     "logo_direction": "angular folded-metal S selected by user",
     "current_runtime_avatar_sha256": "cd134d25eec3dd4d3df69ac0569b95ecbe384f444297c8e1c1e0fd4fb5405e6a",
-    "binary_durability": "PENDING"
+    "binary_durability": "PASS_DROPBOX_VERIFIED",
+    "durable_folder": "/SIGMANOUVA"
   },
   "content": {
     "verified_seed_ideas": 20,
@@ -32,12 +34,13 @@
     "sigmanouva_render_inputs": 7,
     "runtime_rendered_assets": 22,
     "runtime_render_dimensions": "1080x1350",
-    "runtime_package_sha256": "96ba339100d976fe3bc1c12079888b791bfd6422efde9199e23c8083d4821d65",
+    "durable_package_dropbox_path": "/SIGMANOUVA/SIGMANOUVA_COHORT_001_PACKAGE_v1.zip",
+    "durable_package_sha256": "6c561075b386fea586355d2c7c7645186a8b573163da48c711db2bcd76f64923",
     "production_render_receipt": "docs/media-engine/receipts/SIGMANOUVA_PRODUCTION_RENDER_RECEIPT_v1.json",
     "production_visual_qa": "docs/media-engine/qa/SIGMANOUVA_PRODUCTION_VISUAL_QA_v1.md",
     "text_qa": "PASS",
     "visual_qa": "PASS_RUNTIME_PACKAGE",
-    "closed_content_qa": "PASS_RUNTIME_PACKAGE"
+    "closed_content_qa": "PASS_DURABLE_PACKAGE"
   },
   "operations": {
     "launch_readiness": "docs/media-engine/operations/SIGMANOUVA_LAUNCH_READINESS_v1.md",
@@ -63,7 +66,7 @@
   },
   "publication": {
     "public_rebrand": "NOT_AUTHORIZED",
-    "controlled_publication": "NOT_AUTHORIZED_PENDING_BINARY_DURABILITY_AND_EXTERNAL_PROFILE_CHECKS",
+    "controlled_publication": "NOT_AUTHORIZED_PENDING_EXTERNAL_PROFILE_CHECKS",
     "autonomous_publishing": "NOT_AUTHORIZED"
   },
   "legacy": {
@@ -79,13 +82,12 @@
     "do_not_freeze_handle_from_search_engine_absence": true,
     "do_not_enable_autonomous_publishing_before_controlled_validation": true
   },
-  "current_phase": "SIGMANOUVA_DURABILITY_AND_EXTERNAL_IDENTITY_BEFORE_CONTROLLED_LAUNCH",
+  "current_phase": "SIGMANOUVA_EXTERNAL_IDENTITY_BEFORE_CONTROLLED_LAUNCH",
   "next_actions": [
-    "Preserve the exact final image bytes in durable connected storage or repository binary storage and verify their hashes.",
     "Check @sigmanouva directly in Instagram, Facebook and LinkedIn and freeze one coherent identity only after confirmation.",
     "Check domain availability and renewal cost directly with a registrar; do not buy without user approval.",
     "Perform appropriate trademark/legal clearance before costly or irreversible brand investment.",
-    "After durability and profile checks pass, authorize the first supervised publication only.",
+    "After external profile checks pass, authorize the first supervised publication only.",
     "Keep autonomous publishing disabled until real posts prove routing, duplicate prevention, confirmation logging and cost safety."
   ]
 }
