@@ -1,0 +1,39 @@
+{
+  "receipt": "SIGMANOUVA_COHORT_001_LAYOUT_PREFLIGHT_RECEIPT_v1",
+  "status": "PASS_RUNTIME_LAYOUT_PREFLIGHT_NOT_FINAL_RENDER_RECEIPT",
+  "date": "2026-09-05",
+  "brand": "SIGMANOUVA",
+  "core_operational_sha256": "f270af923e3075c1dcf53e9e6b27291e32d772fe5e080248d2fd742c2691768b",
+  "output_count": 22,
+  "all_dimensions": "1080x1350",
+  "safe_margin_result": "PASS_ALL_OUTPUTS_LEFT>=72_RIGHT>=71_TOP>=50_BOTTOM>=47",
+  "outputs": [
+    {"file":"D01.png","sha256":"da76f5ba9fb71df4b9d5048c5e92ce1115536e37a6d608b4e481f72630c8ecf5"},
+    {"file":"D02_S01.png","sha256":"8b6a15b911c3bc811fe3345a4b98b6d82354a724b0deebc1b550aae81aceeaf4"},
+    {"file":"D02_S02.png","sha256":"a916990394b8864136b3a1ea3051243223d325cf3bb2adc749c3534deb5d37fc"},
+    {"file":"D02_S03.png","sha256":"f815aca43b9f6eac5c8b5b0b365bd97952d6bf3d47b34f5a407db2cfb29e3ec6"},
+    {"file":"D02_S04.png","sha256":"ad7d1396392f9a31a6c918b9ec687a8879abe193330e46a06007d0d0b40a6877"},
+    {"file":"D02_S05.png","sha256":"fc47e5be0c46dc5b2c0aab4754953e5e1a134ad8a28184db359d62652e8fdccf"},
+    {"file":"D02_S06.png","sha256":"e6e9597280b5af94b817dbd6c788b7fb7819dfba0ccfbba0ecc07b32d023bc7a"},
+    {"file":"D02_S07.png","sha256":"7db2a5184a6b543bc1703a7d37c225ce474b729ad603c95c912ee0fdfc28e9a6"},
+    {"file":"D03.png","sha256":"398bcebddc8726576be535f035083f56661c612a03fb0445f66d78146c10916a"},
+    {"file":"D04.png","sha256":"5ff92b3b93b78ef9fb5c436a8746dedfe1be8bebafe4e27406a86a7fd9928a54"},
+    {"file":"D05.png","sha256":"705be3a4d1cfbc94c8ecb136a4d15274aa6164936953aecb50611e1eb11a91d5"},
+    {"file":"D06_S01.png","sha256":"3ee760133ba4e42d2e956f1fa5de23cd27ccf124141c332c226c3ca47d906292"},
+    {"file":"D06_S02.png","sha256":"33540f3c9ba67f38810fe29b7927ac6a8a79291ba2817bfd206a4fe0e0ffffbd"},
+    {"file":"D06_S03.png","sha256":"4156ad0876dd9fdcfe9ba065597c2a75c567d0b7f481298d88126cc2974d1fda"},
+    {"file":"D06_S04.png","sha256":"86544ff9b912ff62ff010edd839e9f01e1512d4bfef7038f8755281a52eea12d"},
+    {"file":"D06_S05.png","sha256":"f94ab465a3d7f39da9fadf26ed9f3112d972e8fd86f79ef8783c37811a776935"},
+    {"file":"D06_S06.png","sha256":"ea757fd589d29cd7b64ac1b25e6c95bd9dfa601a299b184a5476551dac114621"},
+    {"file":"D06_S07.png","sha256":"04da8460a17b7d698722d2c23a7df656136511f1ee5ba1e79fc07a122b885d56"},
+    {"file":"D07.png","sha256":"b5f4a829e049434c763d27ae53f15124ef87fd7a3b0c9f0d64e0b70f25d7c51e"},
+    {"file":"PIN01.png","sha256":"d9cfb196b6a0d7425c28c5a6dbe746f9956a083dba3ec31bcb47ef98555cd1be"},
+    {"file":"PIN02.png","sha256":"56378b9353c8cefb1c8134995e8a475e6ad931262eed5f427b6c199aa392d2a9"},
+    {"file":"PIN03.png","sha256":"b4cfd7baf69e6d504bd090c93193133e3a4a2c8369bb9dc20a365c470035c161"}
+  ],
+  "notes": [
+    "Runtime preflight validates SIGMANOUVA layout, hierarchy, safe margins and brand migration across the complete 7-day cohort plus three pinned assets.",
+    "These runtime PNGs are not yet repository-persisted publication binaries and therefore do not replace the final renderer receipt.",
+    "Final CLOSED_CONTENT_QA still requires durable binary logo ingest and the production renderer/raster path."
+  ]
+}
