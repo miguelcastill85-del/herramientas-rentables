@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T01",
   "publicationId":"PUB-C001-D05",
   "knowledgeId":"KV-000016",
@@ -11,5 +11,5 @@
   "anchor":"MIRA LA URL",
   "anchorSize":110,
   "support":["El problema no es el QR.", "El problema puede ser", "adónde te lleva."],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
