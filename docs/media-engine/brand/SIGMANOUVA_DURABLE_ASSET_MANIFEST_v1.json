@@ -1,0 +1,15 @@
+{
+  "manifest":"SIGMANOUVA_DURABLE_ASSET_MANIFEST_v1",
+  "status":"PREPARED_FOR_GIT_BINARY_INGEST",
+  "date":"2026-09-05",
+  "derivation":"Deterministic downscaled JPEG derivatives of the approved logo-family operational assets, quality=72, optimized progressive JPEG. Source identity remains governed separately by SIGMANOUVA_LOGO_FAMILY_MANIFEST_v1.",
+  "assets":{
+    "core":{"path":"docs/media-engine/brand/assets/sigmanouva/core-durable.jpg","dimensions":"640x640","bytes":15491,"sha256":"bfd2666385b05871eabd668d982dafaa79f184320679cacf9d5e2aed9430d2b9"},
+    "avatar_symbol":{"path":"docs/media-engine/brand/assets/sigmanouva/avatar-symbol-durable.jpg","dimensions":"640x640","bytes":19844,"sha256":"cd134d25eec3dd4d3df69ac0569b95ecbe384f444297c8e1c1e0fd4fb5405e6a"},
+    "horizontal":{"path":"docs/media-engine/brand/assets/sigmanouva/horizontal-durable.jpg","dimensions":"768x576","bytes":10175,"sha256":"09ac82248e8ef4789bd2801eae1153645ddf382cba228650d4a3c46cf825ea40"},
+    "instagram_profile":{"path":"docs/media-engine/brand/assets/sigmanouva/instagram-profile-durable.jpg","dimensions":"640x640","bytes":18292,"sha256":"a21e213ee03553bd0f8f59d76e64f6ad357879e80862672c3bb047d756dc1e74"},
+    "instagram_content":{"path":"docs/media-engine/brand/assets/sigmanouva/instagram-content-durable.jpg","dimensions":"640x640","bytes":18236,"sha256":"b1c36e41dbd9c983a93dd5969e572fc08284e5e1985cf3ef28a0052a5ecce34a"},
+    "hero":{"path":"docs/media-engine/brand/assets/sigmanouva/hero-durable.jpg","dimensions":"640x640","bytes":16394,"sha256":"4e4b96b63e80ab142634ac358a721366b0a1a520487abccc591ed5aa56ee951b"}
+  },
+  "gate":"PENDING_GIT_BLOB_COMMIT"
+}
