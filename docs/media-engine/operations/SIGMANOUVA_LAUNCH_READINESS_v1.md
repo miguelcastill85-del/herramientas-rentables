@@ -1,11 +1,11 @@
 # SIGMANOUVA — ESTADO DE LANZAMIENTO v1
 
-Estado: PREPARACIÓN AVANZADA
+Estado: PREPARACIÓN MUY AVANZADA
 Fecha: 2026-09-06
 
 ## En una frase
 
-La marca y la primera tanda de contenido están preparadas. Lo que nos separa del lanzamiento es cerrar la durabilidad de las imágenes y confirmar la identidad pública en las redes y dominio.
+La marca, los primeros contenidos y sus archivos visuales ya están preparados y guardados de forma permanente. Lo principal que nos separa del primer lanzamiento es confirmar la identidad pública dentro de Instagram, Facebook y LinkedIn y comprobar directamente los dominios antes de decidir si compramos alguno.
 
 ## Ya está listo
 
@@ -18,6 +18,22 @@ La marca y la primera tanda de contenido están preparadas. Lo que nos separa de
 - estilo visual;
 - tono y personalidad;
 - bios de Instagram, Facebook y LinkedIn.
+
+### Archivos permanentes
+
+La carpeta privada `/SIGMANOUVA` ya existe en Dropbox.
+
+Allí están guardados y comprobados:
+
+- `SIGMANOUVA_COHORT_001_PACKAGE_v1.zip` con la primera tanda visual;
+- `avatar_symbol.jpg`;
+- `core_logo.jpg`;
+- `hero_logo.jpg`;
+- `horizontal_logo.jpg`.
+
+No se creó ningún enlace público.
+
+El comprobante está en `docs/media-engine/receipts/SIGMANOUVA_DROPBOX_DURABILITY_RECEIPT_v1.json`.
 
 ### Perfil
 
@@ -34,7 +50,7 @@ La marca y la primera tanda de contenido están preparadas. Lo que nos separa de
 - siete textos maestros revisados;
 - 22 piezas visuales generadas;
 - revisión de lectura en móvil y recortes completada;
-- paquete de recuperación creado en el runtime actual.
+- paquete completo guardado permanentemente en Dropbox.
 
 ### Medición
 
@@ -48,13 +64,19 @@ Vamos a observar principalmente:
 
 Los primeros análisis se harán después de 24 horas, 72 horas y 7 días.
 
+### Revisión preliminar de nombre y dominio
+
+No apareció una coincidencia pública clara con `SIGMANOUVA` exacto en las búsquedas realizadas.
+
+Sí existe una empresa chilena llamada `Sigma-Nova S.A.`, por lo que conservamos una advertencia de similitud antes de una inversión importante en marca.
+
+NIC Chile publica una tarifa de CLP 9.990 por un año de dominio `.cl`.
+
+Para `.com`, Cloudflare Registrar es una opción de bajo costo porque cobra a precio de costo y sin recargo propio. La disponibilidad y precio exactos de `sigmanouva.com` todavía deben confirmarse directamente antes de una compra.
+
+Documento: `docs/media-engine/brand/SIGMANOUVA_DOMAIN_AND_NAME_SCREEN_v1.md`.
+
 ## Todavía falta
-
-### Guardado permanente de imágenes
-
-Prioridad: ALTA.
-
-Necesitamos que las imágenes finales no dependan de un chat temporal. Las reglas y las huellas que identifican los archivos ya están guardadas, pero todavía falta cerrar una copia permanente de los binarios visuales.
 
 ### Usuario de las redes
 
@@ -62,13 +84,16 @@ Prioridad: ALTA.
 
 Candidato principal: `@sigmanouva`.
 
-La búsqueda pública no mostró un resultado exacto evidente, pero hay que confirmarlo dentro de cada plataforma.
+La búsqueda pública no mostró un resultado exacto evidente, pero esto debe confirmarse dentro de cada plataforma. Una cuenta puede existir aunque no aparezca en Google.
 
 ### Dominio
 
 Prioridad: MEDIA antes del primer lanzamiento; ALTA antes de construir una web nueva bajo SIGMANOUVA.
 
-Hay que consultar disponibilidad y precio real antes de decidir.
+Hay que comprobar directamente:
+
+- `sigmanouva.com` en un registrador;
+- `sigmanouva.cl` en NIC Chile.
 
 No comprar sin aprobación.
 
@@ -90,9 +115,9 @@ Hay usos cercanos de `Sigma Nova`, incluido uno en Chile. Por eso no declaramos 
 
 ## Orden correcto desde aquí
 
-1. asegurar copia permanente de logos y paquete de contenido;
+1. ~~asegurar copia permanente de logos y paquete de contenido~~ — LISTO;
 2. confirmar `@sigmanouva` directamente en Instagram, Facebook y LinkedIn;
-3. confirmar dominio y precios sin comprar;
+3. confirmar disponibilidad de dominio sin comprar;
 4. configurar los tres perfiles con la misma identidad;
 5. colocar los tres posts fijados;
 6. hacer primera publicación controlada;
@@ -104,14 +129,13 @@ Hay usos cercanos de `Sigma Nova`, incluido uno en Chile. Por eso no declaramos 
 
 ## Cuándo podremos decir "listos para publicar"
 
-Solo cuando se cumplan estas cuatro cosas:
+Nos faltan principalmente estas tres cosas:
 
-1. archivos visuales finales recuperables de forma permanente;
-2. identidad de cuenta confirmada;
-3. perfiles preparados correctamente;
-4. primera publicación autorizada para hacerse de forma supervisada.
+1. identidad de cuenta confirmada en las redes;
+2. perfiles preparados correctamente;
+3. primera publicación autorizada para hacerse de forma supervisada.
 
-No hace falta tener millones de ideas ni una automatización compleja antes de comenzar.
+La conservación permanente de los archivos ya está resuelta.
 
 ## Objetivo de esta etapa
 
