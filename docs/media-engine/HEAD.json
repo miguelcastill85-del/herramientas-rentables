@@ -11,6 +11,12 @@
     "status": "ACTIVE_REQUIRED",
     "rule": "Explain in simple Spanish: qué hice, para qué, resultado, qué falta y qué significa. Translate unavoidable technical terms immediately."
   },
+  "economics": {
+    "policy": "docs/media-engine/governance/ZERO_COST_ECOSYSTEM_POLICY_v1.md",
+    "status": "ACTIVE_REQUIRED",
+    "additional_build_cost_usd": 0,
+    "rule": "Build, operate and grow the initial SIGMANOUVA ecosystem with no additional out-of-pocket spend. Paid options must be replaced by free alternatives or postponed and must never block organic launch."
+  },
   "brand": {
     "master_brand": "SIGMANOUVA",
     "tagline": "Lo que importa, explicado.",
@@ -63,16 +69,14 @@
     "instagram_handle": "PENDING_DIRECT_CHECK",
     "facebook_handle": "PENDING_DIRECT_CHECK",
     "linkedin_identifier": "PENDING_DIRECT_CHECK",
-    "domain_com": "PENDING_DIRECT_REGISTRAR_CHECK",
-    "domain_cl": "PENDING_DIRECT_NIC_CHILE_CHECK",
-    "domain_cl_public_price_1y_clp": 9990,
-    "domain_com_low_cost_option": "Cloudflare Registrar at-cost pricing; exact domain availability and checkout price pending",
-    "trademark_legal_clearance": "PENDING_SPECIALIST_REVIEW"
+    "domain_com": "OPTIONAL_FREE_RESEARCH_ONLY_NO_PURCHASE",
+    "domain_cl": "OPTIONAL_FREE_RESEARCH_ONLY_NO_PURCHASE",
+    "trademark_legal_clearance": "FREE_PRELIMINARY_SCREENING_ONLY_DURING_ZERO_COST_PHASE"
   },
   "publication": {
     "public_rebrand": "NOT_AUTHORIZED",
     "controlled_publication": "NOT_AUTHORIZED_PENDING_EXTERNAL_PROFILE_CHECKS",
-    "autonomous_publishing": "NOT_AUTHORIZED"
+    "autonomous_publishing": "NOT_AUTHORIZED_UNTIL_FREE_RELIABLE_PATH_VALIDATED"
   },
   "legacy": {
     "SIGMA": "SUPERSEDED_DO_NOT_USE_FOR_NEW_PUBLIC_IDENTITY",
@@ -80,20 +84,33 @@
   },
   "constraints": {
     "additional_cost_target_usd": 0,
-    "do_not_buy_followers": true,
+    "additional_build_cost_hard_limit_usd": 0,
+    "paid_ads": false,
+    "paid_domains": false,
+    "paid_tools": false,
+    "paid_apis": false,
+    "paid_automation": false,
+    "paid_hosting_new": false,
+    "paid_design_tools": false,
+    "paid_consultants_or_agencies": false,
+    "paid_legal_or_trademark_services_during_zero_cost_phase": false,
+    "paid_followers_or_engagement": false,
+    "do_not_activate_trials_that_can_create_future_charges": true,
+    "domain_not_required_for_social_launch": true,
+    "use_free_or_already_available_resources_first": true,
     "do_not_publish_unverified_material_claims": true,
     "do_not_publish_legacy_sigma_visuals_as_sigmanouva": true,
     "do_not_claim_trademark_exclusivity_without_clearance": true,
     "do_not_freeze_handle_from_search_engine_absence": true,
     "do_not_enable_autonomous_publishing_before_controlled_validation": true
   },
-  "current_phase": "SIGMANOUVA_EXTERNAL_IDENTITY_BEFORE_CONTROLLED_LAUNCH",
+  "current_phase": "SIGMANOUVA_FREE_EXTERNAL_IDENTITY_BEFORE_CONTROLLED_LAUNCH",
   "next_actions": [
     "Check @sigmanouva directly in Instagram, Facebook and LinkedIn and freeze one coherent identity only after confirmation.",
-    "Check sigmanouva.com directly with a registrar and sigmanouva.cl directly with NIC Chile; do not buy without user approval.",
-    "Perform appropriate trademark/legal clearance before costly or irreversible brand investment.",
-    "Use the prepared profile activation card to configure all three profiles once the handle is confirmed.",
-    "After external profile checks pass, authorize the first supervised publication only.",
-    "Keep autonomous publishing disabled until real posts prove routing, duplicate prevention, confirmation logging and cost safety."
+    "Use the prepared profile activation card to configure all three profiles using only free resources once the handle is confirmed.",
+    "Treat domains as optional research only; do not purchase and do not let lack of a domain block launch.",
+    "Continue only free public screening for obvious name conflicts; do not pay for legal or trademark services during the zero-cost phase.",
+    "After external profile checks pass, authorize the first supervised organic publication only.",
+    "Keep autonomous publishing disabled until a free and reliable path is validated with real posts."
   ]
 }
