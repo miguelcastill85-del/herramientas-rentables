@@ -1,11 +1,14 @@
 {
-  "status":"BLOCKED_ONLY_BY_BINARY_TRANSPORT",
+  "status":"PENDING_SAFE_DURABLE_STORAGE",
   "text_authority":"PASS",
   "hash_authority":"PASS",
   "compact_durable_derivatives_materialized_in_runtime":true,
   "github_binary_files_committed":false,
-  "reason":"The standard GitHub contents write path is UTF-8 text-only. Binary JPEG bytes require the low-level Git blob/tree commit path; no substitution or text-wrapping of binary bytes is permitted.",
+  "github_low_level_attempt":"TESTED_BUT_REJECTED_AFTER_SIZE_VERIFICATION",
+  "reason":"A low-level GitHub binary attempt produced an incomplete file when compared with the original size, so it was removed immediately and was never accepted as valid authority.",
+  "safe_fallback_available":"Dropbox connected storage",
+  "dropbox_status":"CONNECTED_BUT_WRITE_REQUIRES_EXPLICIT_USER_CONFIRMATION_AND_DESTINATION",
   "scientific_or_editorial_block":false,
   "publication_block":true,
-  "next":"Commit exact compact JPEG bytes via Git blob/tree and verify repository download SHA-256 before promoting binary ingest."
+  "next":"After explicit user confirmation, create a dedicated /SIGMANOUVA Dropbox folder and save the exact full Cohort 001 ZIP plus key logo files; then record returned paths and verify file identity before publication."
 }
