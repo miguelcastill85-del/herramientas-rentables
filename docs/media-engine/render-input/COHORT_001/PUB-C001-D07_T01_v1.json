@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T01",
   "publicationId":"PUB-C001-D07",
   "knowledgeId":"KV-000004",
@@ -12,5 +12,5 @@
   "anchor":"ANCLA",
   "anchorSize":132,
   "support":["Vuelve a tus propios criterios:", "valor, alternativas,", "presupuesto y necesidad."],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
