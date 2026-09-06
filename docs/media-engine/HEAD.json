@@ -48,6 +48,8 @@
     "renderer": "scripts/media-engine/render-sigmanouva-svg.mjs"
   },
   "external_checks": {
+    "public_web_screen": "docs/media-engine/brand/SIGMANOUVA_EXTERNAL_IDENTITY_SCREEN_v1.md",
+    "public_web_screen_result": "PASS_NO_CLEAR_EXACT_SIGMANOUVA_RESULTS",
     "sigmanouva_exact_web_collision_screen": "PASS_NO_CLEAR_EXACT_INDEXED_MATCH",
     "sigma_nova_similarity_risk": "WARNING_HIGH",
     "instagram_handle": "PENDING_DIRECT_CHECK",
