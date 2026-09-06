@@ -6,6 +6,7 @@
   "repository": "miguelcastill85-del/herramientas-rentables",
   "updated_at": "2026-09-06",
   "communication": {
+    "start_here": "docs/media-engine/START_HERE_SIGMANOUVA.md",
     "protocol": "docs/media-engine/governance/SIMPLE_REPORTING_PROTOCOL_v1.md",
     "status": "ACTIVE_REQUIRED",
     "rule": "Explain in simple Spanish: qué hice, para qué, resultado, qué falta y qué significa. Translate unavoidable technical terms immediately."
@@ -39,6 +40,7 @@
     "closed_content_qa": "PASS_RUNTIME_PACKAGE"
   },
   "operations": {
+    "launch_readiness": "docs/media-engine/operations/SIGMANOUVA_LAUNCH_READINESS_v1.md",
     "publication_manifest": "docs/media-engine/operations/COHORT_001_PUBLICATION_MANIFEST_v1.json",
     "analytics_schema": "docs/media-engine/analytics/SIGMANOUVA_ANALYTICS_SCHEMA_v1.json",
     "discovery_lab": "docs/media-engine/experiments/COHORT_001_DISCOVERY_LAB_v1.json",
@@ -50,6 +52,7 @@
   "external_checks": {
     "public_web_screen": "docs/media-engine/brand/SIGMANOUVA_EXTERNAL_IDENTITY_SCREEN_v1.md",
     "public_web_screen_result": "PASS_NO_CLEAR_EXACT_SIGMANOUVA_RESULTS",
+    "exact_name_rescreen_2026_09_06": "NO_EXACT_PUBLIC_RESULTS_FOR_SIGMANOUVA_ON_INSTAGRAM_FACEBOOK_LINKEDIN_DOTCOM_DOTCL",
     "sigmanouva_exact_web_collision_screen": "PASS_NO_CLEAR_EXACT_INDEXED_MATCH",
     "sigma_nova_similarity_risk": "WARNING_HIGH",
     "instagram_handle": "PENDING_DIRECT_CHECK",
