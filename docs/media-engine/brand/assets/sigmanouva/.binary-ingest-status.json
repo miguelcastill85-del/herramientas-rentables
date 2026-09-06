@@ -1,0 +1,11 @@
+{
+  "status":"BLOCKED_ONLY_BY_BINARY_TRANSPORT",
+  "text_authority":"PASS",
+  "hash_authority":"PASS",
+  "compact_durable_derivatives_materialized_in_runtime":true,
+  "github_binary_files_committed":false,
+  "reason":"The standard GitHub contents write path is UTF-8 text-only. Binary JPEG bytes require the low-level Git blob/tree commit path; no substitution or text-wrapping of binary bytes is permitted.",
+  "scientific_or_editorial_block":false,
+  "publication_block":true,
+  "next":"Commit exact compact JPEG bytes via Git blob/tree and verify repository download SHA-256 before promoting binary ingest."
+}
