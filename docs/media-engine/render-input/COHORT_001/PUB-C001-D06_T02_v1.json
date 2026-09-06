@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T02",
   "publicationId":"PUB-C001-D06",
   "knowledgeId":"KV-000003",
@@ -16,5 +16,5 @@
     {"headlineLines":["El número cambia"], "bodyLines":["si cambian precio, costos fijos", "o costo variable."]},
     {"headlineLines":["Primero calcula el cero."], "bodyLines":["Después habla de crecimiento."]}
   ],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
