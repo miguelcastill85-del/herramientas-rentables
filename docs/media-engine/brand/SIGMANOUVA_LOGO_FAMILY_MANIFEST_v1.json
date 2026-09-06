@@ -1,0 +1,74 @@
+{
+  "manifest": "SIGMANOUVA_LOGO_FAMILY_MANIFEST_v1",
+  "status": "APPROVED_OPERATIONAL_FAMILY",
+  "date": "2026-09-05",
+  "authority": "MEDIA_ENGINE_WORKLOG_v1.1_GROWTH_PATCH + DEC-0003 + SIGMANOUVA_BRAND_KIT_v1",
+  "master_brand": "SIGMANOUVA",
+  "source_note": "The user selected the angular S direction and then approved a family of platform-oriented variants. Original generated assets are identified below by SHA-256; web-operational derivatives are deterministic resized/compressed copies and are the files intended for repository use.",
+  "assets": {
+    "hero": {
+      "role": "web, presentations, premium brand moments",
+      "source_sha256": "d12f721b466de8a995503177097fa7373ed5fc017286a4c865964c5bc6952a8e",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/hero.jpg",
+      "operational_sha256": "bfcbb92d6292d4486250a1f7a572f95bf0b059fb0491d98e4910208ac77800a2",
+      "dimensions": "1024x1024"
+    },
+    "instagram_profile_lockup": {
+      "role": "Instagram profile/supporting square brand use",
+      "source_sha256": "549046a7e354874e856d0201266f4d93b4417f6eff1d7d5a775e085d59ef591a",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/instagram-profile.jpg",
+      "operational_sha256": "4a2af493acb7d068294bf47e4a3559cfa666b549f56f4ed98ff85905570e7b2f",
+      "dimensions": "1024x1024"
+    },
+    "instagram_content_lockup": {
+      "role": "Instagram posts, story covers and branded social compositions",
+      "source_sha256": "b98fb740480f1cd15f919ccf216ab80895171eec61a2132e1c1673acb6d1b945",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/instagram-content.jpg",
+      "operational_sha256": "401f81e1aa9a2ea89fb7111509a320d8d99186b42a4bbac02c24de15e6afc8dc",
+      "dimensions": "1024x1024"
+    },
+    "horizontal_lockup": {
+      "role": "Facebook and LinkedIn horizontal/header use",
+      "source_sha256": "ca5fa501be4662b7c39da837deee17e6db39a9095db4c4c511fd65bb23bec67b",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/horizontal.jpg",
+      "operational_sha256": "9521934f257a8725bb036bdda4ca1deb19fd4d3ab6b7527e5613e9f09e2c45ed",
+      "dimensions": "1024x768"
+    },
+    "core_simplified": {
+      "role": "small digital branding, content footer, watermark and renderer source",
+      "source_sha256": "9f5547d72c8dc75475daa477e3c53319c0284d45eefa248180d0758fb048bc5c",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/core.jpg",
+      "operational_sha256": "f270af923e3075c1dcf53e9e6b27291e32d772fe5e080248d2fd742c2691768b",
+      "dimensions": "1024x1024"
+    },
+    "avatar_symbol": {
+      "role": "preferred small circular-profile avatar derived from the approved Instagram-family mark; symbol only",
+      "derivation": "crop from approved Instagram profile lockup, centered on 1024x1024 neutral canvas; no generative changes",
+      "operational_path": "docs/media-engine/brand/assets/sigmanouva/avatar-symbol.jpg",
+      "operational_sha256": "369eeb1b5153f8020c067ddb3eaf7051c8a378e11f95c0eb04103211673f6004",
+      "dimensions": "1024x1024"
+    }
+  },
+  "platform_assignment": {
+    "instagram_avatar": "avatar_symbol",
+    "instagram_brand_posts": "instagram_content_lockup",
+    "facebook_profile": "avatar_symbol",
+    "facebook_header_or_brand_lockup": "horizontal_lockup",
+    "linkedin_company_avatar": "avatar_symbol",
+    "linkedin_header_or_brand_lockup": "horizontal_lockup",
+    "website_or_deck": "hero",
+    "content_renderer": "core_simplified"
+  },
+  "rules": [
+    "Do not replace any asset with another generated option without a new manifest version.",
+    "Do not stretch or distort the mark.",
+    "The core renderer must verify the operational SHA before using the logo.",
+    "Platform headers may use the horizontal lockup; profile circles should prefer the symbol-only derivative.",
+    "Old SIGMA assets remain legacy and are invalid for new SIGMANOUVA public content."
+  ],
+  "gates": {
+    "SIGMANOUVA_LOGO_FAMILY_SPEC": "PASS",
+    "SIGMANOUVA_OPERATIONAL_BINARY_INGEST": "PENDING_GITHUB_BINARY_COMMIT",
+    "SIGMANOUVA_PLATFORM_ASSIGNMENT": "PASS"
+  }
+}
