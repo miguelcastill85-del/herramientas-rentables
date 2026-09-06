@@ -1,5 +1,5 @@
 {
-  "brand":"SIGMA",
+  "brand":"SIGMANOUVA",
   "template":"T01",
   "publicationId":"PUB-C001-D04",
   "knowledgeId":"KV-000017",
@@ -11,5 +11,5 @@
   "anchor":"FLUIDEZ NO ES PRUEBA",
   "anchorSize":74,
   "support":["Si una afirmación importa,", "compruébala en la fuente", "original antes de actuar."],
-  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED"
+  "logoPath":"SET_AT_RUNTIME_AND_SHA256_VERIFIED_SIGMANOUVA_CORE"
 }
