@@ -5,6 +5,14 @@
   "source_of_truth": "GitHub main",
   "repository": "miguelcastill85-del/herramientas-rentables",
   "branch": "main",
+  "communication_authority": {
+    "protocol": "docs/media-engine/governance/SIMPLE_REPORTING_PROTOCOL_v1.md",
+    "status": "ACTIVE_REQUIRED",
+    "language": "Spanish",
+    "style": "simple, casual, precise, business-first",
+    "required_explanation": ["qué hice", "para qué lo hice", "qué resultado obtuvimos", "qué falta", "qué significa ahora"],
+    "rule": "Technical work may remain complex internally, but user-facing reports must explain it in normal language and translate any unavoidable technical term immediately."
+  },
   "brand_authority": {
     "master_brand": "SIGMANOUVA",
     "brand_decision": "docs/media-engine/decisions/DEC-0003-sigmanouva-brand-architecture.md",
@@ -50,7 +58,7 @@
     "note": "Editorial research remains reusable. SIGMA visual outputs are legacy and must not be published as SIGMANOUVA."
   },
   "created_at": "2026-09-05",
-  "updated_at": "2026-09-05",
+  "updated_at": "2026-09-06",
   "constraints": {
     "additional_cost_target_usd": 0,
     "do_not_buy_followers": true,
@@ -60,7 +68,10 @@
     "do_not_claim_sigmanouva_trademark_exclusivity_without_clearance": true,
     "do_not_freeze_handle_from_search_engine_absence": true,
     "do_not_publish_legacy_sigma_visuals_as_sigmanouva": true,
-    "do_not_bypass_sigmanouva_logo_sha_check": true
+    "do_not_bypass_sigmanouva_logo_sha_check": true,
+    "user_facing_reports_must_use_simple_casual_language": true,
+    "technical_terms_must_be_translated_immediately": true,
+    "business_reason_for_work_must_be_explained": true
   },
   "operating_model": {
     "tracks": ["FOUNDATION_ENGINE", "GROWTH_LAB"],
@@ -91,12 +102,14 @@
     "sigmanouva_prelaunch_runbook_created": true,
     "sigmanouva_controlled_launch_checklist_created": true,
     "sigmanouva_production_rerender_completed": false,
+    "simple_reporting_protocol_created": true,
     "legacy_sigma_rendered_asset_pairs": 28
   },
   "gates": {
     "METHODOLOGY_V1_0": "PASS",
     "GROWTH_PATCH_V1_1": "PASS",
     "DURABLE_GITHUB_AUTHORITY": "PASS_MAIN",
+    "SIMPLE_REPORTING_PROTOCOL_V1": "ACTIVE_REQUIRED",
     "SIGMA_BRAND_ARCHITECTURE_V1": "SUPERSEDED_BY_SIGMANOUVA",
     "SIGMA_BRAND_SYSTEM_V1": "LEGACY_DO_NOT_USE_FOR_NEW_PUBLIC_IDENTITY",
     "SIGMANOUVA_BRAND_ARCHITECTURE_V1": "PASS",
