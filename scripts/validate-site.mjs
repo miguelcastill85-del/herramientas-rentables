@@ -80,6 +80,8 @@ const secretPatterns = [
   /sk_(?:live|test|proj)_[a-z0-9_-]{12,}/i,
 ];
 
+const selfHostedSocialImage = "const socialImage = `${siteUrl}/og.png`;";
+
 const checks = [
   [page.includes('<main'), 'La página debe incluir un elemento <main>.'],
   [page.includes('<h1'), 'La página debe incluir un encabezado <h1>.'],
@@ -99,11 +101,13 @@ const checks = [
   [layout.includes('alternates: { canonical:'), 'La configuración SEO debe incluir una URL canónica.'],
   [layout.includes('openGraph:'), 'La configuración SEO debe incluir Open Graph.'],
   [layout.includes('application/ld+json'), 'La página debe incluir datos estructurados JSON-LD.'],
+  [layout.includes(selfHostedSocialImage), 'La portada debe servir la imagen social desde el dominio canónico.'],
   [toolPage.includes('generateStaticParams'), 'Las rutas de herramientas deben generarse estáticamente.'],
   [toolPage.includes('generateMetadata'), 'Cada herramienta debe generar metadatos individuales.'],
   [toolPage.includes('alternates: { canonical }'), 'Cada herramienta debe declarar su URL canónica.'],
   [toolPage.includes('openGraph:') && toolPage.includes('twitter:'), 'Cada herramienta debe incluir Open Graph y Twitter metadata.'],
-  [toolPage.includes('main/public/og.png') && toolPage.includes('images: [socialImage]'), 'Las herramientas deben usar la imagen social existente en Open Graph y Twitter.'],
+  [toolPage.includes(selfHostedSocialImage) && toolPage.includes('images: [socialImage]'), 'Las herramientas deben usar la imagen social del dominio canónico en Open Graph y Twitter.'],
+  [toolPage.includes("card: 'summary_large_image'"), 'Las herramientas deben usar una Twitter card grande para la imagen 1200x630.'],
   [toolPage.includes("'@type': 'WebApplication'") && toolPage.includes('application/ld+json'), 'Cada herramienta debe incluir JSON-LD de aplicación web.'],
   [toolPage.includes('<h1>{tool.name}</h1>'), 'Cada herramienta debe mostrar un H1 único.'],
   [toolPage.includes('ToolCalculator') && toolPage.includes('Herramientas relacionadas'), 'Cada página debe incluir calculadora y herramientas relacionadas.'],
@@ -116,7 +120,8 @@ const checks = [
   [!page.includes('href="/radar"'), 'La portada no debe promocionar la línea cerrada de Radar.'],
   [proPage.includes('<h1 id="pro-title">') && proPage.includes('<PayhipOffers variant="page" />') && proPage.includes('payhipProducts.free.name') && proPage.includes('payhipProducts.premium.name'), '/pro debe presentar ambas opciones con un H1 único.'],
   [proPage.includes('alternates: { canonical }') && proPage.includes('openGraph:') && proPage.includes('twitter:'), '/pro debe incluir canonical, Open Graph y Twitter metadata.'],
-  [proPage.includes('main/public/og.png'), '/pro debe usar la imagen social existente.'],
+  [proPage.includes(selfHostedSocialImage), '/pro debe usar la imagen social del dominio canónico.'],
+  [!sourceContents.includes('raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png'), 'La imagen social no debe depender de raw.githubusercontent.com.'],
   [sitemap.includes("url: `${siteUrl}/pro`"), 'El sitemap debe incluir /pro.'],
   [sitemap.includes("url: `${siteUrl}/radar`") && sitemap.includes("changeFrequency: 'yearly'") && sitemap.includes('priority: 0.1'), 'Radar debe conservar su ruta con prioridad SEO mínima.'],
   [quotePage.includes("title: 'Cotización Freelance Profesional en Chile'") && guidePage.includes("title: 'Cuánto cobrar como freelance en Chile en 2026'"), 'Las páginas freelance no deben duplicar la marca en el título generado.'],

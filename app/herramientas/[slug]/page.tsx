@@ -5,8 +5,7 @@ import { PayhipOffers } from '../../components/payhip-offers';
 import { ToolCalculator } from '../../components/calculators';
 import { getToolById, getToolBySlug, siteUrl, tools } from '../../lib/tools';
 
-const socialImage =
-  'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
+const socialImage = `${siteUrl}/og.png`;
 
 type ToolPageProps = {
   params: Promise<{ slug: string }>;
@@ -47,7 +46,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
       ],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: tool.seoTitle,
       description: tool.seoDescription,
       images: [socialImage],
