@@ -1,0 +1,52 @@
+{
+  "benchmark_id": "DIGITAL_PRODUCT_WINNER_BENCHMARK_v3",
+  "status": "ACTIVE",
+  "effective_date": "2026-09-09",
+  "purpose": "Select digital products from proven demand rather than novelty.",
+  "hard_gates": {
+    "G1_ORIGINAL_AND_LEGITIMATE": {
+      "required": true,
+      "rule": "We can build an original product for the same customer problem without copying protected files, branding, listing copy, images, proprietary data or creative expression."
+    },
+    "G2_POSITIVE_UNIT_ECONOMICS": {
+      "required": true,
+      "rule": "A realistic market price can leave positive net cash after known marketplace/payment fees and expected support/refund burden."
+    },
+    "G3_CREDIBLE_BUYER_REASON": {
+      "required": true,
+      "rule": "There is at least one credible reason a buyer could choose our implementation: workflow, usability, decision support, documentation, localization, integration, packaging, outcome or price/value."
+    }
+  },
+  "score": {
+    "DEMAND_EVIDENCE": {"weight": 30, "description": "Evidence that buyers already purchase this archetype or close substitutes."},
+    "SUCCESSFUL_SELLER_EVIDENCE": {"weight": 15, "description": "Multiple observable sellers/listings show material reviews, favorites or other purchase-proxy evidence."},
+    "CAPTURABILITY": {"weight": 15, "description": "Probability that a new professional entrant can capture a useful fraction of demand despite incumbents."},
+    "VALUE_ADD_HEADROOM": {"weight": 15, "description": "Room to improve the buyer outcome or reduce friction without requiring category invention."},
+    "MARGIN_POTENTIAL": {"weight": 10, "description": "Price band and digital cost structure support attractive net economics."},
+    "PRODUCTION_SPEED": {"weight": 5, "description": "Can be produced and QA'd within practical weekly capacity or by reusing validated internal assets."},
+    "BUNDLE_AND_EXPANSION": {"weight": 5, "description": "Can seed adjacent modules, bundles, verticals or localization."},
+    "PORTFOLIO_FIT": {"weight": 5, "description": "Reuses our audience, expertise, site, funnel or existing product assets."}
+  },
+  "decision_thresholds": {
+    "BUILD_PRIORITY": {"min_score": 85, "requires_all_hard_gates": true},
+    "BUILD": {"min_score": 75, "requires_all_hard_gates": true},
+    "WATCH": {"min_score": 60, "requires_all_hard_gates": true},
+    "REJECT": {"max_score": 59}
+  },
+  "evidence_rules": [
+    "Paid-order evidence is strongest when directly observable from our own channels.",
+    "Marketplace review counts are purchase proxies, not exact sales counts.",
+    "Listing counts indicate supply/competition, not demand by themselves.",
+    "Search-result prominence is not proof of profitability.",
+    "Unknown private conversion and sales figures remain UNOBSERVED.",
+    "High competition does not automatically reduce a candidate below BUILD if demand and capturability remain strong.",
+    "Scores are frozen with the evidence date; later outcomes do not rewrite the original score."
+  ],
+  "tie_breakers": [
+    "Stronger direct purchase evidence",
+    "Lower build/QA time",
+    "Greater reuse of validated internal assets",
+    "Higher price/value headroom",
+    "Stronger adjacency into future premium products and bundles"
+  ]
+}
