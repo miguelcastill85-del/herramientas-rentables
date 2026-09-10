@@ -24,9 +24,13 @@ Release condition:
 
 ## Current RESEARCH slot
 
-`DP-FREELANCE-002 — Client + Project Profitability Tracker`
+`DP-FREELANCE-002 — Freelancer Client & Project Profitability Tracker`
 
-State: QUEUED, not yet in BUILD.
+State: **MARKET_RESEARCH_PASS / BUILD_PRIORITY 91/100**.
+
+Hard gates: G1 PASS / G2 PASS / G3 PASS.
+
+Research finding: generic client trackers are highly validated but price-compressed; the preferred entry is client + project profitability, effective hourly rate, quote-vs-actual hours and client-level economic rollups. Exact build remains gated until DP-FREELANCE-001 leaves BUILD by reaching LIVE or the slot is otherwise formally released.
 
 The WIP limit remains enforced: max 1 product in BUILD and 1 product in RESEARCH.
 
