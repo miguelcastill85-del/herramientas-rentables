@@ -3,8 +3,8 @@
 Date: 2026-09-09
 Gate: `DIGITAL_PRODUCT_COMPETITIVE_VALUE_GATE_v1`
 Product: Freelancer Pricing & Profit System
-Current build: v1.1 RC2
-Status: PREMIUM RELEASE HOLD (AMBER items remain)
+Final audited build: v1.1
+Status: **PREMIUM RELEASE PASS**
 
 ## Audit objective
 
@@ -44,29 +44,27 @@ Current comparable evidence reviewed:
 
 8. Etsy category page
    https://www.etsy.com/market/freelance_rate_calculator
-   285+ current items in the observed category page with strong price compression in the low end and several mid-tier tools.
+   285+ current items in the observed category page with strong low-end price compression and several mid-tier tools.
 
-## RC1 adversarial finding
+## RC1 adversarial result
 
 RC1 was technically correct but failed premium competitive value.
 
-### RED / AMBER findings in RC1
+Findings:
+- missing explicit hidden-time decomposition;
+- missing payment/platform fee gross-up;
+- missing client-budget reverse test;
+- missing scope/change-request protection workflow;
+- missing separated client-facing summary;
+- Project Log did not distinguish core vs hidden actual hours or payment fees;
+- strong quote-vs-actual and Pricing Memory foundation;
+- transparent `.xlsx`, no macros, no subscriptions and explicit planning assumptions.
 
-- AMBER: one estimated-hours input hid meetings, project management, revisions and admin time.
-- AMBER: no payment/platform fee gross-up, so channel fees could silently reduce the intended project margin.
-- AMBER: no client-budget reverse test or max-hours-supported calculation.
-- AMBER: no scope/change-request protection workflow.
-- AMBER: no separated client-facing summary.
-- AMBER: Project Log did not distinguish core vs hidden actual hours or payment fees.
-- GREEN: quote-vs-actual and Pricing Memory were stronger than many basic rate calculators.
-- GREEN: standard `.xlsx`, no macros, no subscriptions, transparent formulas and explicit limitations.
-- GREEN: formula scan and boundary QA had no known critical formula errors after previous fixes.
+**RC1 score: 82/100 — REWORK.**
 
-RC1 post-build score: **82/100 — REWORK**.
+## Corrective architecture implemented in v1.1
 
-## Corrective architecture implemented in v1.1 RC2
-
-Brand workflow frozen as:
+Functional brand signature:
 
 `PRICE -> PROTECT -> NEGOTIATE -> LEARN`
 
@@ -82,15 +80,15 @@ Brand workflow frozen as:
 - variable + fixed payment/platform fee gross-up;
 - protected cost floor;
 - gross walk-away floor;
-- target margin calculated after entered fees;
+- target margin evaluated after entered fees;
 - safe discount ceiling.
 
 ### NEGOTIATE
 - optional client budget;
 - FIT / NEGOTIATE / WALK AWAY verdict;
-- maximum project hours supported by a client budget;
+- maximum project hours supported by budget;
 - Premium option anchor;
-- new SCOPE GUARD for incremental delivery/admin/revision hours and external costs;
+- SCOPE GUARD for incremental delivery/admin/revision hours and external costs;
 - recommended change-request fee;
 - effective-rate erosion if extra work is absorbed for free.
 
@@ -104,48 +102,65 @@ Brand workflow frozen as:
 - suggested planning buffer from historical estimate error.
 
 ### Buyer-facing separation
-- new CLIENT SUMMARY sheet showing investment/deposit/balance/scope/terms without exposing internal floors and margins.
+- CLIENT SUMMARY with investment/deposit/balance/scope/terms while internal floors and margin logic remain hidden.
 
-## Boundary QA results
+## Transversal QA
 
 PASS:
-- default quote returns HEALTHY;
-- 3% + fixed fee gross-up preserves target economics after fees;
+- default buyer workbook opens with pricing decision `HEALTHY`;
+- 3% + fixed-fee gross-up preserves target economics after fees;
 - client budget below walk-away -> WALK AWAY;
-- client budget between floor and target -> NEGOTIATE;
+- client budget between walk-away and target -> NEGOTIATE;
 - client budget above target -> FIT;
-- hidden-hours share above threshold -> SCOPE RISK / REVIEW;
-- hours-only change request calculates correctly;
+- hidden-hours share over the editable threshold -> SCOPE RISK / REVIEW;
+- hours-only change requests calculate correctly;
 - heavy free scope -> DO NOT ABSORB;
 - completed project with hidden-time overrun and fees calculates net/effective metrics;
 - zero gross revenue -> UNDERPRICED, not blank;
-- formula scan: zero #REF/#DIV0/#VALUE/#NAME/#N/A errors.
+- final formula scan: zero `#REF!`, `#DIV/0!`, `#VALUE!`, `#NAME?`, `#N/A` findings;
+- final buyer ZIP re-imported successfully;
+- Projects table opens clean with no demo transactions;
+- Quick Start PDF rendered successfully as 6 A4 pages;
+- final CLIENT SUMMARY visual checked;
+- all final listing screenshots rebuilt from v1.1 rather than RC1.
 
-## Current v1.1 RC2 post-build score
+## Final buyer package
+
+Contains exactly:
+1. `Freelancer_Pricing_Profit_System_v1_1.xlsx`
+2. `Freelancer_Pricing_Profit_System_Quick_Start_v1_1.pdf`
+3. `LICENSE_DP-FREELANCE-001.txt`
+4. `START_HERE.txt`
+
+Final buyer ZIP SHA-256:
+`2260e8679e6272066b0262b15df2f186b643969488599cf275a71e03c99dfcca`
+
+Final seller launch kit SHA-256:
+`52be9a2a05b4ddc5c4995d9c5f1070292508da0979676fbc9e7464626226a129`
+
+## Final post-build score
 
 - Table-stakes coverage: 19/20
 - Outcome advantage: 18/20
 - Distinctive system advantage: 13/15
-- Usability / friction: 13/15
+- Usability / friction: 14/15
 - Technical correctness: 15/15
 - Trust / claims: 5/5
-- Visual / brand quality: 4/5
+- Visual / brand quality: 5/5
 - Value / price: 5/5
 
-**Total: 92/100**
+**Total: 94/100 — PREMIUM RELEASE PASS.**
 
-The numerical threshold is met, but release remains HOLD because the audit gate also requires no unresolved release AMBER items.
+The score is intentionally below 100. DP-FREELANCE-001 does not attempt every capability in the market: it does not include native browser-app UX, preloaded discipline benchmark data, full CRM/bookkeeping, or validated Google Sheets compatibility. Those are deliberate scope choices, not hidden claims.
 
-## Remaining AMBER items before FINAL
+## Remaining explicit limitation
 
-1. Create a premium Quick Start PDF instead of relying only on in-workbook onboarding + TXT.
-2. Add explicit purchaser-use / no-redistribution license file to the buyer package.
-3. Rebuild Etsy/Payhip listing images from v1.1 so screenshots and claims match the actual product.
-4. Update channel copy to describe hidden-hours protection, fee gross-up, budget fit, Scope Guard and Pricing Memory without claiming false uniqueness.
-5. Re-run buyer-ZIP smoke test after packaging.
-6. Verify visual presentation of CLIENT SUMMARY and final listing assets.
-7. Google Sheets remains NOT CLAIMED until separately tested in the actual environment.
+Google Sheets compatibility is **NOT CLAIMED** in v1.1 until it is tested in the actual Google Sheets environment. This is an explicit scope exclusion and does not block Excel release.
 
-## Release rule
+## Final release finding
 
-Do not publish DP-FREELANCE-001 until the remaining AMBER items are closed and a final post-package audit records ZERO RED findings.
+- RED findings: 0
+- release-blocking AMBER findings: 0
+- GREEN: technical correctness, buyer package, professional guide, client-facing separation, current competitive parity, functional differentiation and channel-ready assets.
+
+DP-FREELANCE-001 may proceed to M10 RELEASE for Microsoft Excel positioning at the current launch price hypothesis, with real transaction data replacing marketplace proxies after publication.
