@@ -1,0 +1,117 @@
+{
+  "product_id": "DP-FREELANCE-001",
+  "version": "1.0",
+  "status": "FROZEN_FOR_BUILD",
+  "date": "2026-09-09",
+  "workbook_language": "en",
+  "currency_model": "agnostic_user_label",
+  "authoritative_spec": "docs/products/DP-FREELANCE-001_PRODUCT_SPEC_v1.md",
+  "sheets": [
+    "START HERE",
+    "SETUP",
+    "RATE BUILDER",
+    "QUOTE BUILDER",
+    "PROJECTS",
+    "PRICING MEMORY",
+    "DASHBOARD",
+    "EXAMPLE",
+    "METHODOLOGY"
+  ],
+  "setup": {
+    "formulas": {
+      "available_weeks": "52 - vacation_weeks",
+      "annual_working_hours": "available_weeks * hours_per_week",
+      "annual_billable_hours": "annual_working_hours * billable_utilization",
+      "revenue_requirement": "(owner_income_goal + annual_overhead) / (1 - tax_reserve - business_reserve)",
+      "minimum_sustainable_rate": "revenue_requirement / annual_billable_hours",
+      "recommended_standard_rate": "minimum_sustainable_rate * (1 + pricing_buffer)"
+    },
+    "guards": [
+      "tax_reserve + business_reserve < 0.90",
+      "annual_billable_hours > 0"
+    ]
+  },
+  "quote_builder": {
+    "complexity_multipliers": {
+      "Standard": 1.0,
+      "Elevated": 1.15,
+      "High": 1.3
+    },
+    "rush_multipliers": {
+      "No": 1.0,
+      "Moderate": 1.15,
+      "Urgent": 1.3
+    },
+    "formulas": {
+      "adjusted_labor": "estimated_hours * selected_rate * complexity_multiplier * rush_multiplier",
+      "protected_floor": "(adjusted_labor + external_costs) * (1 + contingency)",
+      "recommended_price": "protected_floor / (1 - target_margin)",
+      "final_price": "recommended_price * (1 - proposed_discount)",
+      "max_safe_discount": "MAX(0, 1 - protected_floor / recommended_price)",
+      "implied_margin": "IF(final_price>0, (final_price - protected_floor) / final_price, 0)",
+      "deposit_amount": "final_price * deposit_pct",
+      "balance": "final_price - deposit_amount"
+    },
+    "signals": {
+      "UNDERPRICED": "final_price < protected_floor",
+      "REVIEW": "final_price >= protected_floor AND implied_margin < target_margin - 0.005",
+      "HEALTHY": "implied_margin >= target_margin - 0.005"
+    }
+  },
+  "projects": {
+    "capacity_rows": 100,
+    "formulas": {
+      "effective_hourly_rate": "IF(actual_hours>0, (revenue_collected - actual_external_costs) / actual_hours, blank)",
+      "economic_surplus": "revenue_collected - actual_external_costs - actual_hours * sustainable_rate",
+      "economic_surplus_margin": "IF(revenue_collected>0, economic_surplus / revenue_collected, blank)",
+      "hours_estimate_error": "IF(estimated_hours>0 AND actual_hours>0, actual_hours/estimated_hours - 1, blank)",
+      "revenue_vs_quote": "IF(quoted_price>0 AND revenue_collected<>0, revenue_collected/quoted_price - 1, blank)"
+    }
+  },
+  "pricing_memory": {
+    "service_type_capacity": 10,
+    "suggested_planning_buffer": "MAX(0, average_hours_estimate_error)",
+    "zero_observation_policy": "NO_DATA_NOT_ZERO"
+  },
+  "qa_reference": {
+    "setup_inputs": {
+      "owner_income_goal": 60000,
+      "annual_overhead": 12000,
+      "tax_reserve": 0.2,
+      "business_reserve": 0.1,
+      "vacation_weeks": 4,
+      "hours_per_week": 40,
+      "billable_utilization": 0.6,
+      "pricing_buffer": 0.2
+    },
+    "setup_expected": {
+      "available_weeks": 48,
+      "annual_working_hours": 1920,
+      "annual_billable_hours": 1152,
+      "revenue_requirement": 102857.14285714286,
+      "minimum_sustainable_rate": 89.28571428571429,
+      "recommended_standard_rate": 107.14285714285715
+    },
+    "quote_inputs": {
+      "estimated_hours": 20,
+      "rate_source": "Recommended",
+      "complexity": "Elevated",
+      "rush": "No",
+      "external_costs": 100,
+      "contingency": 0.1,
+      "target_margin": 0.25,
+      "proposed_discount": 0.05,
+      "deposit_pct": 0.5
+    },
+    "quote_expected_approx": {
+      "adjusted_labor": 2464.2857142857147,
+      "protected_floor": 2820.7142857142862,
+      "recommended_price": 3760.9523809523816,
+      "final_price": 3572.9047619047624,
+      "max_safe_discount": 0.25,
+      "implied_margin": 0.2105263157894737,
+      "deposit_amount": 1786.4523809523812,
+      "signal": "REVIEW"
+    }
+  }
+}
