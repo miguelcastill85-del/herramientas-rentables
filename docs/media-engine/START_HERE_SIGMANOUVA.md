@@ -1,7 +1,7 @@
 # SIGMANOUVA — EMPIEZA AQUÍ
 
 Estado: ACTIVO
-Fecha: 2026-09-06
+Fecha de reconciliación: 2026-10-05
 
 Este archivo existe para que cualquier chat nuevo entienda el proyecto rápido, sin tener que leer decenas de documentos.
 
@@ -47,13 +47,9 @@ No debe parecer una cuenta de frases motivacionales, una página de humo financi
 
 ## Qué todavía falta antes de publicar
 
-### 1. Guardar las imágenes finales de forma permanente
+### Archivo visual permanente — cerrado
 
-Las reglas, textos y huellas digitales de los archivos están guardados en GitHub.
-
-Todavía falta dejar una copia permanente de todos los archivos visuales finales en un almacenamiento conectado o en el propio repositorio.
-
-Esto importa porque no queremos depender de archivos temporales de un chat.
+Las imágenes y logos ya cuentan con evidencia permanente verificada en Dropbox. Este trabajo está cerrado según HEAD.json y su recibo de permanencia; no volver a renderizarlo ni tratarlo como pendiente por el texto antiguo de este archivo.
 
 ### 2. Comprobar el usuario exacto en cada red
 
@@ -63,17 +59,15 @@ La búsqueda pública no mostró un choque exacto evidente, pero eso no demuestr
 
 Hay que comprobarlo directamente dentro de Instagram, Facebook y LinkedIn.
 
-### 3. Comprobar el dominio
+### Dominio opcional, no bloqueante
 
-Hay que revisar directamente si `sigmanouva.com`, `sigmanouva.cl` u otra alternativa adecuada están disponibles y cuánto cuestan hoy y al renovar.
-
-No se compra nada sin aprobación del usuario.
+Un dominio propio es opcional y no bloquea el lanzamiento. No se compra un dominio ni se incurre en obligaciones de pago mientras rige el costo inicial cero. El sitio existente puede aportar el enlace de utilidad.
 
 ### 4. Revisar el riesgo del nombre
 
 Existe una empresa chilena llamada Sigma-Nova y otros usos de "Sigma Nova".
 
-SIGMANOUVA escrito junto es más distintivo, pero antes de invertir dinero importante en la marca hay que hacer una revisión legal adecuada.
+SIGMANOUVA escrito junto es más distintivo. Durante esta fase seguimos con revisión pública gratuita sin afirmar disponibilidad legal, registro ni exclusividad.
 
 Esto no impide seguir preparando el lanzamiento.
 

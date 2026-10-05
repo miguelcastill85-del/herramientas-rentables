@@ -45,6 +45,9 @@ jobs:
       - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
 
+      - name: Verificar invariantes económicos y de autenticación
+        run: pnpm test:critical
+
       - name: Comprobar credenciales requeridas
         shell: bash
         run: |
@@ -75,9 +78,9 @@ jobs:
           writeFileSync('wrangler.deploy.jsonc', rendered);
           NODE
 
-      - name: Aplicar esquema D1
+      - name: Aplicar migraciones D1
         working-directory: commerce/payhip-telemetry
-        run: pnpm exec wrangler d1 execute payhip-telemetry --remote --file=sql/001_schema.sql --config=wrangler.deploy.jsonc
+        run: pnpm exec wrangler d1 migrations apply payhip-telemetry --remote --config=wrangler.deploy.jsonc
 
       - name: Preparar secretos efímeros
         working-directory: commerce/payhip-telemetry
