@@ -79,8 +79,8 @@ export function FreelanceQuoteBuilder() {
             <div><h3>Protege tu rentabilidad</h3><p>Define el piso económico antes de negociar con el cliente.</p></div>
           </div>
           <div className="tool-field-grid two-columns">
-            <QuoteNumberField field="hours" label="Horas estimadas" value={hours} onChange={setHours} min={0.01} step={0.5} error={errors.hours} />
-            <QuoteNumberField field="hourlyRate" label="Tarifa por hora" value={hourlyRate} onChange={setHourlyRate} prefix="$" min={0.01} step={1000} error={errors.hourlyRate} />
+            <QuoteNumberField field="hours" label="Horas estimadas" value={hours} onChange={setHours} min={0} step={0.5} error={errors.hours} />
+            <QuoteNumberField field="hourlyRate" label="Tarifa por hora" value={hourlyRate} onChange={setHourlyRate} prefix="$" min={0} step={1000} error={errors.hourlyRate} />
             <label className="field-group"><span className="field-label">Complejidad</span><span className="input-shell"><select value={complexity} onChange={(e) => setComplexity(e.target.value as Complexity)}><option value="low">Baja · ×1,00</option><option value="medium">Media · ×1,20</option><option value="high">Alta · ×1,40</option></select></span></label>
             <QuoteNumberField field="safety" label="Contingencia" value={safety} onChange={setSafety} suffix="%" max={100} error={errors.safety} />
             <QuoteNumberField field="externalCosts" label="Costos externos" value={externalCosts} onChange={setExternalCosts} prefix="$" step={1000} error={errors.externalCosts} />
