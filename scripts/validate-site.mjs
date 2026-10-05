@@ -6,6 +6,8 @@ const requiredFiles = [
   'app/globals.css',
   'app/components/calculators.tsx',
   'app/components/payhip-offers.tsx',
+  'app/components/freelance-quote-builder.tsx',
+  'app/lib/freelance-quote.ts',
   'app/herramientas/[slug]/page.tsx',
   'app/lib/payhip-products.ts',
   'app/lib/tools.ts',

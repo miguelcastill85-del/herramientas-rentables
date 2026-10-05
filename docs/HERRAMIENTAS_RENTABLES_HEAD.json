@@ -1,0 +1,94 @@
+{
+  "project": "Herramientas Rentables",
+  "updated_at": "2026-10-05",
+  "source_of_truth": "GitHub main + Sites saved/deployed version",
+  "site": {
+    "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
+    "url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+    "audience": "public",
+    "implementation": "COMPLETED_WITH_QUOTE_VALIDATION_AND_CURRENCY_PRESENTATION_FIXES",
+    "publication": "VERIFY_SITES_VERSION_FOR_THIS_COMMIT",
+    "preserved": [
+      "six_calculators",
+      "freelance_quote_route",
+      "freelance_guide",
+      "sitemap",
+      "original_formulas",
+      "Payhip_products_and_prices",
+      "cotizacion-resultado_UTM"
+    ]
+  },
+  "existing_commerce": {
+    "verified_at": "2026-10-05",
+    "verification": "PUBLIC_PRODUCT_HTML_HTTP_200_AND_OG_PRICE",
+    "free": {
+      "product_key": "lAtSg",
+      "currency": "CLP",
+      "price": 0
+    },
+    "premium": {
+      "product_key": "doK54",
+      "currency": "CLP",
+      "price": 8990
+    },
+    "private_sales": "UNOBSERVED",
+    "file_delivery": "NOT_RETESTED_WITH_OWNER_PURCHASE"
+  },
+  "product_pipeline": {
+    "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
+    "current_build": "DP-FREELANCE-001_v2.1",
+    "state": "BYTE_VERIFIED_READY_FOR_ZERO_UPFRONT_CHANNEL_RELEASE",
+    "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_ZERO_UPFRONT_RELEASE_v2_1.md",
+    "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
+    "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
+    "blocker": "VERIFIED_SELLER_ACCESS_UPLOAD_AND_DELIVERY",
+    "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT"
+  },
+  "telemetry": {
+    "authority": "commerce/payhip-telemetry/STATUS.md",
+    "implementation": "HARDENED_WITH_SYNTHETIC_SQLITE_REGRESSION_TESTS",
+    "production": "UNVERIFIED_EXTERNAL_CONFIGURATION_REQUIRED",
+    "real_events": "UNOBSERVED",
+    "cash_available": "UNOBSERVED",
+    "blocker": "CLOUDFLARE_D1_SECRET_CONFIGURATION_DEPLOYMENT_AND_PAYHIP_WEBHOOK_REGISTRATION"
+  },
+  "media": {
+    "authority": "docs/media-engine/HEAD.json",
+    "brand": "SIGMANOUVA",
+    "content": "PRIOR_CLOSED_DURABLE_PACKAGE_DO_NOT_REBUILD",
+    "blocker": "DIRECT_PROFILE_IDENTITY_AND_ACCOUNT_ACCESS",
+    "publication": "NOT_PERFORMED",
+    "autonomous_publishing": "DISABLED",
+    "paid_domain": "NOT_REQUIRED"
+  },
+  "validation": {
+    "command": "pnpm validate",
+    "status": "VERIFY_CURRENT_COMMIT_CI",
+    "critical_tests": [
+      "quote_values_and_ranges",
+      "CLP_total_deposit_balance",
+      "case_sensitive_private_token",
+      "signed_webhook_normalization",
+      "idempotent_paid_orders",
+      "partial_refund_identity_and_uncertainty",
+      "free_order_exclusion",
+      "unobserved_fees_and_cash",
+      "currency_separation",
+      "storage_retry_and_privacy"
+    ]
+  },
+  "economics": {
+    "cash_at_risk": 0,
+    "pre_revenue_cash_obligations": 0,
+    "paid_ads": false,
+    "paid_plans_activated": false,
+    "owner_test_purchase": false
+  },
+  "next_actions": [
+    "Verify current Sites deployment and GitHub CI without redoing closed product builds.",
+    "Using verified seller access, upload the prepared v2.1 product on Payhip Free and record the real URL and delivery evidence.",
+    "Activate the standalone telemetry only with configured free infrastructure, private secrets and a real Payhip event.",
+    "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
+  ],
+  "completion": "TECHNICAL_CORE_COMPLETE_ON_PASS; BUSINESS_ACTIVATION_REMAINS_ACCOUNT_DEPENDENT"
+}

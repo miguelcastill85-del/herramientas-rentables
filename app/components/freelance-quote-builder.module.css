@@ -55,7 +55,7 @@
 .stageHeader p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -91,7 +91,7 @@
 .resultKicker {
   margin: 0;
   color: rgba(255,255,255,0.7);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -139,7 +139,7 @@
 .metric span {
   margin-bottom: 0.35rem;
   color: rgba(255,255,255,0.62);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
 }
 
 .metric strong {
@@ -150,7 +150,7 @@
 .protectionNote {
   margin: 0;
   color: rgba(255,255,255,0.76);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.55;
 }
 
@@ -177,7 +177,7 @@
 .summaryTop p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .summaryText {
@@ -190,6 +190,11 @@
   font-family: inherit;
   line-height: 1.65;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.summaryCard .resultKicker {
+  color: var(--ink-soft);
 }
 
 .copyBar {

@@ -15,7 +15,8 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "typecheck": "tsc --noEmit",
     "check:content": "node scripts/validate-site.mjs",
-    "validate": "pnpm run check:content && pnpm run lint && pnpm run typecheck && pnpm run build"
+    "validate": "pnpm run check:content && pnpm run test:critical && pnpm run lint && pnpm run typecheck && pnpm run build",
+    "test:critical": "node --experimental-sqlite --test tests/freelance-quote.test.mjs commerce/payhip-telemetry/tests/worker.test.mjs"
   },
   "dependencies": {
     "next": "16.2.6",
