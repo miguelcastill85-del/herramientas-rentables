@@ -7,7 +7,7 @@ Status: ACTIVE — CURRENT AUTHORITY RECONCILED
 
 **DP-FREELANCE-001 — Freelancer Pricing Intelligence System v2.1**
 
-State: **BYTE_VERIFIED_READY_FOR_ZERO_UPFRONT_CHANNEL_RELEASE**.
+State: **BYTE_VERIFIED_PENDING_CHANNEL_CURRENCY_AND_SELLER_ACCESS**.
 Product authority: docs/products/DP-FREELANCE-001_RELEASE_v2_1_2026-09-10.md.
 The older RC1, v1 and v2.0 packages are historical references, not the release payload.
 Buyer ZIP, embedded workbook and seller launch kit were recovered and their exact SHA-256 identities verified on 2026-10-05. No rebuild or formula modification was required.
@@ -23,7 +23,7 @@ Release condition:
 
 1. Verify the intended seller account and its free plan, payment configuration and any seller obligations requiring upfront cash.
 2. Upload the exact buyer ZIP to a separate approved product, using the prepared v2.1 listing and real workbook images.
-3. Retain the frozen launch price USD 20; USD 27 remains a post-launch candidate requiring real purchase evidence.
+3. Retain USD 20 as the frozen international reference. Payhip documents one default currency per store; the existing store has CLP products. Before upload, resolve either a CLP price for this separate product or an independently verified free USD store, without changing the current store currency or existing prices. No USD checkout price in the current CLP store is assumed. USD 27 remains a post-launch candidate requiring real purchase evidence.
 4. Verify storefront title, currency, price, images, buyer compatibility and exact file delivery.
 5. Record public product URL and timestamp. Only then promote to LIVE and release the BUILD slot.
 6. Start the economic observation window. A checkout test or free download is not collected revenue.
@@ -51,4 +51,5 @@ Payhip telemetry is implemented and locally validated; production activation rem
 Official channel sources checked 2026-10-05:
 
 - https://payhip.com/pricing
+- https://help.payhip.com/article/234-store-language-and-currency
 - https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy
