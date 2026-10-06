@@ -1,7 +1,7 @@
 # DIGITAL PRODUCT PIPELINE HEAD
 
 Date: 2026-10-06
-Status: PAYHIP PUBLISHED — ACTUAL BUYER FILE REQUIRED; SITE VERSION 17 SAVED
+Status: PAYHIP PUBLISHED — DELIVERY ACCESS BLOCKED; SITE VERSION 17 SAVED
 
 ## Current BUILD slot
 
@@ -36,3 +36,5 @@ Telemetry and SIGMANOUVA retain their earlier separate checkpoints. Sales, conve
 Actualización 2026-10-06: el propietario informó que completó la verificación humana. La inspección posterior del checkout fue rechazada por la política de URL del navegador (protocolo no admitido). No se volvió a operar la página bloqueada ni se usó otra superficie para eludir esa decisión. No hay un ZIP de compra nuevo disponible en los archivos compartidos. Se requiere el archivo real descargado de Payhip para contrastar SHA-256; el paquete preparado no sustituye evidencia de entrega. Recibo: `docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json`.
 
 Existing Site version 17 is saved with its verified source commit and archive, without deployment. Exact saved ID and archive receipt: `docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json`. Public version 16 remains active. After verifying the supplied actual buyer ZIP, deploy this saved version instead of rebuilding unchanged source.
+
+Autonomous download continuation: the owner cannot download. The browser URL-policy rejection remains binding; no alternate browser or raw-network workaround was used. Two available connected inboxes were checked only for Payhip receipts for this product; neither matches the checkout address and no matching receipt was found. The saved audited ZIP is available directly, but is not evidence of a Payhip buyer download. Exact attempts and next permitted step: `docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json`.

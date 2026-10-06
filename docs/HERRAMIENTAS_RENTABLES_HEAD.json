@@ -69,11 +69,11 @@
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.2",
-    "state": "PAYHIP_PUBLISHED_BUYER_ZIP_REQUIRED_SITE_VERSION_17_READY",
+    "state": "PAYHIP_PUBLISHED_DELIVERY_BLOCKED_SITE_VERSION_17_READY",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "CURRENT_CHECKOUT_BROWSER_URL_POLICY_BLOCK; ACTUAL_DOWNLOADED_ZIP_REQUIRED",
+    "blocker": "BROWSER_URL_POLICY_BLOCK; OWNER_UNABLE_TO_DOWNLOAD; AVAILABLE_MAILBOXES_HAVE_NO_MATCHING_RECEIPT",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -129,7 +129,8 @@
     "new_product_published": true,
     "verified_buyer_download": false,
     "publication_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json",
-    "download_continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json"
+    "download_continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json",
+    "autonomous_download_receipt": "docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json"
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -176,12 +177,12 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Owner supplies the actual buyer ZIP downloaded from Payhip after the reported CAPTCHA completion.",
-    "Compare the supplied buyer ZIP with SHA-256 7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79; do not use the prepared file as delivery evidence.",
-    "Deploy the saved existing-Site update after buyer ZIP verification; preserve public audience and existing products.",
+    "Provide the owner the already saved immutable audited buyer ZIP directly, while explicitly retaining unverified Payhip delivery status.",
+    "Resume actual Payhip buyer download verification only via legitimately allowed access; do not circumvent the browser URL-policy rejection.",
+    "Deploy saved existing-Site version 17 after actual buyer-delivery ZIP hash verification.",
     "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "AUDIT_PACKAGE_PAYHIP_PUBLICATION_PASS; ACTUAL_BUYER_ZIP_REQUIRED_AFTER_BROWSER_URL_POLICY_BLOCK; SITE_VERSION_17_SAVED_AND_VALIDATED_UNDEPLOYED",
-  "updated_at_utc": "2026-10-06T18:16:17.712494+00:00"
+  "completion": "AUDIT_PACKAGE_PAYHIP_PUBLICATION_PASS; AUTONOMOUS_BUYER_DELIVERY_BLOCKED; PREPARED_PACKAGE_AVAILABLE; SITE_VERSION_17_READY_UNDEPLOYED",
+  "updated_at_utc": "2026-10-06T18:27:25.499805+00:00"
 }

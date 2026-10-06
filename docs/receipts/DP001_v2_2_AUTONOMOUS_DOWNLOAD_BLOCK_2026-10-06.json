@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-10-06T18:27:25.499805+00:00",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "PAYHIP_DELIVERY_BLOCKED; PREPARED_BUYER_ZIP_AVAILABLE",
+  "owner_report": "Owner cannot download and requests agent to complete the download.",
+  "browser_block": "CURRENT_CHECKOUT_INSPECTION_REJECTED_BY_URL_POLICY_PROTOCOL_NOT_ALLOWED",
+  "blocked_page_retried": false,
+  "browser_policy_workaround_attempted": false,
+  "safe_alternatives": {
+    "payhip_merchant_download_connector_available": false,
+    "official_no_payment_checkout_method": "100% coupon; already applied and CLP 0 observed",
+    "official_help": "https://help.payhip.com/article/107-testing-checkout-flow",
+    "available_mailboxes_checked": 2,
+    "query_scope": "Payhip-only receipts after 2026-10-05 matching this product title or cv4oQ",
+    "matching_receipts_found": 0,
+    "available_mailboxes_match_checkout_address": false,
+    "messages_sent": false,
+    "new_account_access_created": false
+  },
+  "prepared_buyer_package": {
+    "filename": "Freelancer_Pricing_Intelligence_System_v2_2_BUYER_PACKAGE.zip",
+    "bytes": 112815,
+    "sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "library_file_id": "libfile_d44ee48cded0819193dfdbde1bc26b91",
+    "zip_integrity": "PASS",
+    "provenance": "PREPARED_IMMUTABLE_PACKAGE_UPLOADED_TO_PAYHIP; NOT_REDOWNLOADED_FROM_PAYHIP"
+  },
+  "actual_payhip_delivery_verified": false,
+  "site": {
+    "prepared_saved_version_number": 17,
+    "prepared_saved_version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_2d122e82c38481919e8f5b74ab01c82c",
+    "live_version_number": 16,
+    "deployment_performed": false,
+    "release_gate": "ACTUAL_BUYER_ZIP_HASH_VERIFICATION_REQUIRED"
+  },
+  "cash_spent": 0,
+  "next_safe_step": "Resume actual delivery verification only with legitimately restored allowed browser access or an available official authorized receipt/file operation; do not substitute the prepared package as buyer-delivery proof."
+}
