@@ -29,8 +29,15 @@
       "parity_mismatches": 0,
       "later_changes": "COMMERCIAL_DOCUMENTATION_ONLY_NO_PUBLIC_APP_CHANGE"
     },
-    "new_offer_update": "SOURCE_CONTENT_TYPES_BUILD_PASS_UNDEPLOYED_PENDING_BUYER_DOWNLOAD",
-    "new_offer_validation_receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json"
+    "new_offer_update": "SAVED_VERSION_17_READY_UNDEPLOYED_PENDING_ACTUAL_BUYER_ZIP",
+    "new_offer_validation_receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json",
+    "prepared_version": {
+      "version": 17,
+      "version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_2d122e82c38481919e8f5b74ab01c82c",
+      "site_source_sha": "e68b8d5d9c8206b70e1f6814ae6d1c99302c9461",
+      "archive_content_hash": "sha256:a612f87ebb02c146f69d80796348ec3e6b7a3a1ecbb57653528313e2ab1633d3",
+      "receipt": "docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json"
+    }
   },
   "existing_commerce": {
     "verified_at": "2026-10-05",
@@ -62,11 +69,11 @@
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.2",
-    "state": "PAYHIP_PUBLISHED_BUYER_CAPTCHA_PENDING_SITE_DEPLOY",
+    "state": "PAYHIP_PUBLISHED_BUYER_ZIP_REQUIRED_SITE_VERSION_17_READY",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "INTERACTIVE_HCAPTCHA_BEFORE_ZERO_COST_BUYER_DELIVERY",
+    "blocker": "CURRENT_CHECKOUT_BROWSER_URL_POLICY_BLOCK; ACTUAL_DOWNLOADED_ZIP_REQUIRED",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -121,7 +128,8 @@
     "product_key": "cv4oQ",
     "new_product_published": true,
     "verified_buyer_download": false,
-    "publication_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json"
+    "publication_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json",
+    "download_continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json"
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -168,12 +176,12 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "The owner completes the interactive hCaptcha at the already zero-total checkout for cv4oQ.",
-    "Complete the free test order, download the ZIP and compare SHA-256; consume or disable the one-use coupon.",
-    "Publish the prepared existing-Site update with the verified cv4oQ link after buyer download verification.",
+    "Owner supplies the actual buyer ZIP downloaded from Payhip after the reported CAPTCHA completion.",
+    "Compare the supplied buyer ZIP with SHA-256 7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79; do not use the prepared file as delivery evidence.",
+    "Deploy the saved existing-Site update after buyer ZIP verification; preserve public audience and existing products.",
     "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "V2_2_AUDIT_PACKAGE_AND_PAYHIP_PUBLICATION_PASS; BUYER_HCAPTCHA_BLOCKS_DELIVERY_VERIFICATION; EXISTING_SITE_UPDATE_PREPARED_UNDEPLOYED",
-  "updated_at_utc": "2026-10-06T18:03:18.296891+00:00"
+  "completion": "AUDIT_PACKAGE_PAYHIP_PUBLICATION_PASS; ACTUAL_BUYER_ZIP_REQUIRED_AFTER_BROWSER_URL_POLICY_BLOCK; SITE_VERSION_17_SAVED_AND_VALIDATED_UNDEPLOYED",
+  "updated_at_utc": "2026-10-06T18:16:17.712494+00:00"
 }

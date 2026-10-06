@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-06T18:14:09.651785+00:00",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "USER_REPORTED_CAPTCHA_COMPLETE_DOWNLOAD_FILE_REQUIRED",
+  "user_reported_at": "2026-10-06T18:09:47+00:00",
+  "browser_inspection": {
+    "action": "CURRENT_CHECKOUT_GET_AX_STATE",
+    "result": "REJECTED_BY_BROWSER_URL_POLICY",
+    "reason": "CURRENT_URL_PROTOCOL_NOT_ALLOWED",
+    "blocked_page_retry": false,
+    "alternate_browser_surface_used": false
+  },
+  "safe_artifact_check": {
+    "expected_buyer_package_bytes": 112815,
+    "expected_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "new_matching_download_candidates": 0,
+    "actual_download_hash_verified": false
+  },
+  "required": "Owner supplies the actual ZIP downloaded from Payhip; do not substitute the already prepared package as delivery evidence.",
+  "site_release_gate": "Actual buyer ZIP hash must match before deploying the prepared Site version.",
+  "cash_spent": 0
+}

@@ -20,3 +20,7 @@ Las fuentes incluyen una tercera oferta v2.2, CLP 19.990 y contenido en inglés,
 Recibo de publicación: `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json`.
 
 La preparación del sitio pasó 48 reglas de contenido, 16 pruebas críticas, lint (0 errores; 1 aviso anterior), tipos y compilación. Recibo: `docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json`. Se conserva la versión pública 16 hasta verificar la descarga.
+
+Actualización 2026-10-06: el propietario informó que completó la verificación humana. La inspección posterior del checkout fue rechazada por la política de URL del navegador (protocolo no admitido). No se volvió a operar la página bloqueada ni se usó otra superficie para eludir esa decisión. No hay un ZIP de compra nuevo disponible en los archivos compartidos. Se requiere el archivo real descargado de Payhip para contrastar SHA-256; el paquete preparado no sustituye evidencia de entrega. Recibo: `docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json`.
+
+La versión 17 del sitio quedó guardada con su archivo de despliegue y código verificados; aún no está desplegada. Identidad exacta y recibo: `docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json`. Tras verificar el ZIP real, activar esta versión guardada; no reconstruir las fuentes sin cambios.
