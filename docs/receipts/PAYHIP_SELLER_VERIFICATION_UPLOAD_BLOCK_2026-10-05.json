@@ -1,0 +1,81 @@
+{
+  "project": "Herramientas Rentables",
+  "product": "DP-FREELANCE-001_v2.1",
+  "recorded_at": "2026-10-06T02:00:35.196Z",
+  "local_project_date": "2026-10-05",
+  "source": "OBSERVED_PAYHIP_CLOUD_BROWSER_UI_AND_NATIVE_RUNTIME_ERRORS",
+  "seller_account": {
+    "identity": "Herramientas Rentables",
+    "public_store_url": "https://payhip.com/HerramientasRentables",
+    "verified_via": "Dashboard and existing products lAtSg and doK54 after user-completed human verification",
+    "signed_in_at_observation": true,
+    "current_runtime_access": "UNAVAILABLE; PRESENT_AUTHENTICATION_STATE_NOT_REINSPECTED"
+  },
+  "verified_commercial_configuration": {
+    "plan": "FREE FOREVER",
+    "monthly_fee_usd": 0,
+    "payhip_transaction_fee_percent": 5,
+    "currency": "CLP",
+    "connected_processor": "Mercado Pago",
+    "processor_connection_state": "CONNECTED_IN_SELLER_UI",
+    "paid_payment_processing_and_settlement": "NOT_TESTED",
+    "prepared_separate_product_price_clp": 19990,
+    "new_price_configured": false
+  },
+  "observed_existing_products": [
+    {
+      "product_key": "lAtSg",
+      "price_clp": 0,
+      "visible_views": 7,
+      "visible_orders": 1,
+      "visible_sales_clp": 0
+    },
+    {
+      "product_key": "doK54",
+      "price_clp": 8990,
+      "visible_views": 18,
+      "visible_orders": 1,
+      "visible_sales_clp": 0
+    }
+  ],
+  "exact_release_payload": {
+    "filename": "Freelancer_Pricing_Intelligence_System_v2_1_BUYER_PACKAGE.zip",
+    "sha256": "f7a5d93fe223c1dab12b783bdacf02c95d8bff07b19d4f0816c540c7fd1a7639",
+    "byte_verified": true,
+    "sale_images_ready": 8,
+    "workbook_rebuilt": false
+  },
+  "upload_execution": {
+    "reached": "Add new digital product form; CLP price field, title, product-file and cover controls observed",
+    "action": "Started documented filechooser flow on Upload product file",
+    "result": "Native credential-protection error caused an unhandled rejection and browser kernel reset before chooser fulfillment",
+    "file_transfer_completed": false,
+    "add_product_clicked": false,
+    "new_product_created": false,
+    "new_product_url": null,
+    "buyer_delivery_verified": false,
+    "screenshot_proof": "UNAVAILABLE_AFTER_RUNTIME_FAILURE"
+  },
+  "recovery": {
+    "attempted": [
+      "Bind the same observed tab ID",
+      "Reset the documented JavaScript kernel once",
+      "Bind the same tab again",
+      "Select the same browser without enumerating or creating tabs"
+    ],
+    "result": "Browser observation is unavailable because native credential state cannot be safely resumed. Start a new browser runtime to continue.",
+    "automated_browser_retries": "STOPPED",
+    "credential_requests_repeated": false,
+    "alternate_browser_engine_or_auth_bypass": false
+  },
+  "unchanged": {
+    "site_publication": "VERIFIED_VERSION_16",
+    "existing_products": true,
+    "cash_at_risk": 0,
+    "pre_revenue_cash_obligations": 0,
+    "paid_plan_activated": false,
+    "owner_test_purchase": false
+  },
+  "release_state": "SELLER_ACCOUNT_VERIFIED_PENDING_SAFE_BROWSER_UPLOAD_AND_DELIVERY",
+  "next_action": "Restore a supported safe Browser runtime, verify actual seller page, upload the exact buyer ZIP as a separate CLP 19990 product, verify zero-cost delivery, then integrate its observed URL into the existing Site."
+}

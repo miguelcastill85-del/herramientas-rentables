@@ -32,7 +32,7 @@
   },
   "existing_commerce": {
     "verified_at": "2026-10-05",
-    "verification": "PUBLIC_PRODUCT_HTML_HTTP_200_AND_OG_PRICE",
+    "verification": "PUBLIC_PRICES_AND_SIGNED_IN_SELLER_DASHBOARD_PRODUCT_SUMMARIES",
     "free": {
       "product_key": "lAtSg",
       "currency": "CLP",
@@ -43,17 +43,28 @@
       "currency": "CLP",
       "price": 8990
     },
-    "private_sales": "UNOBSERVED",
-    "file_delivery": "NOT_RETESTED_WITH_OWNER_PURCHASE"
+    "private_sales": "VISIBLE_EXISTING_PRODUCT_SUMMARIES_CLP_0; FULL_LEDGER_AND_BANK_SETTLEMENT_NOT_RECONCILED",
+    "file_delivery": "NOT_RETESTED_WITH_OWNER_PURCHASE",
+    "seller_configuration": {
+      "plan": "FREE FOREVER",
+      "monthly_fee_usd": 0,
+      "payhip_transaction_fee_percent": 5,
+      "currency": "CLP",
+      "connected_processor": "Mercado Pago",
+      "processor_connection_state": "CONNECTED_IN_SELLER_UI",
+      "paid_payment_processing_and_settlement": "NOT_TESTED",
+      "prepared_separate_product_price_clp": 19990,
+      "new_price_configured": false
+    }
   },
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.1",
-    "state": "BYTE_VERIFIED_PRICE_PREPARED_PENDING_SELLER_ACCESS_AND_DELIVERY",
+    "state": "BYTE_VERIFIED_SELLER_ACCOUNT_VERIFIED_PENDING_UPLOAD_AND_DELIVERY",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_ZERO_UPFRONT_RELEASE_v2_1.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "PAYHIP_HUMAN_VERIFICATION_CONTROL_NOT_RENDERING_IN_CURRENT_CLOUD_BROWSER",
+    "blocker": "SAFE_BROWSER_RUNTIME_UNAVAILABLE_AT_FILE_CHOOSER",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -68,14 +79,15 @@
       "source": "https://help.payhip.com/article/234-store-language-and-currency"
     },
     "seller_access": {
-      "observed_at": "2026-10-06T00:27:00.076Z",
-      "method": "SECURE_BROWSER_AUTH",
-      "state": "HUMAN_VERIFICATION_CONTROL_NOT_RENDERED_AFTER_SINGLE_RELOAD",
-      "signed_in": "NOT_VERIFIED",
+      "recorded_at": "2026-10-06T02:00:35.196Z",
+      "method": "SECURE_BROWSER_AUTH_AND_USER_COMPLETED_HUMAN_VERIFICATION",
+      "state": "SELLER_DASHBOARD_IDENTITY_AND_FREE_CLP_CONFIGURATION_VERIFIED",
+      "signed_in": "VERIFIED_AT_OBSERVATION; CURRENT_RUNTIME_ACCESS_UNAVAILABLE",
       "files_uploaded": false,
       "new_product_published": false,
-      "recovery": "ONE_RELOAD_FAILED_TO_RENDER_CONTROL; SAFE_ORIGIN_VERIFICATION_FOUND_NO_SIGNED_IN_CONFIRMATION",
-      "automation_retries": "STOPPED_FOR_CURRENT_BROWSER_BLOCK"
+      "recovery": "DOCUMENTED_KERNEL_RESET_AND_SAME_TAB_BROWSER_BINDING_FAILED_NATIVE_CREDENTIAL_STATE_GUARD",
+      "automation_retries": "STOPPED_AFTER_SUPPORTED_RECOVERY",
+      "receipt": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
     },
     "autonomous_route_audit": {
       "path": "docs/receipts/PAYHIP_AUTONOMOUS_RELEASE_ACCESS_AUDIT_2026-10-05.json",
@@ -85,7 +97,8 @@
       "zapier_product_write_actions": false,
       "available_merchant_connector": false,
       "alternative_runtime_credentials_configured": false,
-      "required": "VERIFIED_USABLE_SELLER_SESSION"
+      "required": "VERIFIED_USABLE_SELLER_SESSION",
+      "later_seller_access_checkpoint": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
     }
   },
   "telemetry": {
@@ -133,10 +146,12 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Resume Payhip seller access only when its human-verification control is usable; do not repeat automated credential requests in the blocked current session. Manual seller-side publication can use the prepared CLP 19,990 release package.",
-    "Upload the exact prepared v2.1 buyer ZIP as a separate product at CLP 19,990; verify delivery and record its real public URL before LIVE.",
+    "Restore supported safe Browser control of Payhip. Seller identity, Free plan, CLP and Mercado Pago connection are verified; avoid repeating credentials solely because file upload failed.",
+    "Upload the exact v2.1 buyer ZIP as a separate CLP 19,990 product, verify a zero-cost buyer delivery and save its actual public URL before LIVE.",
+    "Integrate only the verified new product URL into the existing public Site.",
     "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "TECHNICAL_CORE_COMPLETE_AND_PUBLISHED; PRODUCT_PRICE_PREPARED; BUSINESS_ACTIVATION_ACCOUNT_DEPENDENT"
+  "completion": "TECHNICAL_CORE_COMPLETE_AND_PUBLISHED; SELLER_ACCOUNT_VERIFIED; PRODUCT_UPLOAD_AND_DELIVERY_BLOCKED_BY_SAFE_BROWSER_RUNTIME",
+  "updated_at_utc": "2026-10-06T02:00:35.196Z"
 }

@@ -1,8 +1,8 @@
 # DP-FREELANCE-001 — Payhip release package v2.1
 
 Date: 2026-10-05
-State: ASSETS_AND_CLP_PRICE_PREPARED; HUMAN_VERIFICATION_AND_DELIVERY_PENDING; NOT LIVE
-Channel candidate: Payhip Free, subject to verified seller access and currency compatibility. The current store has CLP products; its global currency stays unchanged.
+State: SELLER_ACCOUNT_FREE_PLAN_CLP_AND_PROCESSOR_VERIFIED; UPLOAD_AND_DELIVERY_PENDING; NOT LIVE
+Channel: Payhip Free, verified in the seller UI on 2026-10-05. The store currency is CLP and Mercado Pago shows Connected. A real paid payment and settlement remain untested.
 Upfront cash and pre-revenue obligations: zero. No product is published by this document.
 
 ## Prepared listing fields
@@ -62,13 +62,13 @@ The prepared silent videos are optional evidence assets; no video hosting subscr
 
 ## Account-dependent execution still required
 
-1. Confirm the correct Payhip seller account and Free plan; retain transaction-based fees only. Payhip's published Free plan is USD 0/month plus 5% per transaction, with processor fees additional.
-2. Confirm a usable payment configuration without an upfront payment obligation.
-3. After human verification, verify the existing CLP store. Create the separate digital product at the prepared CLP 19,990 launch price and upload the exact buyer ZIP, not the seller kit.
+1. Seller identity Herramientas Rentables and FREE FOREVER plan are verified: USD 0/month plus 5% per transaction, with processor fees additional. Keep this plan.
+2. Payment Details shows CLP and Mercado Pago Connected. This verifies the configured connection, not successful paid checkout or settled funds.
+3. After safe browser restoration, use the verified existing CLP store. Create the separate digital product at the prepared CLP 19,990 launch price and upload the exact buyer ZIP, not the seller kit.
 4. Place the images in order, paste the description and verify the actual approved currency and price. Do not advertise USD 20 as the current CLP store checkout price.
 5. Verify delivered filename/content via a permitted zero-cost preview or test path. Do not purchase the product with the owner's money.
 6. Record URL, timestamp and exact attachment identity before marking LIVE. Add a site link only after this URL is known and verified.
 
-Secure browser authentication was submitted on 2026-10-05. Payhip then requested human verification. Seller-dashboard access remains unverified; no new file or listing has been uploaded. Resume through the prepared handoff. Public product pages do not prove the new v2.1 release or delivery.
+Secure login and user-completed human verification reached the seller Dashboard on 2026-10-05. Account identity, Free plan, CLP and Mercado Pago connection were verified. File upload then failed under the browser runtime's native credential guard before file transfer or Add Product submission. Same-tab recovery and the documented JavaScript kernel reset remained unavailable. No new listing, attachment, delivery or URL is verified. Resume from safe browser restoration and exact-file upload. Receipt: docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json.
 
 Official currency source checked 2026-10-05: https://help.payhip.com/article/234-store-language-and-currency

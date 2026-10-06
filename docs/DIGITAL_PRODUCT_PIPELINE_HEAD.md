@@ -7,7 +7,7 @@ Status: ACTIVE — CURRENT AUTHORITY RECONCILED
 
 **DP-FREELANCE-001 — Freelancer Pricing Intelligence System v2.1**
 
-State: **BYTE_VERIFIED_PRICE_PREPARED_PENDING_SELLER_ACCESS_AND_DELIVERY**.
+State: **BYTE_VERIFIED_SELLER_ACCOUNT_VERIFIED_PENDING_UPLOAD_AND_DELIVERY**.
 Product authority: docs/products/DP-FREELANCE-001_RELEASE_v2_1_2026-09-10.md.
 The older RC1, v1 and v2.0 packages are historical references, not the release payload.
 Buyer ZIP, embedded workbook and seller launch kit were recovered and their exact SHA-256 identities verified on 2026-10-05. No rebuild or formula modification was required.
@@ -28,9 +28,13 @@ Release condition:
 5. Record public product URL and timestamp. Only then promote to LIVE and release the BUILD slot.
 6. Start the economic observation window. A checkout test or free download is not collected revenue.
 
-## Seller access checkpoint — 2026-10-05
+## Seller access and upload checkpoint — 2026-10-05
 
-The user completed the secure credential request. Payhip then rendered a human-verification challenge. Seller-dashboard access is **NOT VERIFIED**; no new product or attachment was uploaded and no product is LIVE. Continue from the prepared Cloud Browser handoff, then complete the existing M10 release. No credentials or private account identifiers are stored in this checkpoint.
+The user completed Payhip human verification in the conversation's Cloud Browser. The seller Dashboard positively identified **Herramientas Rentables**, with the existing lAtSg and doK54 products. Billing showed **FREE FOREVER**, USD 0/month plus 5% per transaction. Payment Details showed **CLP** and **Mercado Pago Connected**. This verifies connection configuration, not a real paid payment or settled cash.
+
+The separate digital-product form was reached and the exact buyer ZIP and eight existing images were prepared. The filechooser flow then failed under native credential protection and reset the browser kernel **before any file transfer or Add Product submission**. The documented kernel reset and same-tab recovery remained blocked by the runtime's unsafe native-credential-state guard. No new product or URL exists in the observed execution, and delivery is not verified. The release is **NOT LIVE**.
+
+Receipt: docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json. Resume from safe browser restoration and upload; do not repeat closed workbook creation or downgrade the verified seller-account facts. No credentials or private customer identifiers are saved.
 
 ## Current RESEARCH slot
 
