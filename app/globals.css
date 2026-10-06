@@ -1864,7 +1864,7 @@ h3 {
 
 .payhip-product-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 1.1rem;
 }
 
@@ -1887,6 +1887,11 @@ h3 {
   color: white;
 }
 
+.payhip-product-card.intelligence {
+  border-color: var(--ink);
+  background: var(--mint);
+}
+
 .payhip-product-label {
   display: inline-flex;
   align-items: center;
@@ -1906,6 +1911,11 @@ h3 {
   background: var(--lime);
 }
 
+.payhip-product-card.intelligence .payhip-product-label {
+  background: var(--ink);
+  color: white;
+}
+
 .payhip-product-card h3 {
   margin-bottom: 0.9rem;
   font-size: clamp(1.4rem, 3vw, 2rem);
@@ -1919,6 +1929,11 @@ h3 {
 
 .payhip-product-card.premium p {
   color: #c7d4d0;
+}
+
+.payhip-product-card .payhip-compatibility {
+  font-size: 0.8rem;
+  line-height: 1.55;
 }
 
 .payhip-product-button {

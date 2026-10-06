@@ -17,8 +17,8 @@ export function PayhipOffers({ variant = 'compact', campaign }: PayhipOffersProp
         </h2>
         <p>
           {variant === 'compact'
-            ? 'El cotizador gratuito resuelve una propuesta puntual. Descarga el recurso de tarifa para empezar o revisa el archivo premium para trabajar con precios y márgenes de forma recurrente.'
-            : 'Empieza por tu tarifa con el recurso gratuito. Si necesitas repetir el proceso y revisar la rentabilidad de tus proyectos, conoce el archivo premium.'}
+            ? 'El cotizador gratuito resuelve una propuesta puntual. Empieza por tu tarifa, trabaja con precios y márgenes en el sistema premium o conecta cotización, alcance e historial con el sistema avanzado v2.2 en inglés.'
+            : 'Elige entre el recurso gratuito de tarifa, el Sistema Freelance Rentable y el sistema avanzado v2.2 en inglés. Revisa el contenido y el precio de cada opción antes de comprar.'}
         </p>
       </div>
 
@@ -29,6 +29,7 @@ export function PayhipOffers({ variant = 'compact', campaign }: PayhipOffersProp
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p><strong>{product.details}</strong></p>
+            {product.compatibility && <p className="payhip-compatibility">{product.compatibility}</p>}
             <a
               className={`button payhip-product-button ${product.kind === 'free' ? 'button-outline' : ''}`}
               href={trackedPayhipUrl(product, trackedCampaign)}

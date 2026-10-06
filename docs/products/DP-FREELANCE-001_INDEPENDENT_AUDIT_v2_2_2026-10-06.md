@@ -1,6 +1,6 @@
 # DP-FREELANCE-001 — auditoría independiente y corrección v2.2
 
-Fecha: 2026-10-06. Estado de esta copia: AUDITORÍA Y PAQUETE FINAL PASS; PUBLICACIÓN Y DESCARGA EN PAYHIP PENDIENTES.
+Fecha: 2026-10-06. Estado de esta copia: AUDITORÍA Y PAQUETE FINAL PASS; PUBLICACIÓN EN PAYHIP VERIFICADA; DESCARGA PENDIENTE POR CAPTCHA.
 
 La identidad por SHA-256 de v2.1 era correcta. Su auditoría anterior no probaba el comportamiento del archivo entregable al recalcular: valores guardados mostraban PASS/GO aunque el modelo tenía una dependencia circular y entradas perdidas por celdas combinadas. La publicación de v2.1 se detuvo antes de guardar el producto en Payhip.
 
@@ -70,4 +70,4 @@ El archivo completo con estilos, gráficos y áreas de impresión se recalculó 
 
 El ZIP final pasó integridad, seis archivos exactos, nueve páginas de guía y contraste de sus identidades. El manifiesto contiene los hashes de los cinco archivos entregados. Las ocho imágenes de venta usan v2.2, CLP 19.990 y diagramas basados en resultados auditados; explican los límites de validación. Recibos: `docs/receipts/DP001_v2_2_FULL_WORKBOOK_AUDIT_2026-10-06.json` y `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`.
 
-La publicación, el enlace real y la descarga por un comprador aún no están verificados. No se ha gastado dinero.
+La publicación y el enlace real https://payhip.com/b/cv4oQ están verificados, con CLP 19.990. El checkout de prueba alcanzó CLP 0 mediante cupón de un uso limitado al producto; hCaptcha exige intervención del propietario antes de entregar la descarga. La descarga por un comprador aún no está verificada. No se ha gastado dinero.

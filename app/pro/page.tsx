@@ -9,7 +9,7 @@ const socialImage =
   'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
 const pageTitle = 'Recursos gratuitos y premium para freelancers';
 const pageDescription =
-  'Conoce la Calculadora Gratis de Tarifa Freelance y el Sistema Freelance Rentable disponibles en Payhip.';
+  'Compara el recurso gratuito, el Sistema Freelance Rentable y Freelancer Pricing Intelligence System v2.2 en inglés, disponibles en Payhip.';
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -79,7 +79,7 @@ export default function ProPage() {
               <p className="eyebrow"><span aria-hidden="true" /> Recursos disponibles en Payhip</p>
               <h1 id="pro-title">Recursos gratuitos y premium para freelancers.</h1>
               <p className="pro-hero-lead">
-                Herramientas Rentables conecta contigo dos productos existentes: una opción gratuita y una alternativa premium más completa. Puedes revisar ambas directamente en sus páginas públicas de Payhip.
+                Empieza con el recurso gratuito de tarifa, organiza precios y márgenes con el sistema premium o conecta cotización, alcance e historial con el sistema avanzado v2.2 en inglés. Las tres opciones tienen su propia ficha en Payhip.
               </p>
               <div className="pro-hero-actions">
                 <a className="button" href="#opciones">Ver las opciones <span aria-hidden="true">↓</span></a>
@@ -89,6 +89,7 @@ export default function ProPage() {
             <aside className="pro-summary-card" aria-label="Resumen de opciones">
               <p><strong>Opción gratuita</strong><span>{payhipProducts.free.name}</span></p>
               <p><strong>Opción premium</strong><span>{payhipProducts.premium.name}</span></p>
+              <p><strong>Avanzado · CLP 19.990 · Inglés</strong><span>{payhipProducts.intelligence.name}</span></p>
               <small>Payhip gestiona checkout, pago y entrega.</small>
             </aside>
           </div>

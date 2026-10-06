@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-10-06T18:01:13.154177+00:00",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "PAYHIP_PUBLISHED_BUYER_CAPTCHA_PENDING",
+  "public_url": "https://payhip.com/b/cv4oQ",
+  "product_key": "cv4oQ",
+  "title": "Freelancer Pricing Intelligence System v2.2 — Quote, Scope & Profit Excel Workbook",
+  "price": {
+    "currency": "CLP",
+    "amount": 19990,
+    "public_page_verified": true
+  },
+  "upload": {
+    "buyer_package_filename": "Freelancer_Pricing_Intelligence_System_v2_2_BUYER_PACKAGE.zip",
+    "buyer_package_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "bytes": 112815,
+    "seller_complete": true,
+    "gallery_images": 8
+  },
+  "checkout_test": {
+    "coupon_discount_percent": 100,
+    "coupon_scope": "NEW_PRODUCT_ONLY",
+    "coupon_maximum_uses": 1,
+    "country": "Chile",
+    "total_currency": "CLP",
+    "total_amount": 0,
+    "marketing_opt_in": false,
+    "payment_details_entered": false,
+    "state": "HCAPTCHA_INTERACTIVE_CHALLENGE_REQUIRES_USER",
+    "order_completed": false,
+    "download_received": false,
+    "download_sha256": null,
+    "revenue": 0
+  },
+  "site": {
+    "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
+    "current_live_version": 16,
+    "new_offer_source": "PREPARED_CONTENT_TYPES_BUILD_PASS_UNDEPLOYED",
+    "release_gate": "VERIFY_ACTUAL_BUYER_DOWNLOAD_HASH_BEFORE_DEPLOYING_NEW_OFFER",
+    "validation_receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json"
+  },
+  "cash_spent": 0,
+  "credentials_persisted": false,
+  "preserved_existing_product_keys": [
+    "lAtSg",
+    "doK54"
+  ],
+  "public_proof": {
+    "filename": "DP001_v2_2_Payhip_publicado_1791309306386.jpg",
+    "library_file_id": "libfile_d0059095a07481919bcc78a9bfb5c481"
+  }
+}

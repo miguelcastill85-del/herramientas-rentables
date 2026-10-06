@@ -28,7 +28,9 @@
       "parity_files": 193,
       "parity_mismatches": 0,
       "later_changes": "COMMERCIAL_DOCUMENTATION_ONLY_NO_PUBLIC_APP_CHANGE"
-    }
+    },
+    "new_offer_update": "SOURCE_CONTENT_TYPES_BUILD_PASS_UNDEPLOYED_PENDING_BUYER_DOWNLOAD",
+    "new_offer_validation_receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json"
   },
   "existing_commerce": {
     "verified_at": "2026-10-05",
@@ -54,17 +56,17 @@
       "processor_connection_state": "CONNECTED_IN_SELLER_UI",
       "paid_payment_processing_and_settlement": "NOT_TESTED",
       "prepared_separate_product_price_clp": 19990,
-      "new_price_configured": false
+      "new_price_configured": true
     }
   },
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.2",
-    "state": "AUDIT_AND_PACKAGE_PASS_PENDING_PAYHIP_AND_SITE",
-    "release_pack": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json",
+    "state": "PAYHIP_PUBLISHED_BUYER_CAPTCHA_PENDING_SITE_DEPLOY",
+    "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "NEW_PAYHIP_LISTING_UPLOAD_AND_ZERO_COST_DELIVERY_VERIFICATION_PENDING",
+    "blocker": "INTERACTIVE_HCAPTCHA_BEFORE_ZERO_COST_BUYER_DELIVERY",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -72,7 +74,7 @@
       "prepared_checkout_price": {
         "currency": "CLP",
         "amount": 19990,
-        "status": "PREPARED_NOT_CONFIGURED"
+        "status": "LIVE_PUBLIC_PRICE_VERIFIED"
       },
       "pricing_basis": "INITIAL_CHANNEL_PRICING_DECISION_FOR_SEPARATE_PRODUCT; NOT_A_SPOT_FX_CONVERSION",
       "required": "VERIFY_EXISTING_STORE_CLP_AND_APPLY_PREPARED_PRICE_AFTER_SELLER_ACCESS",
@@ -86,8 +88,8 @@
         "lAtSg",
         "doK54"
       ],
-      "new_product_published": false,
-      "form": "FRESH_SEPARATE_PRODUCT_REQUIRED",
+      "new_product_published": true,
+      "form": "NEW_PRODUCT_SUCCESSFULLY_SUBMITTED",
       "credentials_persisted": false,
       "prior_access_receipt": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
     },
@@ -114,7 +116,12 @@
     "buyer_package_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
     "buyer_package_library_file_id": "libfile_d44ee48cded0819193dfdbde1bc26b91",
     "full_workbook_receipt": "docs/receipts/DP001_v2_2_FULL_WORKBOOK_AUDIT_2026-10-06.json",
-    "package_receipt": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json"
+    "package_receipt": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json",
+    "public_product_url": "https://payhip.com/b/cv4oQ",
+    "product_key": "cv4oQ",
+    "new_product_published": true,
+    "verified_buyer_download": false,
+    "publication_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json"
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -161,12 +168,12 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Upload the immutable audited v2.2 buyer ZIP and accurate gallery; publish the separate CLP 19,990 Payhip product.",
-    "Verify an actual zero-cost buyer download against the exact SHA-256; count the order as a test, not revenue.",
-    "Integrate the verified product URL into the existing public Site and preserve both existing offers.",
+    "The owner completes the interactive hCaptcha at the already zero-total checkout for cv4oQ.",
+    "Complete the free test order, download the ZIP and compare SHA-256; consume or disable the one-use coupon.",
+    "Publish the prepared existing-Site update with the verified cv4oQ link after buyer download verification.",
     "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "EXISTING_SITE_PUBLISHED; V2_2_AUDIT_AND_PACKAGE_PASS; PAYHIP_PUBLICATION_DOWNLOAD_AND_SITE_UPDATE_PENDING",
-  "updated_at_utc": "2026-10-06T17:49:30.919623+00:00"
+  "completion": "V2_2_AUDIT_PACKAGE_AND_PAYHIP_PUBLICATION_PASS; BUYER_HCAPTCHA_BLOCKS_DELIVERY_VERIFICATION; EXISTING_SITE_UPDATE_PREPARED_UNDEPLOYED",
+  "updated_at_utc": "2026-10-06T18:03:18.296891+00:00"
 }
