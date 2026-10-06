@@ -76,6 +76,16 @@
       "new_product_published": false,
       "recovery": "ONE_RELOAD_FAILED_TO_RENDER_CONTROL; SAFE_ORIGIN_VERIFICATION_FOUND_NO_SIGNED_IN_CONFIRMATION",
       "automation_retries": "STOPPED_FOR_CURRENT_BROWSER_BLOCK"
+    },
+    "autonomous_route_audit": {
+      "path": "docs/receipts/PAYHIP_AUTONOMOUS_RELEASE_ACCESS_AUDIT_2026-10-05.json",
+      "checked_at": "2026-10-06T00:33:00.805Z",
+      "result": "NO_EXECUTABLE_OFFICIAL_PUBLISHING_ROUTE_WITH_CURRENT_AUTHORIZED_ACCESS",
+      "documented_api_product_upload": false,
+      "zapier_product_write_actions": false,
+      "available_merchant_connector": false,
+      "alternative_runtime_credentials_configured": false,
+      "required": "VERIFIED_USABLE_SELLER_SESSION"
     }
   },
   "telemetry": {
