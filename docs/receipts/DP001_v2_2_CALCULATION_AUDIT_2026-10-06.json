@@ -1,0 +1,4011 @@
+{
+  "source_sha256": "71c17950174fdb3c5a1f03f86edc6ff410339dce9b4acf6baba7be86e3f7374e",
+  "engine": "LibreOffice headless XLSX recalculation; native Microsoft Excel not executed",
+  "formula_count": 1861,
+  "cycles": [],
+  "cases": [
+    {
+      "name": "baseline",
+      "kind": "baseline",
+      "changes": {},
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_00",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B6": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_01",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B6": null
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_02",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B7": "text"
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_03",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B8": 0.7
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_04",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B12": 0
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_05",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B12": 1.1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_06",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B26": 0
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_07",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B22": 0
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_08",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B22": 2.5
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_09",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B23": 0.5
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_10",
+      "kind": "invalid",
+      "changes": {
+        "SETUP": {
+          "B20": "unknown"
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_11",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_12",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B9": "text"
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_13",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B17": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_14",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B18": 1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_15",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B19": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_16",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B21": 1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_17",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B23": 1.2
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_18",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B24": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_19",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B26": 0
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_20",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B13": "bad"
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_21",
+      "kind": "invalid",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B15": "bad"
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_22",
+      "kind": "invalid",
+      "changes": {
+        "SCENARIO LAB": {
+          "B5": 0
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_23",
+      "kind": "invalid",
+      "changes": {
+        "OFFER ARCHITECT": {
+          "C8": 1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_24",
+      "kind": "invalid",
+      "changes": {
+        "NEGOTIATION LAB": {
+          "B8": 1.1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_25",
+      "kind": "invalid",
+      "changes": {
+        "SCOPE GUARD": {
+          "B5": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "invalid_26",
+      "kind": "invalid",
+      "changes": {
+        "RATE BUILDER": {
+          "B5": -1
+        }
+      },
+      "model_health": "FAIL",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "budget_below",
+      "kind": "budget",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B24": 2500
+        }
+      },
+      "model_health": "PASS",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "budget_between",
+      "kind": "budget",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B24": 4500
+        }
+      },
+      "model_health": "PASS",
+      "decision": "REVIEW",
+      "error_count": 0
+    },
+    {
+      "name": "budget_fit",
+      "kind": "budget",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B24": 5300
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "scope_hours",
+      "kind": "scope",
+      "changes": {
+        "SCOPE GUARD": {
+          "B5": 8
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "scope_cost",
+      "kind": "scope",
+      "changes": {
+        "SCOPE GUARD": {
+          "B9": 5000
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "scope_none",
+      "kind": "scope",
+      "changes": {},
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "zero_revenue",
+      "kind": "project",
+      "changes": {
+        "PROJECTS": {
+          "D5": "Web Design",
+          "E5": "Completed",
+          "G5": 20,
+          "H5": 3000,
+          "I5": 20,
+          "J5": 0,
+          "K5": 0,
+          "S5": 0,
+          "T5": 0,
+          "U5": 0
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "hidden_only_actual",
+      "kind": "project",
+      "changes": {
+        "PROJECTS": {
+          "D5": "Web Design",
+          "E5": "Completed",
+          "G5": 0,
+          "H5": 3000,
+          "I5": 0,
+          "J5": 0,
+          "K5": 2000,
+          "S5": 20,
+          "T5": 20,
+          "U5": 0
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "mixed_history",
+      "kind": "project",
+      "changes": {
+        "PROJECTS": {
+          "D5": "Web Design",
+          "E5": "Completed",
+          "G5": 20,
+          "H5": 3000,
+          "I5": 20,
+          "J5": 0,
+          "K5": 0,
+          "S5": 0,
+          "T5": 0,
+          "U5": 0,
+          "D6": "Web Design",
+          "E6": "Completed",
+          "G6": 20,
+          "H6": 3000,
+          "I6": 20,
+          "J6": 0,
+          "K6": 2000,
+          "S6": 0,
+          "T6": 0,
+          "U6": 0,
+          "D7": "Web Design",
+          "E7": "Completed"
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "all_100_rows",
+      "kind": "project",
+      "changes": {
+        "PROJECTS": {
+          "D5": "Web Design",
+          "E5": "Completed",
+          "G5": 20,
+          "H5": 5000,
+          "I5": 25,
+          "J5": 50,
+          "K5": 4005,
+          "S5": 5,
+          "T5": 7,
+          "U5": 30,
+          "D6": "Web Design",
+          "E6": "Completed",
+          "G6": 20,
+          "H6": 5000,
+          "I6": 25,
+          "J6": 50,
+          "K6": 4006,
+          "S6": 5,
+          "T6": 7,
+          "U6": 30,
+          "D7": "Web Design",
+          "E7": "Completed",
+          "G7": 20,
+          "H7": 5000,
+          "I7": 25,
+          "J7": 50,
+          "K7": 4007,
+          "S7": 5,
+          "T7": 7,
+          "U7": 30,
+          "D8": "Web Design",
+          "E8": "Completed",
+          "G8": 20,
+          "H8": 5000,
+          "I8": 25,
+          "J8": 50,
+          "K8": 4008,
+          "S8": 5,
+          "T8": 7,
+          "U8": 30,
+          "D9": "Web Design",
+          "E9": "Completed",
+          "G9": 20,
+          "H9": 5000,
+          "I9": 25,
+          "J9": 50,
+          "K9": 4009,
+          "S9": 5,
+          "T9": 7,
+          "U9": 30,
+          "D10": "Web Design",
+          "E10": "Completed",
+          "G10": 20,
+          "H10": 5000,
+          "I10": 25,
+          "J10": 50,
+          "K10": 4010,
+          "S10": 5,
+          "T10": 7,
+          "U10": 30,
+          "D11": "Web Design",
+          "E11": "Completed",
+          "G11": 20,
+          "H11": 5000,
+          "I11": 25,
+          "J11": 50,
+          "K11": 4011,
+          "S11": 5,
+          "T11": 7,
+          "U11": 30,
+          "D12": "Web Design",
+          "E12": "Completed",
+          "G12": 20,
+          "H12": 5000,
+          "I12": 25,
+          "J12": 50,
+          "K12": 4012,
+          "S12": 5,
+          "T12": 7,
+          "U12": 30,
+          "D13": "Web Design",
+          "E13": "Completed",
+          "G13": 20,
+          "H13": 5000,
+          "I13": 25,
+          "J13": 50,
+          "K13": 4013,
+          "S13": 5,
+          "T13": 7,
+          "U13": 30,
+          "D14": "Web Design",
+          "E14": "Completed",
+          "G14": 20,
+          "H14": 5000,
+          "I14": 25,
+          "J14": 50,
+          "K14": 4014,
+          "S14": 5,
+          "T14": 7,
+          "U14": 30,
+          "D15": "Web Design",
+          "E15": "Completed",
+          "G15": 20,
+          "H15": 5000,
+          "I15": 25,
+          "J15": 50,
+          "K15": 4015,
+          "S15": 5,
+          "T15": 7,
+          "U15": 30,
+          "D16": "Web Design",
+          "E16": "Completed",
+          "G16": 20,
+          "H16": 5000,
+          "I16": 25,
+          "J16": 50,
+          "K16": 4016,
+          "S16": 5,
+          "T16": 7,
+          "U16": 30,
+          "D17": "Web Design",
+          "E17": "Completed",
+          "G17": 20,
+          "H17": 5000,
+          "I17": 25,
+          "J17": 50,
+          "K17": 4017,
+          "S17": 5,
+          "T17": 7,
+          "U17": 30,
+          "D18": "Web Design",
+          "E18": "Completed",
+          "G18": 20,
+          "H18": 5000,
+          "I18": 25,
+          "J18": 50,
+          "K18": 4018,
+          "S18": 5,
+          "T18": 7,
+          "U18": 30,
+          "D19": "Web Design",
+          "E19": "Completed",
+          "G19": 20,
+          "H19": 5000,
+          "I19": 25,
+          "J19": 50,
+          "K19": 4019,
+          "S19": 5,
+          "T19": 7,
+          "U19": 30,
+          "D20": "Web Design",
+          "E20": "Completed",
+          "G20": 20,
+          "H20": 5000,
+          "I20": 25,
+          "J20": 50,
+          "K20": 4020,
+          "S20": 5,
+          "T20": 7,
+          "U20": 30,
+          "D21": "Web Design",
+          "E21": "Completed",
+          "G21": 20,
+          "H21": 5000,
+          "I21": 25,
+          "J21": 50,
+          "K21": 4021,
+          "S21": 5,
+          "T21": 7,
+          "U21": 30,
+          "D22": "Web Design",
+          "E22": "Completed",
+          "G22": 20,
+          "H22": 5000,
+          "I22": 25,
+          "J22": 50,
+          "K22": 4022,
+          "S22": 5,
+          "T22": 7,
+          "U22": 30,
+          "D23": "Web Design",
+          "E23": "Completed",
+          "G23": 20,
+          "H23": 5000,
+          "I23": 25,
+          "J23": 50,
+          "K23": 4023,
+          "S23": 5,
+          "T23": 7,
+          "U23": 30,
+          "D24": "Web Design",
+          "E24": "Completed",
+          "G24": 20,
+          "H24": 5000,
+          "I24": 25,
+          "J24": 50,
+          "K24": 4024,
+          "S24": 5,
+          "T24": 7,
+          "U24": 30,
+          "D25": "Web Design",
+          "E25": "Completed",
+          "G25": 20,
+          "H25": 5000,
+          "I25": 25,
+          "J25": 50,
+          "K25": 4025,
+          "S25": 5,
+          "T25": 7,
+          "U25": 30,
+          "D26": "Web Design",
+          "E26": "Completed",
+          "G26": 20,
+          "H26": 5000,
+          "I26": 25,
+          "J26": 50,
+          "K26": 4026,
+          "S26": 5,
+          "T26": 7,
+          "U26": 30,
+          "D27": "Web Design",
+          "E27": "Completed",
+          "G27": 20,
+          "H27": 5000,
+          "I27": 25,
+          "J27": 50,
+          "K27": 4027,
+          "S27": 5,
+          "T27": 7,
+          "U27": 30,
+          "D28": "Web Design",
+          "E28": "Completed",
+          "G28": 20,
+          "H28": 5000,
+          "I28": 25,
+          "J28": 50,
+          "K28": 4028,
+          "S28": 5,
+          "T28": 7,
+          "U28": 30,
+          "D29": "Web Design",
+          "E29": "Completed",
+          "G29": 20,
+          "H29": 5000,
+          "I29": 25,
+          "J29": 50,
+          "K29": 4029,
+          "S29": 5,
+          "T29": 7,
+          "U29": 30,
+          "D30": "Web Design",
+          "E30": "Completed",
+          "G30": 20,
+          "H30": 5000,
+          "I30": 25,
+          "J30": 50,
+          "K30": 4030,
+          "S30": 5,
+          "T30": 7,
+          "U30": 30,
+          "D31": "Web Design",
+          "E31": "Completed",
+          "G31": 20,
+          "H31": 5000,
+          "I31": 25,
+          "J31": 50,
+          "K31": 4031,
+          "S31": 5,
+          "T31": 7,
+          "U31": 30,
+          "D32": "Web Design",
+          "E32": "Completed",
+          "G32": 20,
+          "H32": 5000,
+          "I32": 25,
+          "J32": 50,
+          "K32": 4032,
+          "S32": 5,
+          "T32": 7,
+          "U32": 30,
+          "D33": "Web Design",
+          "E33": "Completed",
+          "G33": 20,
+          "H33": 5000,
+          "I33": 25,
+          "J33": 50,
+          "K33": 4033,
+          "S33": 5,
+          "T33": 7,
+          "U33": 30,
+          "D34": "Web Design",
+          "E34": "Completed",
+          "G34": 20,
+          "H34": 5000,
+          "I34": 25,
+          "J34": 50,
+          "K34": 4034,
+          "S34": 5,
+          "T34": 7,
+          "U34": 30,
+          "D35": "Web Design",
+          "E35": "Completed",
+          "G35": 20,
+          "H35": 5000,
+          "I35": 25,
+          "J35": 50,
+          "K35": 4035,
+          "S35": 5,
+          "T35": 7,
+          "U35": 30,
+          "D36": "Web Design",
+          "E36": "Completed",
+          "G36": 20,
+          "H36": 5000,
+          "I36": 25,
+          "J36": 50,
+          "K36": 4036,
+          "S36": 5,
+          "T36": 7,
+          "U36": 30,
+          "D37": "Web Design",
+          "E37": "Completed",
+          "G37": 20,
+          "H37": 5000,
+          "I37": 25,
+          "J37": 50,
+          "K37": 4037,
+          "S37": 5,
+          "T37": 7,
+          "U37": 30,
+          "D38": "Web Design",
+          "E38": "Completed",
+          "G38": 20,
+          "H38": 5000,
+          "I38": 25,
+          "J38": 50,
+          "K38": 4038,
+          "S38": 5,
+          "T38": 7,
+          "U38": 30,
+          "D39": "Web Design",
+          "E39": "Completed",
+          "G39": 20,
+          "H39": 5000,
+          "I39": 25,
+          "J39": 50,
+          "K39": 4039,
+          "S39": 5,
+          "T39": 7,
+          "U39": 30,
+          "D40": "Web Design",
+          "E40": "Completed",
+          "G40": 20,
+          "H40": 5000,
+          "I40": 25,
+          "J40": 50,
+          "K40": 4040,
+          "S40": 5,
+          "T40": 7,
+          "U40": 30,
+          "D41": "Web Design",
+          "E41": "Completed",
+          "G41": 20,
+          "H41": 5000,
+          "I41": 25,
+          "J41": 50,
+          "K41": 4041,
+          "S41": 5,
+          "T41": 7,
+          "U41": 30,
+          "D42": "Web Design",
+          "E42": "Completed",
+          "G42": 20,
+          "H42": 5000,
+          "I42": 25,
+          "J42": 50,
+          "K42": 4042,
+          "S42": 5,
+          "T42": 7,
+          "U42": 30,
+          "D43": "Web Design",
+          "E43": "Completed",
+          "G43": 20,
+          "H43": 5000,
+          "I43": 25,
+          "J43": 50,
+          "K43": 4043,
+          "S43": 5,
+          "T43": 7,
+          "U43": 30,
+          "D44": "Web Design",
+          "E44": "Completed",
+          "G44": 20,
+          "H44": 5000,
+          "I44": 25,
+          "J44": 50,
+          "K44": 4044,
+          "S44": 5,
+          "T44": 7,
+          "U44": 30,
+          "D45": "Web Design",
+          "E45": "Completed",
+          "G45": 20,
+          "H45": 5000,
+          "I45": 25,
+          "J45": 50,
+          "K45": 4045,
+          "S45": 5,
+          "T45": 7,
+          "U45": 30,
+          "D46": "Web Design",
+          "E46": "Completed",
+          "G46": 20,
+          "H46": 5000,
+          "I46": 25,
+          "J46": 50,
+          "K46": 4046,
+          "S46": 5,
+          "T46": 7,
+          "U46": 30,
+          "D47": "Web Design",
+          "E47": "Completed",
+          "G47": 20,
+          "H47": 5000,
+          "I47": 25,
+          "J47": 50,
+          "K47": 4047,
+          "S47": 5,
+          "T47": 7,
+          "U47": 30,
+          "D48": "Web Design",
+          "E48": "Completed",
+          "G48": 20,
+          "H48": 5000,
+          "I48": 25,
+          "J48": 50,
+          "K48": 4048,
+          "S48": 5,
+          "T48": 7,
+          "U48": 30,
+          "D49": "Web Design",
+          "E49": "Completed",
+          "G49": 20,
+          "H49": 5000,
+          "I49": 25,
+          "J49": 50,
+          "K49": 4049,
+          "S49": 5,
+          "T49": 7,
+          "U49": 30,
+          "D50": "Web Design",
+          "E50": "Completed",
+          "G50": 20,
+          "H50": 5000,
+          "I50": 25,
+          "J50": 50,
+          "K50": 4050,
+          "S50": 5,
+          "T50": 7,
+          "U50": 30,
+          "D51": "Web Design",
+          "E51": "Completed",
+          "G51": 20,
+          "H51": 5000,
+          "I51": 25,
+          "J51": 50,
+          "K51": 4051,
+          "S51": 5,
+          "T51": 7,
+          "U51": 30,
+          "D52": "Web Design",
+          "E52": "Completed",
+          "G52": 20,
+          "H52": 5000,
+          "I52": 25,
+          "J52": 50,
+          "K52": 4052,
+          "S52": 5,
+          "T52": 7,
+          "U52": 30,
+          "D53": "Web Design",
+          "E53": "Completed",
+          "G53": 20,
+          "H53": 5000,
+          "I53": 25,
+          "J53": 50,
+          "K53": 4053,
+          "S53": 5,
+          "T53": 7,
+          "U53": 30,
+          "D54": "Web Design",
+          "E54": "Completed",
+          "G54": 20,
+          "H54": 5000,
+          "I54": 25,
+          "J54": 50,
+          "K54": 4054,
+          "S54": 5,
+          "T54": 7,
+          "U54": 30,
+          "D55": "Web Design",
+          "E55": "Completed",
+          "G55": 20,
+          "H55": 5000,
+          "I55": 25,
+          "J55": 50,
+          "K55": 4055,
+          "S55": 5,
+          "T55": 7,
+          "U55": 30,
+          "D56": "Web Design",
+          "E56": "Completed",
+          "G56": 20,
+          "H56": 5000,
+          "I56": 25,
+          "J56": 50,
+          "K56": 4056,
+          "S56": 5,
+          "T56": 7,
+          "U56": 30,
+          "D57": "Web Design",
+          "E57": "Completed",
+          "G57": 20,
+          "H57": 5000,
+          "I57": 25,
+          "J57": 50,
+          "K57": 4057,
+          "S57": 5,
+          "T57": 7,
+          "U57": 30,
+          "D58": "Web Design",
+          "E58": "Completed",
+          "G58": 20,
+          "H58": 5000,
+          "I58": 25,
+          "J58": 50,
+          "K58": 4058,
+          "S58": 5,
+          "T58": 7,
+          "U58": 30,
+          "D59": "Web Design",
+          "E59": "Completed",
+          "G59": 20,
+          "H59": 5000,
+          "I59": 25,
+          "J59": 50,
+          "K59": 4059,
+          "S59": 5,
+          "T59": 7,
+          "U59": 30,
+          "D60": "Web Design",
+          "E60": "Completed",
+          "G60": 20,
+          "H60": 5000,
+          "I60": 25,
+          "J60": 50,
+          "K60": 4060,
+          "S60": 5,
+          "T60": 7,
+          "U60": 30,
+          "D61": "Web Design",
+          "E61": "Completed",
+          "G61": 20,
+          "H61": 5000,
+          "I61": 25,
+          "J61": 50,
+          "K61": 4061,
+          "S61": 5,
+          "T61": 7,
+          "U61": 30,
+          "D62": "Web Design",
+          "E62": "Completed",
+          "G62": 20,
+          "H62": 5000,
+          "I62": 25,
+          "J62": 50,
+          "K62": 4062,
+          "S62": 5,
+          "T62": 7,
+          "U62": 30,
+          "D63": "Web Design",
+          "E63": "Completed",
+          "G63": 20,
+          "H63": 5000,
+          "I63": 25,
+          "J63": 50,
+          "K63": 4063,
+          "S63": 5,
+          "T63": 7,
+          "U63": 30,
+          "D64": "Web Design",
+          "E64": "Completed",
+          "G64": 20,
+          "H64": 5000,
+          "I64": 25,
+          "J64": 50,
+          "K64": 4064,
+          "S64": 5,
+          "T64": 7,
+          "U64": 30,
+          "D65": "Web Design",
+          "E65": "Completed",
+          "G65": 20,
+          "H65": 5000,
+          "I65": 25,
+          "J65": 50,
+          "K65": 4065,
+          "S65": 5,
+          "T65": 7,
+          "U65": 30,
+          "D66": "Web Design",
+          "E66": "Completed",
+          "G66": 20,
+          "H66": 5000,
+          "I66": 25,
+          "J66": 50,
+          "K66": 4066,
+          "S66": 5,
+          "T66": 7,
+          "U66": 30,
+          "D67": "Web Design",
+          "E67": "Completed",
+          "G67": 20,
+          "H67": 5000,
+          "I67": 25,
+          "J67": 50,
+          "K67": 4067,
+          "S67": 5,
+          "T67": 7,
+          "U67": 30,
+          "D68": "Web Design",
+          "E68": "Completed",
+          "G68": 20,
+          "H68": 5000,
+          "I68": 25,
+          "J68": 50,
+          "K68": 4068,
+          "S68": 5,
+          "T68": 7,
+          "U68": 30,
+          "D69": "Web Design",
+          "E69": "Completed",
+          "G69": 20,
+          "H69": 5000,
+          "I69": 25,
+          "J69": 50,
+          "K69": 4069,
+          "S69": 5,
+          "T69": 7,
+          "U69": 30,
+          "D70": "Web Design",
+          "E70": "Completed",
+          "G70": 20,
+          "H70": 5000,
+          "I70": 25,
+          "J70": 50,
+          "K70": 4070,
+          "S70": 5,
+          "T70": 7,
+          "U70": 30,
+          "D71": "Web Design",
+          "E71": "Completed",
+          "G71": 20,
+          "H71": 5000,
+          "I71": 25,
+          "J71": 50,
+          "K71": 4071,
+          "S71": 5,
+          "T71": 7,
+          "U71": 30,
+          "D72": "Web Design",
+          "E72": "Completed",
+          "G72": 20,
+          "H72": 5000,
+          "I72": 25,
+          "J72": 50,
+          "K72": 4072,
+          "S72": 5,
+          "T72": 7,
+          "U72": 30,
+          "D73": "Web Design",
+          "E73": "Completed",
+          "G73": 20,
+          "H73": 5000,
+          "I73": 25,
+          "J73": 50,
+          "K73": 4073,
+          "S73": 5,
+          "T73": 7,
+          "U73": 30,
+          "D74": "Web Design",
+          "E74": "Completed",
+          "G74": 20,
+          "H74": 5000,
+          "I74": 25,
+          "J74": 50,
+          "K74": 4074,
+          "S74": 5,
+          "T74": 7,
+          "U74": 30,
+          "D75": "Web Design",
+          "E75": "Completed",
+          "G75": 20,
+          "H75": 5000,
+          "I75": 25,
+          "J75": 50,
+          "K75": 4075,
+          "S75": 5,
+          "T75": 7,
+          "U75": 30,
+          "D76": "Web Design",
+          "E76": "Completed",
+          "G76": 20,
+          "H76": 5000,
+          "I76": 25,
+          "J76": 50,
+          "K76": 4076,
+          "S76": 5,
+          "T76": 7,
+          "U76": 30,
+          "D77": "Web Design",
+          "E77": "Completed",
+          "G77": 20,
+          "H77": 5000,
+          "I77": 25,
+          "J77": 50,
+          "K77": 4077,
+          "S77": 5,
+          "T77": 7,
+          "U77": 30,
+          "D78": "Web Design",
+          "E78": "Completed",
+          "G78": 20,
+          "H78": 5000,
+          "I78": 25,
+          "J78": 50,
+          "K78": 4078,
+          "S78": 5,
+          "T78": 7,
+          "U78": 30,
+          "D79": "Web Design",
+          "E79": "Completed",
+          "G79": 20,
+          "H79": 5000,
+          "I79": 25,
+          "J79": 50,
+          "K79": 4079,
+          "S79": 5,
+          "T79": 7,
+          "U79": 30,
+          "D80": "Web Design",
+          "E80": "Completed",
+          "G80": 20,
+          "H80": 5000,
+          "I80": 25,
+          "J80": 50,
+          "K80": 4080,
+          "S80": 5,
+          "T80": 7,
+          "U80": 30,
+          "D81": "Web Design",
+          "E81": "Completed",
+          "G81": 20,
+          "H81": 5000,
+          "I81": 25,
+          "J81": 50,
+          "K81": 4081,
+          "S81": 5,
+          "T81": 7,
+          "U81": 30,
+          "D82": "Web Design",
+          "E82": "Completed",
+          "G82": 20,
+          "H82": 5000,
+          "I82": 25,
+          "J82": 50,
+          "K82": 4082,
+          "S82": 5,
+          "T82": 7,
+          "U82": 30,
+          "D83": "Web Design",
+          "E83": "Completed",
+          "G83": 20,
+          "H83": 5000,
+          "I83": 25,
+          "J83": 50,
+          "K83": 4083,
+          "S83": 5,
+          "T83": 7,
+          "U83": 30,
+          "D84": "Web Design",
+          "E84": "Completed",
+          "G84": 20,
+          "H84": 5000,
+          "I84": 25,
+          "J84": 50,
+          "K84": 4084,
+          "S84": 5,
+          "T84": 7,
+          "U84": 30,
+          "D85": "Web Design",
+          "E85": "Completed",
+          "G85": 20,
+          "H85": 5000,
+          "I85": 25,
+          "J85": 50,
+          "K85": 4085,
+          "S85": 5,
+          "T85": 7,
+          "U85": 30,
+          "D86": "Web Design",
+          "E86": "Completed",
+          "G86": 20,
+          "H86": 5000,
+          "I86": 25,
+          "J86": 50,
+          "K86": 4086,
+          "S86": 5,
+          "T86": 7,
+          "U86": 30,
+          "D87": "Web Design",
+          "E87": "Completed",
+          "G87": 20,
+          "H87": 5000,
+          "I87": 25,
+          "J87": 50,
+          "K87": 4087,
+          "S87": 5,
+          "T87": 7,
+          "U87": 30,
+          "D88": "Web Design",
+          "E88": "Completed",
+          "G88": 20,
+          "H88": 5000,
+          "I88": 25,
+          "J88": 50,
+          "K88": 4088,
+          "S88": 5,
+          "T88": 7,
+          "U88": 30,
+          "D89": "Web Design",
+          "E89": "Completed",
+          "G89": 20,
+          "H89": 5000,
+          "I89": 25,
+          "J89": 50,
+          "K89": 4089,
+          "S89": 5,
+          "T89": 7,
+          "U89": 30,
+          "D90": "Web Design",
+          "E90": "Completed",
+          "G90": 20,
+          "H90": 5000,
+          "I90": 25,
+          "J90": 50,
+          "K90": 4090,
+          "S90": 5,
+          "T90": 7,
+          "U90": 30,
+          "D91": "Web Design",
+          "E91": "Completed",
+          "G91": 20,
+          "H91": 5000,
+          "I91": 25,
+          "J91": 50,
+          "K91": 4091,
+          "S91": 5,
+          "T91": 7,
+          "U91": 30,
+          "D92": "Web Design",
+          "E92": "Completed",
+          "G92": 20,
+          "H92": 5000,
+          "I92": 25,
+          "J92": 50,
+          "K92": 4092,
+          "S92": 5,
+          "T92": 7,
+          "U92": 30,
+          "D93": "Web Design",
+          "E93": "Completed",
+          "G93": 20,
+          "H93": 5000,
+          "I93": 25,
+          "J93": 50,
+          "K93": 4093,
+          "S93": 5,
+          "T93": 7,
+          "U93": 30,
+          "D94": "Web Design",
+          "E94": "Completed",
+          "G94": 20,
+          "H94": 5000,
+          "I94": 25,
+          "J94": 50,
+          "K94": 4094,
+          "S94": 5,
+          "T94": 7,
+          "U94": 30,
+          "D95": "Web Design",
+          "E95": "Completed",
+          "G95": 20,
+          "H95": 5000,
+          "I95": 25,
+          "J95": 50,
+          "K95": 4095,
+          "S95": 5,
+          "T95": 7,
+          "U95": 30,
+          "D96": "Web Design",
+          "E96": "Completed",
+          "G96": 20,
+          "H96": 5000,
+          "I96": 25,
+          "J96": 50,
+          "K96": 4096,
+          "S96": 5,
+          "T96": 7,
+          "U96": 30,
+          "D97": "Web Design",
+          "E97": "Completed",
+          "G97": 20,
+          "H97": 5000,
+          "I97": 25,
+          "J97": 50,
+          "K97": 4097,
+          "S97": 5,
+          "T97": 7,
+          "U97": 30,
+          "D98": "Web Design",
+          "E98": "Completed",
+          "G98": 20,
+          "H98": 5000,
+          "I98": 25,
+          "J98": 50,
+          "K98": 4098,
+          "S98": 5,
+          "T98": 7,
+          "U98": 30,
+          "D99": "Web Design",
+          "E99": "Completed",
+          "G99": 20,
+          "H99": 5000,
+          "I99": 25,
+          "J99": 50,
+          "K99": 4099,
+          "S99": 5,
+          "T99": 7,
+          "U99": 30,
+          "D100": "Web Design",
+          "E100": "Completed",
+          "G100": 20,
+          "H100": 5000,
+          "I100": 25,
+          "J100": 50,
+          "K100": 4100,
+          "S100": 5,
+          "T100": 7,
+          "U100": 30,
+          "D101": "Web Design",
+          "E101": "Completed",
+          "G101": 20,
+          "H101": 5000,
+          "I101": 25,
+          "J101": 50,
+          "K101": 4101,
+          "S101": 5,
+          "T101": 7,
+          "U101": 30,
+          "D102": "Web Design",
+          "E102": "Completed",
+          "G102": 20,
+          "H102": 5000,
+          "I102": 25,
+          "J102": 50,
+          "K102": 4102,
+          "S102": 5,
+          "T102": 7,
+          "U102": 30,
+          "D103": "Web Design",
+          "E103": "Completed",
+          "G103": 20,
+          "H103": 5000,
+          "I103": 25,
+          "J103": 50,
+          "K103": 4103,
+          "S103": 5,
+          "T103": 7,
+          "U103": 30,
+          "D104": "Web Design",
+          "E104": "Completed",
+          "G104": 20,
+          "H104": 5000,
+          "I104": 25,
+          "J104": 50,
+          "K104": 4104,
+          "S104": 5,
+          "T104": 7,
+          "U104": 30
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "benchmark_filter",
+      "kind": "benchmark",
+      "changes": {
+        "MARKET BENCHMARK": {
+          "H6": "2026-10-06",
+          "I6": "https://example.org/a",
+          "J6": "Graphic Design",
+          "K6": 100,
+          "H7": "2026-10-06",
+          "I7": "https://example.org/b",
+          "J7": "Graphic Design",
+          "K7": -90,
+          "J8": "Graphic Design",
+          "K8": 900
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "currency_fx",
+      "kind": "fx",
+      "changes": {
+        "SETUP": {
+          "B25": "CLP",
+          "B26": 900
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "discount_below_floor",
+      "kind": "discount",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B22": 0.3
+        }
+      },
+      "model_health": "PASS",
+      "decision": "STOP",
+      "error_count": 0
+    },
+    {
+      "name": "multiplier_offer",
+      "kind": "multiplier",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B26": 1.5
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_00",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 64.42811004031677,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 3370.1403173277454,
+          "B18": 0.6878760622182544,
+          "B19": 7.647369302489761,
+          "B20": 0.6263688538017176,
+          "B21": 0.18655478670312117,
+          "B22": 0,
+          "B23": 0.6253676900620204,
+          "B26": 2.4175767681735714
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_01",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 104.53764157834271,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 3797.14720070853,
+          "B18": 0.0807987303183208,
+          "B19": 3.529918169583613,
+          "B20": 0.06428386414481838,
+          "B21": 0.20588183082155523,
+          "B22": 0,
+          "B23": 0.5754780056091574,
+          "B26": 1.7371187936546761
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_02",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 33.94917890886828,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 429.5176701059633,
+          "B18": 0.37398781329895364,
+          "B19": 3.1820490726898227,
+          "B20": 0.1328697856994366,
+          "B21": 0.5849323430558226,
+          "B22": 0,
+          "B23": 0.4578062970932155,
+          "B26": 1.0584916124773835
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_03",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 20.735456185248132,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2180.4872178653795,
+          "B18": 0.13697453002605214,
+          "B19": 4.095598957296552,
+          "B20": 0.30973669579276475,
+          "B21": 0.18235267495485338,
+          "B22": 0,
+          "B23": 0.9216265332465545,
+          "B26": 1.4537534868492177
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_04",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 66.11954053641497,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2479.6914309278945,
+          "B18": 0.4724967704371684,
+          "B19": 3.6658374952041264,
+          "B20": 0.16756011159021267,
+          "B21": 0.07815938665338207,
+          "B22": 0,
+          "B23": 0.9373473900577988,
+          "B26": 2.8758655102668875
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_05",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 64.57257106994842,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 3900.6518538961886,
+          "B18": 0.7011923352420659,
+          "B19": 0.6067939579590426,
+          "B20": 0.5704797255441654,
+          "B21": 0.4845453011193356,
+          "B22": 0,
+          "B23": 0.3512751287121727,
+          "B26": 1.2342013199722681
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_06",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 86.86765044475361,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 1654.1127704088926,
+          "B18": 0.02845716090044681,
+          "B19": 4.400121698084485,
+          "B20": 0.14798993806342606,
+          "B21": 0.39771580090998954,
+          "B22": 0,
+          "B23": 0.15414401556175783,
+          "B26": 2.7872720963615976
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_07",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 24.25730673217803,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 558.7079176213855,
+          "B18": 0.025255576862916268,
+          "B19": 1.594228203667587,
+          "B20": 0.5151867939799171,
+          "B21": 0.3866031843487934,
+          "B22": 0,
+          "B23": 0.14119752387266515,
+          "B26": 2.0786135627512703
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_08",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 17.76647737609602,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 4532.088006497181,
+          "B18": 0.5614475930734097,
+          "B19": 13.147228761143541,
+          "B20": 0.4748640346448147,
+          "B21": 0.7350665993304308,
+          "B22": 0,
+          "B23": 0.4663146970959353,
+          "B26": 2.6221475429123506
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_09",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 113.96045292871625,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 3047.289783299879,
+          "B18": 0.07893405084268579,
+          "B19": 13.384347316892256,
+          "B20": 0.4655667538950476,
+          "B21": 0.05972105511784065,
+          "B22": 0,
+          "B23": 0.7103093280051906,
+          "B26": 1.0458124099346588
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_10",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 54.30114530685243,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2291.879993219983,
+          "B18": 0.2788122023350082,
+          "B19": 7.080830367586937,
+          "B20": 0.05191680750011712,
+          "B21": 0.5516919221420321,
+          "B22": 0,
+          "B23": 0.16978702190294903,
+          "B26": 2.653423033524991
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_11",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 35.08564643880439,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 3924.2827175141138,
+          "B18": 0.3098925640080582,
+          "B19": 8.88857139296986,
+          "B20": 0.4299839583291076,
+          "B21": 0.5044738152203931,
+          "B22": 0,
+          "B23": 0.3588997204177017,
+          "B26": 2.8034534420151234
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_12",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 41.91022048727994,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2077.768261141614,
+          "B18": 0.15799170794866277,
+          "B19": 1.346354661984872,
+          "B20": 0.4420624286371313,
+          "B21": 0.6534132994650197,
+          "B22": 0,
+          "B23": 0.08379231318082403,
+          "B26": 2.322559467028966
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_13",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 96.52416750376929,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 1423.57154198358,
+          "B18": 0.6481399413726399,
+          "B19": 6.475754802744202,
+          "B20": 0.35444327583972446,
+          "B21": 0.10785785009235767,
+          "B22": 0,
+          "B23": 0.013788341805654136,
+          "B26": 1.9891354889654755
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_14",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 60.066906712424895,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2802.7790575727868,
+          "B18": 0.3205290531147069,
+          "B19": 10.73860663497799,
+          "B20": 0.0783839445996061,
+          "B21": 0.5839497516030975,
+          "B22": 0,
+          "B23": 0.30826091775244613,
+          "B26": 1.8331895158578986
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_15",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 14.224247342367011,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2155.590766325679,
+          "B18": 0.20036085293425496,
+          "B19": 8.028329544616843,
+          "B20": 0.44766571795313975,
+          "B21": 0.4040759356393923,
+          "B22": 0,
+          "B23": 0.2422455745501726,
+          "B26": 2.4013339703898
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_16",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 71.91549474240527,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2655.3154702629263,
+          "B18": 0.10647181458829069,
+          "B19": 12.659224199502535,
+          "B20": 0.5938871208889578,
+          "B21": 0.6815364176974451,
+          "B22": 0,
+          "B23": 0.1796451190366205,
+          "B26": 2.9482372836489814
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_17",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 57.439539210667775,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 126.53081133027655,
+          "B18": 0.20248843255204602,
+          "B19": 3.187745445707737,
+          "B20": 0.7731231263848167,
+          "B21": 0.6298125186477711,
+          "B22": 0,
+          "B23": 0.6314193282314119,
+          "B26": 2.82602353207787
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_18",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 99.99723096933991,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2789.28622507233,
+          "B18": 0.7316887174418938,
+          "B19": 2.4415724454262606,
+          "B20": 0.7269645048091268,
+          "B21": 0.501512870389104,
+          "B22": 0,
+          "B23": 0.42689284364446045,
+          "B26": 2.4688583533843165
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_19",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 116.37204412098484,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 1141.2627355072564,
+          "B18": 0.3657691838001509,
+          "B19": 3.9064337723897635,
+          "B20": 0.4290073211304001,
+          "B21": 0.7126467908768122,
+          "B22": 0,
+          "B23": 0.310703157361786,
+          "B26": 1.1532099458214402
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_20",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 38.83514771601323,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 155.76699812371197,
+          "B18": 0.5216936093913391,
+          "B19": 2.420266077285476,
+          "B20": 0.7161920398478061,
+          "B21": 0.11615257564583148,
+          "B22": 0,
+          "B23": 0.8991210694744455,
+          "B26": 2.9712654237739837
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_21",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 115.82334975448872,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 4223.645596527239,
+          "B18": 0.7421274565168159,
+          "B19": 3.9645700096730603,
+          "B20": 0.1913933007249672,
+          "B21": 0.757848631780218,
+          "B22": 0,
+          "B23": 0.24582796230609694,
+          "B26": 1.4463319991230825
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_22",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 51.75395483859737,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 5.036013698088149,
+          "B18": 0.08315996071133341,
+          "B19": 6.767128503735945,
+          "B20": 0.12319083040667983,
+          "B21": 0.6140528266617706,
+          "B22": 0,
+          "B23": 0.31481812687748567,
+          "B26": 2.8510029301329958
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    },
+    {
+      "name": "economics_23",
+      "kind": "invariants",
+      "changes": {
+        "QUOTE BUILDER": {
+          "B8": 53.63497144385515,
+          "B9": 1,
+          "B10": 1,
+          "B11": 1,
+          "B12": 0,
+          "B17": 2.063626183379519,
+          "B18": 0.15471058537752014,
+          "B19": 3.505728607719761,
+          "B20": 0.06088578223350671,
+          "B21": 0.4221525558794806,
+          "B22": 0,
+          "B23": 0.6679875579843347,
+          "B26": 1.8766590168631505
+        }
+      },
+      "model_health": "PASS",
+      "decision": "GO",
+      "error_count": 0
+    }
+  ],
+  "checks": [
+    {
+      "name": "source has no circular formula dependency",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "all 100 tracker rows have all 13 formulas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "19 modules preserved",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "fresh defaults present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "calculation is automatic and iterative calculation disabled",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "START HERE has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "SETUP has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "RATE BUILDER has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "QUOTE BUILDER has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "PROJECTS has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "PRICING MEMORY has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "DASHBOARD has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "EXAMPLE has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "METHODOLOGY has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "SCOPE GUARD has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "CLIENT SUMMARY has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "MARKET BENCHMARK has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "CALIBRATION ENGINE has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "SCENARIO LAB has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "OFFER ARCHITECT has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "NEGOTIATION LAB has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "SYSTEM CHECK has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "DECISION CENTER has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "HELP CENTER has no overlapping merged regions",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "calculation worker 0 succeeded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "baseline structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "baseline deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "default release decision is GO",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_00 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_00 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_01 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_01 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_02 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_02 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_03 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_03 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_04 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_04 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_05 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_05 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_06 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_06 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_07 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_07 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_08 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_08 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_09 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_09 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_10 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_10 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_11 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_11 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_12 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_12 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_13 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_13 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_14 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_14 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_15 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_15 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_16 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_16 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_17 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_17 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_18 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_18 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_19 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_19 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_20 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_20 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_21 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_21 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_22 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_22 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_23 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_23 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_24 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_24 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_25 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_25 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "invalid_26 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "invalid_26 blocks client readiness",
+      "pass": true,
+      "detail": [
+        "FAIL",
+        "STOP"
+      ]
+    },
+    {
+      "name": "budget_below has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "budget_below returns correct verdict",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "budget_between has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "budget_between returns correct verdict",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "budget_fit has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "budget_fit returns correct verdict",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "scope_hours has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hours-only change has positive fee",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "scope_cost has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "cost-only change reduces effective rate and cannot be absorbed",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "scope_none has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no change has no fabricated fee",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "zero_revenue has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "first project retains zero revenue and shows underpricing",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "hidden_only_actual has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "hidden-hours-only project still calculates rate",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "mixed_history has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "zero rate is included and incomplete rows excluded from average",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "confidence counts usable hours only",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "all_100_rows has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "tracker row 5 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 6 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 7 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 8 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 9 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 10 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 11 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 12 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 13 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 14 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 15 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 16 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 17 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 18 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 19 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 20 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 21 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 22 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 23 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 24 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 25 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 26 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 27 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 28 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 29 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 30 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 31 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 32 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 33 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 34 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 35 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 36 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 37 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 38 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 39 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 40 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 41 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 42 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 43 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 44 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 45 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 46 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 47 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 48 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 49 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 50 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 51 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 52 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 53 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 54 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 55 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 56 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 57 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 58 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 59 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 60 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 61 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 62 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 63 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 64 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 65 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 66 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 67 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 68 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 69 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 70 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 71 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 72 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 73 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 74 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 75 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 76 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 77 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 78 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 79 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 80 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 81 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 82 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 83 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 84 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 85 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 86 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 87 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 88 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 89 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 90 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 91 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 92 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 93 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 94 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 95 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 96 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 97 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 98 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 99 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 100 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 101 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 102 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 103 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "tracker row 104 independently calculated",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "full history sample count",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "benchmark_filter has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "custom benchmark excludes negative and unsourced rows",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "currency_fx has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "USD benchmark converts to requested workbook currency",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "discount_below_floor has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "underpricing causes STOP",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "multiplier_offer has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "recommended offer preserves calibrated hours",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_00 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_00 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_00 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_00 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_00 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_00 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_01 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_01 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_01 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_01 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_01 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_01 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_02 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_02 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_02 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_02 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_02 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_02 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_03 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_03 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_03 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_03 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_03 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_03 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_04 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_04 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_04 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_04 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_04 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_04 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_05 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_05 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_05 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_05 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_05 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_05 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_06 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_06 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_06 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_06 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_06 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_06 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_07 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_07 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_07 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_07 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_07 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_07 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_08 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_08 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_08 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_08 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_08 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_08 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_09 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_09 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_09 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_09 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_09 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_09 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_10 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_10 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_10 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_10 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_10 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_10 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_11 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_11 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_11 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_11 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_11 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_11 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_12 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_12 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_12 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_12 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_12 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_12 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_13 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_13 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_13 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_13 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_13 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_13 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_14 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_14 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_14 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_14 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_14 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_14 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_15 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_15 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_15 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_15 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_15 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_15 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_16 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_16 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_16 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_16 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_16 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_16 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_17 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_17 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_17 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_17 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_17 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_17 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_18 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_18 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_18 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_18 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_18 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_18 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_19 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_19 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_19 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_19 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_19 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_19 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_20 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_20 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_20 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_20 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_20 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_20 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_21 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_21 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_21 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_21 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_21 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_21 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_22 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_22 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_22 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_22 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_22 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_22 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_23 has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "economics_23 structural model passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_23 target meets selected net margin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_23 walk-away covers protected costs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_23 maximum safe discount meets floor",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "economics_23 deposit plus balance equals price",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "reuse_policy": "Every formula and referenced input is equal; numeric inputs within 1e-12 relative/absolute tolerance. Presentation-only changes excluded.",
+  "reused_cases": 66,
+  "passed": 359,
+  "failed": 0,
+  "status": "PASS"
+}

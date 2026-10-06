@@ -1,6 +1,6 @@
 {
   "project": "Herramientas Rentables",
-  "updated_at": "2026-10-05",
+  "updated_at": "2026-10-06",
   "source_of_truth": "GitHub main + Sites saved/deployed version",
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -59,12 +59,12 @@
   },
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
-    "current_build": "DP-FREELANCE-001_v2.1",
-    "state": "BYTE_VERIFIED_SELLER_ACCOUNT_VERIFIED_PENDING_UPLOAD_AND_DELIVERY",
-    "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_ZERO_UPFRONT_RELEASE_v2_1.md",
+    "current_build": "DP-FREELANCE-001_v2.2",
+    "state": "AUDIT_AND_PACKAGE_PASS_PENDING_PAYHIP_AND_SITE",
+    "release_pack": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "SAFE_BROWSER_RUNTIME_UNAVAILABLE_AT_FILE_CHOOSER",
+    "blocker": "NEW_PAYHIP_LISTING_UPLOAD_AND_ZERO_COST_DELIVERY_VERIFICATION_PENDING",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -74,20 +74,22 @@
         "amount": 19990,
         "status": "PREPARED_NOT_CONFIGURED"
       },
-      "pricing_basis": "INITIAL_CHANNEL_PRICING_DECISION_FOR_SEPARATE_V2_1_PRODUCT; NOT_A_SPOT_FX_CONVERSION",
+      "pricing_basis": "INITIAL_CHANNEL_PRICING_DECISION_FOR_SEPARATE_PRODUCT; NOT_A_SPOT_FX_CONVERSION",
       "required": "VERIFY_EXISTING_STORE_CLP_AND_APPLY_PREPARED_PRICE_AFTER_SELLER_ACCESS",
       "source": "https://help.payhip.com/article/234-store-language-and-currency"
     },
     "seller_access": {
-      "recorded_at": "2026-10-06T02:00:35.196Z",
-      "method": "SECURE_BROWSER_AUTH_AND_USER_COMPLETED_HUMAN_VERIFICATION",
-      "state": "SELLER_DASHBOARD_IDENTITY_AND_FREE_CLP_CONFIGURATION_VERIFIED",
-      "signed_in": "VERIFIED_AT_OBSERVATION; CURRENT_RUNTIME_ACCESS_UNAVAILABLE",
-      "files_uploaded": false,
+      "recorded_at": "2026-10-06T17:49:30.919623+00:00",
+      "method": "EXISTING_AUTHENTICATED_SESSION_RECOVERED",
+      "state": "CORRECT_HERRAMIENTAS_RENTABLES_PRODUCTS_DASHBOARD_OBSERVED",
+      "existing_product_keys": [
+        "lAtSg",
+        "doK54"
+      ],
       "new_product_published": false,
-      "recovery": "DOCUMENTED_KERNEL_RESET_AND_SAME_TAB_BROWSER_BINDING_FAILED_NATIVE_CREDENTIAL_STATE_GUARD",
-      "automation_retries": "STOPPED_AFTER_SUPPORTED_RECOVERY",
-      "receipt": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
+      "form": "FRESH_SEPARATE_PRODUCT_REQUIRED",
+      "credentials_persisted": false,
+      "prior_access_receipt": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
     },
     "autonomous_route_audit": {
       "path": "docs/receipts/PAYHIP_AUTONOMOUS_RELEASE_ACCESS_AUDIT_2026-10-05.json",
@@ -99,7 +101,20 @@
       "alternative_runtime_credentials_configured": false,
       "required": "VERIFIED_USABLE_SELLER_SESSION",
       "later_seller_access_checkpoint": "docs/receipts/PAYHIP_SELLER_VERIFICATION_UPLOAD_BLOCK_2026-10-05.json"
-    }
+    },
+    "independent_audit": "docs/products/DP-FREELANCE-001_INDEPENDENT_AUDIT_v2_2_2026-10-06.md",
+    "supersedes_unreleased": "v2.1",
+    "prepared_source_sha256": "71c17950174fdb3c5a1f03f86edc6ff410339dce9b4acf6baba7be86e3f7374e",
+    "audit_cases": 66,
+    "audit_checks_passed": 359,
+    "audit_checks_failed": 0,
+    "audit_receipt": "docs/receipts/DP001_v2_2_CALCULATION_AUDIT_2026-10-06.json",
+    "audit_full_workbook_checks_passed": 8,
+    "audit_total_checks_passed": 367,
+    "buyer_package_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "buyer_package_library_file_id": "libfile_d44ee48cded0819193dfdbde1bc26b91",
+    "full_workbook_receipt": "docs/receipts/DP001_v2_2_FULL_WORKBOOK_AUDIT_2026-10-06.json",
+    "package_receipt": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json"
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -146,12 +161,12 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Restore supported safe Browser control of Payhip. Seller identity, Free plan, CLP and Mercado Pago connection are verified; avoid repeating credentials solely because file upload failed.",
-    "Upload the exact v2.1 buyer ZIP as a separate CLP 19,990 product, verify a zero-cost buyer delivery and save its actual public URL before LIVE.",
-    "Integrate only the verified new product URL into the existing public Site.",
+    "Upload the immutable audited v2.2 buyer ZIP and accurate gallery; publish the separate CLP 19,990 Payhip product.",
+    "Verify an actual zero-cost buyer download against the exact SHA-256; count the order as a test, not revenue.",
+    "Integrate the verified product URL into the existing public Site and preserve both existing offers.",
     "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "TECHNICAL_CORE_COMPLETE_AND_PUBLISHED; SELLER_ACCOUNT_VERIFIED; PRODUCT_UPLOAD_AND_DELIVERY_BLOCKED_BY_SAFE_BROWSER_RUNTIME",
-  "updated_at_utc": "2026-10-06T02:00:35.196Z"
+  "completion": "EXISTING_SITE_PUBLISHED; V2_2_AUDIT_AND_PACKAGE_PASS; PAYHIP_PUBLICATION_DOWNLOAD_AND_SITE_UPDATE_PENDING",
+  "updated_at_utc": "2026-10-06T17:49:30.919623+00:00"
 }

@@ -1,0 +1,87 @@
+{
+  "recorded_at": "2026-10-06T17:49:30.919623+00:00",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "AUDIT_AND_PACKAGE_PASS_PENDING_PAYHIP_AND_SITE",
+  "price": {
+    "currency": "CLP",
+    "amount": 19990
+  },
+  "source_sha256": "71c17950174fdb3c5a1f03f86edc6ff410339dce9b4acf6baba7be86e3f7374e",
+  "buyer_package": {
+    "filename": "Freelancer_Pricing_Intelligence_System_v2_2_BUYER_PACKAGE.zip",
+    "bytes": 112815,
+    "sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "library_file_id": "libfile_d44ee48cded0819193dfdbde1bc26b91",
+    "files": [
+      {
+        "filename": "BENCHMARK_SOURCES.txt",
+        "bytes": 893,
+        "sha256": "66a6d430a0faf88bfbb3e5ee7bf74729426624d687d343ad33a16695b9714093"
+      },
+      {
+        "filename": "DP001_v2_2_MANIFEST.json",
+        "bytes": 961,
+        "sha256": "32c2b7d4d135db275f5f62a1ab80c5f84aa935cc2b2e9f5e8bd0f36d3199a429"
+      },
+      {
+        "filename": "Freelancer_Pricing_Intelligence_System_v2_2.xlsx",
+        "bytes": 169378,
+        "sha256": "4c0d9c53b9a4c24443e866ca618e3a8225a83b849a547ab7f18b05a57f15a213"
+      },
+      {
+        "filename": "Freelancer_Pricing_Intelligence_System_v2_2_Quick_Start.pdf",
+        "bytes": 14535,
+        "sha256": "4eaeef42499f3ee8eee8853a58f4817585244dfb9e0c2a1bc6177eadc99c6b1b"
+      },
+      {
+        "filename": "LICENSE.txt",
+        "bytes": 1077,
+        "sha256": "d6106c432ef3bc58762b13bf5dfed67ac741121215fc1f1df652eb35ec2a3ae0"
+      },
+      {
+        "filename": "START_HERE.txt",
+        "bytes": 918,
+        "sha256": "3cae5cfcc3f1cf37ec8ba3689d534ee8162b86107ec4dfec32c0de21e2b1d120"
+      }
+    ]
+  },
+  "launch_bundle": {
+    "filename": "Herramientas_Rentables_Lanzamiento_v2_2_Auditado_2026-10-06.zip",
+    "sha256": "322388d68bcef13e55eae0c3dd0bc54a1980efe8434ddc5e9d34467d25bdac8a",
+    "library_file_id": "libfile_d5d28e27c4f48191b9f93c3dc5443b3b"
+  },
+  "audit": {
+    "status": "PASS",
+    "scenarios": 66,
+    "scenario_checks": 359,
+    "full_workbook_checks": 8,
+    "total_checks": 367,
+    "failed": 0,
+    "formula_count": 1861,
+    "cycles": 0
+  },
+  "package_checks": {
+    "zip_integrity": "PASS",
+    "exactly_six_buyer_files": true,
+    "guide_pages": 9,
+    "buyer_system_check": "PASS",
+    "initial_decision": "GO",
+    "formula_errors": 0,
+    "modules": 19
+  },
+  "limits": {
+    "calculation_engine": "LibreOffice + OOXML inspection",
+    "native_excel_ui_tested": false,
+    "google_sheets_validated": false
+  },
+  "payhip": {
+    "seller_session": "EXISTING_HERRAMIENTAS_RENTABLES_SESSION_RECOVERED",
+    "new_product_submitted": false,
+    "verified_buyer_download": false
+  },
+  "site": {
+    "new_product_integrated": false
+  },
+  "cash_spent": 0
+}

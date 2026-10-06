@@ -1,3 +1,5 @@
+> Supersedido como candidato de publicación el 2026-10-06. La auditoría independiente del archivo real encontró fallos críticos; usar v2.2 y docs/products/DP-FREELANCE-001_INDEPENDENT_AUDIT_v2_2_2026-10-06.md. Este documento conserva el checkpoint histórico, no autoriza publicar v2.1.
+
 # DP-FREELANCE-001 — Payhip release package v2.1
 
 Date: 2026-10-05

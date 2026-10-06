@@ -1,0 +1,48 @@
+{
+  "source_sha256": "71c17950174fdb3c5a1f03f86edc6ff410339dce9b4acf6baba7be86e3f7374e",
+  "recalculated_sha256": "20f751e1bd5c9ec21bd80339ed93e2a18c1ce19915c53a3755c7433fe2588048",
+  "engine": "LibreOffice headless; complete original presentation retained on input",
+  "checks": [
+    {
+      "name": "same 19 modules",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "every input and formula preserved",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "full workbook has no formula errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "full workbook system PASS",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "full workbook initial decision GO",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "version is v2.2",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "numeric values are finite",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "full-format and lightweight baselines agree at every formula",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "status": "PASS"
+}
