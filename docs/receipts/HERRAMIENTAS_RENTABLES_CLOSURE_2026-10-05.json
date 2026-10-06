@@ -1,0 +1,46 @@
+{
+  "project": "Herramientas Rentables",
+  "date_local": "2026-10-05",
+  "timezone": "America/Santiago",
+  "site": {
+    "version": 16,
+    "deployment_id": "appgdep_6ac436aa9d188191b1b205c1813f53aa",
+    "version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_91bbfd854c588191bae56794b00604aa",
+    "published_at": "2026-10-05T23:46:04.959491+00:00",
+    "status": "succeeded",
+    "code_sha": "6b1bf13c101b36b936eff69764ddcf01853e16ec",
+    "site_source_sha": "b887ddbc24907c5efc251e541631a31a551bceeb",
+    "parity_files": 193,
+    "parity_mismatches": 0,
+    "later_changes": "COMMERCIAL_DOCUMENTATION_ONLY_NO_PUBLIC_APP_CHANGE"
+  },
+  "site_url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+  "validation": {
+    "status": "PASS_FOR_PUBLISHED_CODE_SHA",
+    "code_sha": "6b1bf13c101b36b936eff69764ddcf01853e16ec",
+    "ci_run": 37389914925,
+    "ci_url": "https://github.com/miguelcastill85-del/herramientas-rentables/actions/runs/37389914925",
+    "behavior_tests_passed": 16
+  },
+  "buyer_zip_sha256": "f7a5d93fe223c1dab12b783bdacf02c95d8bff07b19d4f0816c540c7fd1a7639",
+  "workbook_sha256": "f82b410774891e9b3e63ef3876b8133a52e0886d4c5deff925d77d6bcfa66a8f",
+  "product_price": {
+    "currency": "CLP",
+    "amount": 19990,
+    "status": "PREPARED_NOT_CONFIGURED"
+  },
+  "seller_access": {
+    "observed_at": "2026-10-06T00:19:02.172Z",
+    "method": "SECURE_BROWSER_AUTH",
+    "state": "HUMAN_VERIFICATION_PENDING",
+    "signed_in": "NOT_VERIFIED",
+    "files_uploaded": false,
+    "new_product_published": false
+  },
+  "telemetry": "CODE_VALIDATED_EXTERNAL_CONFIGURATION_AND_REAL_EVENT_PENDING",
+  "social_profiles": "IDENTITY_AND_ACCESS_PENDING",
+  "cash_at_risk": 0,
+  "pre_revenue_cash_obligations": 0,
+  "private_sales": "UNOBSERVED",
+  "visual_qa": "NOT_COMPLETED_PREVIEW_ENVIRONMENT_LIMITATION"
+}

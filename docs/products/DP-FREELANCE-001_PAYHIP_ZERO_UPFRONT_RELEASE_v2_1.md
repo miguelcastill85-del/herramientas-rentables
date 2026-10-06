@@ -1,15 +1,16 @@
 # DP-FREELANCE-001 — Payhip release package v2.1
 
 Date: 2026-10-05
-State: ASSETS_PREPARED; STORE_CURRENCY_AND_SELLER_ACCESS_PENDING; NOT LIVE
+State: ASSETS_AND_CLP_PRICE_PREPARED; HUMAN_VERIFICATION_AND_DELIVERY_PENDING; NOT LIVE
 Channel candidate: Payhip Free, subject to verified seller access and currency compatibility. The current store has CLP products; its global currency stays unchanged.
 Upfront cash and pre-revenue obligations: zero. No product is published by this document.
 
-## Frozen listing fields
+## Prepared listing fields
 
 - Title: **Freelancer Pricing Intelligence System — Quote, Scope & Profit Excel Workbook**
 - International price reference: **USD 20.00**, carried from the approved v2.1 launch price. This is not yet a configured price in the current CLP store.
-- Currency gate: Payhip documents one default currency per store. Resolve a separate-product CLP price or an independently verified free USD storefront before upload. Do not change the current store currency or its CLP 8,990 offer.
+- Prepared launch price: **CLP 19,990**, for a separate product in the existing CLP store. This is an initial channel pricing decision, not a spot currency conversion. It has not been configured in Payhip.
+- Currency gate: verify the existing store remains CLP before applying the prepared price. Preserve its current currency and CLP 8,990 offer.
 - Product type: digital download.
 - SKU: DP-FREELANCE-001-V2-1.
 - Buyer file: Freelancer_Pricing_Intelligence_System_v2_1_BUYER_PACKAGE.zip.
@@ -63,11 +64,11 @@ The prepared silent videos are optional evidence assets; no video hosting subscr
 
 1. Confirm the correct Payhip seller account and Free plan; retain transaction-based fees only. Payhip's published Free plan is USD 0/month plus 5% per transaction, with processor fees additional.
 2. Confirm a usable payment configuration without an upfront payment obligation.
-3. Resolve the store-currency gate, retaining the current CLP store and products. Then create the separate digital product and upload the exact buyer ZIP, not the seller kit.
+3. After human verification, verify the existing CLP store. Create the separate digital product at the prepared CLP 19,990 launch price and upload the exact buyer ZIP, not the seller kit.
 4. Place the images in order, paste the description and verify the actual approved currency and price. Do not advertise USD 20 as the current CLP store checkout price.
 5. Verify delivered filename/content via a permitted zero-cost preview or test path. Do not purchase the product with the owner's money.
 6. Record URL, timestamp and exact attachment identity before marking LIVE. Add a site link only after this URL is known and verified.
 
-No connected Payhip editing capability is available in this execution. The current existing public products can be checked, but that access does not establish seller-dashboard access or permission to infer a new listing URL.
+Secure browser authentication was submitted on 2026-10-05. Payhip then requested human verification. Seller-dashboard access remains unverified; no new file or listing has been uploaded. Resume through the prepared handoff. Public product pages do not prove the new v2.1 release or delivery.
 
 Official currency source checked 2026-10-05: https://help.payhip.com/article/234-store-language-and-currency

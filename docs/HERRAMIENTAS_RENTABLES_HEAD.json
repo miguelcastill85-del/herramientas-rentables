@@ -7,7 +7,7 @@
     "url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
     "audience": "public",
     "implementation": "COMPLETED_WITH_QUOTE_VALIDATION_AND_CURRENCY_PRESENTATION_FIXES",
-    "publication": "VERIFY_SITES_VERSION_FOR_THIS_COMMIT",
+    "publication": "PUBLISHED_VERIFIED_VERSION_16",
     "preserved": [
       "six_calculators",
       "freelance_quote_route",
@@ -16,7 +16,19 @@
       "original_formulas",
       "Payhip_products_and_prices",
       "cotizacion-resultado_UTM"
-    ]
+    ],
+    "publication_evidence": {
+      "version": 16,
+      "deployment_id": "appgdep_6ac436aa9d188191b1b205c1813f53aa",
+      "version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_91bbfd854c588191bae56794b00604aa",
+      "published_at": "2026-10-05T23:46:04.959491+00:00",
+      "status": "succeeded",
+      "code_sha": "6b1bf13c101b36b936eff69764ddcf01853e16ec",
+      "site_source_sha": "b887ddbc24907c5efc251e541631a31a551bceeb",
+      "parity_files": 193,
+      "parity_mismatches": 0,
+      "later_changes": "COMMERCIAL_DOCUMENTATION_ONLY_NO_PUBLIC_APP_CHANGE"
+    }
   },
   "existing_commerce": {
     "verified_at": "2026-10-05",
@@ -37,18 +49,31 @@
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.1",
-    "state": "BYTE_VERIFIED_PENDING_CHANNEL_CURRENCY_AND_SELLER_ACCESS",
+    "state": "BYTE_VERIFIED_PRICE_PREPARED_PENDING_SELLER_ACCESS_AND_DELIVERY",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_ZERO_UPFRONT_RELEASE_v2_1.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "VERIFIED_SELLER_ACCESS_UPLOAD_AND_DELIVERY",
+    "blocker": "PAYHIP_HUMAN_VERIFICATION_THEN_UPLOAD_AND_DELIVERY",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
       "international_reference_usd": 20,
-      "new_checkout_price": "UNSET",
-      "required": "RESOLVE_CLP_PRODUCT_PRICE_OR_VERIFIED_FREE_USD_STORE_BEFORE_UPLOAD",
+      "prepared_checkout_price": {
+        "currency": "CLP",
+        "amount": 19990,
+        "status": "PREPARED_NOT_CONFIGURED"
+      },
+      "pricing_basis": "INITIAL_CHANNEL_PRICING_DECISION_FOR_SEPARATE_V2_1_PRODUCT; NOT_A_SPOT_FX_CONVERSION",
+      "required": "VERIFY_EXISTING_STORE_CLP_AND_APPLY_PREPARED_PRICE_AFTER_SELLER_ACCESS",
       "source": "https://help.payhip.com/article/234-store-language-and-currency"
+    },
+    "seller_access": {
+      "observed_at": "2026-10-06T00:19:02.172Z",
+      "method": "SECURE_BROWSER_AUTH",
+      "state": "HUMAN_VERIFICATION_PENDING",
+      "signed_in": "NOT_VERIFIED",
+      "files_uploaded": false,
+      "new_product_published": false
     }
   },
   "telemetry": {
@@ -70,7 +95,7 @@
   },
   "validation": {
     "command": "pnpm validate",
-    "status": "VERIFY_CURRENT_COMMIT_CI",
+    "status": "PASS_FOR_PUBLISHED_CODE_SHA",
     "critical_tests": [
       "quote_values_and_ranges",
       "CLP_total_deposit_balance",
@@ -82,7 +107,11 @@
       "unobserved_fees_and_cash",
       "currency_separation",
       "storage_retry_and_privacy"
-    ]
+    ],
+    "code_sha": "6b1bf13c101b36b936eff69764ddcf01853e16ec",
+    "ci_run": 37389914925,
+    "ci_url": "https://github.com/miguelcastill85-del/herramientas-rentables/actions/runs/37389914925",
+    "behavior_tests_passed": 16
   },
   "economics": {
     "cash_at_risk": 0,
@@ -92,10 +121,10 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Verify current Sites deployment and GitHub CI without redoing closed product builds.",
-    "Using verified seller access, upload the prepared v2.1 product on Payhip Free and record the real URL and delivery evidence.",
-    "Activate the standalone telemetry only with configured free infrastructure, private secrets and a real Payhip event.",
+    "Complete the Payhip human-verification handoff; verify the existing seller account, CLP currency, Free plan and payment configuration.",
+    "Upload the exact prepared v2.1 buyer ZIP as a separate product at CLP 19,990; verify delivery and record its real public URL before LIVE.",
+    "Activate standalone telemetry with free configured infrastructure, private secrets and a real Payhip event.",
     "Confirm SIGMANOUVA social identities in the actual accounts before a supervised first publication."
   ],
-  "completion": "TECHNICAL_CORE_COMPLETE_ON_PASS; BUSINESS_ACTIVATION_REMAINS_ACCOUNT_DEPENDENT"
+  "completion": "TECHNICAL_CORE_COMPLETE_AND_PUBLISHED; PRODUCT_PRICE_PREPARED; BUSINESS_ACTIVATION_ACCOUNT_DEPENDENT"
 }

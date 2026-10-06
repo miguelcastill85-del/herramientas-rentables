@@ -7,7 +7,7 @@ Status: ACTIVE — CURRENT AUTHORITY RECONCILED
 
 **DP-FREELANCE-001 — Freelancer Pricing Intelligence System v2.1**
 
-State: **BYTE_VERIFIED_PENDING_CHANNEL_CURRENCY_AND_SELLER_ACCESS**.
+State: **BYTE_VERIFIED_PRICE_PREPARED_PENDING_SELLER_ACCESS_AND_DELIVERY**.
 Product authority: docs/products/DP-FREELANCE-001_RELEASE_v2_1_2026-09-10.md.
 The older RC1, v1 and v2.0 packages are historical references, not the release payload.
 Buyer ZIP, embedded workbook and seller launch kit were recovered and their exact SHA-256 identities verified on 2026-10-05. No rebuild or formula modification was required.
@@ -23,10 +23,14 @@ Release condition:
 
 1. Verify the intended seller account and its free plan, payment configuration and any seller obligations requiring upfront cash.
 2. Upload the exact buyer ZIP to a separate approved product, using the prepared v2.1 listing and real workbook images.
-3. Retain USD 20 as the frozen international reference. Payhip documents one default currency per store; the existing store has CLP products. Before upload, resolve either a CLP price for this separate product or an independently verified free USD store, without changing the current store currency or existing prices. No USD checkout price in the current CLP store is assumed. USD 27 remains a post-launch candidate requiring real purchase evidence.
+3. Use the existing CLP store for this separate v2.1 product, with a prepared launch price of **CLP 19,990**. This channel pricing decision preserves USD 20 as the frozen international reference and does not claim a spot-FX equivalence. The price has not been configured in Payhip. Verify CLP in the seller UI before applying it; preserve the current store currency, free product and premium CLP 8,990. The USD 27 candidate remains post-launch research requiring real purchase evidence.
 4. Verify storefront title, currency, price, images, buyer compatibility and exact file delivery.
 5. Record public product URL and timestamp. Only then promote to LIVE and release the BUILD slot.
 6. Start the economic observation window. A checkout test or free download is not collected revenue.
+
+## Seller access checkpoint — 2026-10-05
+
+The user completed the secure credential request. Payhip then rendered a human-verification challenge. Seller-dashboard access is **NOT VERIFIED**; no new product or attachment was uploaded and no product is LIVE. Continue from the prepared Cloud Browser handoff, then complete the existing M10 release. No credentials or private account identifiers are stored in this checkpoint.
 
 ## Current RESEARCH slot
 
