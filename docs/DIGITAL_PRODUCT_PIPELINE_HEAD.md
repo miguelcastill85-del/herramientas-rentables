@@ -46,3 +46,9 @@ Gasto, dinero en riesgo y obligaciones previas a ingresos: **0**. Sin planes pag
 ## Evidencia histórica
 
 La versión 16 y las puertas anteriores se conservan como historia. `docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json` documenta la versión 17 antes de publicarse; el recibo de publicación posterior indicado arriba lo sucede. Los documentos v2.1 y sus puntuaciones anteriores no sustituyen la auditoría del entregable actual. La configuración Free Forever y Mercado Pago Connected observada no prueba un cobro real ni su liquidación.
+
+## Recuperación 2026-10-07
+
+La revisión automática rechazó incluso la selección del navegador existente para consultar su soporte de descarga. No se continuó por otra superficie ni mediante red directa. Una nueva búsqueda, más amplia, de recibos Payhip en las dos cuentas conectadas devolvió cero mensajes; la cuenta usada en el checkout no está conectada. La búsqueda de plugins Payhip no devolvió resultados y no se considera exhaustiva.
+
+Siguiente paso permitido: conectar mediante ChatGPT la cuenta de correo usada en la prueba para revisar el recibo y cualquier archivo adjunto compatible. La presencia de un recibo no basta para marcar la descarga verificada. La copia preparada mantiene su SHA e integridad, pero no se descargó desde Payhip. Recibo: `docs/receipts/DP001_v2_2_DOWNLOAD_RECOVERY_2026-10-07.json`. Sitio 17 y ficha publicados, gasto 0; no se repitió publicación ni construcción.

@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-07T11:57:24.461Z",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "ACTUAL_PAYHIP_DOWNLOAD_UNVERIFIED_ACCESS_ACTION_REQUIRED",
+  "browser_access": {
+    "attempt": "SELECT_EXISTING_BROWSER_FOR_DOWNLOAD_SUPPORT_DOCUMENTATION",
+    "result": "AUTO_REVIEW_REJECTED",
+    "review_reason": "Attempts to revisit Payhip checkout after explicit block; another browser surface for the same verification is a prohibited bypass and is not authorized by a general request.",
+    "blocked_page_read_performed": false,
+    "workaround_attempted": false,
+    "further_browser_calls_after_rejection": false
+  },
+  "safe_receipt_search": {
+    "checked_at": "2026-10-07T11:54:54.133Z",
+    "connected_mailboxes_checked": 2,
+    "query": "after:2026/10/05 {from:payhip.com \"payhip.com/b/cv4oQ\" \"Freelancer Pricing Intelligence\"}",
+    "matching_message_ids": 0,
+    "matching_mailbox_for_original_checkout_connected": false,
+    "emails_sent": false
+  },
+  "merchant_plugin_discovery": {
+    "query": "Payhip",
+    "matching_plugins": 0,
+    "search_exhaustive": false,
+    "available_merchant_file_tool": false
+  },
+  "prepared_package_recheck": {
+    "filename": "Freelancer_Pricing_Intelligence_System_v2_2_BUYER_PACKAGE.zip",
+    "bytes": 112815,
+    "sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "zip_integrity": "PASS",
+    "members": 6,
+    "provenance": "EXISTING_PREPARED_AUDITED_PACKAGE_NOT_REDOWNLOADED_FROM_PAYHIP"
+  },
+  "actual_buyer_download": {
+    "received": false,
+    "verified": false,
+    "sha256": null,
+    "order_completed": null
+  },
+  "unaffected_work": {
+    "payhip_listing_published": true,
+    "price_clp": 19990,
+    "site_published_version": 17,
+    "previous_checkpoint_sha": "7896e322aaf0854aeb7e6e87cc7777ae65dd9a1a",
+    "product_rebuilt": false,
+    "republication_performed": false
+  },
+  "cash_spent": 0,
+  "credentials_persisted": false,
+  "next_permitted_step": "Owner connects the mailbox used in the Payhip checkout through the official ChatGPT Gmail connection flow. Then inspect only the relevant Payhip receipt and any supported file attachment. Receipt presence or the prepared package must not be substituted for actual delivery verification. Do not bypass the rejected browser operation.",
+  "completion": "LISTING_AND_SITE_PUBLISHED; ACTUAL_PAYHIP_DELIVERY_UNVERIFIED"
+}

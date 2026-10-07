@@ -93,7 +93,7 @@
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "BROWSER_URL_POLICY_BLOCK; OWNER_UNABLE_TO_DOWNLOAD; AVAILABLE_MAILBOXES_HAVE_NO_MATCHING_RECEIPT",
+    "blocker": "AUTO_REVIEW_REJECTED_BROWSER_REENTRY; CHECKOUT_MAILBOX_NOT_CONNECTED; NO_MATCHING_RECEIPTS_IN_AVAILABLE_MAILBOXES",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -155,7 +155,8 @@
     "site_publication_receipt": "docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json",
     "audit_engine": "LIBREOFFICE_RECALCULATION_AND_OOXML_INDEPENDENT_CHECKS",
     "native_excel_ui_validated": false,
-    "google_sheets_validated": false
+    "google_sheets_validated": false,
+    "latest_download_recovery_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_RECOVERY_2026-10-07.json"
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -206,11 +207,11 @@
     "owner_test_purchase": false
   },
   "next_actions": [
-    "Resume actual zero-cost Payhip buyer download verification through legitimately available allowed access or an official authorized receipt/file operation; compare actual ZIP hash and contents with the immutable audited package. Do not circumvent the browser URL-policy rejection.",
-    "Keep DP-FREELANCE-002 build frozen while DP-FREELANCE-001 actual buyer delivery remains unverified. Preserve separate telemetry and media checkpoints without claiming real sales or bank settlement."
+    "Connect the mailbox used in the Payhip test checkout through the official ChatGPT Gmail connection flow, then inspect the relevant receipt and any supported attachment. Keep actual delivery unverified until the real buyer ZIP is received and its hash/content match. Do not bypass the rejected browser action.",
+    "Keep the published listing, existing Site version 17 and immutable audited package. No paid orders, paid plans or new product builds."
   ],
   "completion": "AUDIT_PACKAGE_PAYHIP_LISTING_AND_SITE_PUBLICATION_PASS; ACTUAL_BUYER_DELIVERY_PENDING; NO_CASH_SPENT",
-  "updated_at_utc": "2026-10-07T11:41:13.874Z",
+  "updated_at_utc": "2026-10-07T11:57:24.461Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
