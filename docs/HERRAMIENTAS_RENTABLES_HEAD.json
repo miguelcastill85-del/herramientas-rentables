@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "Organic marketing: P01 is fully prepared and saved. Recover its checkpoint and assets; complete verified social access and publication without regenerating closed product or marketing work."
+    "Organic marketing: the five images, both channel captions, PDF and quote link were substantially improved and verified in R2. Recover the current receipt and saved files. Metricool is connected; link the existing HR Instagram network, verify the bio URL and proceed using these R2 files."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-07T13:40:48.763Z",
+  "updated_at_utc": "2026-10-07T17:13:37.098Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,17 +253,21 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_ASSETS_READY_SOCIAL_ACCOUNT_CONNECTION_REQUIRED",
+    "state": "P01_R2_PROFESSIONAL_ASSETS_VERIFIED_INSTAGRAM_NETWORK_CONNECTION_REQUIRED",
     "prepared_piece": "P01",
-    "assets_receipt": "docs/receipts/HR_P01_ASSETS_READY_2026-10-07.json",
+    "asset_revision": "R2",
+    "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
     "cash_spent_clp": 0,
     "social_published": false,
     "public_post_url": null,
     "instagram_handle": "@herramientasrentables",
-    "instagram_identity_evidence": "EXISTING_SITE_LINK_NOT_AUTHENTICATED_ACCOUNT_VERIFICATION",
+    "instagram_identity_evidence": "OWNER_CONFIRMED_EXISTING_INSTAGRAM_AND_SITE_LINK",
+    "instagram_authenticated_network": "NOT_CONNECTED_IN_METRICOOL_AT_LATEST_READ",
+    "instagram_bio_link": "REQUIRES_VERIFICATION_BEFORE_POST",
     "linkedin_target": "NOT_IDENTIFIED",
-    "plugin_connection": "METRICOOL_SUGGESTED_NOT_CONFIRMED_CONNECTED",
-    "plan_gate": "FREE_ONLY_NO_LINKEDIN_VIA_METRICOOL_FREE",
-    "next_action": "Connect an authorized zero-cost publication route, verify the exact Instagram account and publish the prepared P01 pack; keep products and existing Site unchanged."
+    "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
+    "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
+    "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
+    "next_action": "Link the owner's existing Instagram to Metricool, verify the exact account and its bio link, check duplicates, then use the existing reviewed R2 images and caption. No further product or asset reconstruction is required."
   }
 }

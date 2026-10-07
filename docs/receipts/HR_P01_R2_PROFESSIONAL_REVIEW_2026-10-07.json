@@ -1,0 +1,221 @@
+{
+  "piece": "P01",
+  "revision": "R2",
+  "created_at_utc": "2026-10-07T17:04:43.253913+00:00",
+  "status": "PROFESSIONAL_ASSETS_VERIFIED_NOT_PUBLISHED",
+  "cash_spent_clp": 0,
+  "image_count": 5,
+  "image_sizes": [
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ]
+  ],
+  "image_editing_mode": "BUILT_IN_IMAGE_GEN",
+  "pixel_postprocessing": "NONE_SOURCE_BYTES_COPIED",
+  "draft_rejection": "INACCURATE_TIME_BARS_REMOVED_WITH_TARGETED_IMAGE_EDIT",
+  "visual_review": "PASS_FIVE_FINAL_IMAGES",
+  "numeric_ocr": "PASS",
+  "arithmetic": {
+    "price_clp": 300000,
+    "work_h": 40,
+    "meetings_h": 5,
+    "corrections_h": 3,
+    "total_h": 48,
+    "costs_clp": 30000,
+    "initial_clp_h": 7500,
+    "full_time_clp_h": 6250,
+    "after_costs_clp_h": 5625
+  },
+  "example_type": "MANUAL_ILLUSTRATIVE_BEFORE_TAX_AND_OTHER_EXPENSES",
+  "link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
+  "public_page_read": "PASS_2026-10-07",
+  "anchor_source": "section id=cotizador",
+  "pdf_pages": 5,
+  "pdf_link_annotations": 1,
+  "pdf_text_layer": "SELECTABLE_OCR_NOT_TAGGED_ACCESSIBILITY_CLAIM",
+  "channel_texts_distinct": true,
+  "instagram_bio_link": "PENDING_VERIFICATION_REQUIRED_BEFORE_POST",
+  "metricool_plugin": "CONNECTED",
+  "metricool_network_state": "NO_SOCIAL_NETWORK_CONNECTED_AT_FIRST_READ",
+  "instagram_handle": "@herramientasrentables",
+  "publication_url": null,
+  "observed_metrics": null,
+  "existing_site_and_product_rebuild": false,
+  "zip_crc_and_entries_match": "PASS",
+  "artifacts": [
+    {
+      "name": "Herramientas_Rentables_P01.zip",
+      "bytes": 13000987,
+      "sha256": "66bb26bbeccacf87c047ad565ba9d1675c0acfd69755867644ff0bea8930ef43"
+    },
+    {
+      "name": "P01_01.png",
+      "bytes": 1452914,
+      "sha256": "86f77430de8a4851578d9ef07b83f833300e3889216fe972541fced8ebc45d25"
+    },
+    {
+      "name": "P01_02.png",
+      "bytes": 1357054,
+      "sha256": "fc4f91ee51dca1ccfaa251990fffee8ac55d22ae5d702abbb0bb909934e6e24b"
+    },
+    {
+      "name": "P01_03.png",
+      "bytes": 1419857,
+      "sha256": "2051e91dd90fb1b08e62a608b2ec98944027d0a6e318346dbfca4f1cb68d0284"
+    },
+    {
+      "name": "P01_04.png",
+      "bytes": 1367557,
+      "sha256": "827892319e8cb0d1ecd166d9d1495d6ed1605c36a3f8efbd478392cbc4992c96"
+    },
+    {
+      "name": "P01_05.png",
+      "bytes": 1492762,
+      "sha256": "36caa5270ac48983202f97b69e3ceeb3b113550b14665d01a299855058802431"
+    },
+    {
+      "name": "P01_Carrusel_LinkedIn.pdf",
+      "bytes": 8491531,
+      "sha256": "340ca66e6ef729b35b02624154738982032e8bde404bde8fb353f86284443f7b"
+    },
+    {
+      "name": "P01_Instrucciones_y_Alt.txt",
+      "bytes": 3390,
+      "sha256": "61d76f010a67cd0367ea2657e3dfa2fa967618bdb771fbc75c2ef7361254bf91"
+    },
+    {
+      "name": "P01_Registro.csv",
+      "bytes": 365,
+      "sha256": "de89fa9284e40f2ec9ad2de982ccf1c3e54f31860befe9b262e701c13d8770e4"
+    },
+    {
+      "name": "P01_Revision_Profesional.txt",
+      "bytes": 1941,
+      "sha256": "dbf72548f5298b12fcb0e8446186156c99f48ba978a4baf49bc71c5c6793fc8b"
+    },
+    {
+      "name": "P01_Texto_Instagram.txt",
+      "bytes": 552,
+      "sha256": "83af2e4331761235b1ce0182e11c9f1425183c0d86d12b72f6c2a3107e0e2a4a"
+    },
+    {
+      "name": "P01_Texto_LinkedIn.txt",
+      "bytes": 890,
+      "sha256": "3edc474c19727e542a2a53dd9459e2a25ab7b95184c811689bb0b6a94eb83697"
+    }
+  ],
+  "pdf_render_review": "PASS_ALL_FIVE_FINAL_PAGES",
+  "ocr_detail": "Original artwork OCR plus analysis-only inverted crop for light-on-dark figures. Delivered image pixels were not altered.",
+  "saved_artifacts": [
+    {
+      "name": "P01_01.png",
+      "library_file_id": "libfile_231d8cb71b548191812da3e3d8d110c8",
+      "file_id": "file_00000000feb4820ea326a4ce99c765c2",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_02.png",
+      "library_file_id": "libfile_92a8742aba8481919e5cf1096f85848b",
+      "file_id": "file_000000001cb0820e8f17b3fa63f1ae12",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_03.png",
+      "library_file_id": "libfile_013dd1a0bb98819187e6f851f4a43f23",
+      "file_id": "file_00000000fa98820ebfc7d67076390f79",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_04.png",
+      "library_file_id": "libfile_d90a1e4e828c819193e599dffbd496d8",
+      "file_id": "file_00000000196c820ea1cd3db3f1c633cd",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_05.png",
+      "library_file_id": "libfile_f7eb3c9966c081918b364e124743404e",
+      "file_id": "file_000000006b50820ea29b3ec14d7403da",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Carrusel_LinkedIn.pdf",
+      "library_file_id": "libfile_6b459e7a73dc8191a4e711ce93c9a013",
+      "file_id": "file_000000002954820eb624a792733904b1",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Texto_Instagram.txt",
+      "library_file_id": "libfile_6258faae370c81918dcfbb5fb70978e2",
+      "file_id": "file_000000005154820ebfdc28fb4f972ce8",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Texto_LinkedIn.txt",
+      "library_file_id": "libfile_a72d2d2af22881918da123113ef26e62",
+      "file_id": "file_00000000ab24820eabdd189f7681d8d0",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Instrucciones_y_Alt.txt",
+      "library_file_id": "libfile_daa2903726e88191bd966af4b8d11f06",
+      "file_id": "file_0000000000d8820e8a36a6b1fab5527f",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Registro.csv",
+      "library_file_id": "libfile_9004eac9632c8191a7c01751651c4f38",
+      "file_id": "file_000000005874820eb159a023206bccd4",
+      "current_version_number": 1,
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Revision_Profesional.txt",
+      "library_file_id": "libfile_808da88646988191818e9c3fee61c55f",
+      "file_id": "file_00000000d0b4820e95596d16298ea699",
+      "current_version_number": 0,
+      "status": "succeeded"
+    },
+    {
+      "name": "Herramientas_Rentables_P01.zip",
+      "library_file_id": "libfile_844d9c87e3708191989c09b16e84ed82",
+      "file_id": "file_000000001548820eb5de0cb8179455ab",
+      "current_version_number": 1,
+      "status": "succeeded"
+    }
+  ],
+  "supersedes": "docs/receipts/HR_P01_ASSETS_READY_2026-10-07.json",
+  "prompt_set": "docs/marketing/p01/P01_R2_IMAGE_PROMPTS.json",
+  "latest_account_check": {
+    "plugin": "Metricool",
+    "plugin_connected": true,
+    "social_network_connected": false,
+    "observation": "NO_SOCIAL_NETWORK_CONNECTED_AT_LATEST_NATIVE_READ",
+    "instagram_owner_confirmation": true
+  }
+}
