@@ -1,60 +1,47 @@
 # DIGITAL PRODUCT PIPELINE HEAD
 
-Actualizado: 2026-10-07T12:05:28.332Z
-Estado: PAYHIP Y SITIO PUBLICADOS — PEDIDO GRATUITO Y CUATRO DESCARGAS REGISTRADAS; INTEGRIDAD DEL ZIP REAL PENDIENTE
+Actualizado: 2026-10-07T12:18:28.058Z
+Estado: DP-FREELANCE-001 v2.2 — AUDITORÍA, PAQUETE, PAYHIP, SITIO Y ENTREGA VERIFICADOS
 
-## Producto vigente
+## Objetivo cerrado
 
-**DP-FREELANCE-001 — Freelancer Pricing Intelligence System v2.2**
+**DP-FREELANCE-001 — Freelancer Pricing Intelligence System v2.2** quedó publicado como producto separado en https://payhip.com/b/cv4oQ a **CLP 19.990**, integrado en la versión **17** del sitio existente: https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site.
 
-La auditoría independiente de la v2.1 preparada detectó defectos de cálculo y entradas. La v2.2 corrige el mismo producto, conserva los 19 módulos y el original, y cumple 66 escenarios y 367 comprobaciones aprobadas, con cero fallos. Autoridad: `docs/products/DP-FREELANCE-001_INDEPENDENT_AUDIT_v2_2_2026-10-06.md`. Cálculos verificados mediante LibreOffice y controles OOXML; interfaz nativa de Excel y Google Sheets sin validar.
+La auditoría de la v2.1 preparada detectó defectos reales de cálculo y entradas. La v2.2 corrige el mismo producto y conserva sus 19 módulos y el original. Resultado: 66 escenarios, 359 comprobaciones de cálculo y ocho comprobaciones del libro completo; **367 aprobadas y cero fallos**. No se reconstruyó el producto para comprobar la descarga.
 
-Ficha separada publicada: https://payhip.com/b/cv4oQ. Precio público observado: **CLP 19.990**. Contenido en inglés, Excel .xlsx, guía de nueve páginas y ocho imágenes de venta. Las ofertas lAtSg (gratuita) y doK54 (CLP 8.990), la moneda CLP y sus UTM se conservaron.
+Las ofertas lAtSg (gratuita) y doK54 (CLP 8.990), moneda CLP, UTM, seis calculadoras, cotización freelance, guía, sitemap y cálculos del sitio se conservaron. El producto nuevo mantiene contenido en inglés, Excel .xlsx, guía de nueve páginas y ocho imágenes de venta.
 
-ZIP comprador preparado inmutable: `7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79` (112815 bytes). Recibo: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`. El archivo preparado está disponible para el propietario; no prueba la descarga desde Payhip.
+## Entrega verificada el 2026-10-07
 
-## Sitio publicado
+El propietario aportó una captura del panel de pedidos Payhip que confirma el pedido gratuito de fecha 2026-10-06, CLP 0 y descuento CLP 19.990, con el cupón único limitado a esta ficha. Payhip muestra cuatro descargas para ese pedido. La captura privada y los datos de los clientes no se publicaron en GitHub.
 
-La versión **17** del sitio existente se publicó el 2026-10-06. La operación nativa de Sites devuelve **succeeded**, conserva acceso público y la URL https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site.
+Después, el propietario adjuntó el ZIP solicitado como archivo descargado de Payhip. El archivo recibido contiene **112815 bytes** y es idéntico byte por byte al paquete auditado. SHA-256:
 
-Despliegue: `appgdep_6ac55243eaa08191b1057dfcf41e1b29`. Código Sites: `e68b8d5d9c8206b70e1f6814ae6d1c99302c9461`. Se activó la versión guardada y validada, sin reconstruir el producto. Recibo: `docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json`.
+`7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79`
 
-La tercera oferta usa la URL real de Payhip, CLP 19.990, versión 2.2, idioma inglés y los límites de compatibilidad. Se preservaron seis calculadoras, cotización freelance, guía, sitemap, fórmulas y ofertas originales. Validación previa: 48 reglas de contenido, 16 pruebas críticas aprobadas, lint sin errores (un aviso anterior), tipos y compilación PASS. Los cuatro archivos de la oferta y las dependencias siguen coincidiendo con los validados.
+Integridad CRC del ZIP, seis archivos esperados, contenido de todas las entradas, identificador/versión del manifiesto y los cinco hashes de sus archivos: **PASS, cero fallos**. Esta comprobación permite reutilizar la auditoría previa porque no cambió ningún byte.
 
-El propietario indicó “Adelante” después de comunicarle la limitación de descarga. Se continuó con la publicación autorizada del sitio, manteniendo la verificación de entrega pendiente. Esa instrucción no se registra como evidencia de descarga.
+Método: captura de pedido suministrada por el propietario y ZIP comprador adjunto, con comparación independiente de bytes/hashes. El agente no volvió a descargar por el navegador bloqueado ni eludió las decisiones anteriores. Recibo final: `docs/receipts/DP001_v2_2_BUYER_DELIVERY_VERIFICATION_2026-10-07.json`.
 
-## Entrega pendiente y siguiente acción
+## Puertas cerradas
 
-El checkout gratuito de prueba mostró CLP 0 mediante descuento del 100%, limitado al producto nuevo y un uso. Tras hCaptcha y el reporte del propietario, la inspección fue rechazada por la política de URL del navegador. El propietario tampoco pudo descargar. Las dos bandejas conectadas disponibles no coinciden con la dirección del checkout y no contienen recibos coincidentes.
+| Comprobación | Estado | Evidencia |
+| --- | --- | --- |
+| Auditoría independiente y correcciones | PASS | 66 escenarios, 367 comprobaciones |
+| Paquete comprador e integridad original | PASS | Seis archivos y guía de nueve páginas |
+| Ficha Payhip y CLP 19.990 | PASS | Ficha separada cv4oQ observada |
+| Sitio existente publicado | PASS | Versión 17, despliegue nativo succeeded |
+| Pedido gratuito y actividad de descarga | PASS | Captura del propietario, CLP 0 y cuatro descargas registradas |
+| ZIP comprador recibido e integridad | PASS | Archivo del propietario idéntico al paquete auditado |
 
-La captura del propietario recibida el 2026-10-07 confirma un pedido gratuito de fecha 2026-10-06, CLP 0 y descuento CLP 19.990, con el cupón único de esta prueba. Payhip muestra cuatro descargas para ese pedido. No hay ZIP real recibido por el agente ni hash de descarga comprobado. El contador no garantiza recepción completa ni integridad de los bytes. No se volvió a operar la página rechazada ni se usó una vía indirecta para eludirla.
+Recibos principales: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`, `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json`, `docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json` y el recibo final indicado arriba. Los recibos anteriores de descarga pendiente documentan el estado antes de recibir la evidencia y el ZIP.
 
-Siguiente acción legítima: obtener el ZIP de comprador mediante acceso permitido disponible o una operación oficial autorizada de recibo/archivo, y contrastar SHA-256 y contenido con el paquete auditado. No realizar una compra pagada. Evidencia: `docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json`.
+## Límites y continuidad
 
-## Puertas y límites
+Los cálculos se comprobaron mediante LibreOffice y controles OOXML. La interfaz nativa de Microsoft Excel y Google Sheets no fueron validadas. Los benchmarks son referencias globales históricas y los ejemplos son ilustrativos. No se prometen ingresos.
 
-1. **PASS** — Auditoría independiente y correcciones del mismo producto.
-2. **PASS** — Paquete comprador, guía, galería e integridad verificados.
-3. **PASS** — Ficha Payhip separada y precio público CLP 19.990 observados.
-4. **PASS** — Sitio existente, versión 17, publicación nativa succeeded.
-5. **PARCIAL** — Pedido de prueba creado y cuatro descargas registradas por Payhip, según captura del propietario. Falta verificar hash y contenido del ZIP real.
+Gasto, dinero en riesgo y obligaciones previas a ingresos: **0**. Sin planes pagados, publicidad pagada ni compra de prueba pagada. El pedido gratuito no es ingreso. El cobro de una venta pagada y la liquidación bancaria siguen sin comprobarse.
 
-**DP-FREELANCE-002 — Freelancer Client & Project Profitability Tracker** permanece congelado en MARKET_RESEARCH_PASS / BUILD_PRIORITY 91/100. No abrir otro BUILD mientras la entrega de DP-FREELANCE-001 siga pendiente.
+La etiqueta de estado del manifiesto inmutable corresponde al momento de preparación; el recibo posterior de entrega documenta el cierre. No cambiar el ZIP para actualizar esa etiqueta.
 
-Gasto, dinero en riesgo y obligaciones previas a ingresos: **0**. Sin planes pagados, publicidad pagada ni compra de prueba pagada. Un checkout gratuito no es ingreso. Ventas reales y liquidación bancaria no están verificadas. Telemetría y SIGMANOUVA mantienen sus checkpoints separados.
-
-## Evidencia histórica
-
-La versión 16 y las puertas anteriores se conservan como historia. `docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json` documenta la versión 17 antes de publicarse; el recibo de publicación posterior indicado arriba lo sucede. Los documentos v2.1 y sus puntuaciones anteriores no sustituyen la auditoría del entregable actual. La configuración Free Forever y Mercado Pago Connected observada no prueba un cobro real ni su liquidación.
-
-## Antecedente de recuperación, antes de la captura del pedido
-
-La revisión automática rechazó incluso la selección del navegador existente para consultar su soporte de descarga. No se continuó por otra superficie ni mediante red directa. Una nueva búsqueda, más amplia, de recibos Payhip en las dos cuentas conectadas devolvió cero mensajes; la cuenta usada en el checkout no está conectada. La búsqueda de plugins Payhip no devolvió resultados y no se considera exhaustiva.
-
-Siguiente paso permitido: conectar mediante ChatGPT la cuenta de correo usada en la prueba para revisar el recibo y cualquier archivo adjunto compatible. La presencia de un recibo no basta para marcar la descarga verificada. La copia preparada mantiene su SHA e integridad, pero no se descargó desde Payhip. Recibo: `docs/receipts/DP001_v2_2_DOWNLOAD_RECOVERY_2026-10-07.json`. Sitio 17 y ficha publicados, gasto 0; no se repitió publicación ni construcción.
-
-## Evidencia actual del propietario
-
-La captura aportada confirma el pedido de prueba CLP 0 y muestra cuatro descargas en Payhip. Se verificó la coincidencia del cupón único limitado al producto y del título visible; este aparece traducido y truncado. No se copiaron al repositorio el correo del comprador, identificadores de pedidos ni datos de otros clientes. Recibo: `docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json`.
-
-Ya no se necesita conectar otro correo para confirmar la creación del pedido. Para cerrar la comprobación de integridad, recibir el ZIP real descargado de Payhip y comparar su SHA-256, entradas y manifest con el paquete auditado. Se conservan sitio 17 y ficha publicados; gasto 0.
+DP-FREELANCE-002, telemetría y SIGMANOUVA conservan sus checkpoints separados. No se inició otro producto ni se modificó su estado como parte de este cierre.

@@ -1,0 +1,111 @@
+{
+  "recorded_at": "2026-10-07T12:18:28.058Z",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "BUYER_DELIVERY_PACKAGE_VERIFICATION_PASS",
+  "provenance": {
+    "method": "OWNER_SUPPLIED_BUYER_ZIP_CORROBORATED_BY_PAYHIP_SELLER_ORDER_SCREENSHOT",
+    "submitted_in_response_to": "Request for actual ZIP downloaded from Payhip",
+    "uploaded_filename": "Freelancer_Pricing_Intelligence_System_v2_2_BUYER_PACKAGE.zip",
+    "uploaded_file_id": "file_00000000e144820e8b72a4db00b8b3e4",
+    "uploaded_library_file_id": "libfile_ccbbc9afd0508191a0bcd9b2ff5023b8",
+    "agent_direct_browser_download": false,
+    "owner_order_evidence_receipt": "docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json",
+    "customer_email_or_order_id_persisted": false
+  },
+  "buyer_package": {
+    "bytes": 112815,
+    "sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "byte_identical_to_audited_immutable_package": true,
+    "files": [
+      {
+        "name": "BENCHMARK_SOURCES.txt",
+        "bytes": 893,
+        "sha256": "66a6d430a0faf88bfbb3e5ee7bf74729426624d687d343ad33a16695b9714093"
+      },
+      {
+        "name": "DP001_v2_2_MANIFEST.json",
+        "bytes": 961,
+        "sha256": "32c2b7d4d135db275f5f62a1ab80c5f84aa935cc2b2e9f5e8bd0f36d3199a429"
+      },
+      {
+        "name": "Freelancer_Pricing_Intelligence_System_v2_2.xlsx",
+        "bytes": 169378,
+        "sha256": "4c0d9c53b9a4c24443e866ca618e3a8225a83b849a547ab7f18b05a57f15a213"
+      },
+      {
+        "name": "Freelancer_Pricing_Intelligence_System_v2_2_Quick_Start.pdf",
+        "bytes": 14535,
+        "sha256": "4eaeef42499f3ee8eee8853a58f4817585244dfb9e0c2a1bc6177eadc99c6b1b"
+      },
+      {
+        "name": "LICENSE.txt",
+        "bytes": 1077,
+        "sha256": "d6106c432ef3bc58762b13bf5dfed67ac741121215fc1f1df652eb35ec2a3ae0"
+      },
+      {
+        "name": "START_HERE.txt",
+        "bytes": 918,
+        "sha256": "3cae5cfcc3f1cf37ec8ba3689d534ee8162b86107ec4dfec32c0de21e2b1d120"
+      }
+    ]
+  },
+  "checks": {
+    "zip_crc_integrity": "PASS",
+    "archive_sha256_match": "PASS",
+    "archive_byte_identity": "PASS",
+    "exactly_six_expected_files": "PASS",
+    "all_entry_bytes_match_audited_package": "PASS",
+    "manifest_all_five_payload_hashes": "PASS",
+    "manifest_product_id_and_version": "PASS",
+    "failed": 0
+  },
+  "verified_buyer_download": true,
+  "actual_buyer_zip_received_by_agent": true,
+  "actual_buyer_zip_hash_matches": true,
+  "actual_buyer_zip_contents_verified": true,
+  "test_order": {
+    "creation_confirmed": true,
+    "basis": "OWNER_UPLOADED_SELLER_SCREENSHOT",
+    "currency": "CLP",
+    "total": 0,
+    "discount_percent": 100,
+    "server_reported_downloads": 4,
+    "revenue": 0
+  },
+  "audit_reuse": {
+    "package_gate_receipt": "docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json",
+    "status": "REUSED_FOR_BYTE_IDENTICAL_DELIVERED_PACKAGE",
+    "scenarios": 66,
+    "scenario_checks_passed": 359,
+    "full_workbook_checks_passed": 8,
+    "total_checks_passed": 367,
+    "failed": 0,
+    "new_calculation_audit_run": false,
+    "engine": "LibreOffice + independent OOXML inspection",
+    "native_excel_ui_tested": false,
+    "google_sheets_validated": false,
+    "immutable_manifest_prepublication_state_retained": true
+  },
+  "publication": {
+    "payhip_url": "https://payhip.com/b/cv4oQ",
+    "currency": "CLP",
+    "price": 19990,
+    "payhip_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json",
+    "site_url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+    "site_version": 17,
+    "site_publication_receipt": "docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json",
+    "source_rebuilt_for_delivery_verification": false,
+    "republication_performed": false
+  },
+  "browser_policy": {
+    "previous_rejections_retained": true,
+    "new_browser_actions": false,
+    "workaround_attempted": false,
+    "agent_browser_access_restored": false
+  },
+  "cash_spent": 0,
+  "paid_test_order": false,
+  "product_rebuilt": false,
+  "completion": "DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_OWNER_PROVIDED_BUYER_DELIVERY_PASS"
+}

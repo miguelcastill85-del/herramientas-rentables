@@ -89,12 +89,12 @@
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.2",
-    "state": "PAYHIP_AND_SITE_PUBLISHED_TEST_ORDER_AND_DOWNLOAD_ACTIVITY_OBSERVED_FILE_INTEGRITY_PENDING",
+    "state": "COMPLETE_V2_2_AUDIT_PAYHIP_SITE_AND_BUYER_DELIVERY_PASS",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "ACTUAL_DOWNLOADED_BUYER_ZIP_REQUIRED_FOR_HASH_AND_CONTENT_COMPARISON; AGENT_BROWSER_ACCESS_REMAINS_REJECTED",
-    "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
+    "blocker": null,
+    "next_product_build": "NOT_STARTED_UNDER_CURRENT_RELEASE_SCOPE",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
       "international_reference_usd": 20,
@@ -147,7 +147,7 @@
     "public_product_url": "https://payhip.com/b/cv4oQ",
     "product_key": "cv4oQ",
     "new_product_published": true,
-    "verified_buyer_download": false,
+    "verified_buyer_download": true,
     "publication_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json",
     "download_continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json",
     "autonomous_download_receipt": "docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json",
@@ -162,7 +162,14 @@
     "server_reported_download_count": 4,
     "owner_order_download_evidence_receipt": "docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json",
     "checkout_mailbox_connection_required_to_confirm_order": false,
-    "buyer_file_integrity_verified": false
+    "buyer_file_integrity_verified": true,
+    "build_complete": true,
+    "buyer_download_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "buyer_delivery_verification_receipt": "docs/receipts/DP001_v2_2_BUYER_DELIVERY_VERIFICATION_2026-10-07.json",
+    "buyer_delivery_verification_method": "OWNER_SUPPLIED_BUYER_ZIP_CORROBORATED_BY_PAYHIP_SELLER_ORDER_SCREENSHOT",
+    "buyer_uploaded_library_file_id": "libfile_ccbbc9afd0508191a0bcd9b2ff5023b8",
+    "agent_direct_browser_download": false,
+    "agent_browser_access_restored": false
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -217,11 +224,11 @@
     "test_order_verification_basis": "OWNER_UPLOADED_PAYHIP_SELLER_SCREENSHOT"
   },
   "next_actions": [
-    "Obtain the actual ZIP downloaded from Payhip as an authorized uploaded file and compare SHA-256, entries and manifest with the immutable audited release. The owner screenshot confirms the test order and reports four downloads; it does not establish byte integrity. No further mailbox connection is needed to confirm order creation.",
-    "Preserve the published Payhip listing, existing Site version 17 and immutable audited package. No paid orders, paid plans, new product builds or attempts to bypass the rejected browser action."
+    "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
+    "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication."
   ],
-  "completion": "AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_TEST_ORDER_PASS; PAYHIP_REPORTS_FOUR_DOWNLOADS; ACTUAL_BUYER_FILE_INTEGRITY_PENDING; NO_CASH_SPENT",
-  "updated_at_utc": "2026-10-07T12:05:28.332Z",
+  "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
+  "updated_at_utc": "2026-10-07T12:18:28.058Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",

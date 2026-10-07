@@ -1,33 +1,29 @@
 # DP-FREELANCE-001 — Payhip v2.2
 
-Ficha publicada: https://payhip.com/b/cv4oQ
-Precio público observado: **CLP 19.990**.
-Sitio existente publicado con la versión **17**: https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site.
+Estado: **publicación y verificación del paquete comprador completadas**.
 
-La v2.2 corrige la v2.1 preparada y conserva sus 19 módulos. Auditoría: 66 escenarios, 367 comprobaciones aprobadas y cero fallos. Guía de nueve páginas y galería de ocho imágenes. Se conservaron las ofertas lAtSg (gratis) y doK54 (CLP 8.990).
+Ficha publicada: https://payhip.com/b/cv4oQ. Precio público observado: **CLP 19.990**. Sitio existente publicado, versión **17**: https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site.
 
-ZIP preparado inmutable: `7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79` (112815 bytes). Identidad y controles: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`.
+La v2.2 corrige la v2.1 preparada y conserva sus 19 módulos. Auditoría: 66 escenarios, 367 comprobaciones aprobadas y cero fallos. Guía de nueve páginas y galería de ocho imágenes. Las ofertas lAtSg (gratis) y doK54 (CLP 8.990) conservaron precio y atribución.
 
-La ficha declara contenido en inglés, Excel .xlsx sin macros, supuestos ilustrativos y benchmarks históricos globales. Cálculos verificados mediante LibreOffice y controles OOXML. Interfaz nativa de Excel y Google Sheets sin validar. No se prometen ingresos.
+## Descarga verificada
 
-## Publicación del sitio
+El 2026-10-07 el propietario aportó la captura del pedido Payhip de prueba: fecha 2026-10-06, descuento del 100%, importe CLP 0 y cuatro descargas registradas. Después adjuntó el ZIP solicitado desde la descarga de Payhip.
 
-Se activó la versión 17 guardada, con código `e68b8d5d9c8206b70e1f6814ae6d1c99302c9461`, sin reconstruir el producto. Despliegue `appgdep_6ac55243eaa08191b1057dfcf41e1b29`: **succeeded**. Se mantuvo el mismo sitio y acceso público, las seis calculadoras, cotización, guía, sitemap, fórmulas y UTM.
+El ZIP recibido tiene **112815 bytes** y coincide byte por byte con el paquete auditado. SHA-256: `7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79`.
 
-Validación previa: 48 reglas de contenido, 16 pruebas críticas, lint sin errores (un aviso anterior), tipos y compilación PASS. Los archivos de la oferta y dependencias siguen coincidiendo con la versión validada. Recibo de publicación: `docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json`. Recibo de validación: `docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json`.
+CRC del ZIP, seis entradas esperadas, contenido exacto, producto/versión del manifiesto y los hashes de sus cinco archivos: **PASS**. No hay archivos faltantes, adicionales o corruptos. La auditoría anterior se conserva porque el entregable no cambió.
 
-El propietario indicó “Adelante” después de informarle la limitación de descarga. Se continuó con la publicación autorizada del sitio. La entrega real sigue pendiente; la instrucción no prueba su verificación.
+La procedencia se documenta como ZIP comprador suministrado por el propietario, corroborado por la captura de su pedido. El agente no realizó una nueva descarga directa por el navegador bloqueado ni eludió su rechazo. Recibo final: `docs/receipts/DP001_v2_2_BUYER_DELIVERY_VERIFICATION_2026-10-07.json`.
 
-## Descarga real pendiente
+## Sitio publicado y alcance
 
-Checkout de prueba observado: CLP 0, cupón del 100%, limitado al producto nuevo y un uso, sin medios de pago ingresados. hCaptcha interrumpió el flujo; tras el reporte del propietario, la inspección fue rechazada por la política de URL del navegador. El propietario tampoco pudo descargar. Las bandejas conectadas disponibles no ofrecen un recibo coincidente.
+Se activó la versión 17 guardada, con código `e68b8d5d9c8206b70e1f6814ae6d1c99302c9461`. Despliegue `appgdep_6ac55243eaa08191b1057dfcf41e1b29`: **succeeded**. Se mantuvo el mismo sitio público, seis calculadoras, cotización, guía, sitemap, fórmulas y UTM.
 
-La captura del propietario recibida el 2026-10-07 confirma la creación del pedido gratuito con el cupón único de prueba y muestra cuatro descargas registradas por Payhip. El agente todavía no recibió el ZIP real para comprobar sus bytes. El contador de descargas y el paquete preparado no sustituyen esa comprobación. No se volvió a operar la página rechazada ni se intentó eludir su bloqueo.
+Validación de las fuentes: 48 reglas de contenido, 16 pruebas críticas, lint sin errores (un aviso anterior), tipos y compilación PASS. La entrega se verificó sin reconstruir el producto ni repetir la publicación.
 
-La siguiente comprobación requiere recibir el ZIP real descargado de Payhip como archivo adjunto autorizado y contrastar SHA-256, contenido y manifest con el paquete auditado. No es necesario conectar otro correo para confirmar el pedido. Mantener costo cero; no ingresar medios de pago ni activar planes pagados. El pedido gratuito de prueba no es ingreso.
+Contenido en inglés, Excel .xlsx sin macros, supuestos ilustrativos y benchmarks históricos globales. Cálculos comprobados mediante LibreOffice y controles OOXML; interfaz nativa de Excel y Google Sheets sin validar. No se prometen ingresos.
 
-Recibos: `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json` y `docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json`.
+La etiqueta temporal del manifiesto corresponde a su preparación; el recibo final documenta el cierre sin modificar el ZIP inmutable. Gasto: **0**. El pedido gratuito no es ingreso; no se comprobó un cobro pagado ni liquidación bancaria.
 
-Estado: auditoría, paquete, ficha y sitio publicados; pedido gratuito confirmado por captura y cuatro descargas registradas por Payhip; **integridad del ZIP real pendiente**. Gasto: **0**.
-
-Recibo de la evidencia actual: `docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json`.
+Recibos: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`, `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json`, `docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json` y el recibo final de entrega.
