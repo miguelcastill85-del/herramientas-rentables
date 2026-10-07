@@ -22,10 +22,12 @@ El propietario indicó “Adelante” después de informarle la limitación de d
 
 Checkout de prueba observado: CLP 0, cupón del 100%, limitado al producto nuevo y un uso, sin medios de pago ingresados. hCaptcha interrumpió el flujo; tras el reporte del propietario, la inspección fue rechazada por la política de URL del navegador. El propietario tampoco pudo descargar. Las bandejas conectadas disponibles no ofrecen un recibo coincidente.
 
-No se recibió el ZIP real desde Payhip ni se confirmó la finalización del pedido. El paquete preparado disponible no sustituye esa evidencia. No se volvió a operar la página rechazada ni se intentó eludir su bloqueo.
+La captura del propietario recibida el 2026-10-07 confirma la creación del pedido gratuito con el cupón único de prueba y muestra cuatro descargas registradas por Payhip. El agente todavía no recibió el ZIP real para comprobar sus bytes. El contador de descargas y el paquete preparado no sustituyen esa comprobación. No se volvió a operar la página rechazada ni se intentó eludir su bloqueo.
 
-La siguiente comprobación requiere el ZIP real mediante acceso permitido disponible o una operación oficial autorizada de recibo/archivo, con coincidencia del SHA-256 y contenido. Mantener costo cero; no ingresar medios de pago ni activar planes pagados. El pedido gratuito de prueba no es ingreso.
+La siguiente comprobación requiere recibir el ZIP real descargado de Payhip como archivo adjunto autorizado y contrastar SHA-256, contenido y manifest con el paquete auditado. No es necesario conectar otro correo para confirmar el pedido. Mantener costo cero; no ingresar medios de pago ni activar planes pagados. El pedido gratuito de prueba no es ingreso.
 
 Recibos: `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json` y `docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json`.
 
-Estado: auditoría, paquete, ficha y sitio publicados; **descarga real de Payhip pendiente de verificar**. Gasto: **0**.
+Estado: auditoría, paquete, ficha y sitio publicados; pedido gratuito confirmado por captura y cuatro descargas registradas por Payhip; **integridad del ZIP real pendiente**. Gasto: **0**.
+
+Recibo de la evidencia actual: `docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json`.

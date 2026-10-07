@@ -89,11 +89,11 @@
   "product_pipeline": {
     "authority": "docs/DIGITAL_PRODUCT_PIPELINE_HEAD.md",
     "current_build": "DP-FREELANCE-001_v2.2",
-    "state": "PAYHIP_AND_SITE_PUBLISHED_BUYER_DELIVERY_UNVERIFIED",
+    "state": "PAYHIP_AND_SITE_PUBLISHED_TEST_ORDER_AND_DOWNLOAD_ACTIVITY_OBSERVED_FILE_INTEGRITY_PENDING",
     "release_pack": "docs/products/DP-FREELANCE-001_PAYHIP_RELEASE_v2_2.md",
     "target_channel": "PAYHIP_FREE_SEPARATE_PRODUCT",
     "etsy": "DEFERRED_UNDER_ZERO_UPFRONT_GATE",
-    "blocker": "AUTO_REVIEW_REJECTED_BROWSER_REENTRY; CHECKOUT_MAILBOX_NOT_CONNECTED; NO_MATCHING_RECEIPTS_IN_AVAILABLE_MAILBOXES",
+    "blocker": "ACTUAL_DOWNLOADED_BUYER_ZIP_REQUIRED_FOR_HASH_AND_CONTENT_COMPARISON; AGENT_BROWSER_ACCESS_REMAINS_REJECTED",
     "next_product_build": "BLOCKED_BY_EXISTING_WIP_LIMIT",
     "currency_gate": {
       "current_store": "CLP_KEEP_UNCHANGED",
@@ -156,7 +156,13 @@
     "audit_engine": "LIBREOFFICE_RECALCULATION_AND_OOXML_INDEPENDENT_CHECKS",
     "native_excel_ui_validated": false,
     "google_sheets_validated": false,
-    "latest_download_recovery_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_RECOVERY_2026-10-07.json"
+    "latest_download_recovery_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_RECOVERY_2026-10-07.json",
+    "test_order_completed": true,
+    "test_order_verification_basis": "OWNER_UPLOADED_PAYHIP_SELLER_SCREENSHOT",
+    "server_reported_download_count": 4,
+    "owner_order_download_evidence_receipt": "docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json",
+    "checkout_mailbox_connection_required_to_confirm_order": false,
+    "buyer_file_integrity_verified": false
   },
   "telemetry": {
     "authority": "commerce/payhip-telemetry/STATUS.md",
@@ -204,14 +210,18 @@
     "pre_revenue_cash_obligations": 0,
     "paid_ads": false,
     "paid_plans_activated": false,
-    "owner_test_purchase": false
+    "owner_test_purchase": true,
+    "owner_test_purchase_amount": 0,
+    "owner_test_purchase_currency": "CLP",
+    "owner_paid_test_purchase": false,
+    "test_order_verification_basis": "OWNER_UPLOADED_PAYHIP_SELLER_SCREENSHOT"
   },
   "next_actions": [
-    "Connect the mailbox used in the Payhip test checkout through the official ChatGPT Gmail connection flow, then inspect the relevant receipt and any supported attachment. Keep actual delivery unverified until the real buyer ZIP is received and its hash/content match. Do not bypass the rejected browser action.",
-    "Keep the published listing, existing Site version 17 and immutable audited package. No paid orders, paid plans or new product builds."
+    "Obtain the actual ZIP downloaded from Payhip as an authorized uploaded file and compare SHA-256, entries and manifest with the immutable audited release. The owner screenshot confirms the test order and reports four downloads; it does not establish byte integrity. No further mailbox connection is needed to confirm order creation.",
+    "Preserve the published Payhip listing, existing Site version 17 and immutable audited package. No paid orders, paid plans, new product builds or attempts to bypass the rejected browser action."
   ],
-  "completion": "AUDIT_PACKAGE_PAYHIP_LISTING_AND_SITE_PUBLICATION_PASS; ACTUAL_BUYER_DELIVERY_PENDING; NO_CASH_SPENT",
-  "updated_at_utc": "2026-10-07T11:57:24.461Z",
+  "completion": "AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_TEST_ORDER_PASS; PAYHIP_REPORTS_FOUR_DOWNLOADS; ACTUAL_BUYER_FILE_INTEGRITY_PENDING; NO_CASH_SPENT",
+  "updated_at_utc": "2026-10-07T12:05:28.332Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",

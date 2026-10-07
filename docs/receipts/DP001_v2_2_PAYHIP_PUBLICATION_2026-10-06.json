@@ -2,7 +2,7 @@
   "recorded_at": "2026-10-06T18:01:13.154177+00:00",
   "product_id": "DP-FREELANCE-001",
   "version": "2.2",
-  "state": "PAYHIP_PUBLISHED_ACTUAL_DOWNLOAD_FILE_REQUIRED",
+  "state": "PAYHIP_PUBLISHED_TEST_ORDER_CREATED_DOWNLOAD_ACTIVITY_REPORTED_FILE_INTEGRITY_PENDING",
   "public_url": "https://payhip.com/b/cv4oQ",
   "product_key": "cv4oQ",
   "title": "Freelancer Pricing Intelligence System v2.2 — Quote, Scope & Profit Excel Workbook",
@@ -27,12 +27,17 @@
     "total_amount": 0,
     "marketing_opt_in": false,
     "payment_details_entered": false,
-    "state": "USER_REPORTS_CAPTCHA_COMPLETE; CHECKOUT_INSPECTION_REJECTED_BY_BROWSER_URL_POLICY; ACTUAL_DOWNLOADED_ZIP_REQUIRED",
-    "order_completed": null,
+    "state": "TEST_ORDER_CREATED_OWNER_SCREENSHOT; PAYHIP_REPORTS_FOUR_DOWNLOADS; ACTUAL_ZIP_NOT_RECEIVED_BY_AGENT",
+    "order_completed": true,
     "download_received": false,
     "download_sha256": null,
     "revenue": 0,
-    "order_completion_verified": false
+    "order_completion_verified": true,
+    "prior_state_before_owner_screenshot": "USER_REPORTS_CAPTCHA_COMPLETE; CHECKOUT_INSPECTION_REJECTED_BY_BROWSER_URL_POLICY; ACTUAL_DOWNLOADED_ZIP_REQUIRED",
+    "order_completion_verification_basis": "OWNER_UPLOADED_PAYHIP_SELLER_SCREENSHOT",
+    "server_reported_download_count": 4,
+    "buyer_zip_received_by_agent": false,
+    "owner_evidence_receipt": "docs/receipts/DP001_v2_2_OWNER_ORDER_DOWNLOAD_EVIDENCE_2026-10-07.json"
   },
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -61,5 +66,5 @@
     "library_file_id": "libfile_d0059095a07481919bcc78a9bfb5c481"
   },
   "continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json",
-  "updated_at": "2026-10-07T11:41:13.874Z"
+  "updated_at": "2026-10-07T12:05:28.332Z"
 }

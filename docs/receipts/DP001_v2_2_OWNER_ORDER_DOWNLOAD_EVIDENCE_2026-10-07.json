@@ -1,0 +1,62 @@
+{
+  "recorded_at": "2026-10-07T12:05:28.332Z",
+  "product_id": "DP-FREELANCE-001",
+  "version": "2.2",
+  "state": "TEST_ORDER_AND_PAYHIP_DOWNLOAD_ACTIVITY_OBSERVED_FILE_INTEGRITY_PENDING",
+  "evidence": {
+    "source": "OWNER_UPLOADED_SCREENSHOT_OF_PAYHIP_SELLER_CUSTOMERS_PAGE",
+    "filename": "1000029317.jpg",
+    "sha256": "35aec8c97adde3811b457c5707534365a11c30f7e7ebb8ae2a2953020084f7cd",
+    "bytes": 88993,
+    "raw_screenshot_published_to_repository": false,
+    "customer_emails_and_order_ids_persisted": false,
+    "listing_title_truncated_and_translated_in_screenshot": true,
+    "matched_by": "Product title prefix and exact unique product-only test coupon already used in this release"
+  },
+  "observed_test_order": {
+    "order_date": "2026-10-06",
+    "country": "Chile",
+    "created": true,
+    "creation_verification_basis": "OWNER_PROVIDED_SELLER_ORDER_RECORD",
+    "free_order": true,
+    "currency": "CLP",
+    "total": 0,
+    "discount_percent": 100,
+    "discount_amount_clp": 19990,
+    "release_test_coupon_match": true,
+    "server_reported_download_count": 4,
+    "revenue": 0
+  },
+  "verification": {
+    "test_order_creation": "PASS_FROM_OWNER_SELLER_SCREENSHOT",
+    "payhip_reported_download_activity": "PASS_REPORTED_COUNT_4",
+    "actual_buyer_zip_received_by_agent": false,
+    "actual_buyer_zip_sha256": null,
+    "actual_buyer_zip_hash_matches": false,
+    "actual_buyer_zip_contents_checked": false,
+    "verified_buyer_download": false,
+    "limit": "A seller download counter records Payhip activity; it does not prove the ZIP bytes were completely received, uncorrupted or match the audited package.",
+    "expected_buyer_package_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "expected_buyer_package_bytes": 112815
+  },
+  "supersedes_current_assumptions": {
+    "order_completion_previously_unknown": true,
+    "checkout_mailbox_connection_required_to_confirm_order": false,
+    "actual_buyer_file_still_required_to_close_integrity_check": true
+  },
+  "browser_access": {
+    "previous_auto_review_rejection_retained": true,
+    "new_browser_action_attempted": false,
+    "workaround_attempted": false
+  },
+  "unaffected_release": {
+    "payhip_url": "https://payhip.com/b/cv4oQ",
+    "public_price_clp": 19990,
+    "site_version": 17,
+    "site_published": true,
+    "product_rebuilt": false,
+    "republication_performed": false
+  },
+  "cash_spent": 0,
+  "next_action": "Receive the actual ZIP downloaded from Payhip as an authorized uploaded file, then compare SHA-256, package entries and manifest to the audited immutable release. Do not substitute the prepared copy or seller counter as file-integrity proof."
+}
