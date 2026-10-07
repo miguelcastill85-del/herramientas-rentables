@@ -1,0 +1,122 @@
+{
+  "recorded_at": "2026-10-07T11:41:13.874Z",
+  "publication_date": "2026-10-06",
+  "project": "Herramientas Rentables",
+  "product_id": "DP-FREELANCE-001",
+  "product_version": "2.2",
+  "state": "SITE_VERSION_17_PUBLISHED_BUYER_DELIVERY_UNVERIFIED",
+  "authorization": {
+    "user_message": "Adelante",
+    "user_message_at": "2026-10-06T16:54:08-03:00",
+    "context": "Owner instructed continuation after actual Payhip download had been disclosed as unverified; the validated saved Site version was available.",
+    "interpretation": "Proceed with authorized existing-Site publication while retaining buyer delivery as unverified.",
+    "buyer_delivery_requirement_satisfied": false
+  },
+  "deployment_evidence": {
+    "source": "NATIVE_SITES_GET_DEPLOYMENT_STATUS",
+    "id": "appgdep_6ac55243eaa08191b1057dfcf41e1b29",
+    "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
+    "title": "Herramientas Rentables",
+    "version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_2d122e82c38481919e8f5b74ab01c82c",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": "sediment://file_000000001a7c81f685596d5f492ee5e4",
+    "provider_deployment_id": "site---6a8cebd4d0d081919db9529b91dd2843",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-06T19:56:56.753541+00:00"
+  },
+  "saved_version": {
+    "id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_2d122e82c38481919e8f5b74ab01c82c",
+    "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
+    "version_number": 17,
+    "source": {
+      "commit_sha": "e68b8d5d9c8206b70e1f6814ae6d1c99302c9461"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000d474820e86226b768badd85c",
+      "content_hash": "sha256:a612f87ebb02c146f69d80796348ec3e6b7a3a1ecbb57653528313e2ab1633d3",
+      "size_bytes": 2426880,
+      "file_count": 102
+    },
+    "deployment_id": "appgdep_6ac55243eaa08191b1057dfcf41e1b29"
+  },
+  "site_access": {
+    "id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
+    "access_mode": "public",
+    "status": "active",
+    "latest_version_number": 17,
+    "current_live_url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+    "updated_at": "2026-10-06T19:56:56.813923+00:00"
+  },
+  "product": {
+    "url": "https://payhip.com/b/cv4oQ",
+    "currency": "CLP",
+    "price": 19990,
+    "listing_receipt": "docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json"
+  },
+  "validation": {
+    "receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json",
+    "checks": {
+      "content_rules": 48,
+      "content": "PASS",
+      "critical_tests_passed": 16,
+      "critical_tests_failed": 0,
+      "lint_errors": 0,
+      "lint_warnings": 1,
+      "lint_warning": "pre-existing radar/phase0/src/worker.js default-export style",
+      "typecheck": "PASS",
+      "build": "PASS",
+      "exit_code": 0
+    },
+    "files": {
+      "app/lib/payhip-products.ts": "6293b127dbb118c910326305240ef049fde9becf70ba742dbf9d2fa562dcac8b",
+      "app/components/payhip-offers.tsx": "19c6b32ae6054d42eb63e0f450ce2babffa0c980c6e0bd889da11e3e146ec316",
+      "app/pro/page.tsx": "58987c972dede4c649644877bab89602c43a37de004a20b17ebd5f135594c6a6",
+      "app/globals.css": "58b0a8eb761072b6ad79c78e6e37fa1d8483019ab262613728023e26aaff5d38"
+    },
+    "site_and_github_app_hashes_match_validated_source": true,
+    "dependency_files_match": true,
+    "application_rebuilt_for_checkpoint": false,
+    "github_application_checkpoint_sha": "bcd2ab83f8cad6b79dbb719cf32daa2505b2e534",
+    "github_ci_for_this_checkpoint": "NOT_OBSERVED"
+  },
+  "preserved": {
+    "existing_site_and_public_url": true,
+    "existing_product_prices": {
+      "lAtSg": {
+        "currency": "CLP",
+        "price": 0
+      },
+      "doK54": {
+        "currency": "CLP",
+        "price": 8990
+      }
+    },
+    "six_calculators": true,
+    "freelance_quote_route": true,
+    "freelance_guide": true,
+    "sitemap": true,
+    "original_calculation_logic": true,
+    "existing_payhip_utm": true
+  },
+  "buyer_delivery": {
+    "verified": false,
+    "actual_download_received": false,
+    "actual_download_sha256": null,
+    "expected_package_sha256": "7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79",
+    "prepared_copy_is_delivery_evidence": false,
+    "blocker": "BROWSER_URL_POLICY_REJECTED_CURRENT_CHECKOUT_INSPECTION; OWNER_UNABLE_TO_DOWNLOAD; AVAILABLE_MAILBOXES_HAVE_NO_MATCHING_RECEIPT",
+    "continuation_receipt": "docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json",
+    "next_permitted_action": "Verify actual buyer ZIP through legitimately available allowed access or an official authorized receipt/file operation, then compare hash and contents. Do not circumvent the rejected browser action."
+  },
+  "cash_spent": 0,
+  "paid_plan_activated": false,
+  "paid_order_created": false,
+  "product_rebuilt": false,
+  "credentials_persisted": false,
+  "completion": "AUDIT_PACKAGE_PAYHIP_LISTING_AND_SITE_PUBLICATION_PASS; ACTUAL_BUYER_DELIVERY_PENDING"
+}

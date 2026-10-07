@@ -1,26 +1,31 @@
 # DP-FREELANCE-001 — Payhip v2.2
 
-Producto publicado: https://payhip.com/b/cv4oQ
-Precio público verificado: CLP 19.990. Producto separado; las ofertas lAtSg y doK54 conservan sus precios.
+Ficha publicada: https://payhip.com/b/cv4oQ
+Precio público observado: **CLP 19.990**.
+Sitio existente publicado con la versión **17**: https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site.
 
-La v2.2 corrige la v2.1 preparada, conserva sus 19 módulos y no abre un nuevo producto. Auditoría: 66 escenarios, 367 comprobaciones aprobadas, 0 fallos. Guía: nueve páginas. Galería: ocho imágenes de venta con versión y precio correctos.
+La v2.2 corrige la v2.1 preparada y conserva sus 19 módulos. Auditoría: 66 escenarios, 367 comprobaciones aprobadas y cero fallos. Guía de nueve páginas y galería de ocho imágenes. Se conservaron las ofertas lAtSg (gratis) y doK54 (CLP 8.990).
 
-ZIP comprador inmutable: `7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79` (112815 bytes). Identidades y acceso durable: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`.
+ZIP preparado inmutable: `7ab77bac5a2d3c7d7b4d4567d6693bd1f959129d1911c43a63e1d0a610f01b79` (112815 bytes). Identidad y controles: `docs/receipts/DP001_v2_2_PACKAGE_GATE_2026-10-06.json`.
 
-La ficha declara contenido en inglés, Excel .xlsx sin macros, supuestos ilustrativos y benchmarks históricos globales. Se verificó el cálculo en LibreOffice; interfaz nativa de Excel y Google Sheets no validados. No hay promesas de ingresos.
+La ficha declara contenido en inglés, Excel .xlsx sin macros, supuestos ilustrativos y benchmarks históricos globales. Cálculos verificados mediante LibreOffice y controles OOXML. Interfaz nativa de Excel y Google Sheets sin validar. No se prometen ingresos.
 
-## Puerta de entrega
+## Publicación del sitio
 
-Checkout observado: CLP 0, descuento del 100%, cupón limitado a esta ficha y un uso. hCaptcha detuvo el flujo antes de finalizar el pedido. Completar la verificación humana, descargar el archivo real y exigir coincidencia del SHA anterior antes de desplegar la oferta en el sitio existente. El pedido gratuito de prueba no es ingreso. No ingresar medios de pago ni activar planes pagados.
+Se activó la versión 17 guardada, con código `e68b8d5d9c8206b70e1f6814ae6d1c99302c9461`, sin reconstruir el producto. Despliegue `appgdep_6ac55243eaa08191b1057dfcf41e1b29`: **succeeded**. Se mantuvo el mismo sitio y acceso público, las seis calculadoras, cotización, guía, sitemap, fórmulas y UTM.
 
-## Sitio preparado
+Validación previa: 48 reglas de contenido, 16 pruebas críticas, lint sin errores (un aviso anterior), tipos y compilación PASS. Los archivos de la oferta y dependencias siguen coincidiendo con la versión validada. Recibo de publicación: `docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json`. Recibo de validación: `docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json`.
 
-Las fuentes incluyen una tercera oferta v2.2, CLP 19.990 y contenido en inglés, preservando las dos ofertas originales y sus UTM. Publicación del sitio pendiente de la descarga verificada.
+El propietario indicó “Adelante” después de informarle la limitación de descarga. Se continuó con la publicación autorizada del sitio. La entrega real sigue pendiente; la instrucción no prueba su verificación.
 
-Recibo de publicación: `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json`.
+## Descarga real pendiente
 
-La preparación del sitio pasó 48 reglas de contenido, 16 pruebas críticas, lint (0 errores; 1 aviso anterior), tipos y compilación. Recibo: `docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json`. Se conserva la versión pública 16 hasta verificar la descarga.
+Checkout de prueba observado: CLP 0, cupón del 100%, limitado al producto nuevo y un uso, sin medios de pago ingresados. hCaptcha interrumpió el flujo; tras el reporte del propietario, la inspección fue rechazada por la política de URL del navegador. El propietario tampoco pudo descargar. Las bandejas conectadas disponibles no ofrecen un recibo coincidente.
 
-Actualización 2026-10-06: el propietario informó que completó la verificación humana. La inspección posterior del checkout fue rechazada por la política de URL del navegador (protocolo no admitido). No se volvió a operar la página bloqueada ni se usó otra superficie para eludir esa decisión. No hay un ZIP de compra nuevo disponible en los archivos compartidos. Se requiere el archivo real descargado de Payhip para contrastar SHA-256; el paquete preparado no sustituye evidencia de entrega. Recibo: `docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json`.
+No se recibió el ZIP real desde Payhip ni se confirmó la finalización del pedido. El paquete preparado disponible no sustituye esa evidencia. No se volvió a operar la página rechazada ni se intentó eludir su bloqueo.
 
-La versión 17 del sitio quedó guardada con su archivo de despliegue y código verificados; aún no está desplegada. Identidad exacta y recibo: `docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json`. Tras verificar el ZIP real, activar esta versión guardada; no reconstruir las fuentes sin cambios.
+La siguiente comprobación requiere el ZIP real mediante acceso permitido disponible o una operación oficial autorizada de recibo/archivo, con coincidencia del SHA-256 y contenido. Mantener costo cero; no ingresar medios de pago ni activar planes pagados. El pedido gratuito de prueba no es ingreso.
+
+Recibos: `docs/receipts/DP001_v2_2_PAYHIP_PUBLICATION_2026-10-06.json` y `docs/receipts/DP001_v2_2_AUTONOMOUS_DOWNLOAD_BLOCK_2026-10-06.json`.
+
+Estado: auditoría, paquete, ficha y sitio publicados; **descarga real de Payhip pendiente de verificar**. Gasto: **0**.

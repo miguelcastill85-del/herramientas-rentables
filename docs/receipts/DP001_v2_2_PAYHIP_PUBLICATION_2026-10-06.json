@@ -36,14 +36,19 @@
   },
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
-    "current_live_version": 16,
-    "new_offer_source": "SAVED_VERSION_17_READY_UNDEPLOYED",
-    "release_gate": "VERIFY_ACTUAL_BUYER_DOWNLOAD_HASH_BEFORE_DEPLOYING_NEW_OFFER",
+    "current_live_version": 17,
+    "new_offer_source": "PUBLISHED_VERSION_17",
+    "release_gate": "SITE_PUBLICATION_PROCEEDED_AFTER_OWNER_CONTINUATION_IN_CONTEXT_OF_DISCLOSED_DELIVERY_LIMITATION; ACTUAL_BUYER_DELIVERY_REMAINS_UNVERIFIED",
     "validation_receipt": "docs/receipts/DP001_v2_2_SITE_PREPUBLICATION_VALIDATION_2026-10-06.json",
     "prepared_version_number": 17,
     "prepared_version_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843~appgver_2d122e82c38481919e8f5b74ab01c82c",
     "prepared_source_sha": "e68b8d5d9c8206b70e1f6814ae6d1c99302c9461",
-    "version_ready_receipt": "docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json"
+    "version_ready_receipt": "docs/receipts/DP001_v2_2_SITE_VERSION_READY_2026-10-06.json",
+    "prior_release_gate": "VERIFY_ACTUAL_BUYER_DOWNLOAD_HASH_BEFORE_DEPLOYING_NEW_OFFER",
+    "deployment_id": "appgdep_6ac55243eaa08191b1057dfcf41e1b29",
+    "deployment_status": "succeeded",
+    "live_url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site",
+    "publication_receipt": "docs/receipts/DP001_v2_2_SITE_PUBLICATION_2026-10-06.json"
   },
   "cash_spent": 0,
   "credentials_persisted": false,
@@ -55,5 +60,6 @@
     "filename": "DP001_v2_2_Payhip_publicado_1791309306386.jpg",
     "library_file_id": "libfile_d0059095a07481919bcc78a9bfb5c481"
   },
-  "continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json"
+  "continuation_receipt": "docs/receipts/DP001_v2_2_DOWNLOAD_CONTINUATION_2026-10-06.json",
+  "updated_at": "2026-10-07T11:41:13.874Z"
 }
