@@ -1,0 +1,177 @@
+{
+  "campaign": "HR_ORGANIC_14D",
+  "piece": "P01",
+  "created_at": "2026-10-07",
+  "status": "ASSETS_PREPARED_NOT_PUBLISHED",
+  "cash_spent_clp": 0,
+  "example_type": "MANUAL_ILLUSTRATIVE_NOT_CUSTOMER_OR_APP_OUTPUT",
+  "arithmetic": {
+    "project_clp": 300000,
+    "work_hours": 40,
+    "meeting_hours": 5,
+    "revision_hours": 3,
+    "full_hours": 48,
+    "direct_costs_clp": 30000,
+    "before_additional_hours_clp_h": 7500,
+    "after_additional_hours_clp_h": 6250,
+    "after_direct_costs_clp_h": 5625
+  },
+  "pdf_pages": 5,
+  "image_count": 5,
+  "image_size": [
+    1080,
+    1080
+  ],
+  "pdf_link_and_qr_target": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile",
+  "bounds_check": "PASS",
+  "visual_check": "PASS_ALL_FIVE_PAGES_REVIEWED",
+  "publication_url": null,
+  "observed_metrics": null,
+  "artifacts": [
+    {
+      "name": "P01_01.png",
+      "bytes": 81589,
+      "sha256": "2346847604d5a188c0a6f8e177d5c7fd1261ffa960dd5e6298e9d4d6fc9265cc"
+    },
+    {
+      "name": "P01_02.png",
+      "bytes": 66370,
+      "sha256": "82f94b5c02bd62386e01fad0204dac6e7748a69554326c96c04a2a1a0144831a"
+    },
+    {
+      "name": "P01_03.png",
+      "bytes": 74633,
+      "sha256": "dc6ab3173c14119ffbf4cdf960a04ff71e86b028f010401e730eaaadbf14a4e8"
+    },
+    {
+      "name": "P01_04.png",
+      "bytes": 83616,
+      "sha256": "b71f51645289348165c60d5f72012b7ef4f0a0722a3af95238c867f6108ade20"
+    },
+    {
+      "name": "P01_05.png",
+      "bytes": 72853,
+      "sha256": "72c1a866479be79ffb9b88dc062f187ac3b01d4a6682789fc44fece2b8a4f19f"
+    },
+    {
+      "name": "P01_Carrusel_LinkedIn.pdf",
+      "bytes": 53157,
+      "sha256": "63ad9fef1afc8a1c9816c2b01cfd52722d7c7a89edab8ced25decc9b9480e5b1"
+    },
+    {
+      "name": "P01_Instrucciones_y_Alt.txt",
+      "bytes": 3021,
+      "sha256": "5d8d5dcefb29d3373acf8e68d0c3eccaf00ac80f8de7142601aa310851577638"
+    },
+    {
+      "name": "P01_Registro.csv",
+      "bytes": 360,
+      "sha256": "5e713bc935443b5633bd8227dfc5d80d12385a180e820166f932bf30265e7e21"
+    },
+    {
+      "name": "P01_Texto_Instagram.txt",
+      "bytes": 752,
+      "sha256": "76a308c6af47b4cd0c4b875d5e1bfb28a57b877f542e1042e54076450100a7e9"
+    },
+    {
+      "name": "P01_Texto_LinkedIn.txt",
+      "bytes": 719,
+      "sha256": "545dab3e54a7885749f29a4f5e802aeedcc20b99ae22ce1f114f84586ad13744"
+    }
+  ],
+  "qr_validation": "STANDARD_REPORTLAB_QR_WITH_EXACT_SOURCE_URL; NO_INDEPENDENT_DECODE_CLAIM",
+  "bundle": {
+    "name": "Herramientas_Rentables_P01.zip",
+    "bytes": 403556,
+    "sha256": "7f23ab5a80eabcc0f908d63a9dac8139c57bbb35dd990e922fd7e0124b7bb86f"
+  },
+  "saved_artifacts": [
+    {
+      "name": "Herramientas_Rentables_P01.zip",
+      "library_file_id": "libfile_844d9c87e3708191989c09b16e84ed82",
+      "file_id": "file_000000009c5881fbb9ffaced5c1894d9",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Carrusel_LinkedIn.pdf",
+      "library_file_id": "libfile_6b459e7a73dc8191a4e711ce93c9a013",
+      "file_id": "file_000000007194820c83449b7634533f24",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_01.png",
+      "library_file_id": "libfile_231d8cb71b548191812da3e3d8d110c8",
+      "file_id": "file_00000000fc1481f5914f902ae40be793",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_02.png",
+      "library_file_id": "libfile_92a8742aba8481919e5cf1096f85848b",
+      "file_id": "file_0000000034dc823087746399d0db2fe2",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_03.png",
+      "library_file_id": "libfile_013dd1a0bb98819187e6f851f4a43f23",
+      "file_id": "file_00000000136081f889bb78f4479fa38c",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_04.png",
+      "library_file_id": "libfile_d90a1e4e828c819193e599dffbd496d8",
+      "file_id": "file_00000000002481f5b56234b09cfaa81f",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_05.png",
+      "library_file_id": "libfile_f7eb3c9966c081918b364e124743404e",
+      "file_id": "file_000000000eb081f5abb5f52339da5af4",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Texto_LinkedIn.txt",
+      "library_file_id": "libfile_a72d2d2af22881918da123113ef26e62",
+      "file_id": "file_00000000b5f881fb9d4ee195a7a4e51b",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Texto_Instagram.txt",
+      "library_file_id": "libfile_6258faae370c81918dcfbb5fb70978e2",
+      "file_id": "file_0000000015288230a56801f7f17383c6",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Instrucciones_y_Alt.txt",
+      "library_file_id": "libfile_daa2903726e88191bd966af4b8d11f06",
+      "file_id": "file_00000000d98c823098e69961d62d78c4",
+      "status": "succeeded"
+    },
+    {
+      "name": "P01_Registro.csv",
+      "library_file_id": "libfile_9004eac9632c8191a7c01751651c4f38",
+      "file_id": "file_000000008bf881f494b47a19c556d5f2",
+      "status": "succeeded"
+    }
+  ],
+  "instagram_target": {
+    "handle": "@herramientasrentables",
+    "evidence": "app/herramientas/[slug]/page.tsx on main 63b92b36777bfa1b47bee7d5bd6db8c1dfae6a92",
+    "authenticated": false,
+    "professional_account_type": "UNVERIFIED"
+  },
+  "linkedin_target": "NOT_IDENTIFIED",
+  "access": {
+    "provider": "Metricool",
+    "plugin_id": "plugin_asdk_app_69d73fc8aa5c8191bec1583760b130c7",
+    "state": "SUGGESTED_NOT_CONFIRMED_CONNECTED",
+    "plan_required": "FREE_ONLY",
+    "instagram_requires_professional_account": true,
+    "linkedin_in_free_plan": false,
+    "source_urls": [
+      "https://help.metricool.com/mcp-limits-and-plan-requirements-h72jg",
+      "https://help.metricool.com/plans-add-ons-and-api-access-explained-xux1u",
+      "https://help.metricool.com/how-to-connect-instagram-to-metricool-sermi"
+    ]
+  },
+  "next_action": "After confirmed authorized access, inspect the exact HR Instagram account, check for duplicate P01, publish the existing five images and caption at zero cost, and preserve the real post URL. Do not regenerate the product or this prepared pack."
+}

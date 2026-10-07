@@ -225,10 +225,11 @@
   },
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
-    "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication."
+    "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
+    "Organic marketing: P01 is fully prepared and saved. Recover its checkpoint and assets; complete verified social access and publication without regenerating closed product or marketing work."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-07T12:18:28.058Z",
+  "updated_at_utc": "2026-10-07T13:40:48.763Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -248,5 +249,21 @@
     "ci_run": 37389914925,
     "ci_url": "https://github.com/miguelcastill85-del/herramientas-rentables/actions/runs/37389914925",
     "behavior_tests_passed": 16
+  },
+  "organic_marketing": {
+    "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
+    "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
+    "state": "P01_ASSETS_READY_SOCIAL_ACCOUNT_CONNECTION_REQUIRED",
+    "prepared_piece": "P01",
+    "assets_receipt": "docs/receipts/HR_P01_ASSETS_READY_2026-10-07.json",
+    "cash_spent_clp": 0,
+    "social_published": false,
+    "public_post_url": null,
+    "instagram_handle": "@herramientasrentables",
+    "instagram_identity_evidence": "EXISTING_SITE_LINK_NOT_AUTHENTICATED_ACCOUNT_VERIFICATION",
+    "linkedin_target": "NOT_IDENTIFIED",
+    "plugin_connection": "METRICOOL_SUGGESTED_NOT_CONFIRMED_CONNECTED",
+    "plan_gate": "FREE_ONLY_NO_LINKEDIN_VIA_METRICOOL_FREE",
+    "next_action": "Connect an authorized zero-cost publication route, verify the exact Instagram account and publish the prepared P01 pack; keep products and existing Site unchanged."
   }
 }
