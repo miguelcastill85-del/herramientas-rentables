@@ -1,0 +1,43 @@
+{
+  "base": "Use case: ads-marketing.\nAsset type: square Instagram educational carousel for Herramientas Rentables, Chilean freelancers. Create one finished, exceptionally polished editorial slide, 1:1, high resolution, meant to be read on a phone.\nVisual identity: deep forest green #122B24, warm cream #F6F4EA, acid lime #D9FD64. Modern bold sans-serif typography with beautiful tight kerning, confident hierarchy, generous margins. Flat sharp print-quality shapes, precise alignment, subtle fine grain only. No photographs, no faux product screen, no buttons, no QR, no watermarks. Use the brand as a small text wordmark, not a invented graphic logo.\nOnly render the exact Spanish copy provided, including accents and punctuation. Every word must be easy to read, not a paragraph wall. Keep a consistent footer with \"HERRAMIENTAS RENTABLES\" and slide number. The scenario is educational and illustrative; no guaranteed income or client outcomes.",
+  "slides": [
+    {
+      "number": 1,
+      "name": "P03_01.png",
+      "body": "Primary request: carousel cover about scope creep. Dark forest green background. An oversized cream opening question, with \"agregar\" or the final phrase in lime. A clean abstract pair of offset proposal cards at the lower third visually suggests a small request expanding scope; keep secondary supporting copy readable and the headline dominant. Strong publication-quality typographic composition, not a generic template.\nText (verbatim):\n\"CAMBIOS DE ALCANCE\"\n\"¿Puedes agregar esto también?\"\n\"Una entrega más también cambia el trabajo.\"\n\"Antes de decir que sí, revisa lo acordado.\"\n\"HERRAMIENTAS RENTABLES\"\n\"01 / 05\"",
+      "style_reference": null
+    },
+    {
+      "number": 2,
+      "name": "P03_02.png",
+      "body": "Primary request: show a clean proposal excerpt from an illustrative freelance case, warm cream background with forest green text and restrained lime labels. Headline at top, one prominent forest-green proposal card with four short rows. Make the \"5\" and \"2\" bold. No numeric diagrams and no simulated app interface. Elegant stationery/editorial design.\nText (verbatim):\n\"Primero, lo acordado.\"\n\"Landing page\"\n\"Hasta 5 secciones\"\n\"2 rondas de revisión\"\n\"Textos e imágenes del cliente\"\n\"Ejemplo ilustrativo\"\n\"HERRAMIENTAS RENTABLES\"\n\"02 / 05\"",
+      "style_reference": "images/P03_01.png"
+    },
+    {
+      "number": 3,
+      "name": "P03_03.png",
+      "body": "Primary request: make the added work visible with precise typography and two stacked rows, dark forest green background. Short top headline and two cream panels with lime numeric accents, then an oversized \"+8 h\" total. These are written estimates, not bars, pie charts or proportional shapes. Use the same typographic family, footer and margins as the cover reference.\nText (verbatim):\n\"La nueva solicitud.\"\n\"+2 secciones\"\n\"6 h estimadas\"\n\"+1 ronda de revisión\"\n\"2 h estimadas\"\n\"+8 h\"\n\"adicionales por evaluar\"\n\"Ejemplo ilustrativo. Estima tus propias horas.\"\n\"HERRAMIENTAS RENTABLES\"\n\"03 / 05\"",
+      "style_reference": "images/P03_01.png"
+    },
+    {
+      "number": 4,
+      "name": "P03_04.png",
+      "body": "Primary request: practical response to a scope change, warm cream background, huge forest headline and a polished quotation card. Four concise forest/lime editorial tags below it. Plenty of negative space with quotation readable at phone scale. Not a chat app UI; no profile/avatar, no speech bubble impersonation.\nText (verbatim):\n\"Acuerden el cambio antes de empezar.\"\n\"Podemos sumar 2 secciones y una ronda extra. Te enviaré el precio y el plazo con el alcance actualizado.\"\n\"Una respuesta que puedes adaptar\"\n\"Alcance\"\n\"Precio\"\n\"Plazo\"\n\"Revisiones\"\n\"HERRAMIENTAS RENTABLES\"\n\"04 / 05\"",
+      "style_reference": "images/P03_01.png"
+    },
+    {
+      "number": 5,
+      "name": "P03_05.png",
+      "body": "Primary request: high-impact ending slide on forest green with bold cream headline and lime accent. Elegant open editorial layout, no fake button. A restrained proposal-sheet motif supports three benefits in large readable text. Single action: use the free quote calculator from profile link. Do not show price claims or calculated results.\nText (verbatim):\n\"Recalcula antes de aceptar.\"\n\"Actualiza tiempo, costos y alcance.\"\n\"Cotizador gratuito\"\n\"En español · Sin registro\"\n\"Pruébalo con tu próximo proyecto.\"\n\"Enlace del perfil\"\n\"HERRAMIENTAS RENTABLES\"\n\"05 / 05\"",
+      "style_reference": "images/P03_01.png"
+    }
+  ],
+  "created_at_utc": "2026-10-08T05:53:44.849Z",
+  "generator": "built_in_imagegen",
+  "mode": "new_images_not_P01_edits",
+  "reference_instruction": "Input image 1 is a style reference only: match its elegant typography, green/cream/lime palette, fine print texture, footer and square dimensions. Create a NEW slide; do not reproduce its headline or extra card text.",
+  "accepted_additional_text_in_slide_1": [
+    "Propuesta inicial",
+    "Con “solo una entrega más”"
+  ]
+}

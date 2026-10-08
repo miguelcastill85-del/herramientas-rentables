@@ -1,0 +1,79 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P03",
+  "revision": "R1",
+  "result": "PASS_LOCAL_ASSETS_NOT_PLATFORM_PUBLICATION",
+  "visual_review": {
+    "original_images": 5,
+    "rendered_pdf_pages": 5,
+    "all_text_and_accents_reviewed": true,
+    "consistent_palette_and_numbering": true,
+    "no_clipping_or_overlaps_observed": true
+  },
+  "arithmetic": {
+    "additional_sections": 2,
+    "hours_sections": 6,
+    "hours_extra_revision": 2,
+    "additional_hours": 8,
+    "revised_max_sections": 7,
+    "revised_revision_rounds": 3,
+    "basis": "ILLUSTRATIVE_MANUAL_ESTIMATES_NOT_CLIENT_RESULTS_OR_CALCULATOR_OUTPUT"
+  },
+  "images": {
+    "count": 5,
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "source": "BUILT_IN_IMAGEGEN",
+    "new_assets_only": true,
+    "p01_regenerated": false,
+    "p02_regenerated": false
+  },
+  "pdf": {
+    "page_count": 5,
+    "exact_embedded_RGB_pixels": true,
+    "links": [
+      {
+        "uri": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
+        "rect": [
+          44.0,
+          547.0,
+          478.0,
+          672.0
+        ]
+      }
+    ],
+    "text_layer": false,
+    "tagged_accessibility_claimed": false,
+    "rendering": "PyMuPDF at 96dpi after a truncated Poppler inspection PNG"
+  },
+  "accessibility": {
+    "alt_text_count": 5,
+    "transcript": true,
+    "ocr_complementary": "PARTIAL_RECOGNITION_OF_LARGE_TYPOGRAPHY_NUMBERS_CONFIRMED_VISUALLY"
+  },
+  "zip": {
+    "members": 11,
+    "crc": "PASS",
+    "exact_source_bytes": "PASS",
+    "pdf_included": false,
+    "pdf_delivered_separately": true,
+    "request_size_limit_bytes": 16777216,
+    "archive_bytes": 7401311
+  },
+  "captions": {
+    "instagram_chars": 742,
+    "linkedin_chars": 1011,
+    "single_cta": "FREE_QUOTE_CALCULATOR"
+  },
+  "source_claims": "Free Spanish quote calculator and no-registration statements reuse unchanged P02 live verification; proposal-sheet illustrations are not product screenshots.",
+  "metricool_media_uploaded": false,
+  "social_scheduled": false,
+  "social_published": false,
+  "public_post_url": null,
+  "metrics": "UNOBSERVED",
+  "cash_spent_clp": 0,
+  "plan": "FREE"
+}

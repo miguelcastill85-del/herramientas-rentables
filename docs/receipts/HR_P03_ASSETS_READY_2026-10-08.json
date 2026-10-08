@@ -1,0 +1,142 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P03",
+  "revision": "R1",
+  "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+  "files": [
+    {
+      "path": "docs/marketing/p03/P03_Carrusel_R1.pdf",
+      "bytes": 10767505,
+      "sha256": "10a55ea0ad7f5477415f38e38b889f3faff6a36aa3dcca6e04d2def67ce6a99e",
+      "git_blob_sha": "ed452da6241c00d1672fe46d761cf9c73b4a9ae3"
+    },
+    {
+      "path": "docs/marketing/p03/P03_IMAGE_PROMPTS.json",
+      "bytes": 5107,
+      "sha256": "db9d649d862dcd7f0cd4c82312aa84d4f74af8294d4ad5464bf17d8b10338a7a",
+      "git_blob_sha": "cd13212ea34e67137a3d2ee6f52718474635e18a"
+    },
+    {
+      "path": "docs/marketing/p03/P03_OCR_RESULT.json",
+      "bytes": 1835,
+      "sha256": "bb929de271a5bacb0d77fe4baac4181e7730c84b157daee389d41170688efed0",
+      "git_blob_sha": "76591aca90ecc1f5662d5e47aa4823d9548b5571"
+    },
+    {
+      "path": "docs/marketing/p03/P03_PUBLICATION_DESCRIPTOR.json",
+      "bytes": 1264,
+      "sha256": "8e922f51669d3eab85cf827af61aac8a46da5b2355fa4cb261bc147126145d03",
+      "git_blob_sha": "8142a24d884fd73486a8dab79f0dd3e6e795974e"
+    },
+    {
+      "path": "docs/marketing/p03/P03_Paquete_R1.zip",
+      "bytes": 7401311,
+      "sha256": "efecf9e4299bfe918c6d0eae6d118c8b9260f898eb3e31f0d15ca42aca536416",
+      "git_blob_sha": "1cf71dc2a21f70e4d46fab1fbbc87acc5c218878"
+    },
+    {
+      "path": "docs/marketing/p03/P03_QA_RESULT.json",
+      "bytes": 2225,
+      "sha256": "7611b42c180c89de93dcd2eae2dc8940b6f8d21142e6fb7562c998ca8d8ba873",
+      "git_blob_sha": "f0641ec7b79e56aeed15dc947d2aa8309ab4af8f"
+    },
+    {
+      "path": "docs/marketing/p03/P03_TRANSCRIPCION.txt",
+      "bytes": 1090,
+      "sha256": "3a23137d65c4b9224de7f4287d263a8cc8fdee7bafb94340cc797bc92f5ff95c",
+      "git_blob_sha": "2616d7927f9f4880104797eab56d51fbb61b58f3"
+    },
+    {
+      "path": "docs/marketing/p03/P03_Texto_Instagram.txt",
+      "bytes": 756,
+      "sha256": "f1b79643ba6c34fc3071a649f1f5b3aced7166f4f8321cebc3932f62ab440deb",
+      "git_blob_sha": "ef10d48e7323c9eec58cc74a5d466fd7f7b2c3cf"
+    },
+    {
+      "path": "docs/marketing/p03/P03_Texto_LinkedIn.txt",
+      "bytes": 1040,
+      "sha256": "9cf755a9e4c0c11aa0fec2ad7572468518af19157d48a79f19c9bbffb3abd2ac",
+      "git_blob_sha": "c1a443a307fbb1a3fa0f747dbb1cb7c6d8be50e6"
+    },
+    {
+      "path": "docs/marketing/p03/P03_Textos_Alternativos.json",
+      "bytes": 1613,
+      "sha256": "cc6523ecc33a77a2a0c36410d4cf914cbdfe6b7be92c4c10b447960ad22a9333",
+      "git_blob_sha": "7399239974c22c914d2d772529ed7f61d2c0bb77"
+    },
+    {
+      "path": "docs/marketing/p03/README.md",
+      "bytes": 2259,
+      "sha256": "4a22ce77dcc65a0176202536745954d255f31eb53be5b36e16c4b6e807fd98f3",
+      "git_blob_sha": "96c0bfefbb8a32853344b0d5982302744334a8d6"
+    },
+    {
+      "path": "docs/marketing/p03/assemble_p03.py",
+      "bytes": 2535,
+      "sha256": "4019247ddd645b8ce722e647a2cd00c6c2d19c8163b18b81f7a29b2d77bda122",
+      "git_blob_sha": "5c7d1b655b6c9d7bb97dc89ae6106f324454398a"
+    },
+    {
+      "path": "docs/marketing/p03/images/P03_01.png",
+      "bytes": 1581076,
+      "sha256": "26b7aa0ce8284a7ca7d308f02cc2c8a78c4f8d4a4b3a3aa8ab0c22fabfad39be",
+      "git_blob_sha": "574d75729d495377a3464d6f0b02377ecb336124",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "docs/marketing/p03/images/P03_02.png",
+      "bytes": 1741150,
+      "sha256": "dd880953e1e1b4b1ea55ee251217640140468007243e47858ec452afb8b3f1d9",
+      "git_blob_sha": "0077ccec57edba474294e815f12f2a20abbdda68",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "docs/marketing/p03/images/P03_03.png",
+      "bytes": 1679829,
+      "sha256": "7e4d308c4193cec3cefe86528c91769979f8447c8beee943eb4ea1f44459f308",
+      "git_blob_sha": "a0274de60678a6fd30109589c039f91d80389dd6",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "docs/marketing/p03/images/P03_04.png",
+      "bytes": 1600530,
+      "sha256": "99573d89368ce23c20c0eec6f7d5f8c846bf9e598f744f2402abe68f6821923d",
+      "git_blob_sha": "4abe2541dec6679c85e4995661b223a73178f030",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "docs/marketing/p03/images/P03_05.png",
+      "bytes": 1645405,
+      "sha256": "0e20b3eb348639510596c0377320cc20c66de4bfdaff88f5058f239570166209",
+      "git_blob_sha": "373fd890b51fbac443b9ad4554f5f00b273f17ae",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "qa": "docs/marketing/p03/P03_QA_RESULT.json",
+  "cash_spent_clp": 0,
+  "social_scheduled": false,
+  "social_published": false,
+  "scheduled_post_id": null,
+  "scheduled_post_uuid": null,
+  "public_post_url": null,
+  "prepared_at_utc": "2026-10-08T06:05:20.753489+00:00",
+  "observed_base_commit": "688d2104e8adfbd1427907d442edde5516feb1fd",
+  "metricool_draft_created": false,
+  "metricool_media_uploaded": false,
+  "zip_transport": "One body above 16MiB was rejected technically; removed duplicate PDF from ZIP. PDF preserved as separate artifact. No images changed."
+}

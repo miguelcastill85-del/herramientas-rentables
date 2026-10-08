@@ -1,0 +1,53 @@
+{
+  "engine": "Tesseract 5, eng, psm6",
+  "note": "Accents require visual verification; OCR is complementary, not publication evidence.",
+  "images": {
+    "P03_01.png": "~Puedes\nbie\ntambien?\nUna entrega mas también\ncambia el trabajo.\nAntes de decir que si, revisa lo acordado.\n. Con «\nentrega nan?\npropuestainicial o\n) iv]\niv]\niv)\no\no °\nHERRAMIENTAS RENTABLES 01/05\n",
+    "P03_02.png": "Se @\nrimero\n9\nlo °\nLanding page\n© Hasta 5 secciones\n& 2 rondas de revision\nCal Textos e imagenes del cliente\nEjemplo ilustrativo\n",
+    "P03_03.png": "4-2 secciones | Gh\nestimadas\n+irondade =| 2h\nrevision estimadas\nadicionales por evaluar\nEjemplo ilustrativo. Estima tus propias horas.\n",
+    "P03_04.png": "cambio antes\nde empezar.\nUna respuesta que puedes adaptar\n6 G Podemos sumar 2 secciones\ny una ronda extra. Te enviaré\nel precio y el plazo con el\nalcance actualizado.\ncs\nB $ vu\nAlcance Precio Plazo Revisiones\nHERRAMIENTAS RENTABLES 04/05\n",
+    "P03_05.png": "Actualiza tiempo,\ncostos y alcance.\né\nf ¢ otizador\nEn espafiol - Sin registro\nPruébalo con tu proximo proyecto.\n"
+  },
+  "inspection_crops": {
+    "P03_01_title": {
+      "region": [
+        68,
+        90,
+        1140,
+        525
+      ],
+      "inverted": true,
+      "text": "~Puedes\nagregar esto\ntambien?\n"
+    },
+    "P03_02_title": {
+      "region": [
+        65,
+        52,
+        1190,
+        397
+      ],
+      "inverted": false,
+      "text": "Primero,\n[o) i\n"
+    },
+    "P03_03_total": {
+      "region": [
+        69,
+        782,
+        700,
+        995
+      ],
+      "inverted": true,
+      "text": "i>\n"
+    },
+    "P03_05_title": {
+      "region": [
+        65,
+        61,
+        1043,
+        490
+      ],
+      "inverted": true,
+      "text": "Recalcula\nantes de\naceptar.\n"
+    }
+  }
+}

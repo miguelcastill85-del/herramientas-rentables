@@ -1,0 +1,32 @@
+{
+  "piece": "P03",
+  "revision": "R1",
+  "language": "es-CL",
+  "items": [
+    {
+      "order": 1,
+      "image": "images/P03_01.png",
+      "text": "Portada sobre cambios de alcance. Pregunta: ¿Puedes agregar esto también? Una entrega más también cambia el trabajo. Invitación a revisar lo acordado antes de aceptar. Dos propuestas ilustradas muestran cómo una entrega adicional amplía la lista de trabajo."
+    },
+    {
+      "order": 2,
+      "image": "images/P03_02.png",
+      "text": "Propuesta inicial de ejemplo: landing page de hasta cinco secciones, dos rondas de revisión y textos e imágenes aportados por el cliente. Se indica que es un ejemplo ilustrativo."
+    },
+    {
+      "order": 3,
+      "image": "images/P03_03.png",
+      "text": "Nueva solicitud ilustrativa: dos secciones adicionales estimadas en seis horas y una ronda de revisión adicional estimada en dos horas. Total: ocho horas adicionales por evaluar. Se invita a estimar las horas propias."
+    },
+    {
+      "order": 4,
+      "image": "images/P03_04.png",
+      "text": "Invitación a acordar el cambio antes de empezar. Respuesta adaptable: Podemos sumar dos secciones y una ronda extra. Te enviaré el precio y el plazo con el alcance actualizado. Se recuerdan alcance, precio, plazo y revisiones."
+    },
+    {
+      "order": 5,
+      "image": "images/P03_05.png",
+      "text": "Cierre: Recalcula antes de aceptar y actualiza tiempo, costos y alcance. Cotizador gratuito de Herramientas Rentables, en español y sin registro. Invitación a probarlo con el próximo proyecto desde el enlace del perfil."
+    }
+  ]
+}

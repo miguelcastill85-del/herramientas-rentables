@@ -1,0 +1,41 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P03",
+  "revision": "R1",
+  "state": "PREPARED_UNSCHEDULED_UNPUBLISHED",
+  "network": "instagram",
+  "brand_id": 7292000,
+  "instagram_handle": "@herramientas_rentables_chile",
+  "timezone": "America/Santiago",
+  "type": "POST",
+  "caption_file": "P03_Texto_Instagram.txt",
+  "caption_first_line": "¿Cambió el alcance? Revisa la cotización antes de empezar.",
+  "media_paths": [
+    "images/P03_01.png",
+    "images/P03_02.png",
+    "images/P03_03.png",
+    "images/P03_04.png",
+    "images/P03_05.png"
+  ],
+  "media_alt_text_file": "P03_Textos_Alternativos.json",
+  "schedule": {
+    "anchor": "FIRST_REAL_P01_PUBLICATION_CIVIL_DATE",
+    "campaign_day": 5,
+    "day_offset": 4,
+    "time": "10:00:00",
+    "proposed_only_if_p01_published_2026_10_08": "2026-10-12T10:00:00",
+    "native_date": null
+  },
+  "creation_gate": "REAL_P01_URL_RECORDED_AND_P02_NATIVE_SCHEDULE_RECONCILED_THEN_DEDUPLICATE_P03",
+  "draft": null,
+  "autoPublish": null,
+  "scheduled_post_id": null,
+  "scheduled_post_uuid": null,
+  "public_post_url": null,
+  "social_scheduled": false,
+  "social_published": false,
+  "metricool_media_uploaded": false,
+  "linkedin_target": "NOT_IDENTIFIED",
+  "cash_spent_clp": 0,
+  "plan": "FREE"
+}
