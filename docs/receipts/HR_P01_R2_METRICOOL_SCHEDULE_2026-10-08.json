@@ -1,0 +1,131 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P01",
+  "asset_revision": "R2",
+  "recorded_at_utc": "2026-10-08T03:32:37.091Z",
+  "status": "SCHEDULED_AUTOPUBLISH_VERIFIED_PENDING_LIVE_PUBLICATION",
+  "cash_spent_clp": 0,
+  "instagram_handle": "@herramientas_rentables_chile",
+  "metricool_brand_id": 7292000,
+  "timezone": "America/Santiago",
+  "account_verification": "NATIVE_GETBRANDSETTINGS_CONFIRMS_CORRECT_HANDLE",
+  "instagram_bio_link_verification": "OWNER_CONFIRMED_COTIZADOR_GRATUITO_2026-10-08",
+  "quote_url": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
+  "previous_assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
+  "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
+  "source_commit_scope": "FIVE_UNCHANGED_R2_PNGS_ONLY_NO_APPLICATION_CHANGE",
+  "post": {
+    "id": 390841744,
+    "previous_id": 390840941,
+    "uuid": "-7309929264440589713",
+    "planner_url": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-7309929264440589713",
+    "publication_date": {
+      "dateTime": "2026-10-08T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "provider_status": "PENDING",
+    "auto_publish": true,
+    "instagram_auto_publish": true,
+    "draft": false,
+    "media_count": 5,
+    "alt_text_count": 5,
+    "caption": "¿Tu cotización incluye las reuniones y correcciones?\n\nEn este ejemplo, un proyecto de CLP 300.000 pasa de CLP 7.500/h a CLP 5.625/h al sumar 8 horas adicionales y CLP 30.000 de costos directos.\n\nLas cifras son ilustrativas, antes de impuestos y otros gastos.\n\nAntes de enviar tu próxima propuesta, cuenta el trabajo completo.\n\nCon nuestro cotizador gratuito en español puedes estimar el precio mínimo y definir anticipo, saldo y revisiones. Sin registro.\n\nPruébalo desde el enlace del perfil.\n\n#FreelanceChile #Cotizaciones #TrabajoIndependiente",
+    "caption_verification": "EXACT_R2_TEXT_AFTER_TRIMMING_FINAL_NEWLINES",
+    "alt_text": [
+      "Proyecto ilustrativo de CLP 300.000. Con 40 horas de trabajo equivale a CLP 7.500 por hora; con 48 horas y costos directos equivale a CLP 5.625 por hora, antes de impuestos y otros gastos. Invitación a deslizar para revisar la cuenta.",
+      "Precio del proyecto de CLP 300.000 dividido por 40 horas de trabajo. Resultado: CLP 7.500 por hora antes de costos e impuestos. Ejemplo ilustrativo en CLP.",
+      "Lista del trabajo completo: 40 horas de trabajo, 5 de reuniones y 3 de correcciones. Total 48 horas. CLP 300.000 dividido por 48 da CLP 6.250 por hora antes de costos e impuestos. Ejemplo ilustrativo en CLP.",
+      "Al precio de CLP 300.000 se restan CLP 30.000 de costos directos. Quedan CLP 270.000, que divididos por 48 horas dan CLP 5.625 por hora antes de impuestos y otros gastos. Ejemplo ilustrativo en CLP.",
+      "Cotizador gratuito de Herramientas Rentables, en español y sin registro. Permite evaluar precio mínimo, anticipo y saldo, alcance y revisiones. Invitación a probarlo con los datos del próximo proyecto."
+    ]
+  },
+  "duplicate_check": {
+    "queue_before": "EMPTY_2026-10-08_TO_2026-10-22",
+    "queue_after": "ONE_P01_UUID",
+    "prior_publication_analytics": "NO_ROWS_RETURNED_AFTER_NEW_CONNECTION_NOT_PROOF_OF_ZERO_PRIOR_POSTS"
+  },
+  "live_image_delivery": [
+    {
+      "name": "P01_01.png",
+      "bytes": 1452914,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "86f77430de8a4851578d9ef07b83f833300e3889216fe972541fced8ebc45d25",
+      "r2_exact_bytes": true,
+      "metricool_url": "https://static.metricool.com/planner/202610/7292000-file-10956681553638613672.png",
+      "git_blob_sha": "0c7d1894c2c71b6ba8dc7e43f33b2df87e82e783",
+      "source_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/d86fb464185a3ef4aeef914344a70662271d814e/docs/marketing/p01/images/P01_01.png"
+    },
+    {
+      "name": "P01_02.png",
+      "bytes": 1357054,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "fc4f91ee51dca1ccfaa251990fffee8ac55d22ae5d702abbb0bb909934e6e24b",
+      "r2_exact_bytes": true,
+      "metricool_url": "https://static.metricool.com/planner/202610/7292000-file-5100596307061707573.png",
+      "git_blob_sha": "53bf08372294ac37b840505aee394e23322c507a",
+      "source_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/d86fb464185a3ef4aeef914344a70662271d814e/docs/marketing/p01/images/P01_02.png"
+    },
+    {
+      "name": "P01_03.png",
+      "bytes": 1419857,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "2051e91dd90fb1b08e62a608b2ec98944027d0a6e318346dbfca4f1cb68d0284",
+      "r2_exact_bytes": true,
+      "metricool_url": "https://static.metricool.com/planner/202610/7292000-file-17534263490601905795.png",
+      "git_blob_sha": "c62a823c2d543da66cf6d34766246887a1041f00",
+      "source_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/d86fb464185a3ef4aeef914344a70662271d814e/docs/marketing/p01/images/P01_03.png"
+    },
+    {
+      "name": "P01_04.png",
+      "bytes": 1367557,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "827892319e8cb0d1ecd166d9d1495d6ed1605c36a3f8efbd478392cbc4992c96",
+      "r2_exact_bytes": true,
+      "metricool_url": "https://static.metricool.com/planner/202610/7292000-file-16464028947127240754.png",
+      "git_blob_sha": "696552a6d1307095540e17a1ee99d3240b354ad7",
+      "source_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/d86fb464185a3ef4aeef914344a70662271d814e/docs/marketing/p01/images/P01_04.png"
+    },
+    {
+      "name": "P01_05.png",
+      "bytes": 1492762,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "36caa5270ac48983202f97b69e3ceeb3b113550b14665d01a299855058802431",
+      "r2_exact_bytes": true,
+      "metricool_url": "https://static.metricool.com/planner/202610/7292000-file-7570508044650868338.png",
+      "git_blob_sha": "6dcf941de1a45c20918e19b2865aa89d8c9b9455",
+      "source_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/d86fb464185a3ef4aeef914344a70662271d814e/docs/marketing/p01/images/P01_05.png"
+    }
+  ],
+  "publication_verified": false,
+  "public_post_url": null,
+  "publication_state": "FUTURE_POST_PENDING",
+  "analytics": null,
+  "site_version": 17,
+  "product_rebuilt": false,
+  "site_redeployed": false,
+  "closed_work_preserved": true,
+  "update_note": "Metricool GET supplies inactive twitterData defaults even for Instagram. Remove inactive networkData fields before a full-content plugin update; keep active provider content unchanged.",
+  "followup": {
+    "automation_id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "prompt_update_confirmed": true,
+    "existing_schedule_preserved": true,
+    "next_run_time": null,
+    "goal": "CHECK_ACTUAL_PUBLICATION_WITH_POSITIVE_EVIDENCE_DO_NOT_DUPLICATE"
+  }
+}
