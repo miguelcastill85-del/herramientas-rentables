@@ -1,0 +1,50 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P01",
+  "revision": "R2",
+  "observed_at_utc": "2026-10-08T23:07:36.288Z",
+  "source": "METRICOOL_NATIVE_CONNECTOR",
+  "brand": {
+    "id": 7292000,
+    "instagram": "herramientas_rentables_chile",
+    "timezone": "America/Santiago"
+  },
+  "id": 390841744,
+  "uuid": "-7309929264440589713",
+  "provider": {
+    "network": "instagram",
+    "id": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "status": "PUBLISHED",
+    "publicUrl": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "detailedStatus": "Published"
+  },
+  "public_post_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+  "publication_verified": true,
+  "evidence": "NATIVE_PUBLISHED_STATUS_WITH_PUBLIC_URL_AND_EXACT_ID_UUID_CAPTION_MEDIA_ALT_MATCH_NOT_QUEUE_DISAPPEARANCE",
+  "matches": {
+    "id": true,
+    "uuid": true,
+    "text": true,
+    "media": true,
+    "alt_text": true,
+    "date": true
+  },
+  "scheduled_at": {
+    "dateTime": "2026-10-08T10:00:00",
+    "timezone": "America/Santiago"
+  },
+  "actual_publication_datetime": null,
+  "actual_publication_civil_date": "2026-10-08",
+  "civil_date_basis": "INFERRED_FROM_SAME_LOCAL_DAY_STATE_CHANGE: PENDING observed 2026-10-08T12:19:19.379Z; PUBLISHED with URL first observed 2026-10-08T21:13:36.696Z. Exact publication time is unobserved; scheduled 10:00 is not claimed as actual time.",
+  "first_published_observed_at_utc": "2026-10-08T21:13:36.696Z",
+  "public_page_visual_verification": false,
+  "public_page_fetch": "WEB_OPEN_DISABLED",
+  "analytics": {
+    "rows": []
+  },
+  "analytics_observed_at_utc": "2026-10-08T23:07:36.288Z",
+  "metrics_state": "UNOBSERVED_EMPTY_ROWS_NOT_ZERO_RESULTS",
+  "p01_created_or_modified": false,
+  "cash_spent_clp": 0,
+  "prior_gate_reconciled": "Previous recovery expected IGPO06/IGPO03 because connector description said pending only. Current native response provides direct positive PUBLISHED status and real publicUrl on the matching immutable post. Native URL evidence satisfies actual publication gate; analytics and exact publication timestamp remain unobserved."
+}

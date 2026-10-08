@@ -1,6 +1,6 @@
 # Herramientas Rentables — Campaña orgánica de 14 días
 
-Preparada el 2026-10-07; actualizada el 2026-10-08. Estado: **P01 R2 programada; P02 R1 preparada y auditada; publicación efectiva de la campaña todavía no confirmada**.
+Preparada el 2026-10-07; actualizada el 2026-10-08. Estado: **P01 R2 publicada con URL nativa confirmada; P02 R1 y P03 R1 preparadas y auditadas**.
 Inicio: fecha real de la primera publicación verificada. Gasto monetario realizado: **CLP 0**.
 
 ## Decisión sobre idiomas
@@ -188,3 +188,11 @@ La selección de públicos, textos, cadencia y criterios de revisión son propue
 - Preservación: DP-FREELANCE-001 v2.2, productos, precios, descarga auditada, sitio v17, fórmulas, sitemap y UTM cerrados. Gasto CLP 0; plan Free.
 
 Receipts de continuidad: `docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json`, `HR_P02_ASSETS_READY_2026-10-08.json`, `HR_P02_METRICOOL_DEFERRED_2026-10-08.json` y `HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json`.
+
+## Checkpoint vigente: P01 publicada y P03 preparada
+
+P01: Metricool devuelve PUBLISHED y URL real https://www.instagram.com/p/DeO_-4OCNl4/, con contenido e identidad coincidentes. Día 1: 2026-10-08, por el intervalo observado dentro de la misma fecha civil de Santiago; hora exacta de publicación no observada. Analítica: aún sin filas, no significa cero resultados. Este estado posterior reemplaza los pendientes históricos de las secciones anteriores.
+
+P03 R1 está completada: cinco PNG 1254 × 1254, PDF de cinco páginas con enlace real, textos de Instagram y LinkedIn, ALT y transcripción. Caso ilustrativo: cinco secciones y dos rondas iniciales; dos secciones adicionales estimadas en seis horas y una revisión extra en dos horas; ocho horas adicionales por evaluar. No son resultados de un cliente ni una salida del cotizador. Archivos congelados: 19d251a31f12213de3c16712a54bb694fc00812f. Checkpoint: docs/marketing/P03_PUBLICATION_CHECKPOINT_2026-10-08.md.
+
+P02 y P03 todavía no tienen programación en este checkpoint. Tras guardar la evidencia positiva de P01, deduplicar P02 y programarla una vez para el 10 de octubre a las 10:00 Santiago. Luego deduplicar P03 y programarla una vez para el 12 de octubre a las 10:00. Las fechas provienen de los días 3 y 5, respectivamente. Revisión diaria existente, sin crear otra. Creativo siguiente: P04/V02; recuperar el archivo real del sistema español antes de representarlo. Mantener productos cerrados, sitio v17, plan Free y CLP 0.

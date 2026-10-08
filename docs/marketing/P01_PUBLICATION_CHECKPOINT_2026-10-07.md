@@ -4,10 +4,10 @@ Actualizado el 2026-10-08. Campaña: `docs/marketing/Campana_Organica_14_Dias.md
 
 ## Autoridad vigente
 
-**R2_PROFESSIONAL_ASSETS_VERIFIED / AUTOPUBLISH_SCHEDULED_VERIFIED_PENDING_LIVE_PUBLICATION.**
+**R2_PROFESSIONAL_ASSETS_VERIFIED / NATIVE_PUBLISHED_WITH_REAL_URL_ANALYTICS_PENDING.**
 
 Receipt actual: `docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json`.
-La preparación inicial en `HR_P01_ASSETS_READY_2026-10-07.json` es evidencia histórica; usar los archivos R2 y sus versiones actuales. Programación automática: verificada. Publicación efectiva: pendiente de su horario. Gasto monetario adicional: CLP 0.
+La preparación inicial en `HR_P01_ASSETS_READY_2026-10-07.json` es evidencia histórica; usar los archivos R2 y sus versiones actuales. Programación automática: verificada. Publicación efectiva: confirmada por estado PUBLISHED y publicUrl nativos; analítica pendiente. Gasto monetario adicional: CLP 0.
 
 ## Trabajo pedido y completado
 
@@ -72,3 +72,11 @@ La lectura nativa volvió a confirmar un único UUID P01, ID 390841744, estado P
 El primer pendiente creativo P02 se completó con capturas reales del cotizador. Video y archivos están congelados en el commit e372ed596994058387e3bb3ea84067c40cdc762e; checkpoint: `docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md`. Su programación queda pendiente de comprobar primero la URL real de P01. La revisión automática rechazó un intento de borrador P02 antes de ese gate; no se produjo ningún P02 en Metricool ni se eludió el rechazo.
 
 Se actualizó exclusivamente el prompt de la revisión diaria existente con esta continuidad y el gate. Se verificaron el mismo ID, título, horario, zona y estado activo. No se creó otra tarea. Los 228 blobs anteriores se preservaron exactamente en el commit de los 18 archivos nuevos; no hubo cambios de aplicación, reconstrucción de productos ni despliegue de sitio. Mantener CLP 0 y plan Free.
+
+## Publicación efectiva reconciliada del 2026-10-08
+
+Metricool devuelve PUBLISHED con URL real https://www.instagram.com/p/DeO_-4OCNl4/ para el ID 390841744 y UUID -7309929264440589713. La marca 7292000 sigue conectada a @herramientas_rentables_chile. Texto, cinco medios y cinco textos alternativos coinciden exactamente con R2. No se creó ni editó P01.
+
+Esta es evidencia positiva del provider, no desaparición de la cola. La lectura contradice la descripción anterior del método: esta respuesta incluye también el registro publicado con publicUrl. La fecha civil de publicación es el 8 de octubre, inferida del intervalo entre PENDING a las 09:19 y PUBLISHED observado a las 18:13 de Santiago. La hora exacta real no se observó; las 10:00 conservan su significado de horario programado.
+
+La analítica sigue sin filas y la consulta web de Instagram está deshabilitada. No se afirma revisión visual del post público ni alcance, clics o ventas. Receipt: docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json. Gate de URL real satisfecho con la nueva respuesta positiva nativa. Continuar P02 y P03 una sola vez, con deduplicación y GET; conservar CLP 0 y plan Free.
