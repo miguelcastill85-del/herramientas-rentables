@@ -1,10 +1,10 @@
 # Herramientas Rentables - P01 R2 profesional listo
 
-Actualizado el 2026-10-07. Campaña: `docs/marketing/Campana_Organica_14_Dias.md`.
+Actualizado el 2026-10-08. Campaña: `docs/marketing/Campana_Organica_14_Dias.md`.
 
 ## Autoridad vigente
 
-**R2_PROFESSIONAL_ASSETS_VERIFIED / INSTAGRAM_NETWORK_CONNECTION_REQUIRED.**
+**R2_PROFESSIONAL_ASSETS_VERIFIED / METRICOOL_WRONG_INSTAGRAM_CONNECTED.**
 
 Receipt actual: `docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json`.
 La preparación inicial en `HR_P01_ASSETS_READY_2026-10-07.json` es evidencia histórica; usar los archivos R2 y sus versiones actuales. Publicación: no realizada. Gasto monetario adicional: CLP 0.
@@ -31,9 +31,13 @@ La página pública fue recuperada el 2026-10-07 y el código del sitio confirma
 
 **Metricool ya está conectado a ChatGPT. No repetir instalación o conexión de la integración.**
 
-La consulta nativa más reciente indica que la marca no tiene ninguna red social conectada. El usuario confirmó que tiene Herramientas Rentables en Instagram; destino previsto: @herramientasrentables, también enlazado desde el sitio. Falta vincular ese perfil a Metricool. La consulta pública de Instagram no permitió verificar la biografía, por lo que su enlace sigue sin observarse.
+La captura del propietario muestra dos cuentas diferentes: **@herramientas_rentables_chile** (seleccionada) y @harisingh1985. El destino correcto es @herramientas_rentables_chile, cuyo nombre visible es “Herramientas Freelance Chile”; aparece como Creador(a) digital, con dos publicaciones. La cuenta ya existe: no volver a crearla. Este identificador sustituye al antiguo destino previsto @herramientasrentables.
 
-La frase de la publicación de Instagram “enlace del perfil” requiere comprobar que la biografía permita abrir el cotizador. Antes de publicar: vincular la red existente, verificar cuenta y enlace, comprobar duplicados y publicar los cinco PNG R2 en orden con su texto. Conservar URL real y hora de Chile. No afirmar publicación hasta comprobarla. Usar únicamente Free y no activar promociones pagadas. El destino de LinkedIn aún no está identificado.
+La lectura nativa de Metricool del 2026-10-08T03:06:23.743Z sigue devolviendo **@harisingh1985** en la marca **7292000**, zona America/Santiago. No se ha cambiado la conexión ni publicado/programado P01 en esta continuación. El conector nativo puede consultar y programar, pero no ofrece escrituras para conectar o desconectar redes.
+
+El panel web de Metricool requiere sesión. El acceso seguro mediante Google devolvió HTTP 502 “Connection refused”. La comprobación en una pestaña nueva del dominio de Metricool volvió al formulario de acceso: sesión no confirmada. No hay evidencia de un bloqueo antibot. No guardar ni copiar URLs OAuth, secretos o datos de contacto privados. No repetir ese acceso fallido por rutina; usar una alternativa admitida elegida por el propietario, o corregir la conexión desde su panel de Metricool y comprobar luego con el conector nativo.
+
+En la captura se ve el dominio del sitio en la biografía, pero el enlace está truncado. La frase “enlace del perfil” exige verificar el destino completo al cotizador. Antes de publicar: sustituir la conexión de @harisingh1985 por @herramientas_rentables_chile en la marca Free existente; confirmar el usuario con getbrandsettings; verificar la biografía; consultar publicaciones y cola para evitar duplicados; publicar o programar los cinco PNG R2 en orden con el texto preparado. Conservar URL y hora reales de Chile. Usar únicamente Free y mantener CLP 0 de gasto. El destino de LinkedIn aún no está identificado.
 
 ## Continuación y preservación
 
