@@ -1,12 +1,12 @@
 # Herramientas Rentables — P02 R1: demostración del cotizador
 
-Actualizado el 2026-10-08. Estado: **FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED**.
+Actualizado el 2026-10-08. Estado: **FROZEN_ASSETS_LOCAL_QA_PASS_NATIVE_SCHEDULING_BLOCKED**.
 
 ## Estado verificable
 
 P02 tiene video vertical, portada, textos para Instagram y LinkedIn y transcripción. Está preparada en GitHub; **no está programada ni publicada en Metricool**. No hay ID, UUID ni URL pública social de P02.
 
-P01 R2 conserva el ID 390841744 y UUID -7309929264440589713. La última lectura nativa sigue mostrando PENDING, publicación automática y 2026-10-08 10:00 America/Santiago. Su URL real todavía no está observada. La cola contiene únicamente P01.
+P01 R2 está PUBLICADA según la respuesta nativa positiva de Metricool, ID 390841744, UUID -7309929264440589713, provider PUBLISHED y URL real https://www.instagram.com/p/DeO_-4OCNl4/. Texto, cinco imágenes y cinco ALT coinciden con el receipt original. Evidencia: docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json. Fecha civil 2026-10-08 inferida del intervalo observado dentro del mismo día de Santiago; hora exacta no observada. Analítica sin filas: resultados no observados, no cero. El gate de URL real está satisfecho y fue guardado antes de los intentos actuales.
 
 ## Fuentes y archivos congelados
 
@@ -37,22 +37,25 @@ Siete escenas revisadas visualmente; escena de resultado inspeccionada también 
 
 Esto valida el archivo local; la publicación real y el procesamiento de Instagram todavía no han sido probados para P02. Usar el conector conectado, sin API pagada ni cambio de plan.
 
-## Resultado del intento externo
+## Intento histórico antes de verificar la URL P01
 
 Una única solicitud de creación de borrador P02, con draft=true y publicación automática desactivada, fue **rechazada por la revisión automática** antes de confirmar la URL real de P01. No hubo respuesta de creación, ID ni UUID. Una lectura posterior de la cola confirmó P01 sin cambios y ningún P02.
 
 Receipt: `docs/receipts/HR_P02_METRICOOL_DEFERRED_2026-10-08.json`. No repetir ese intento ni usar otra vía para eludir el rechazo antes de cumplir el gate.
 
-## Siguiente acción autorizada
+## Resultado nativo posterior y siguiente acción
 
-1. Después del horario de P01, obtener evidencia positiva de publicación: URL IGPO06, texto IGPO03 coincidente y fecha de publicación real de la cuenta correcta.
-2. Registrar primero la URL y fecha reales de P01. La desaparición de la cola, un estado Sent o cero filas no satisfacen este gate.
-3. Una vez cumplido el gate, confirmar identidad @herramientas_rentables_chile, marca 7292000, America/Santiago.
-4. Deduplicar P02 en cola y analítica de Reels usando el primer renglón exacto “Cuatro pasos antes de enviar tu próxima cotización.”, el archivo y los IDs existentes.
-5. Programar una sola P02 para el día 3: fecha civil real de P01 + 2 días a las 10:00. Si P01 se publica efectivamente el 8 de octubre, el horario propuesto será el 10 de octubre a las 10:00. Todavía no es una programación.
-6. Si ese horario ya pasó al confirmar P01, elegir el siguiente horario futuro de las 10:00, con al menos dos días de calendario desde P01, y registrar el retraso.
-7. Guardar ID/UUID devueltos, verificar texto, video, fecha, zona y autoPublish mediante GET y actualizar HEAD. Para publicación efectiva de P02 usar URL IGRE06 y texto IGRE03; no inferirla por desaparecer de la cola.
+Después de guardar la URL real P01 en main, se intentó programar P02 para el 10 de octubre a las 10:00 America/Santiago. La URL pública en mediaFiles falló porque ese helper intenta leer un archivo local. Se quitó ese helper y se conservó la URL dentro de info.media. El contrato mínimo devolvió INVALID_ARGUMENT. Una única corrección material, con los valores del constructor primario inspeccionado, volvió a devolver INVALID_ARGUMENT. Son errores técnicos del conector; el rechazo histórico de revisión automática permanece documentado por separado.
 
-La revisión existente “Crecimiento Herramientas Rentables”, ID 6a8b4712398481919c6d25cff889fc0b, quedó actualizada con esta continuidad y el gate. ID, título, horario, zona y estado activo se conservaron; no se creó otra tarea. Receipt: `docs/receipts/HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json`.
+Conciliación posterior 2026-10-08T23:26:44.205Z: la ventana 8–22 de octubre contiene sólo P01 PUBLISHED con su ID/UUID originales y URL real; ningún P02 ni P03. P02 no tiene ID/UUID, borrador, programación o publicación confirmados. La aceptación del video remoto por Metricool sigue sin verificarse. Se cierran los intentos: no repetir solicitudes idénticas, adivinar campos ni esperar en un bucle. Receipt: docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json.
 
-LinkedIn permanece preparado con destino sin identificar. El siguiente tema creativo después de P02 es P03, cambios de alcance, según la campaña. Mantener CLP 0, plan Free y los productos y sitio v17 cerrados.
+1. Reanudar sólo con nueva evidencia concreta que corrija el contrato nativo.
+2. Confirmar identidad de Instagram y deduplicar en cola y Reels por texto exacto “Cuatro pasos antes de enviar tu próxima cotización.” y el medio congelado.
+3. Crear una sola P02 automática. Día 3 propuesto: 2026-10-10 10:00 Santiago, todavía sin programación. Si pasó, usar las siguientes 10:00 futuras y documentar el retraso.
+4. Guardar ID/UUID y validar mediante GET texto, video, fecha, zona, draft=false y autoPublish=true general e Instagram. Un error o resultado incierto exige conciliación antes de otra escritura.
+5. Para publicación efectiva, conservar URL pública nativa coincidente o IGRE06 con texto IGRE03; desaparecer de la cola no prueba publicación.
+6. Tras conciliar P02, programar P03 con los archivos existentes. Propuesta día 5: 2026-10-12 10:00 Santiago; si hay retraso, conservar dos días civiles entre P02 y P03 y registrar el calendario.
+
+La revisión existente “Crecimiento Herramientas Rentables”, ID 6a8b4712398481919c6d25cff889fc0b, se actualizó y se leyó nuevamente. Se preservaron ID, título, horario, zona, estado activo y timing_mode; no se creó otra. Receipt vigente: docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json. El prompt reconoce la URL real P01, los activos P03 y el límite de reintentos.
+
+LinkedIn sigue preparado con destino sin identificar. P03 está terminada, auditada y guardada en 19d251a31f12213de3c16712a54bb694fc00812f. Próximo creativo independiente: P04/V02, después de verificar el archivo español real. Mantener CLP 0, plan Free, productos cerrados y sitio v17.

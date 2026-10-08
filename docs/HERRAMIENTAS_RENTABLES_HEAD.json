@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "P01 real native public URL is confirmed and persisted. Deduplicate and schedule frozen P02 once for 2026-10-10 10:00 America/Santiago, then frozen P03 once for 2026-10-12 10:00. Verify returned ID/UUID and exact GET content. Keep actual URLs and measured results separate. Next creative: verify real Spanish doK54 file for P04/V02."
+    "P02 is the first operational pending piece. Native create returned INVALID_ARGUMENT after a documented contract correction; final queue contains only published P01. Stop retries until new concrete native contract evidence, then deduplicate, schedule P02 once and verify GET ID/UUID/content. P03 follows; dates Oct 10 and Oct 12 at 10:00 Santiago remain proposals only. Existing daily growth review updated with bounded checks. Independent creative P04/V02 requires the real Spanish doK54 source file."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-08T23:07:36.288Z",
+  "updated_at_utc": "2026-10-08T23:31:26.739Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_R2_NATIVE_PUBLISHED_URL_CONFIRMED_ANALYTICS_PENDING__P02_P03_READY_UNSCHEDULED",
+    "state": "P01_R2_NATIVE_PUBLISHED_URL_CONFIRMED_ANALYTICS_PENDING__P02_P03_READY_NATIVE_SCHEDULING_BLOCKED",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -268,17 +268,17 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "P01 real native public URL is confirmed and persisted. Deduplicate and schedule frozen P02 once for 2026-10-10 10:00 America/Santiago, then frozen P03 once for 2026-10-12 10:00. Verify returned ID/UUID and exact GET content. Keep actual URLs and measured results separate. Next creative: verify real Spanish doK54 file for P04/V02.",
+    "next_action": "P02 is the first operational pending piece. Native create returned INVALID_ARGUMENT after a documented contract correction; final queue contains only published P01. Stop retries until new concrete native contract evidence, then deduplicate, schedule P02 once and verify GET ID/UUID/content. P03 follows; dates Oct 10 and Oct 12 at 10:00 Santiago remain proposals only. Existing daily growth review updated with bounded checks. Independent creative P04/V02 requires the real Spanish doK54 source file.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-08T23:07:36.288Z",
+    "metricool_last_checked_at_utc": "2026-10-08T23:26:44.205Z",
     "network_connection_blocker": null,
     "browser_authentication": "NOT_SIGNED_IN_IN_FRESH_METRICOOL_VERIFICATION_TAB",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
     "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020",
-    "social_scheduled": true,
+    "social_scheduled": false,
     "scheduled_post_id": 390841744,
     "scheduled_post_uuid": "-7309929264440589713",
     "scheduled_at": {
@@ -293,15 +293,15 @@
     "metricool_media_byte_integrity": "PASS_5_OF_5_EXACT_R2_SHA256",
     "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
     "followup_automation_id": "6a8b4712398481919c6d25cff889fc0b",
-    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_PROMPT_UPDATED_P01_URL_FIRST_THEN_P02",
+    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_P01_REAL_URL_P03_FROZEN_AND_BOUNDED_NATIVE_BLOCK",
     "latest_publication_check_receipt": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
     "campaign_start": "2026-10-08",
     "metrics_state": "UNOBSERVED_EMPTY_ROWS_NOT_ZERO_RESULTS",
-    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json",
+    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json",
     "p02": {
       "piece": "P02",
       "asset_revision": "R1",
-      "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+      "state": "FROZEN_ASSETS_LOCAL_QA_PASS_NATIVE_SCHEDULING_BLOCKED",
       "checkpoint": "docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md",
       "assets_receipt": "docs/receipts/HR_P02_ASSETS_READY_2026-10-08.json",
       "assets_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
@@ -317,14 +317,17 @@
       "scheduled_post_uuid": null,
       "public_post_url": null,
       "proposed_date_if_p01_published_2026_10_08": "2026-10-10T10:00:00 America/Santiago",
-      "scheduling_gate": "FIRST_VERIFY_REAL_P01_PUBLICATION_URL_AND_DATE_THEN_DEDUPLICATE",
+      "scheduling_gate": "SATISFIED_POSITIVE_P01_NATIVE_PUBLISHED_PUBLIC_URL",
       "draft_attempt_status": "AUTO_REVIEW_REJECTED_BEFORE_P01_REAL_URL_NO_POST_CREATED",
       "deferred_receipt": "docs/receipts/HR_P02_METRICOOL_DEFERRED_2026-10-08.json",
-      "next_creative_piece": "P03",
+      "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
       "linkedin_state": "PREPARED_TARGET_UNIDENTIFIED",
       "cash_spent_clp": 0,
       "scheduling_gate_satisfied": true,
-      "scheduling_gate_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json"
+      "scheduling_gate_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
+      "scheduling_status": "NO_CONFIRMED_CREATION; INVALID_ARGUMENT",
+      "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "scheduling_attempts_after_p01_url": 3
     },
     "publication_status": "PUBLISHED",
     "publication_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
@@ -350,9 +353,20 @@
       "scheduled_post_uuid": null,
       "public_post_url": null,
       "proposed_date": "2026-10-12T10:00:00 America/Santiago",
-      "cash_spent_clp": 0
+      "cash_spent_clp": 0,
+      "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "scheduling_attempts": 0,
+      "deferred_reason": "P02_NATIVE_CREATE_CONTRACT_UNRESOLVED"
     },
     "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
-    "latest_campaign_checkpoint": "docs/marketing/P03_PUBLICATION_CHECKPOINT_2026-10-08.md"
+    "latest_campaign_checkpoint": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+    "historical_scheduling_verified": true,
+    "pending_social_posts_observed": 0,
+    "published_social_posts_observed": 1,
+    "native_scheduling_blocker": {
+      "state": "INVALID_ARGUMENT_AFTER_COMPLETE_CONTRACT_CORRECTION",
+      "receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "retry_without_new_evidence": false
+    }
   }
 }

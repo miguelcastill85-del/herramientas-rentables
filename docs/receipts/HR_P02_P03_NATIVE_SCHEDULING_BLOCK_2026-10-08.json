@@ -1,0 +1,187 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-08T23:31:26.739Z",
+  "status": "NATIVE_CREATE_CONTRACT_BLOCKED_P02_P03_UNSCHEDULED",
+  "authority_recovered_commit": "2338f7897d9d58b34e392bd7ff5eeefbbbce7fa9",
+  "identity": {
+    "instagram_handle": "@herramientas_rentables_chile",
+    "brand_id": 7292000,
+    "timezone": "America/Santiago",
+    "last_verified_basis": "NATIVE_GETBRANDSETTINGS_BEFORE_POST_CREATION; PRIOR_PUBLICATION_RECEIPT"
+  },
+  "p01": {
+    "state": "PUBLISHED_NATIVE_POSITIVE_EVIDENCE",
+    "post_id": 390841744,
+    "uuid": "-7309929264440589713",
+    "public_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "immutable_schedule_receipt": "docs/receipts/HR_P01_R2_METRICOOL_SCHEDULE_2026-10-08.json",
+    "positive_publication_receipt": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
+    "publication_url_gate_satisfied_before_p02_writes": true,
+    "no_p01_write": true,
+    "civil_date": "2026-10-08",
+    "civil_date_basis": "INFERRED_FROM_SAME_SANTIAGO_DAY_OBSERVED_STATE_CHANGE",
+    "actual_publication_datetime": null,
+    "public_page_visually_verified": false,
+    "performance_metrics": "UNOBSERVED_EMPTY_ANALYTICS_ROWS_NOT_ZERO"
+  },
+  "attempts_after_p01_positive_url_was_persisted": [
+    {
+      "sequence": 1,
+      "piece": "P02",
+      "tool": "Metricool.createScheduledPost",
+      "result": "LOCAL_UPLOAD_HELPER_FAILED",
+      "error": "mediaFiles[0]: No such file or directory (os error 2)",
+      "correction": "Public URL was removed from optional local mediaFiles helper; retained in info.media.",
+      "confirmed_post_id": null
+    },
+    {
+      "sequence": 2,
+      "piece": "P02",
+      "tool": "Metricool.createScheduledPost",
+      "request_contract": "media URL inside info.media, no mediaFiles; minimal post info",
+      "result": {
+        "error_code": "INVALID_ARGUMENT"
+      },
+      "confirmed_post_id": null
+    },
+    {
+      "sequence": 3,
+      "piece": "P02",
+      "tool": "Metricool.createScheduledPost",
+      "request_contract": "One material contract correction based on primary bridge constructor source; complete info defaults, no mediaFiles",
+      "outer_fields": [
+        "blogId",
+        "date",
+        "info"
+      ],
+      "info_fields": [
+        "providers",
+        "publicationDate",
+        "text",
+        "media",
+        "mediaAltText",
+        "autoPublish",
+        "descendants",
+        "draft",
+        "firstCommentText",
+        "hasNotReadNotes",
+        "shortener",
+        "smartLinkData",
+        "instagramData"
+      ],
+      "instagram_fields": {
+        "type": "REEL",
+        "autoPublish": true,
+        "showReelOnFeed": true,
+        "isAiGenerated": false
+      },
+      "date": "2026-10-10T10:00:00",
+      "timezone": "America/Santiago",
+      "draft": false,
+      "autoPublish": true,
+      "result": {
+        "error_code": "INVALID_ARGUMENT"
+      },
+      "confirmed_post_id": null
+    }
+  ],
+  "historical_pre_url_draft_denial": {
+    "receipt": "docs/receipts/HR_P02_METRICOOL_DEFERRED_2026-10-08.json",
+    "state": "PRESERVED_HISTORICAL_GATE_DENIAL; GATE_LATER_SATISFIED_BY_REAL_P01_URL",
+    "current_failures_are_technical_not_auto_review_denials": true
+  },
+  "final_reconciliation": {
+    "checked_at_utc": "2026-10-08T23:26:44.205Z",
+    "window": {
+      "from": "2026-10-08T00:00:00-03:00",
+      "to": "2026-10-22T23:59:59-03:00"
+    },
+    "posts_observed": 1,
+    "posts": [
+      {
+        "id": 390841744,
+        "uuid": "-7309929264440589713",
+        "publicationDate": {
+          "dateTime": "2026-10-08T10:00:00",
+          "timezone": "America/Santiago"
+        },
+        "providers": [
+          {
+            "network": "instagram",
+            "id": "https://www.instagram.com/p/DeO_-4OCNl4/",
+            "status": "PUBLISHED",
+            "publicUrl": "https://www.instagram.com/p/DeO_-4OCNl4/",
+            "detailedStatus": "Published"
+          }
+        ],
+        "media_count": 5,
+        "alt_count": 5,
+        "draft": false,
+        "autoPublish": true,
+        "instagram_autoPublish": true
+      }
+    ],
+    "matching_p02_posts": 0,
+    "matching_p03_posts": 0,
+    "queue_absence_is_publication_proof": false
+  },
+  "p02": {
+    "state": "FROZEN_ASSETS_LOCAL_QA_PASS_NATIVE_SCHEDULING_BLOCKED",
+    "assets_commit": "e372ed596994058387e3bb3ea84067c40cdc762e",
+    "video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+    "social_scheduled": false,
+    "social_published": false,
+    "post_id": null,
+    "uuid": null,
+    "public_url": null,
+    "proposed_schedule_only": "2026-10-10T10:00:00 America/Santiago",
+    "media_accepted_by_metricool": "UNVERIFIED"
+  },
+  "p03": {
+    "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+    "assets_commit": "19d251a31f12213de3c16712a54bb694fc00812f",
+    "create_attempts": 0,
+    "reason_deferred": "P02_NATIVE_CREATE_CONTRACT_REMAINS_UNRESOLVED; PRESERVE_ORDER_AND_DO_NOT_REPEAT_BLIND_CALLS",
+    "social_scheduled": false,
+    "social_published": false,
+    "post_id": null,
+    "uuid": null,
+    "public_url": null,
+    "proposed_schedule_only": "2026-10-12T10:00:00 America/Santiago"
+  },
+  "stopping_rule": "No further unchanged or speculative create requests. Resume only with new concrete contract evidence; deduplicate first, make one corrected write, verify GET. No persistent polling or wait loop.",
+  "next_operational_action": "Resolve native P02 create contract with new evidence; then schedule once and verify ID/UUID/content. P03 follows with two civil days between pieces if delayed. Proposed times are not confirmed schedules.",
+  "next_independent_creative": "P04/V02: verify real Spanish doK54 source file before producing a truthful demonstration; do not substitute the advanced English workbook.",
+  "followup": {
+    "existing_automation_id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "prompt_updated": true,
+    "created_new_task": false,
+    "receipt": "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json"
+  },
+  "preservation": {
+    "baseline_commit": "688d2104e8adfbd1427907d442edde5516feb1fd",
+    "baseline_blobs": 250,
+    "unchanged_blobs": 247,
+    "changed_documentation": [
+      "docs/HERRAMIENTAS_RENTABLES_HEAD.json",
+      "docs/marketing/Campana_Organica_14_Dias.md",
+      "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md"
+    ],
+    "unexpected_changes": [],
+    "p01_regenerated": false,
+    "p02_regenerated": false,
+    "p03_regenerated": false,
+    "products_rebuilt": false,
+    "site_redeployed": false
+  },
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_promotions": false,
+    "paid_api": false,
+    "plan_change": false,
+    "metricool_plan_constraint": "FREE",
+    "payhip_plan": "FREE",
+    "browser_fallback_used": false
+  }
+}

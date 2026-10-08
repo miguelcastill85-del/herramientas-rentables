@@ -15,3 +15,9 @@ P01 tiene URL real nativa confirmada: https://www.instagram.com/p/DeO_-4OCNl4/. 
 P03 sigue sin ID, UUID ni URL social. Primero conciliar/programar P02; después deduplicar P03 por primer renglón exacto “¿Cambió el alcance? Revisa la cotización antes de empezar.” y medios. Día 5: 2026-10-12 a las 10:00 America/Santiago. Usar las cinco URLs inmutables del commit anterior y ALT preparados; verificar GET con draft=false y publicación automática. LinkedIn: destino todavía no identificado.
 
 Reutilizar Crecimiento Herramientas Rentables, ID 6a8b4712398481919c6d25cff889fc0b. Próximo creativo: P04/V02, después de comprobar su archivo español real. Conservar P01/P02/P03, productos y sitio v17. Gasto CLP 0, Metricool Free.
+
+## Cierre operativo 2026-10-08T23:31:26.739Z
+
+P02 devolvió INVALID_ARGUMENT aun después de una corrección documentada del contrato nativo. La conciliación posterior contiene únicamente P01 PUBLISHED. P03 no tuvo solicitud de creación: cero intentos, ningún ID/UUID y ninguna programación o publicación confirmada. 2026-10-12 10:00 Santiago sigue siendo una propuesta. El bloqueo afecta la escritura nativa; los cinco PNG, PDF, ZIP, textos y ALT siguen congelados y completos. Receipt: docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json.
+
+No repetir peticiones fallidas ni regenerar el carrusel. Reanudar con una corrección nueva y concreta del contrato, deduplicar y conciliar P02 primero; si se retrasa, conservar dos días civiles antes de P03. La revisión diaria existente se actualizó y verificó sin cambiar horario ni identidad: docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json. Mantener gasto CLP 0 y Free.
