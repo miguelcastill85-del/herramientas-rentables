@@ -66,7 +66,10 @@
   "piece": "P01",
   "asset_revision": "R2",
   "status": "CHECKED_BEFORE_SCHEDULE_PENDING",
+  "first_checked_at_utc": "2026-10-08T04:23:15.441Z",
+  "last_checked_at_utc": "2026-10-08T04:39:08.013Z",
   "observed_base_commit": "d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700",
+  "asset_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
   "main_advanced_since_user_checkpoint": false,
   "publication_verified": false,
   "public_post_url": null,
@@ -76,15 +79,6 @@
   "scheduled_post_unchanged": true,
   "metrics_state": "NO_ROWS_RETURNED_NOT_ZERO_REACH_OR_ZERO_SALES",
   "queue_disappearance_proves_publication": false,
-  "p01_content_comparison": {
-    "id_match": true,
-    "uuid_match": true,
-    "caption_match": true,
-    "five_media_urls_match": true,
-    "five_alt_texts_match": true,
-    "auto_publish": true,
-    "instagram_auto_publish": true,
-    "draft": false,
-    "one_p01_uuid": true
-  }
+  "p02_native_posts": 0,
+  "p02_created": false
 }

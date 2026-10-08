@@ -1,0 +1,30 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-08T04:39:08.013Z",
+  "status": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_VERIFIED",
+  "automation_id": "6a8b4712398481919c6d25cff889fc0b",
+  "title": "Crecimiento Herramientas Rentables",
+  "schedule": "BEGIN:VEVENT\nDTSTART:20260823T180000Z\nRRULE:FREQ=DAILY;BYHOUR=14;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+  "timing_mode": "flexible_schedule",
+  "timezone": "America/Santiago",
+  "is_enabled": true,
+  "unchanged_fields": {
+    "id": true,
+    "title": true,
+    "schedule": true,
+    "timing_mode": true,
+    "is_enabled": true,
+    "default_timezone": true
+  },
+  "next_run_time": null,
+  "last_run_time": "2026-10-07T17:46:29.813849+00:00",
+  "updated_at": "2026-10-08T04:37:45.640974+00:00",
+  "created_new_automation": false,
+  "matching_daily_growth_automations_in_initial_peek": 1,
+  "required_apps_read_only_verified": [
+    "GitHub",
+    "Metricool"
+  ],
+  "purpose": "VERIFY_P01_REAL_PUBLICATION_AND_URL; THEN_CONTINUE_P02_AFTER_GATE_ONLY; KEEP_COST_ZERO",
+  "task_prompt": "Gestiona el crecimiento y las optimizaciones de Herramientas Rentables. Revisa el estado del embudo, tráfico, páginas y conversiones disponibles; prioriza acciones de costo cero que puedan ejecutarse con máxima autonomía; mejora SEO, contenidos, CTAs y distribución orgánica según resultados; descarta acciones sin tracción y concentra esfuerzo en las que generen visitas cualificadas, descargas y ventas. No uses publicidad pagada ni herramientas con costo sin autorización explícita. Informa solo cambios útiles, resultados y siguientes acciones concretas.\n\nContinuidad verificada de la campaña orgánica: recupera primero GitHub main miguelcastill85-del/herramientas-rentables, docs/HERRAMIENTAS_RENTABLES_HEAD.json y docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md. La cuenta correcta es @herramientas_rentables_chile, marca Metricool 7292000, zona America/Santiago. P01 R2 está programado para 2026-10-08 10:00 en esa zona, post id 390841744, UUID -7309929264440589713; receipt docs/receipts/HR_P01_R2_METRICOOL_SCHEDULE_2026-10-08.json. Comprueba la publicación efectiva y conserva su URL real cuando exista evidencia positiva. getScheduledPosts sólo devuelve pendientes: que el registro desaparezca de la cola NO prueba publicación. Para comprobarla usa métricas de posts, incluida la URL IGPO06 y el texto IGPO03, y compara con el título ‘¿Tu cotización incluye las reuniones y correcciones?’ y el receipt. Si los datos aún no aparecen, informa estado no observado y mantén el checkpoint; no vuelvas a programar ni duplicar P01. Verifica siempre la identidad de Instagram antes de escribir. No atribuyas al negocio datos previos de @harisingh1985. Mantén cerrados el producto DP-FREELANCE-001 v2.2, la descarga auditada y el sitio v17; no reconstruyas, vuelvas a iniciar sesión por rutina, repitas accesos bloqueados a Payhip, actives planes pagos ni gastes dinero. No envíes mensajes a terceros.\n\nHERRAMIENTAS_RENTABLES_CONTINUATION_2026_10_08:\nP02 R1 está preparada y auditada en GitHub, sin programación ni publicación. Recupera también docs/marketing/Campana_Organica_14_Dias.md, docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md y docs/receipts/HR_P02_ASSETS_READY_2026-10-08.json. Hay video vertical de 32 s montado con capturas reales, portada, textos y transcripción; conserva los bytes y SHA-256. No regeneres P01 ni P02 por rutina.\nGATE de cualquier escritura P02 en Metricool: primero evidencia positiva de publicación real P01 en @herramientas_rentables_chile, con su URL IGPO06 y texto IGPO03 coincidentes, fecha real normalizada a America/Santiago. Mientras falte esa URL, no crees borradores, no programes y no actualices posts P02. El intento previo de borrador fue rechazado por revisión automática precisamente por faltar esa evidencia; no lo repitas ni lo sustituyas por otra vía antes de cumplir el gate.\nCuando se cumpla el gate, registra primero URL y fecha real P01 en el checkpoint. Después continúa la campaña autorizada con P02 en el día 3: fecha civil de publicación P01 + 2 días a las 10:00 de Santiago; si esa hora ya pasó, usa la próxima hora 10:00 futura que mantenga al menos dos días de calendario desde P01 y documenta el retraso. Reconfirma la identidad mediante getBrandSettings; consulta la cola y la analítica de Reels para deduplicar por el texto exacto 'Cuatro pasos antes de enviar tu próxima cotización.' y el asset antes de cualquier creación. Usa sólo el conector Metricool existente y plan Free, el texto Instagram y la URL inmutable del video guardados en el checkpoint; crea una única publicación automática después del gate, conserva el ID/UUID devueltos y valida en GET texto, video, fecha, timezone, draft=false y autoPublish=true. Omitir sólo los campos networkData de redes ausentes en una actualización; conservar contenido activo completo. La desaparición de P02 de la cola tampoco prueba publicación; la URL de Reel es IGRE06 y su texto IGRE03. Ante error final o resultado incierto, no reintentes a ciegas, no cambies de vía para eludir un rechazo y reconcilia la cola/analítica antes de avanzar.\nGuarda los recibos y actualiza docs/HERRAMIENTAS_RENTABLES_HEAD.json en GitHub main si las herramientas realmente permiten escribir; usa la rama más reciente y evita sobrescrituras. Si no puedes guardar, declara el bloqueo real, sin afirmar persistencia. Separa preparación, programación, publicación y métricas. LinkedIn continúa preparado con destino aún no identificado. Mantén CLP 0, productos cerrados y sitio v17. Continúa desde el primer pendiente del calendario. Usa esta misma revisión, sin crear otra."
+}

@@ -62,3 +62,13 @@ Tras el horario programado, buscar evidencia positiva de publicación y conserva
 DP-FREELANCE-001 v2.2 y el sitio publicado v17 siguen cerrados. No hubo reconstrucción del producto, nueva verificación de compra ni nuevo despliegue del sitio. Las ventas y métricas sociales permanecen no observadas.
 
 El material R2 ya existe. Recuperar sus archivos guardados y continuar con la vinculación y publicación; no volver a generarlo por rutina. `assemble_p01_r2.py` sólo permite reconstruir el PDF y paquete a partir de las imágenes R2 existentes si se pierden los archivos.
+
+## Continuación reconciliada del 2026-10-08
+
+Se recuperaron primero HEAD, este checkpoint, el receipt de programación y la campaña desde main. El HEAD remoto coincidió con d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700; no había una autoridad posterior que reconciliar.
+
+La lectura nativa volvió a confirmar un único UUID P01, ID 390841744, estado PENDING, fecha, cinco imágenes, texto y cinco textos alternativos exactos, draft=false y ambos autoPublish=true. La comprobación sigue siendo anterior a las 10:00 de Santiago. No se creó, editó ni duplicó P01. URL real y resultados sociales: todavía no observados. Receipt actual: `docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json`.
+
+El primer pendiente creativo P02 se completó con capturas reales del cotizador. Video y archivos están congelados en el commit e372ed596994058387e3bb3ea84067c40cdc762e; checkpoint: `docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md`. Su programación queda pendiente de comprobar primero la URL real de P01. La revisión automática rechazó un intento de borrador P02 antes de ese gate; no se produjo ningún P02 en Metricool ni se eludió el rechazo.
+
+Se actualizó exclusivamente el prompt de la revisión diaria existente con esta continuidad y el gate. Se verificaron el mismo ID, título, horario, zona y estado activo. No se creó otra tarea. Los 228 blobs anteriores se preservaron exactamente en el commit de los 18 archivos nuevos; no hubo cambios de aplicación, reconstrucción de productos ni despliegue de sitio. Mantener CLP 0 y plan Free.

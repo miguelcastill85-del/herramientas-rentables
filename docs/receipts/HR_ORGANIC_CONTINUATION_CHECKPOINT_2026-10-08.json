@@ -1,0 +1,80 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-08T04:42:07.780Z",
+  "status": "P01_PENDING_BEFORE_TIME__P02_ASSETS_PASS__EXISTING_REVIEW_UPDATED",
+  "recovered_in_order": [
+    "docs/HERRAMIENTAS_RENTABLES_HEAD.json",
+    "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
+    "docs/receipts/HR_P01_R2_METRICOOL_SCHEDULE_2026-10-08.json",
+    "docs/marketing/Campana_Organica_14_Dias.md"
+  ],
+  "user_verified_commit": "d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700",
+  "initial_remote_main": "d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700",
+  "initial_main_advanced": false,
+  "asset_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
+  "p01": {
+    "id": 390841744,
+    "uuid": "-7309929264440589713",
+    "state": "PENDING",
+    "scheduled_for": "2026-10-08T10:00:00 America/Santiago",
+    "auto_publish": true,
+    "duplicates": 0,
+    "mutated": false,
+    "published": false,
+    "public_url": null,
+    "caption_and_media_and_alt_match": true,
+    "latest_receipt": "docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json"
+  },
+  "p02": {
+    "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+    "video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+    "asset_files": 16,
+    "video_image_duration_seconds": 32,
+    "local_media_qa": "PASS",
+    "scheduled": false,
+    "published": false,
+    "public_url": null,
+    "draft_attempt": "AUTO_REVIEW_REJECTED_BEFORE_REAL_P01_URL",
+    "safe_continuation": "NO_RETRY_BEFORE_GATE; VERIFY_P01_FIRST; THEN_PROGRAM_ON_CAMPAIGN_DAY_3"
+  },
+  "metrics": {
+    "posts_initial_rows": 0,
+    "reels_initial_rows": 0,
+    "reach": null,
+    "views": null,
+    "clicks": null,
+    "paid_sales": null,
+    "meaning": "NO_ROWS_RETURNED_NOT_ZERO_RESULTS"
+  },
+  "automation": {
+    "id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "created": false,
+    "prompt_updated": true,
+    "settings_preserved": {
+      "id": true,
+      "title": true,
+      "schedule": true,
+      "timing_mode": true,
+      "is_enabled": true,
+      "default_timezone": true
+    },
+    "is_enabled": true
+  },
+  "closed_work_preservation": {
+    "base_sha": "d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700",
+    "asset_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
+    "original_blob_count": 228,
+    "original_blob_mismatches": 0,
+    "added_files": 18,
+    "site_redeployed": false,
+    "product_rebuilt": false
+  },
+  "cash_spent_clp": 0,
+  "paid_plan_activated": false,
+  "site_version": 17,
+  "product_rebuilt": false,
+  "site_redeployed": false,
+  "validation_scope": "MARKETING_MEDIA_RECEIPTS_AND_CONTINUITY_ONLY; PRIOR_APPLICATION_VALIDATION_REUSED_FOR_UNCHANGED_SOURCE",
+  "next_action": "After 10:00 America/Santiago verify positive P01 publication with real URL through the existing daily review, save it, then proceed to P02 scheduling only after that gate."
+}

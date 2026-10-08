@@ -1,7 +1,7 @@
 # Herramientas Rentables — Campaña orgánica de 14 días
 
-Preparada el 2026-10-07. Estado: **lista para revisar y publicar; todavía no publicada en redes**.
-Inicio: día de la primera publicación. Gasto monetario propuesto: **CLP 0**.
+Preparada el 2026-10-07; actualizada el 2026-10-08. Estado: **P01 R2 programada; P02 R1 preparada y auditada; publicación efectiva de la campaña todavía no confirmada**.
+Inicio: fecha real de la primera publicación verificada. Gasto monetario realizado: **CLP 0**.
 
 ## Decisión sobre idiomas
 
@@ -29,7 +29,7 @@ Publicación útil → cotizador gratuito → oferta adecuada → Payhip.
 
 Usar LinkedIn e Instagram como canales iniciales de prueba. Si Herramientas Rentables ya tiene perfiles allí, priorizarlos y confirmar las cuentas de destino antes de publicar. Cada pieza tendrá una sola llamada a la acción. Participar en conversaciones pertinentes respondiendo preguntas reales.
 
-Esta preparación no equivale a publicación externa ni programación automática. La publicación requiere una instrucción explícita y una cuenta de destino identificada.
+El usuario autorizó continuar la campaña orgánica de forma autónoma en la cuenta identificada @herramientas_rentables_chile, con marca Metricool 7292000 y plan Free. La cuenta de LinkedIn todavía no está identificada. Preparación, programación y publicación son estados distintos. P01 conserva su programación existente; cualquier escritura P02 en Metricool requiere comprobar primero la publicación real y URL de P01.
 
 ## Calendario propuesto
 
@@ -123,15 +123,23 @@ Calculations were checked with LibreOffice. Native Microsoft Excel interface and
 See the package details:
 https://payhip.com/b/cv4oQ
 
-## V01 — Cotizador, guion de 25–35 segundos
+## V01 — Cotizador: P02 R1 completada, 32 segundos
 
-- 0–4 s: “Antes de enviar una cotización, revisa el trabajo completo.”
-- 4–12 s: grabar el cotizador real y completar un caso ilustrativo coherente con sus campos.
-- 12–22 s: mostrar el resultado real y señalar una cifra útil para decidir.
-- 22–30 s: “Pruébalo gratis con los datos de tu próximo proyecto.”
-- Cierre: nombre del sitio y enlace en la publicación, perfil o historia.
+Video preparado: `docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4`. Montaje de capturas del cotizador real y texto en pantalla, con silencio intencional. No es una grabación continua de clics. Portada, textos y transcripción también están guardados.
 
-Guion listo; video todavía no producido. Mostrar una interfaz y resultados reales, sin atribuir la cuenta manual de P01 a una captura del cotizador.
+| Tiempo | Contenido real |
+| --- | --- |
+| 00–04 s | Tu cotización necesita más que un precio |
+| 04–09 s | Tiempo completo: 48 h a CLP 10.000/h |
+| 09–14 s | Costos externos CLP 30.000, contingencia 10%, margen 20% |
+| 14–19 s | Alcance de hasta cinco secciones, dos rondas de revisión |
+| 19–24 s | Resultado real, anticipo y saldo |
+| 24–28 s | Resumen del sitio, listo para copiar y adaptar |
+| 28–32 s | Cotizador gratuito, en español, sin registro; enlace del perfil |
+
+Caso ilustrativo de landing page, complejidad baja ×1. Mínimo CLP 558.000; recomendado CLP 697.500; anticipo 50% CLP 348.750 y saldo CLP 348.750. El ejemplo no calcula impuestos. Se comprobó el resultado real y la copia al portapapeles, además de aritmética independiente. No se atribuye a este video la cuenta manual de P01.
+
+Estado: **archivos auditados y congelados; sin programación ni publicación**. Checkpoint: `docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md`. El día 3 se calcula desde la fecha real verificada de P01; el 10 de octubre a las 10:00 sería la fecha propuesta únicamente si P01 se publica el 8 de octubre. Un intento de borrador antes de verificar la URL real fue rechazado por revisión automática; no se creó ningún P02.
 
 ## V02 — Sistema español, guion de 25–35 segundos
 
@@ -168,3 +176,15 @@ Las cuatro descargas del mismo pedido gratuito de prueba no son cuatro ventas ni
 - Payhip, Mercado Pago: https://help.payhip.com/article/343-connecting-your-mercado-pago-account
 
 La selección de públicos, textos, cadencia y criterios de revisión son propuestas de esta campaña.
+
+## Seguimiento operativo del 2026-10-08
+
+- P01: sigue PENDING, un único UUID -7309929264440589713, ID 390841744, autoPublish=true, draft=false, 2026-10-08 10:00 America/Santiago. Cinco imágenes, texto y cinco textos alternativos coinciden exactamente con R2. URL real: no observada.
+- P02: video y material completos y auditados, sin ID/UUID de Metricool ni URL social. No confundir una fecha propuesta con programación.
+- Revisión diaria: se reutilizó “Crecimiento Herramientas Rentables”, ID 6a8b4712398481919c6d25cff889fc0b; se actualizó su prompt y se conservaron horario, zona y estado activo. No se creó otra.
+- Gate: la revisión comprueba primero URL real y fecha de P01; después puede deduplicar y programar una sola P02 para el día 3. Hasta tener esa evidencia no se crea ni modifica P02 en Metricool. Conservar los archivos existentes.
+- Creativo siguiente: P03, cambios de alcance. LinkedIn permanece preparado con destino sin identificar.
+- Datos: la analítica inicial de posts y Reels devolvió cero filas; alcance, visualizaciones, clics y ventas permanecen no observados. No usar los campos de clics/impresiones/videoViews que Metricool marca como deprecados; usar reach, views, interacciones, guardados y compartidos cuando existan datos. No atribuir historia de la cuenta anterior a este negocio.
+- Preservación: DP-FREELANCE-001 v2.2, productos, precios, descarga auditada, sitio v17, fórmulas, sitemap y UTM cerrados. Gasto CLP 0; plan Free.
+
+Receipts de continuidad: `docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json`, `HR_P02_ASSETS_READY_2026-10-08.json`, `HR_P02_METRICOOL_DEFERRED_2026-10-08.json` y `HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json`.

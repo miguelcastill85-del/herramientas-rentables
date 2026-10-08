@@ -1,0 +1,28 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P02",
+  "revision": "R1",
+  "recorded_at_utc": "2026-10-08T04:39:08.013Z",
+  "status": "AUTO_REVIEW_REJECTED_PRE_P01_URL_DRAFT_ATTEMPT_NO_CREATE",
+  "action": "Metricool createScheduledPost for one draft P02 Reel",
+  "requested_draft": true,
+  "requested_auto_publish": false,
+  "reason": "Creating the Metricool draft is a consequential application-state change before the explicitly required real P01 publication URL is confirmed.",
+  "review_message": "This action was rejected due to unacceptable risk.\nReason: Creating the Metricool draft is a consequential application-state change before the explicitly required real P01 publication URL is confirmed.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval.",
+  "post_id": null,
+  "post_uuid": null,
+  "public_post_url": null,
+  "programmed": false,
+  "published": false,
+  "subsequent_native_queue": "ONE_UNCHANGED_P01_NO_P02",
+  "safe_alternative": "P02 immutable assets stored in GitHub. No retry or alternate publishing route. Existing daily review must obtain positive P01 publication evidence and URL before any P02 application-state write.",
+  "automation_after_gate": {
+    "id": "6a8b4712398481919c6d25cff889fc0b",
+    "updated_successfully": true,
+    "gate": "REAL_P01_PUBLICATION_URL_VERIFIED_FIRST"
+  },
+  "source_assets_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
+  "video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+  "cash_spent_clp": 0,
+  "plan_change": false
+}

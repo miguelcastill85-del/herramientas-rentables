@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "Organic marketing: P01 R2 is scheduled for 2026-10-08 10:00 America/Santiago on @herramientas_rentables_chile. Five cached media files match R2 byte-for-byte, caption and five alt texts are confirmed. Verify actual publication and real URL after the scheduled time through the existing daily growth review; do not duplicate the post or regenerate completed assets."
+    "Organic marketing: P01 R2 remains scheduled once for 2026-10-08 10:00 America/Santiago on @herramientas_rentables_chile, with exact content confirmed. Verify publication and real URL through the existing daily growth review. P02 R1 video, cover, captions and transcript are frozen and ready; only after real P01 URL evidence, deduplicate and schedule P02 on campaign day 3. No duplication, asset rebuild, paid plan or spend."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-08T03:32:37.091Z",
+  "updated_at_utc": "2026-10-08T04:40:30.674Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_R2_AUTOPUBLISH_SCHEDULED_VERIFIED_PENDING_LIVE_PUBLICATION",
+    "state": "P01_R2_SCHEDULED_RECHECKED_PENDING_REAL_URL__P02_R1_READY_UNSCHEDULED",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -268,12 +268,12 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "After the scheduled time, verify actual P01 publication with positive evidence and record its Instagram URL. Queue disappearance alone is not evidence of publication. Keep one UUID and do not recreate the scheduled post. Reuse the existing daily growth automation, then assess organic reach/clicks with real metrics.",
+    "next_action": "Verify actual P01 publication and its real URL after 2026-10-08 10:00 America/Santiago, through the existing daily growth review. Keep P01 unique. Only after positive URL evidence, deduplicate and schedule the frozen P02 R1 on campaign day 3, then save ID/UUID and actual URL separately.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-08T03:32:37.091Z",
+    "metricool_last_checked_at_utc": "2026-10-08T04:39:08.013Z",
     "network_connection_blocker": null,
     "browser_authentication": "NOT_SIGNED_IN_IN_FRESH_METRICOOL_VERIFICATION_TAB",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
@@ -293,6 +293,36 @@
     "metricool_media_byte_integrity": "PASS_5_OF_5_EXACT_R2_SHA256",
     "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
     "followup_automation_id": "6a8b4712398481919c6d25cff889fc0b",
-    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_FOR_P01_PUBLICATION_CHECK"
+    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_PROMPT_UPDATED_P01_URL_FIRST_THEN_P02",
+    "latest_publication_check_receipt": "docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json",
+    "campaign_start": "UNCONFIRMED_UNTIL_FIRST_REAL_SOCIAL_PUBLICATION",
+    "metrics_state": "UNOBSERVED_NO_ANALYTICS_ROWS_NOT_ZERO_RESULTS",
+    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json",
+    "p02": {
+      "piece": "P02",
+      "asset_revision": "R1",
+      "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+      "checkpoint": "docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md",
+      "assets_receipt": "docs/receipts/HR_P02_ASSETS_READY_2026-10-08.json",
+      "assets_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
+      "video_path": "docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4",
+      "video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+      "source_video_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/e372ed596994058387e3bb3ea84067c40cdc762e/docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4",
+      "duration_seconds": 32,
+      "format": "1080x1920_H264_MP4_30FPS",
+      "source": "REAL_SITE_SCREENSHOTS",
+      "social_scheduled": false,
+      "social_published": false,
+      "scheduled_post_id": null,
+      "scheduled_post_uuid": null,
+      "public_post_url": null,
+      "proposed_date_if_p01_published_2026_10_08": "2026-10-10T10:00:00 America/Santiago",
+      "scheduling_gate": "FIRST_VERIFY_REAL_P01_PUBLICATION_URL_AND_DATE_THEN_DEDUPLICATE",
+      "draft_attempt_status": "AUTO_REVIEW_REJECTED_BEFORE_P01_REAL_URL_NO_POST_CREATED",
+      "deferred_receipt": "docs/receipts/HR_P02_METRICOOL_DEFERRED_2026-10-08.json",
+      "next_creative_piece": "P03",
+      "linkedin_state": "PREPARED_TARGET_UNIDENTIFIED",
+      "cash_spent_clp": 0
+    }
   }
 }
