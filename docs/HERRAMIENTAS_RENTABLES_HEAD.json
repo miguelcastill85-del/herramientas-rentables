@@ -1,6 +1,6 @@
 {
   "project": "Herramientas Rentables",
-  "updated_at": "2026-10-07",
+  "updated_at": "2026-10-08",
   "source_of_truth": "GitHub main + Sites saved/deployed version",
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "Organic marketing: the five images, both channel captions, PDF and quote link were substantially improved and verified in R2. Recover the current receipt and saved files. Metricool is connected; link the existing HR Instagram network, verify the bio URL and proceed using these R2 files."
+    "Organic marketing: existing P01 R2 assets remain verified. The correct owner account is @herramientas_rentables_chile, but Metricool brand 7292000 currently returns @harisingh1985. Correct that network connection, verify the bio quote link and deduplicate before publishing. Preserve the existing reviewed files."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-07T17:13:37.098Z",
+  "updated_at_utc": "2026-10-08T03:06:23.743Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,21 +253,30 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_R2_PROFESSIONAL_ASSETS_VERIFIED_INSTAGRAM_NETWORK_CONNECTION_REQUIRED",
+    "state": "P01_R2_VERIFIED_METRICOOL_WRONG_INSTAGRAM_CONNECTED",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
     "cash_spent_clp": 0,
     "social_published": false,
     "public_post_url": null,
-    "instagram_handle": "@herramientasrentables",
-    "instagram_identity_evidence": "OWNER_CONFIRMED_EXISTING_INSTAGRAM_AND_SITE_LINK",
-    "instagram_authenticated_network": "NOT_CONNECTED_IN_METRICOOL_AT_LATEST_READ",
-    "instagram_bio_link": "REQUIRES_VERIFICATION_BEFORE_POST",
+    "instagram_handle": "@herramientas_rentables_chile",
+    "instagram_identity_evidence": "OWNER_SCREENSHOT_SHOWS_TWO_DISTINCT_ACCOUNTS_AND_CORRECT_HANDLE_SELECTED",
+    "instagram_authenticated_network": "@harisingh1985",
+    "instagram_bio_link": "BASE_SITE_DOMAIN_VISIBLE_IN_OWNER_SCREENSHOT_FULL_DESTINATION_AND_QUOTE_ROUTE_UNVERIFIED",
     "linkedin_target": "NOT_IDENTIFIED",
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "Link the owner's existing Instagram to Metricool, verify the exact account and its bio link, check duplicates, then use the existing reviewed R2 images and caption. No further product or asset reconstruction is required."
+    "next_action": "In the existing Free Metricool brand 7292000, replace @harisingh1985 with owner-selected @herramientas_rentables_chile. Confirm via getbrandsettings, verify the full bio quote link and check duplicates/queue. Then publish or schedule the existing P01 R2 files. Do not create another Instagram account or regenerate product/site/assets.",
+    "instagram_display_name": "Herramientas Freelance Chile",
+    "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
+    "metricool_brand_id": 7292000,
+    "metricool_timezone": "America/Santiago",
+    "metricool_last_checked_at_utc": "2026-10-08T03:06:23.743Z",
+    "network_connection_blocker": "WRONG_INSTAGRAM_ACCOUNT_CONNECTED; NATIVE_MCP_HAS_NO_NETWORK_CONNECTION_WRITE; BROWSER_GOOGLE_LOGIN_RETURNS_502_CONNECTION_REFUSED",
+    "browser_authentication": "NOT_SIGNED_IN_IN_FRESH_METRICOOL_VERIFICATION_TAB",
+    "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
+    "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020"
   }
 }
