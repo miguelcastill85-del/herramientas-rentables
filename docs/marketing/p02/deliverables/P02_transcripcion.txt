@@ -1,0 +1,13 @@
+Tu cotización necesita más que un precio. Cuatro pasos con un ejemplo real.
+
+1. Cuenta todas las horas: trabajo, reuniones y revisiones. Ejemplo: 48 horas, tarifa CLP 10.000 por hora.
+
+2. Incluye costos externos. En este ejemplo son CLP 30.000, con contingencia 10%, margen objetivo 20% y complejidad baja, multiplicador uno.
+
+3. Define alcance y revisiones. El ejemplo incluye una landing page de hasta cinco secciones y dos rondas de revisión. Textos e imágenes aportados por el cliente.
+
+4. Define anticipo y saldo. El cotizador muestra precio recomendado CLP 697.500, mínimo protegido CLP 558.000, anticipo 50% CLP 348.750 y saldo CLP 348.750. El ejemplo no calcula impuestos.
+
+El sitio prepara un resumen que puedes copiar. Revísalo y adáptalo antes de enviarlo.
+
+Prueba el cotizador gratuito en español, sin registro, con los datos de tu próximo proyecto. Enlace en el perfil de herramientas_rentables_chile.

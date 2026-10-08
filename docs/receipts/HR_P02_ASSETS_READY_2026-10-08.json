@@ -1,0 +1,122 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P02",
+  "revision": "R1",
+  "recorded_at_utc": "2026-10-08T04:30:45.033185+00:00",
+  "status": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+  "cash_spent_clp": 0,
+  "source_site_version": 17,
+  "source_application_commit": "bcd2ab83f8cad6b79dbb719cf32daa2505b2e534",
+  "visual_review": "SEVEN_RENDERED_SCENES_AND_ENCODED_RESULT_SCENE_INSPECTED_PASS",
+  "factual_basis": "REAL_BROWSER_INPUTS_RESULTS_AND_COPIED_SUMMARY_CORROBORATED_BY_INDEPENDENT_DECIMAL_ARITHMETIC",
+  "published": false,
+  "scheduled": false,
+  "public_url": null,
+  "assets": [
+    {
+      "path": "docs/marketing/p02/P02_FFMPEG_COMMAND.json",
+      "bytes": 948,
+      "sha256": "fb2473f25471cdcfecea5a4580d1ef51ad096e95fab8fe7939b8390288e7e740",
+      "git_blob_sha": "1a22e3a7791f1661e9bdefbd91818bd1d261c179"
+    },
+    {
+      "path": "docs/marketing/p02/P02_MEDIA_PROBE.json",
+      "bytes": 3559,
+      "sha256": "171c84241cfecf8b27f7bd9d3971160dbf49cece466fb4883e71ba0e20333326",
+      "git_blob_sha": "e0995f6921f66f2c46d026e5056ae79be02ba5f6"
+    },
+    {
+      "path": "docs/marketing/p02/P02_PUBLICATION_DESCRIPTOR.json",
+      "bytes": 2905,
+      "sha256": "a4f40481ef5efe9a2e6ffb7f757bb8201b5a2b46cc42f442df3ae09a0bef7d33",
+      "git_blob_sha": "2e771bad311022ea311e1a12069740726e63a1de"
+    },
+    {
+      "path": "docs/marketing/p02/P02_QA_RESULT.json",
+      "bytes": 1286,
+      "sha256": "3bf1270d25ccb0c9e5566535d8c7653e234b4f8d7d65a30fc495430935ffddda",
+      "git_blob_sha": "b1804844701847d48a0de9dbd935fe86786b2a54"
+    },
+    {
+      "path": "docs/marketing/p02/P02_TIMELINE.json",
+      "bytes": 4216,
+      "sha256": "42c4546923da85c6c637dd7ed27e007cfa5c27eb864eadfeadd3da35e9ce3358",
+      "git_blob_sha": "082920e93b586aa3c2a6cbe4848192d8670648a8"
+    },
+    {
+      "path": "docs/marketing/p02/deliverables/P02_Texto_Instagram.txt",
+      "bytes": 516,
+      "sha256": "c099e31ecef40a130c613cb8b96d34fc729e78de9f0210557562ae118bb38ec6",
+      "git_blob_sha": "02f3bb7b31bb259a77e2fd4e13fb0c3d95448ad5"
+    },
+    {
+      "path": "docs/marketing/p02/deliverables/P02_Texto_LinkedIn.txt",
+      "bytes": 939,
+      "sha256": "f72822c6d5784c1f42952dc6bec6062b2ead9f40cfe451453c5e8135843a62f3",
+      "git_blob_sha": "471b9ecbb8efe4d3bf043541d94de9c971ad6eab"
+    },
+    {
+      "path": "docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4",
+      "bytes": 1482827,
+      "sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+      "git_blob_sha": "0b4a0c4adc25b2a5813f1254a568da29c33311a0"
+    },
+    {
+      "path": "docs/marketing/p02/deliverables/P02_portada.png",
+      "bytes": 174258,
+      "sha256": "6af641d4600e1ea1fd8af71f33a81e4493a770ca08b07bbfe63765181c1f88d0",
+      "git_blob_sha": "db71d4bd7eaaef1febd48672651663c296b08348"
+    },
+    {
+      "path": "docs/marketing/p02/deliverables/P02_transcripcion.txt",
+      "bytes": 924,
+      "sha256": "0ff743a82574d2ae27a708494fc7676e7214937f0f658dda9b4f0b8be1d2b927",
+      "git_blob_sha": "77c220ed4881c3229eebc1ff34944f89511abef1"
+    },
+    {
+      "path": "docs/marketing/p02/render_p02.py",
+      "bytes": 9733,
+      "sha256": "c4be0651489de672e7c851cc2273eb49133dd44595d05dac357b9b2f92bb2963",
+      "git_blob_sha": "17d2d982a46dae6fa118cc5461c9f52807900251"
+    },
+    {
+      "path": "docs/marketing/p02/sources/P02_02_formulario_real.jpg",
+      "bytes": 86583,
+      "sha256": "8aa5e1dd1232ce863aa7e59c6d8bd8bb22af765ae8b356b74e6fc03537a4b684",
+      "git_blob_sha": "22de306ba1bda5dc3edea621dd54b9bce08022b0"
+    },
+    {
+      "path": "docs/marketing/p02/sources/P02_03_resultado_real.jpg",
+      "bytes": 89979,
+      "sha256": "b4f2e14a968070cb7cc3a558728180c0b5bac7e8d32bf4208342f661572affd6",
+      "git_blob_sha": "072d1876bae68b46708afb33cfcc9191fb295b6f"
+    },
+    {
+      "path": "docs/marketing/p02/sources/P02_04_resumen_copiado.jpg",
+      "bytes": 91977,
+      "sha256": "2f16a913964625e58e4ad72bcfcec21397eef3c09e621debdca43d480c6b6c0c",
+      "git_blob_sha": "8c18549eddc11a4de7fc5b91b917170b85a6da8d"
+    },
+    {
+      "path": "docs/marketing/p02/sources/P02_cotizador_DOM.txt",
+      "bytes": 8060,
+      "sha256": "1a7ebdf8d094f2446cfc253253dbcb0cc9ab3d879818ac4968b9a41858d507d6",
+      "git_blob_sha": "d105c11dc474edced0888f85bbe7ef9daba49d41"
+    },
+    {
+      "path": "docs/marketing/p02/sources/P02_resumen_copiado.txt",
+      "bytes": 461,
+      "sha256": "5da5761a1d64f0a66af9eb93d4921accb340d157bc8ffd8c401ff780f9441c11",
+      "git_blob_sha": "ec4ca95f5d60833cef70fe0d4f2a90cec423e564"
+    }
+  ],
+  "do_not_rebuild_without_requested_revision": true,
+  "continuous_screen_recording": false,
+  "assembly": "REAL_UI_SCREENSHOTS_WITH_EXACT_TEXT",
+  "local_media_qa": "docs/marketing/p02/P02_QA_RESULT.json",
+  "scheduler_media_acceptance": "UNOBSERVED",
+  "platform_delivery": "UNVERIFIED_UNTIL_SCHEDULER_FETCH_AND_ACCEPTANCE",
+  "linkedin_target": "UNIDENTIFIED",
+  "source_rights": "OWN_SITE_SCREENSHOTS_AND_ORIGINAL_TEXT; INSTALLED_DEJAVU_FONT; NO_THIRD_PARTY_MUSIC",
+  "next_action": "Verify P01 actual publication and real URL, then schedule P02 exactly once on campaign day 3 through connected Metricool Free."
+}

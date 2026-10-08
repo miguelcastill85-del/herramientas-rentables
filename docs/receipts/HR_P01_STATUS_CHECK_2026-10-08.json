@@ -1,0 +1,90 @@
+{
+  "source": "METRICOOL_NATIVE_CONNECTOR",
+  "checked_at_utc": "2026-10-08T04:23:15.441Z",
+  "brand_id": 7292000,
+  "instagram_handle": "herramientas_rentables_chile",
+  "timezone": "America/Santiago",
+  "schedule": {
+    "query_range": {
+      "from": "2026-10-08T00:00:00-03:00",
+      "to": "2026-10-22T23:59:59-03:00"
+    },
+    "queue_count": 1,
+    "posts": [
+      {
+        "id": 390841744,
+        "uuid": "-7309929264440589713",
+        "publicationDate": {
+          "dateTime": "2026-10-08T10:00:00",
+          "timezone": "America/Santiago"
+        },
+        "text": "¿Tu cotización incluye las reuniones y correcciones?\n\nEn este ejemplo, un proyecto de CLP 300.000 pasa de CLP 7.500/h a CLP 5.625/h al sumar 8 horas adicionales y CLP 30.000 de costos directos.\n\nLas cifras son ilustrativas, antes de impuestos y otros gastos.\n\nAntes de enviar tu próxima propuesta, cuenta el trabajo completo.\n\nCon nuestro cotizador gratuito en español puedes estimar el precio mínimo y definir anticipo, saldo y revisiones. Sin registro.\n\nPruébalo desde el enlace del perfil.\n\n#FreelanceChile #Cotizaciones #TrabajoIndependiente",
+        "providers": [
+          {
+            "network": "instagram",
+            "status": "PENDING",
+            "detailedStatus": "Pending"
+          }
+        ],
+        "media": [
+          "https://static.metricool.com/planner/202610/7292000-file-10956681553638613672.png",
+          "https://static.metricool.com/planner/202610/7292000-file-5100596307061707573.png",
+          "https://static.metricool.com/planner/202610/7292000-file-17534263490601905795.png",
+          "https://static.metricool.com/planner/202610/7292000-file-16464028947127240754.png",
+          "https://static.metricool.com/planner/202610/7292000-file-7570508044650868338.png"
+        ],
+        "mediaAltText": [
+          "Proyecto ilustrativo de CLP 300.000. Con 40 horas de trabajo equivale a CLP 7.500 por hora; con 48 horas y costos directos equivale a CLP 5.625 por hora, antes de impuestos y otros gastos. Invitación a deslizar para revisar la cuenta.",
+          "Precio del proyecto de CLP 300.000 dividido por 40 horas de trabajo. Resultado: CLP 7.500 por hora antes de costos e impuestos. Ejemplo ilustrativo en CLP.",
+          "Lista del trabajo completo: 40 horas de trabajo, 5 de reuniones y 3 de correcciones. Total 48 horas. CLP 300.000 dividido por 48 da CLP 6.250 por hora antes de costos e impuestos. Ejemplo ilustrativo en CLP.",
+          "Al precio de CLP 300.000 se restan CLP 30.000 de costos directos. Quedan CLP 270.000, que divididos por 48 horas dan CLP 5.625 por hora antes de impuestos y otros gastos. Ejemplo ilustrativo en CLP.",
+          "Cotizador gratuito de Herramientas Rentables, en español y sin registro. Permite evaluar precio mínimo, anticipo y saldo, alcance y revisiones. Invitación a probarlo con los datos del próximo proyecto."
+        ],
+        "autoPublish": true,
+        "draft": false,
+        "instagramData": {
+          "autoPublish": true,
+          "type": "POST",
+          "showReelOnFeed": true,
+          "isAiGenerated": false
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "rows": []
+  },
+  "automation": {
+    "id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "schedule": "BEGIN:VEVENT\nDTSTART:20260823T180000Z\nRRULE:FREQ=DAILY;BYHOUR=14;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+    "is_enabled": true,
+    "last_run_time": "2026-10-07T17:46:29.813849+00:00",
+    "next_run_time": null
+  },
+  "project": "Herramientas Rentables",
+  "piece": "P01",
+  "asset_revision": "R2",
+  "status": "CHECKED_BEFORE_SCHEDULE_PENDING",
+  "observed_base_commit": "d8fa7f165c0b06e9e30024e1fcbf3587fb1ac700",
+  "main_advanced_since_user_checkpoint": false,
+  "publication_verified": false,
+  "public_post_url": null,
+  "social_scheduled": true,
+  "social_published": false,
+  "cash_spent_clp": 0,
+  "scheduled_post_unchanged": true,
+  "metrics_state": "NO_ROWS_RETURNED_NOT_ZERO_REACH_OR_ZERO_SALES",
+  "queue_disappearance_proves_publication": false,
+  "p01_content_comparison": {
+    "id_match": true,
+    "uuid_match": true,
+    "caption_match": true,
+    "five_media_urls_match": true,
+    "five_alt_texts_match": true,
+    "auto_publish": true,
+    "instagram_auto_publish": true,
+    "draft": false,
+    "one_p01_uuid": true
+  }
+}

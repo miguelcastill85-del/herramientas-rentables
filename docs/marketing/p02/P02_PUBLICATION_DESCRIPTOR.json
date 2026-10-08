@@ -1,0 +1,49 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P02",
+  "asset_revision": "R1",
+  "state": "ASSETS_READY_LOCAL_QA_PASS_UNSCHEDULED",
+  "social_published": false,
+  "social_scheduled": false,
+  "public_post_url": null,
+  "instagram_handle": "@herramientas_rentables_chile",
+  "metricool_brand_id": 7292000,
+  "timezone": "America/Santiago",
+  "format": "INSTAGRAM_REEL",
+  "asset_path": "docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4",
+  "asset_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+  "cover_path": "docs/marketing/p02/deliverables/P02_portada.png",
+  "caption_path": "docs/marketing/p02/deliverables/P02_Texto_Instagram.txt",
+  "caption": "Cuatro pasos antes de enviar tu próxima cotización.\n\n1. Cuenta el tiempo completo.\n2. Incluye tus costos.\n3. Deja por escrito el alcance y las revisiones.\n4. Define anticipo y saldo.\n\nEn el video usamos el cotizador real con un ejemplo ilustrativo en CLP. Ajusta horas, tarifa, costos y condiciones a tu servicio.\n\nEl cotizador es gratuito, está en español y funciona sin registro.\n\nPruébalo con los datos de tu próximo proyecto desde el enlace del perfil.\n\n#FreelanceChile #Cotizaciones #TrabajoIndependiente",
+  "transcript_path": "docs/marketing/p02/deliverables/P02_transcripcion.txt",
+  "assembly": "EDITED_REAL_SITE_SCREENSHOTS_WITH_ON_SCREEN_TEXT; NOT_A_CONTINUOUS_SCREEN_RECORDING",
+  "audio": "INTENTIONAL_SILENCE_WITH_AAC_TRACK; ALL_MESSAGES_PRESENT_ON_SCREEN",
+  "link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
+  "schedule_rule": {
+    "anchor": "P01_ACTUAL_PUBLICATION_VERIFIED_WITH_REAL_URL_ON_CORRECT_ACCOUNT",
+    "campaign_day": 3,
+    "days_after_anchor": 2,
+    "local_time": "10:00:00",
+    "example_only_if_p01_published_on_2026_10_08": "2026-10-10T10:00:00-03:00",
+    "on_unconfirmed_or_failed_p01": "KEEP_UNSCHEDULED_NO_DUPLICATE_P01",
+    "on_past_candidate_slot": "SELECT_NEXT_FUTURE_10_00_SLOT_WITH_SAME_DAY_GAP_DOCUMENT_REASON"
+  },
+  "deduplication": {
+    "check_scheduled_window_before_write": true,
+    "check_published_reels": true,
+    "caption_identifier": "Cuatro pasos antes de enviar tu próxima cotización.",
+    "media_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+    "record_returned_id_and_uuid": true,
+    "retry_after_uncertain_write": "READ_AND_RECONCILE_FIRST"
+  },
+  "linkedin_state": "COPY_PREPARED_TARGET_NOT_IDENTIFIED_DO_NOT_PUBLISH",
+  "cash_spent_clp": 0,
+  "plan": "FREE_ONLY",
+  "api_key_or_paid_api_required": false,
+  "platform_media_acceptance": "NOT_YET_TESTED_BY_SCHEDULER",
+  "public_delivery_verification": "PENDING_AFTER_ASSET_COMMIT",
+  "sources": [
+    "https://help.metricool.com/publishing-requirements-for-images-and-videos-from-metricool-vfc8n",
+    "https://help.metricool.com/faqs-about-the-metricool-mcp-1i3w0"
+  ]
+}

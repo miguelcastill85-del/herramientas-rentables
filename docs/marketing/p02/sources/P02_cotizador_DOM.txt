@@ -1,0 +1,154 @@
+- banner:
+  - link "Herramientas Rentables, inicio":
+    - /url: /
+    - generic: HR
+    - generic: Herramientas Rentables
+  - navigation "Navegación principal":
+    - link "Herramientas":
+      - /url: /#herramientas
+    - link "Guía de tarifas":
+      - /url: /guias/cuanto-cobrar-como-freelance-chile
+    - link "Recursos":
+      - /url: /pro
+  - link "Crear cotización":
+    - /url: "#cotizador"
+- main:
+  - paragraph: Cotización freelance profesional · Chile
+  - heading "Cotiza tu proyecto sin cobrar de menos." [level=1]
+  - paragraph: No rellenes una plantilla vacía. Calcula tu precio mínimo, protege margen, define anticipo y condiciones, y genera un resumen profesional listo para presentar al cliente.
+  - link "Construir mi cotización":
+    - /url: "#cotizador"
+    - text: Construir mi cotización
+    - generic: →
+  - complementary "Diferenciadores":
+    - paragraph:
+      - generic: ✓
+      - text: Precio mínimo y recomendado
+    - paragraph:
+      - generic: ✓
+      - text: Anticipo, revisiones y vigencia
+    - paragraph:
+      - generic: ✓
+      - text: Resumen listo para cliente
+    - paragraph:
+      - generic: ✓
+      - text: Sin registro y datos locales
+  - region "Construye una cotización que proteja tu rentabilidad":
+    - paragraph: Herramienta
+    - heading "Construye una cotización que proteja tu rentabilidad" [level=2]
+    - paragraph: Primero calcula el piso económico. Después define las condiciones comerciales que reducen ambigüedad y retrabajo.
+    - generic: "01"
+    - heading "Protege tu rentabilidad" [level=3]
+    - paragraph: Define el piso económico antes de negociar con el cliente.
+    - generic: Horas estimadas
+    - spinbutton "Horas estimadas": "48"
+    - generic: Tarifa por hora
+    - generic: $
+    - spinbutton "Tarifa por hora": "10000"
+    - generic: Complejidad
+    - combobox "Complejidad":
+      - option "Baja · ×1,00" [selected]
+      - option "Media · ×1,20"
+      - option "Alta · ×1,40"
+    - generic: Contingencia
+    - spinbutton "Contingencia": "10"
+    - generic: "%"
+    - generic: Costos externos
+    - generic: $
+    - spinbutton "Costos externos": "30000"
+    - generic: Margen objetivo
+    - spinbutton "Margen objetivo": "20"
+    - generic: "%"
+    - generic: "02"
+    - heading "Define condiciones claras" [level=3]
+    - paragraph: Reduce ambigüedad, retrabajo y negociaciones después de empezar.
+    - generic: Nombre del proyecto
+    - textbox "Nombre del proyecto": Landing page · ejemplo
+    - generic: Cliente (opcional)
+    - textbox "Cliente (opcional)"
+    - generic: Anticipo
+    - spinbutton "Anticipo": "50"
+    - generic: "%"
+    - generic: Revisiones incluidas
+    - spinbutton "Revisiones incluidas": "2"
+    - generic: Vigencia
+    - spinbutton "Vigencia": "7"
+    - generic: días
+    - generic: Plazo estimado
+    - textbox "Plazo estimado": 10 días hábiles
+    - generic: Alcance / entregables
+    - textbox "Alcance / entregables": Diseño y publicación de una landing page de hasta 5 secciones. Incluye 2 rondas de revisión. Textos e imágenes aportados por el cliente.
+    - paragraph: Diagnóstico comercial
+    - generic: Precio recomendado para presentar
+    - strong: $697.500
+    - generic: Precio mínimo protegido
+    - strong: $558.000
+    - generic: Anticipo
+    - strong: $348.750
+    - generic: Saldo
+    - strong: $348.750
+    - generic: Colchón de contingencia
+    - strong: $48.000
+    - paragraph: El mínimo protegido cubre horas, complejidad, contingencia y costos externos. El recomendado añade el margen objetivo para que la propuesta no dependa solo de “cubrir costos”.
+    - heading "03 · Cotización lista para cliente" [level=3]
+    - paragraph: Un resumen limpio para copiar, adaptar y enviar.
+    - generic: Lista
+    - generic: "Landing page · ejemplo Alcance: Diseño y publicación de una landing page de hasta 5 secciones. Incluye 2 rondas de revisión. Textos e imágenes aportados por el cliente. Inversión total: $697.500 Anticipo (50%): $348.750 Saldo restante: $348.750 Revisiones incluidas: 2 Plazo estimado: 10 días hábiles Vigencia de la cotización: 7 días Cambios fuera del alcance acordado se cotizan por separado. La ejecución comienza una vez confirmado el anticipo."
+    - button "Copiar resumen" [active]
+    - generic: Resumen copiado.
+    - region "¿Cotizas proyectos con frecuencia?":
+      - paragraph: Siguiente paso
+      - heading "¿Cotizas proyectos con frecuencia?" [level=3]
+      - paragraph:
+        - text: Si necesitas repetir el proceso y controlar precios, proyectos y margen en un archivo reutilizable, conoce
+        - strong: Sistema Freelance Rentable
+        - text: .
+      - paragraph:
+        - strong: CLP 8.990 · Archivo Excel (.xlsx)
+      - link "Ver sistema completo en Payhip (se abre en una pestaña nueva)":
+        - /url: https://payhip.com/b/doK54?utm_source=herramientas-rentables&utm_medium=referral&utm_campaign=cotizacion-resultado&utm_content=premium
+        - text: Ver sistema completo
+        - generic: ↗
+    - paragraph:
+      - strong: "Importante:"
+      - text: esta herramienta es orientativa. Ajusta las condiciones a tu servicio y revisa aspectos legales, tributarios o contractuales con un profesional cuando corresponda.
+    - paragraph: 🔒 Todo se calcula en tu navegador. Tus datos no se envían a servidores.
+  - paragraph: Por qué es diferente
+  - heading "Una cotización no es solo un precio" [level=2]
+  - paragraph: Una buena propuesta comercial protege el alcance, los tiempos y la rentabilidad antes de comenzar el trabajo.
+  - article:
+    - heading "Protege el piso económico" [level=3]
+    - paragraph: El cálculo separa costo base, complejidad, contingencia, costos externos y margen objetivo para que puedas ver cuánto necesitas cobrar antes de negociar.
+  - article:
+    - heading "Protege las condiciones" [level=3]
+    - paragraph: Anticipo, revisiones, vigencia, plazo y alcance quedan visibles en el mismo flujo para evitar que una cifra correcta termine en un proyecto mal definido.
+  - paragraph: Cuando cotizar deja de ser algo ocasional
+  - heading "De una cotización puntual al control de tus proyectos" [level=2]
+  - paragraph: El cotizador gratuito te ayuda a definir el precio y las condiciones de una propuesta. El premium es un archivo de trabajo reutilizable para ordenar precios, evaluar proyectos y revisar su margen. Si solo necesitas esta cotización, puedes seguir usando la herramienta gratis.
+  - article:
+    - paragraph: Premium
+    - heading "Sistema Freelance Rentable" [level=3]
+    - paragraph: Organiza precios, cotizaciones y control de margen en un archivo reutilizable. Para evaluar tus proyectos y revisar su rentabilidad cuando cotizar se vuelve parte habitual de tu trabajo.
+    - paragraph:
+      - strong: CLP 8.990 · Archivo Excel (.xlsx)
+    - paragraph: Antes de comprar, confirma el contenido, el precio final y las condiciones en Payhip.
+    - link "Ver sistema completo":
+      - /url: https://payhip.com/b/doK54?utm_source=herramientas-rentables&utm_medium=referral&utm_campaign=cotizacion-profesional&utm_content=premium
+  - article:
+    - paragraph: Aprende antes de cotizar
+    - heading "¿Cuánto cobrar como freelance en Chile?" [level=3]
+    - paragraph: Si todavía estás definiendo tu tarifa, usa la guía para estimar un piso sostenible antes de construir la propuesta.
+    - link "Ver guía de tarifas":
+      - /url: /guias/cuanto-cobrar-como-freelance-chile
+  - region "Qué debe incluir una cotización freelance":
+    - paragraph: Preguntas frecuentes
+    - heading "Qué debe incluir una cotización freelance" [level=2]
+    - generic "¿Qué diferencia hay entre precio mínimo y precio recomendado?"
+    - generic "¿Cuánto anticipo debería pedir?"
+    - generic "¿Esto reemplaza una cotización legal o contrato?"
+- contentinfo:
+  - link "Herramientas Rentables":
+    - /url: /
+    - generic: HR
+    - generic: Herramientas Rentables
+  - paragraph: Herramientas gratuitas para tomar mejores decisiones de negocio.

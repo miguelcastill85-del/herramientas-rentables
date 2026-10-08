@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "illustrative_case": {
+    "hours": 48,
+    "hourly_rate_clp": 10000,
+    "complexity_multiplier": 1,
+    "contingency_pct": 10,
+    "external_costs_clp": 30000,
+    "target_margin_pct": 20,
+    "deposit_pct": 50,
+    "revisions": 2,
+    "validity_days": 7,
+    "protected_minimum_clp": 558000,
+    "recommended_clp": 697500,
+    "deposit_clp": 348750,
+    "balance_clp": 348750
+  },
+  "checks": {
+    "arithmetic_decimal": "PASS",
+    "real_browser_values_and_clipboard": "PASS",
+    "decode_entire_video": "PASS",
+    "format_resolution_fps": "PASS",
+    "audio_codec": "PASS",
+    "faststart": "PASS",
+    "no_edit_lists": "PASS"
+  },
+  "container_duration_seconds": 32.066667,
+  "video_duration_seconds": 32.0,
+  "frames": 960,
+  "silence_intentional": true,
+  "audio_encoder_target_bps": 128000,
+  "actual_silent_audio_bps": 2272,
+  "atoms": [
+    {
+      "tag": "ftyp",
+      "offset": 0,
+      "size": 32
+    },
+    {
+      "tag": "moov",
+      "offset": 32,
+      "size": 27631
+    },
+    {
+      "tag": "free",
+      "offset": 27663,
+      "size": 8
+    },
+    {
+      "tag": "mdat",
+      "offset": 27671,
+      "size": 1455156
+    }
+  ],
+  "video_bytes": 1482827,
+  "video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e"
+}

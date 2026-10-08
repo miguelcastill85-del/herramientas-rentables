@@ -1,0 +1,15 @@
+Antes de enviar una cotización, revisa algo más que el precio.
+
+El tiempo completo, los costos de entrega, el alcance y las condiciones de pago forman parte de la misma propuesta.
+
+Esta demostración del cotizador de Herramientas Rentables recorre cuatro pasos:
+
+• Contar trabajo, reuniones y revisiones.
+• Incorporar costos y contingencia.
+• Definir entregables y revisiones incluidas.
+• Establecer anticipo y saldo.
+
+El caso es ilustrativo: 48 horas a CLP 10.000/h, complejidad baja, contingencia del 10%, CLP 30.000 de costos externos y margen objetivo del 20%. El cotizador muestra CLP 558.000 de mínimo y CLP 697.500 recomendado. Con anticipo del 50%, anticipo y saldo son CLP 348.750 cada uno. El ejemplo no calcula impuestos.
+
+Evalúa tu próximo proyecto con tus propios datos. Gratis, en español y sin registro:
+https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador
