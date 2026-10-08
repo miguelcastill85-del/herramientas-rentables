@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "Organic marketing: existing P01 R2 assets remain verified. The correct owner account is @herramientas_rentables_chile, but Metricool brand 7292000 currently returns @harisingh1985. Correct that network connection, verify the bio quote link and deduplicate before publishing. Preserve the existing reviewed files."
+    "Organic marketing: P01 R2 is scheduled for 2026-10-08 10:00 America/Santiago on @herramientas_rentables_chile. Five cached media files match R2 byte-for-byte, caption and five alt texts are confirmed. Verify actual publication and real URL after the scheduled time through the existing daily growth review; do not duplicate the post or regenerate completed assets."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-08T03:06:23.743Z",
+  "updated_at_utc": "2026-10-08T03:32:37.091Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_R2_VERIFIED_METRICOOL_WRONG_INSTAGRAM_CONNECTED",
+    "state": "P01_R2_AUTOPUBLISH_SCHEDULED_VERIFIED_PENDING_LIVE_PUBLICATION",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -261,22 +261,38 @@
     "social_published": false,
     "public_post_url": null,
     "instagram_handle": "@herramientas_rentables_chile",
-    "instagram_identity_evidence": "OWNER_SCREENSHOT_SHOWS_TWO_DISTINCT_ACCOUNTS_AND_CORRECT_HANDLE_SELECTED",
-    "instagram_authenticated_network": "@harisingh1985",
-    "instagram_bio_link": "BASE_SITE_DOMAIN_VISIBLE_IN_OWNER_SCREENSHOT_FULL_DESTINATION_AND_QUOTE_ROUTE_UNVERIFIED",
+    "instagram_identity_evidence": "OWNER_SCREENSHOT_AND_NATIVE_METRICOOL_GETBRANDSETTINGS_MATCH",
+    "instagram_authenticated_network": "@herramientas_rentables_chile",
+    "instagram_bio_link": "OWNER_CONFIRMED_LINK_OPENS_FREE_QUOTE_2026-10-08",
     "linkedin_target": "NOT_IDENTIFIED",
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "In the existing Free Metricool brand 7292000, replace @harisingh1985 with owner-selected @herramientas_rentables_chile. Confirm via getbrandsettings, verify the full bio quote link and check duplicates/queue. Then publish or schedule the existing P01 R2 files. Do not create another Instagram account or regenerate product/site/assets.",
+    "next_action": "After the scheduled time, verify actual P01 publication with positive evidence and record its Instagram URL. Queue disappearance alone is not evidence of publication. Keep one UUID and do not recreate the scheduled post. Reuse the existing daily growth automation, then assess organic reach/clicks with real metrics.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-08T03:06:23.743Z",
-    "network_connection_blocker": "WRONG_INSTAGRAM_ACCOUNT_CONNECTED; NATIVE_MCP_HAS_NO_NETWORK_CONNECTION_WRITE; BROWSER_GOOGLE_LOGIN_RETURNS_502_CONNECTION_REFUSED",
+    "metricool_last_checked_at_utc": "2026-10-08T03:32:37.091Z",
+    "network_connection_blocker": null,
     "browser_authentication": "NOT_SIGNED_IN_IN_FRESH_METRICOOL_VERIFICATION_TAB",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
-    "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020"
+    "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020",
+    "social_scheduled": true,
+    "scheduled_post_id": 390841744,
+    "scheduled_post_uuid": "-7309929264440589713",
+    "scheduled_at": {
+      "dateTime": "2026-10-08T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "planner_url": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-7309929264440589713",
+    "scheduling_receipt": "docs/receipts/HR_P01_R2_METRICOOL_SCHEDULE_2026-10-08.json",
+    "schedule_receipt_commit_sha": "f78f4930d4409f980e6e3a43a15f16320813972e",
+    "scheduled_images": 5,
+    "scheduled_alt_texts": 5,
+    "metricool_media_byte_integrity": "PASS_5_OF_5_EXACT_R2_SHA256",
+    "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
+    "followup_automation_id": "6a8b4712398481919c6d25cff889fc0b",
+    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_FOR_P01_PUBLICATION_CHECK"
   }
 }
