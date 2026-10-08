@@ -4,10 +4,10 @@ Actualizado el 2026-10-08. Campaña: `docs/marketing/Campana_Organica_14_Dias.md
 
 ## Autoridad vigente
 
-**R2_PROFESSIONAL_ASSETS_VERIFIED / METRICOOL_WRONG_INSTAGRAM_CONNECTED.**
+**R2_PROFESSIONAL_ASSETS_VERIFIED / AUTOPUBLISH_SCHEDULED_VERIFIED_PENDING_LIVE_PUBLICATION.**
 
 Receipt actual: `docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json`.
-La preparación inicial en `HR_P01_ASSETS_READY_2026-10-07.json` es evidencia histórica; usar los archivos R2 y sus versiones actuales. Publicación: no realizada. Gasto monetario adicional: CLP 0.
+La preparación inicial en `HR_P01_ASSETS_READY_2026-10-07.json` es evidencia histórica; usar los archivos R2 y sus versiones actuales. Programación automática: verificada. Publicación efectiva: pendiente de su horario. Gasto monetario adicional: CLP 0.
 
 ## Trabajo pedido y completado
 
@@ -31,13 +31,31 @@ La página pública fue recuperada el 2026-10-07 y el código del sitio confirma
 
 **Metricool ya está conectado a ChatGPT. No repetir instalación o conexión de la integración.**
 
-La captura del propietario muestra dos cuentas diferentes: **@herramientas_rentables_chile** (seleccionada) y @harisingh1985. El destino correcto es @herramientas_rentables_chile, cuyo nombre visible es “Herramientas Freelance Chile”; aparece como Creador(a) digital, con dos publicaciones. La cuenta ya existe: no volver a crearla. Este identificador sustituye al antiguo destino previsto @herramientasrentables.
+La cuenta profesional correcta **@herramientas_rentables_chile** quedó confirmada mediante dos lecturas nativas de Metricool el 2026-10-08, marca 7292000, zona America/Santiago. El propietario corrigió la conexión anterior de @harisingh1985. No volver a crear la cuenta ni instalar la integración. Los datos previos de la cuenta incorrecta no pertenecen a esta campaña.
 
-La lectura nativa de Metricool del 2026-10-08T03:06:23.743Z sigue devolviendo **@harisingh1985** en la marca **7292000**, zona America/Santiago. No se ha cambiado la conexión ni publicado/programado P01 en esta continuación. El conector nativo puede consultar y programar, pero no ofrece escrituras para conectar o desconectar redes.
+El propietario confirmó que el enlace de su biografía abre el **cotizador gratuito**. La consulta pública de Instagram no pudo recuperar la biografía, por lo que la evidencia del destino es la confirmación del propietario, no una lectura pública del perfil. El enlace del cotizador ya fue validado en R2 y se conserva.
 
-El panel web de Metricool requiere sesión. El acceso seguro mediante Google devolvió HTTP 502 “Connection refused”. La comprobación en una pestaña nueva del dominio de Metricool volvió al formulario de acceso: sesión no confirmada. No hay evidencia de un bloqueo antibot. No guardar ni copiar URLs OAuth, secretos o datos de contacto privados. No repetir ese acceso fallido por rutina; usar una alternativa admitida elegida por el propietario, o corregir la conexión desde su panel de Metricool y comprobar luego con el conector nativo.
+## Programación P01 R2 verificada
 
-En la captura se ve el dominio del sitio en la biografía, pero el enlace está truncado. La frase “enlace del perfil” exige verificar el destino completo al cotizador. Antes de publicar: sustituir la conexión de @harisingh1985 por @herramientas_rentables_chile en la marca Free existente; confirmar el usuario con getbrandsettings; verificar la biografía; consultar publicaciones y cola para evitar duplicados; publicar o programar los cinco PNG R2 en orden con el texto preparado. Conservar URL y hora reales de Chile. Usar únicamente Free y mantener CLP 0 de gasto. El destino de LinkedIn aún no está identificado.
+- Fecha: **2026-10-08 a las 10:00, America/Santiago**.
+- Publicación automática activada tanto en el post como en instagramData; draft=false.
+- ID vigente: **390841744**. El ID inicial 390840941 fue sustituido al añadir accesibilidad.
+- UUID estable: **-7309929264440589713**.
+- Planificador: https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-7309929264440589713
+- Receipt: `docs/receipts/HR_P01_R2_METRICOOL_SCHEDULE_2026-10-08.json`.
+- Estado nativo: **PENDING**, todavía no publicado. URL pública de Instagram: no observada.
+
+Se usaron cinco PNG R2 en orden, el texto de Instagram preparado (quitando sólo los saltos de línea finales) y cinco textos alternativos. La cola previa estaba vacía en la ventana 2026-10-08 a 2026-10-22; la consulta final contiene un único UUID P01. La analítica inicial devolvió cero filas tras conectar la cuenta: no es prueba de que el perfil no tuviese otras publicaciones.
+
+Las imágenes originales se incorporaron sin modificar a `docs/marketing/p01/images/` en GitHub, commit d86fb464185a3ef4aeef914344a70662271d814e. Este commit sólo agrega los cinco PNG, sin cambiar la aplicación. Metricool las recuperó y guardó en su propio servidor. Las cinco descargas desde sus URLs de entrega tienen exactamente el mismo SHA-256, tamaño y dimensiones 1254 x 1254 que los R2 auditados. La lectura final confirma el texto, las cinco imágenes, sus cinco textos alternativos, la fecha, la zona horaria y la publicación automática.
+
+Para actualizaciones posteriores: el GET de Metricool añade twitterData por defecto incluso cuando el único provider es Instagram. Su validador rechaza ese campo inactivo en la escritura. Omitir únicamente esos campos de redes ausentes; conservar todo el contenido activo y usar siempre el ID vigente y UUID del GET más reciente. La corrección se verificó sin duplicar el carrusel ni cambiar su texto o fecha.
+
+## Siguiente comprobación automática
+
+La revisión diaria existente **“Crecimiento Herramientas Rentables”**, tarea 6a8b4712398481919c6d25cff889fc0b, está activa y su prompt fue actualizado para recuperar este HEAD y comprobar la publicación real de P01. Se mantuvieron su horario y demás campos. No se creó una revisión duplicada.
+
+Tras el horario programado, buscar evidencia positiva de publicación y conservar la URL real. getScheduledPosts sólo devuelve pendientes: desaparecer de la cola no demuestra publicación. Usar la URL IGPO06 y texto IGPO03 de analítica de publicaciones; si la nueva conexión todavía no aporta datos, mantener estado no observado y no volver a publicar P01. Evaluar resultados sólo cuando existan métricas reales. LinkedIn permanece preparado y su destino aún no está identificado. Mantener el plan Free y CLP 0 de gasto.
 
 ## Continuación y preservación
 
