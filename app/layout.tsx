@@ -5,8 +5,7 @@ import './globals.css';
 const siteTitle = 'Herramientas Rentables';
 const siteDescription =
   'Seis herramientas gratuitas para calcular margen, punto de equilibrio, comisiones, enlaces UTM, cotizaciones y precios desde tu navegador.';
-const socialImage =
-  'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
+const socialImage = `${siteUrl}/og.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

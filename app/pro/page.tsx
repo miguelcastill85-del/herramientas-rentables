@@ -5,8 +5,7 @@ import { payhipProducts } from '../lib/payhip-products';
 import { siteUrl } from '../lib/tools';
 
 const canonical = `${siteUrl}/pro`;
-const socialImage =
-  'https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/main/public/og.png';
+const socialImage = `${siteUrl}/og.png`;
 const pageTitle = 'Recursos gratuitos y premium para freelancers';
 const pageDescription =
   'Compara el recurso gratuito, el Sistema Freelance Rentable y Freelancer Pricing Intelligence System v2.2 en inglés, disponibles en Payhip.';
