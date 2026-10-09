@@ -1,0 +1,88 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-09T17:20:16Z",
+  "authority_recovered_commit": "967cadf0bbecf5cecf382c123b31cc06f105cdbe",
+  "status": "BOUNDED_REVIEW_NO_NEW_SCHEDULE_ANALYTICS_UNOBSERVED_NATIVE_CONTRACT_UNCHANGED",
+  "identity": {
+    "instagram_handle": "@herramientas_rentables_chile",
+    "brand_id": 7292000,
+    "timezone": "America/Santiago",
+    "verified": true
+  },
+  "p01": {
+    "state": "PUBLISHED_NATIVE_POSITIVE_EVIDENCE",
+    "post_id": 390841744,
+    "uuid": "-7309929264440589713",
+    "public_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "preserved": true
+  },
+  "reconciliation": {
+    "window": {
+      "from": "2026-10-08T00:00:00-03:00",
+      "to": "2026-10-22T23:59:59-03:00"
+    },
+    "observed_posts": 1,
+    "p02_matches": 0,
+    "p03_matches": 0,
+    "p02_scheduled": false,
+    "p03_scheduled": false
+  },
+  "analytics": {
+    "window": {
+      "from": "2026-10-08T00:00:00-03:00",
+      "to": "2026-10-09T14:20:16-03:00"
+    },
+    "posts_rows": 0,
+    "reels_rows": 0,
+    "interpretation": "UNOBSERVED_NOT_ZERO_PERFORMANCE",
+    "deprecated_metrics_excluded": true
+  },
+  "native_connector": {
+    "create_contract_schema_changed": false,
+    "exposed_outer_fields": [
+      "blogId",
+      "date",
+      "info",
+      "mediaFiles"
+    ],
+    "prior_failure": "INVALID_ARGUMENT",
+    "write_attempted_this_review": false,
+    "reason": "No concrete contract correction; unchanged requests are prohibited."
+  },
+  "browser_fallback": {
+    "prior_state": "LOGIN_REQUIRED_AFTER_INTERRUPTED_SECURE_SIGNIN",
+    "authenticated_session_positive_evidence": false,
+    "browser_opened_this_review": false,
+    "login_request_repeated": false
+  },
+  "independent_work": {
+    "target": "P04/V02 Sistema Freelance Rentable español CLP 8.990",
+    "github_default_branch_search_terms": [
+      "doK54",
+      "Sistema Freelance Rentable",
+      "CLP 8.990",
+      "P04 V02",
+      "calculadora tarifa freelance español"
+    ],
+    "search_results": 0,
+    "source_file_verified": false,
+    "creative_generated": false,
+    "blocker": "No repository evidence of the real Spanish product source file; truthful screenshots/functions cannot be represented."
+  },
+  "next_action": "Resume P02 only after a concrete native-contract correction or positively verified authenticated Metricool browser session. Before writing, reconfirm identity and deduplicate. For P04/V02, verify the actual Spanish product file first.",
+  "preservation": {
+    "p01_modified": false,
+    "p02_regenerated": false,
+    "p03_regenerated": false,
+    "site_redeployed": false,
+    "products_rebuilt": false
+  },
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "paid_api": false,
+    "plan_change": false,
+    "metricool_plan": "FREE",
+    "payhip_plan": "FREE"
+  }
+}
