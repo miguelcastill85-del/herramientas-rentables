@@ -1,0 +1,122 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-09T04:44:36.792Z",
+  "authority_recovered_commit": "776bb6ec843b1e4a0a53c2d72717afa539440002",
+  "status": "BROWSER_LOGIN_REQUIRED_AFTER_INTERRUPTED_SECURE_SIGNIN; P02_P03_UNSCHEDULED",
+  "fallback_authorization": {
+    "user_message": "Adelante",
+    "user_message_at": "2026-10-08T21:34:29-03:00",
+    "scope": "Use Metricool website browser to schedule frozen P02/P03 and verify IDs/content; Free plan and CLP 0",
+    "permission_remains_valid": true
+  },
+  "authentication": {
+    "site_origin": "https://app.metricool.com",
+    "secure_method_choice": {
+      "status": "submitted",
+      "selected_method": "Google",
+      "meaning": "SIGNIN_METHOD_SELECTED_ONLY; NOT_AUTHENTICATION_SUCCESS"
+    },
+    "next_secure_credential_step": "TOOL_CALL_ABORTED_BY_USER; NO_BROWSER_AUTH_RESULT_RETURNED",
+    "credential_entry_outcome": "UNOBSERVED; NO_ASSUMPTION_ABOUT_PARTIAL_INPUT",
+    "fresh_target_origin_verification": "Metricool redirected to its login page with Google, Facebook, email/password controls",
+    "signed_in_signal_observed": false,
+    "credential_values_seen_by_model": false,
+    "credential_values_persisted": false,
+    "cookies_or_tokens_persisted": false,
+    "oauth_query_urls_persisted": false,
+    "bot_detection_claimed": false,
+    "new_auth_request_after_interruption": false,
+    "persistent_wait_or_retry_loop": false
+  },
+  "browser_planner_actions": {
+    "composer_opened": false,
+    "files_uploaded": false,
+    "p02_create_or_schedule_submitted": false,
+    "p03_create_or_schedule_submitted": false,
+    "p01_modified": false
+  },
+  "native_reconciliation": {
+    "checked_at_utc": "2026-10-09T04:41:28.369Z",
+    "brand_id": 7292000,
+    "timezone": "America/Santiago",
+    "date_window": {
+      "from": "2026-10-08T00:00:00-03:00",
+      "to": "2026-10-22T23:59:59-03:00"
+    },
+    "posts_observed": 1,
+    "posts": [
+      {
+        "id": 390841744,
+        "uuid": "-7309929264440589713",
+        "caption_first_line": "¿Tu cotización incluye las reuniones y correcciones?",
+        "publicationDate": {
+          "dateTime": "2026-10-08T10:00:00",
+          "timezone": "America/Santiago"
+        },
+        "providers": [
+          {
+            "network": "instagram",
+            "id": "https://www.instagram.com/p/DeO_-4OCNl4/",
+            "status": "PUBLISHED",
+            "publicUrl": "https://www.instagram.com/p/DeO_-4OCNl4/",
+            "detailedStatus": "Published"
+          }
+        ],
+        "media_count": 5,
+        "alt_count": 5,
+        "draft": false,
+        "autoPublish": true,
+        "instagram_autoPublish": true
+      }
+    ],
+    "p02_matches": 0,
+    "p03_matches": 0,
+    "queue_absence_is_publication_proof": false
+  },
+  "p01": {
+    "state": "PUBLISHED_WITH_NATIVE_MATCHING_REAL_URL",
+    "public_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "publication_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
+    "preserved": true,
+    "exact_actual_publication_time": null,
+    "latest_performance_state": "UNOBSERVED"
+  },
+  "p02": {
+    "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+    "post_id": null,
+    "uuid": null,
+    "public_url": null,
+    "assets_commit": "e372ed596994058387e3bb3ea84067c40cdc762e",
+    "proposed_only": "2026-10-10T10:00:00 America/Santiago"
+  },
+  "p03": {
+    "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+    "post_id": null,
+    "uuid": null,
+    "public_url": null,
+    "assets_commit": "19d251a31f12213de3c16712a54bb694fc00812f",
+    "proposed_only": "2026-10-12T10:00:00 America/Santiago"
+  },
+  "prior_native_contract_block": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+  "resume_condition": "New concrete native-contract correction OR positively verified authenticated Metricool browser session. Confirm account and deduplicate before one create; verify native GET IDs/UUID/content. Do not open repeated sign-in requests in daily review.",
+  "followup": {
+    "existing_automation_id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "prompt_updated_and_read_back": true,
+    "new_task_created": false,
+    "receipt": "docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json"
+  },
+  "preservation": {
+    "p01_p02_p03_assets_regenerated": false,
+    "products_rebuilt": false,
+    "site_redeployed": false,
+    "products_prices_and_audit_preserved": true,
+    "site_version": 17
+  },
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_plan_activated": false,
+    "paid_api_used": false,
+    "metricool_free_constraint": true
+  }
+}

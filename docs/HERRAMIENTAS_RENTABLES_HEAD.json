@@ -1,6 +1,6 @@
 {
   "project": "Herramientas Rentables",
-  "updated_at": "2026-10-08",
+  "updated_at": "2026-10-09",
   "source_of_truth": "GitHub main + Sites saved/deployed version",
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "P02 is the first operational pending piece. Native create returned INVALID_ARGUMENT after a documented contract correction; final queue contains only published P01. Stop retries until new concrete native contract evidence, then deduplicate, schedule P02 once and verify GET ID/UUID/content. P03 follows; dates Oct 10 and Oct 12 at 10:00 Santiago remain proposals only. Existing daily growth review updated with bounded checks. Independent creative P04/V02 requires the real Spanish doK54 source file."
+    "P02 remains first operational pending. Native create contract still fails INVALID_ARGUMENT; authorized browser fallback stopped at incomplete secure sign-in, and fresh Metricool page requires login. Stop repeated create or sign-in requests. Resume only with a concrete native contract fix or positive authenticated browser session; confirm identity and deduplicate, schedule P02 once, verify native ID/UUID/content, then P03. Oct 10/12 10:00 Santiago are proposals only. Frozen assets, products, v17 and CLP 0 preserved."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-08T23:31:26.739Z",
+  "updated_at_utc": "2026-10-09T04:44:36.792Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_R2_NATIVE_PUBLISHED_URL_CONFIRMED_ANALYTICS_PENDING__P02_P03_READY_NATIVE_SCHEDULING_BLOCKED",
+    "state": "P01_NATIVE_PUBLISHED_URL_CONFIRMED__P02_P03_FROZEN_UNSCHEDULED__NATIVE_CONTRACT_AND_BROWSER_LOGIN_BLOCKED",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -268,14 +268,14 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "P02 is the first operational pending piece. Native create returned INVALID_ARGUMENT after a documented contract correction; final queue contains only published P01. Stop retries until new concrete native contract evidence, then deduplicate, schedule P02 once and verify GET ID/UUID/content. P03 follows; dates Oct 10 and Oct 12 at 10:00 Santiago remain proposals only. Existing daily growth review updated with bounded checks. Independent creative P04/V02 requires the real Spanish doK54 source file.",
+    "next_action": "P02 remains first operational pending. Native create contract still fails INVALID_ARGUMENT; authorized browser fallback stopped at incomplete secure sign-in, and fresh Metricool page requires login. Stop repeated create or sign-in requests. Resume only with a concrete native contract fix or positive authenticated browser session; confirm identity and deduplicate, schedule P02 once, verify native ID/UUID/content, then P03. Oct 10/12 10:00 Santiago are proposals only. Frozen assets, products, v17 and CLP 0 preserved.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-08T23:26:44.205Z",
+    "metricool_last_checked_at_utc": "2026-10-09T04:41:28.369Z",
     "network_connection_blocker": null,
-    "browser_authentication": "NOT_SIGNED_IN_IN_FRESH_METRICOOL_VERIFICATION_TAB",
+    "browser_authentication": "LOGIN_REQUIRED_AFTER_INTERRUPTED_SECURE_GOOGLE_SIGNIN_AND_FRESH_TARGET_VERIFICATION",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
     "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020",
     "social_scheduled": false,
@@ -293,11 +293,11 @@
     "metricool_media_byte_integrity": "PASS_5_OF_5_EXACT_R2_SHA256",
     "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
     "followup_automation_id": "6a8b4712398481919c6d25cff889fc0b",
-    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_P01_REAL_URL_P03_FROZEN_AND_BOUNDED_NATIVE_BLOCK",
+    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_BROWSER_AUTH_BLOCK_WITHOUT_REPEATED_SIGNIN",
     "latest_publication_check_receipt": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
     "campaign_start": "2026-10-08",
     "metrics_state": "UNOBSERVED_EMPTY_ROWS_NOT_ZERO_RESULTS",
-    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json",
+    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json",
     "p02": {
       "piece": "P02",
       "asset_revision": "R1",
@@ -327,7 +327,9 @@
       "scheduling_gate_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
       "scheduling_status": "NO_CONFIRMED_CREATION; INVALID_ARGUMENT",
       "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
-      "scheduling_attempts_after_p01_url": 3
+      "scheduling_attempts_after_p01_url": 3,
+      "browser_access_receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
+      "browser_schedule_attempts": 0
     },
     "publication_status": "PUBLISHED",
     "publication_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
@@ -356,10 +358,12 @@
       "cash_spent_clp": 0,
       "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
       "scheduling_attempts": 0,
-      "deferred_reason": "P02_NATIVE_CREATE_CONTRACT_UNRESOLVED"
+      "deferred_reason": "P02_NATIVE_CREATE_CONTRACT_UNRESOLVED",
+      "browser_access_receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
+      "browser_schedule_attempts": 0
     },
     "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
-    "latest_campaign_checkpoint": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+    "latest_campaign_checkpoint": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
     "historical_scheduling_verified": true,
     "pending_social_posts_observed": 0,
     "published_social_posts_observed": 1,
@@ -367,6 +371,21 @@
       "state": "INVALID_ARGUMENT_AFTER_COMPLETE_CONTRACT_CORRECTION",
       "receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
       "retry_without_new_evidence": false
-    }
+    },
+    "browser_fallback_authorization": {
+      "authorized": true,
+      "user_message": "Adelante",
+      "user_message_at": "2026-10-08T21:34:29-03:00",
+      "scope": "Schedule existing P02/P03 in Metricool web; Free and CLP 0",
+      "receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json"
+    },
+    "browser_access_blocker": {
+      "state": "LOGIN_REQUIRED",
+      "receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
+      "new_signin_request_after_interruption": false
+    },
+    "previous_followup_automation_receipts": [
+      "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json"
+    ]
   }
 }

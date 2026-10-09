@@ -59,3 +59,13 @@ Conciliación posterior 2026-10-08T23:26:44.205Z: la ventana 8–22 de octubre c
 La revisión existente “Crecimiento Herramientas Rentables”, ID 6a8b4712398481919c6d25cff889fc0b, se actualizó y se leyó nuevamente. Se preservaron ID, título, horario, zona, estado activo y timing_mode; no se creó otra. Receipt vigente: docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json. El prompt reconoce la URL real P01, los activos P03 y el límite de reintentos.
 
 LinkedIn sigue preparado con destino sin identificar. P03 está terminada, auditada y guardada en 19d251a31f12213de3c16712a54bb694fc00812f. Próximo creativo independiente: P04/V02, después de verificar el archivo español real. Mantener CLP 0, plan Free, productos cerrados y sitio v17.
+
+## Comprobación de acceso web — 2026-10-09T04:44:36.792Z
+
+El usuario autorizó la vía web para programar P02/P03. La selección segura de Google avanzó sólo al método de acceso; el paso posterior de credenciales se interrumpió y no entregó un resultado de autenticación. Una verificación nueva de Metricool mostró su página de inicio de sesión. No se abrió el compositor, no se subieron archivos ni se solicitó programación desde la web.
+
+La cola nativa comprobada en 2026-10-09T04:41:28.369Z contiene únicamente P01 390841744, UUID -7309929264440589713, PUBLISHED, URL real https://www.instagram.com/p/DeO_-4OCNl4/. P02/P03 siguen sin ID/UUID ni programación confirmados; las fechas 10/12 de octubre a las 10:00 Santiago permanecen propuestas. El bloqueo nativo INVALID_ARGUMENT previo no se ha resuelto.
+
+Se cierra esta comprobación sin nuevas peticiones de acceso ni bucle de espera. Reanudar con una sesión Metricool positivamente autenticada o una corrección concreta y nueva del contrato nativo; confirmar identidad, deduplicar y verificar mediante GET cada creación. La autorización de usar el navegador permanece vigente, pero no demuestra una sesión abierta. La revisión diaria existente recibió este estado, conservando ID, título, horario, zona, timing_mode y estado activo; no se creó otra.
+
+Receipt de acceso: docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json. Receipt de revisión: docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json. Conservar archivos congelados, P01 publicada, productos, precios y sitio v17. Gasto CLP 0, plan Free. No se registraron credenciales, cookies, tokens ni URLs de OAuth.

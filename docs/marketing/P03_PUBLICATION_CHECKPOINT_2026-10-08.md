@@ -21,3 +21,13 @@ Reutilizar Crecimiento Herramientas Rentables, ID 6a8b4712398481919c6d25cff889fc
 P02 devolvió INVALID_ARGUMENT aun después de una corrección documentada del contrato nativo. La conciliación posterior contiene únicamente P01 PUBLISHED. P03 no tuvo solicitud de creación: cero intentos, ningún ID/UUID y ninguna programación o publicación confirmada. 2026-10-12 10:00 Santiago sigue siendo una propuesta. El bloqueo afecta la escritura nativa; los cinco PNG, PDF, ZIP, textos y ALT siguen congelados y completos. Receipt: docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json.
 
 No repetir peticiones fallidas ni regenerar el carrusel. Reanudar con una corrección nueva y concreta del contrato, deduplicar y conciliar P02 primero; si se retrasa, conservar dos días civiles antes de P03. La revisión diaria existente se actualizó y verificó sin cambiar horario ni identidad: docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json. Mantener gasto CLP 0 y Free.
+
+## Comprobación de acceso web — 2026-10-09T04:44:36.792Z
+
+El usuario autorizó la vía web para programar P02/P03. La selección segura de Google avanzó sólo al método de acceso; el paso posterior de credenciales se interrumpió y no entregó un resultado de autenticación. Una verificación nueva de Metricool mostró su página de inicio de sesión. No se abrió el compositor, no se subieron archivos ni se solicitó programación desde la web.
+
+La cola nativa comprobada en 2026-10-09T04:41:28.369Z contiene únicamente P01 390841744, UUID -7309929264440589713, PUBLISHED, URL real https://www.instagram.com/p/DeO_-4OCNl4/. P02/P03 siguen sin ID/UUID ni programación confirmados; las fechas 10/12 de octubre a las 10:00 Santiago permanecen propuestas. El bloqueo nativo INVALID_ARGUMENT previo no se ha resuelto.
+
+Se cierra esta comprobación sin nuevas peticiones de acceso ni bucle de espera. Reanudar con una sesión Metricool positivamente autenticada o una corrección concreta y nueva del contrato nativo; confirmar identidad, deduplicar y verificar mediante GET cada creación. La autorización de usar el navegador permanece vigente, pero no demuestra una sesión abierta. La revisión diaria existente recibió este estado, conservando ID, título, horario, zona, timing_mode y estado activo; no se creó otra.
+
+Receipt de acceso: docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json. Receipt de revisión: docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json. Conservar archivos congelados, P01 publicada, productos, precios y sitio v17. Gasto CLP 0, plan Free. No se registraron credenciales, cookies, tokens ni URLs de OAuth.
