@@ -1,10 +1,10 @@
 # Herramientas Rentables — P02 R1: demostración del cotizador
 
-Actualizado el 2026-10-09. Estado: **SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION**.
+Actualizado el 2026-10-10. Estado: **PUBLISHED_NATIVE_POSITIVE_EVIDENCE**.
 
 ## Estado verificable
 
-P02 tiene video vertical, portada, textos para Instagram y LinkedIn y transcripción. Está **programada en Metricool para 2026-10-10 a las 10:00 America/Santiago**, con publicación automática. ID: **392475835**. UUID: **-112021319106933967**. Una lectura nativa posterior confirmó una única P02, texto exacto, un video, tipo REEL, draft=false y autoPublish=true tanto general como Instagram. Estado PENDING; todavía no publicada y sin URL social real.
+P02 tiene video vertical, portada, textos para Instagram y LinkedIn y transcripción. Fue programada en Metricool para 2026-10-10 a las 10:00 America/Santiago y ahora está **PUBLICADA** según evidencia positiva nativa. ID: **392475835**. UUID: **-112021319106933967**. URL real: **https://www.instagram.com/reel/DeUJXXtiGwr/**. La lectura nativa confirmó texto exacto, un video, tipo REEL, draft=false y autoPublish=true tanto general como Instagram. La fecha civil observada es 2026-10-10; la hora real exacta no fue observada y las 10:00 conservan únicamente su significado de horario programado.
 
 Planificador: https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-112021319106933967
 
@@ -73,3 +73,11 @@ La cola nativa comprobada en 2026-10-09T04:41:28.369Z contiene únicamente P01 3
 Se cierra esta comprobación sin nuevas peticiones de acceso ni bucle de espera. Reanudar con una sesión Metricool positivamente autenticada o una corrección concreta y nueva del contrato nativo; confirmar identidad, deduplicar y verificar mediante GET cada creación. La autorización de usar el navegador permanece vigente, pero no demuestra una sesión abierta. La revisión diaria existente recibió este estado, conservando ID, título, horario, zona, timing_mode y estado activo; no se creó otra.
 
 Receipt de acceso: docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json. Receipt de revisión: docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json. Conservar archivos congelados, P01 publicada, productos, precios y sitio v17. Gasto CLP 0, plan Free. No se registraron credenciales, cookies, tokens ni URLs de OAuth.
+
+## Publicación efectiva — 2026-10-10
+
+Metricool devolvió evidencia positiva nativa para el ID 392475835 y UUID -112021319106933967: provider Instagram `PUBLISHED`, `detailedStatus=Published` y URL real https://www.instagram.com/reel/DeUJXXtiGwr/. El primer renglón, el video único, el tipo REEL y los ajustes de publicación automática coinciden con la programación verificada. No se recreó, editó ni reprogramó P02.
+
+La publicación fue observada a las 2026-10-10 14:54:47 America/Santiago. La hora real exacta de publicación no está disponible; no se equipara automáticamente con las 10:00 programadas. Las analíticas de posts y Reels todavía devolvieron cero filas, lo que se registra como resultados no observados y no como alcance o interacciones iguales a cero. Receipt: `docs/receipts/HR_P02_PUBLICATION_VERIFIED_2026-10-10.json`.
+
+P03 conserva ID 392476131 y UUID 8775040772058204870, estado PENDING y horario 2026-10-12 10:00 America/Santiago. No fue modificada.
