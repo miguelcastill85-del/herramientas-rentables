@@ -1,0 +1,93 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P02",
+  "revision": "R1",
+  "recorded_at_utc": "2026-10-10T17:54:47Z",
+  "observed_local_datetime": "2026-10-10T14:54:47-03:00",
+  "status": "PUBLISHED_NATIVE_POSITIVE_EVIDENCE",
+  "identity": {
+    "link_id": "link_6ac651de88a48191a45f9e111da03637",
+    "link_name": "Primary",
+    "instagram_handle": "@herramientas_rentables_chile",
+    "brand_id": 7292000,
+    "timezone": "America/Santiago",
+    "verified": true
+  },
+  "publication": {
+    "post_id": 392475835,
+    "uuid": "-112021319106933967",
+    "provider": "instagram",
+    "provider_status": "PUBLISHED",
+    "detailed_status": "Published",
+    "public_url": "https://www.instagram.com/reel/DeUJXXtiGwr/",
+    "scheduled_datetime": {
+      "dateTime": "2026-10-10T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "civil_publication_date": "2026-10-10",
+    "actual_publication_datetime": null,
+    "actual_time_interpretation": "UNOBSERVED; scheduled 10:00 is not claimed as actual publication time",
+    "first_line": "Cuatro pasos antes de enviar tu próxima cotización.",
+    "media_count": 1,
+    "media_type": "video",
+    "instagram_type": "REEL",
+    "draft": false,
+    "autoPublish": true,
+    "instagram_autoPublish": true,
+    "showReelOnFeed": true,
+    "isAiGenerated": false
+  },
+  "matching": {
+    "expected_id": 392475835,
+    "expected_uuid": "-112021319106933967",
+    "expected_first_line": "Cuatro pasos antes de enviar tu próxima cotización.",
+    "expected_media_count": 1,
+    "id_match": true,
+    "uuid_match": true,
+    "text_match": true,
+    "media_count_match": true
+  },
+  "analytics": {
+    "queried_through": "2026-10-10T14:54:47-03:00",
+    "posts_rows": 0,
+    "reels_rows": 0,
+    "interpretation": "UNOBSERVED_NOT_ZERO_PERFORMANCE",
+    "reach": null,
+    "views": null,
+    "interactions": null,
+    "likes": null,
+    "comments": null,
+    "saves": null,
+    "shares": null,
+    "follows": null,
+    "clicks": null,
+    "sales": null
+  },
+  "p03": {
+    "post_id": 392476131,
+    "uuid": "8775040772058204870",
+    "scheduled_datetime": {
+      "dateTime": "2026-10-12T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "status": "PENDING",
+    "public_url": null,
+    "preserved": true
+  },
+  "preservation": {
+    "p01_modified": false,
+    "p02_recreated": false,
+    "p02_reprogrammed": false,
+    "p03_modified": false,
+    "assets_regenerated": false,
+    "product_rebuilt": false,
+    "site_redeployed": false
+  },
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "metricool_plan": "FREE",
+    "payhip_plan": "FREE"
+  },
+  "next_action": "Verify P03 once after 2026-10-12 10:00 America/Santiago. Continue monitoring P02 analytics without treating empty rows as zero performance."
+}
