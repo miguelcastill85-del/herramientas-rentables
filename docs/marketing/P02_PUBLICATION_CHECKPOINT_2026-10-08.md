@@ -1,10 +1,14 @@
 # Herramientas Rentables — P02 R1: demostración del cotizador
 
-Actualizado el 2026-10-08. Estado: **FROZEN_ASSETS_LOCAL_QA_PASS_NATIVE_SCHEDULING_BLOCKED**.
+Actualizado el 2026-10-09. Estado: **SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION**.
 
 ## Estado verificable
 
-P02 tiene video vertical, portada, textos para Instagram y LinkedIn y transcripción. Está preparada en GitHub; **no está programada ni publicada en Metricool**. No hay ID, UUID ni URL pública social de P02.
+P02 tiene video vertical, portada, textos para Instagram y LinkedIn y transcripción. Está **programada en Metricool para 2026-10-10 a las 10:00 America/Santiago**, con publicación automática. ID: **392475835**. UUID: **-112021319106933967**. Una lectura nativa posterior confirmó una única P02, texto exacto, un video, tipo REEL, draft=false y autoPublish=true tanto general como Instagram. Estado PENDING; todavía no publicada y sin URL social real.
+
+Planificador: https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-112021319106933967
+
+Receipt vigente: `docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json`. Este estado reemplaza los bloqueos históricos descritos más abajo.
 
 P01 R2 está PUBLICADA según la respuesta nativa positiva de Metricool, ID 390841744, UUID -7309929264440589713, provider PUBLISHED y URL real https://www.instagram.com/p/DeO_-4OCNl4/. Texto, cinco imágenes y cinco ALT coinciden con el receipt original. Evidencia: docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json. Fecha civil 2026-10-08 inferida del intervalo observado dentro del mismo día de Santiago; hora exacta no observada. Analítica sin filas: resultados no observados, no cero. El gate de URL real está satisfecho y fue guardado antes de los intentos actuales.
 
@@ -21,7 +25,7 @@ Commit de los archivos P02: `e372ed596994058387e3bb3ea84067c40cdc762e`.
 - Transcripción: `docs/marketing/p02/deliverables/P02_transcripcion.txt`.
 - Manifest y comprobaciones: `docs/receipts/HR_P02_ASSETS_READY_2026-10-08.json` y `docs/marketing/p02/P02_QA_RESULT.json`.
 
-El commit confirma la identidad de los blobs. La entrega HTTP al servidor de Metricool y la aceptación final de su contenido multimedia siguen pendientes; no declarar que el video ya está cargado en el planificador.
+El commit confirma la identidad de los blobs. Metricool devolvió una URL de caché de video y la misma URL apareció en la lectura posterior de la programación. No se recalculó el SHA-256 del archivo de caché de Metricool; se conserva el SHA-256 comprobado del video fuente.
 
 ## Demostración real
 
@@ -37,13 +41,13 @@ Siete escenas revisadas visualmente; escena de resultado inspeccionada también 
 
 Esto valida el archivo local; la publicación real y el procesamiento de Instagram todavía no han sido probados para P02. Usar el conector conectado, sin API pagada ni cambio de plan.
 
-## Intento histórico antes de verificar la URL P01
+## Historial — intento antes de verificar la URL P01
 
 Una única solicitud de creación de borrador P02, con draft=true y publicación automática desactivada, fue **rechazada por la revisión automática** antes de confirmar la URL real de P01. No hubo respuesta de creación, ID ni UUID. Una lectura posterior de la cola confirmó P01 sin cambios y ningún P02.
 
 Receipt: `docs/receipts/HR_P02_METRICOOL_DEFERRED_2026-10-08.json`. No repetir ese intento ni usar otra vía para eludir el rechazo antes de cumplir el gate.
 
-## Resultado nativo posterior y siguiente acción
+## Historial técnico — 2026-10-08 (superado por la programación vigente)
 
 Después de guardar la URL real P01 en main, se intentó programar P02 para el 10 de octubre a las 10:00 America/Santiago. La URL pública en mediaFiles falló porque ese helper intenta leer un archivo local. Se quitó ese helper y se conservó la URL dentro de info.media. El contrato mínimo devolvió INVALID_ARGUMENT. Una única corrección material, con los valores del constructor primario inspeccionado, volvió a devolver INVALID_ARGUMENT. Son errores técnicos del conector; el rechazo histórico de revisión automática permanece documentado por separado.
 
@@ -60,7 +64,7 @@ La revisión existente “Crecimiento Herramientas Rentables”, ID 6a8b47123984
 
 LinkedIn sigue preparado con destino sin identificar. P03 está terminada, auditada y guardada en 19d251a31f12213de3c16712a54bb694fc00812f. Próximo creativo independiente: P04/V02, después de verificar el archivo español real. Mantener CLP 0, plan Free, productos cerrados y sitio v17.
 
-## Comprobación de acceso web — 2026-10-09T04:44:36.792Z
+## Historial de acceso web — 2026-10-09T04:44:36.792Z
 
 El usuario autorizó la vía web para programar P02/P03. La selección segura de Google avanzó sólo al método de acceso; el paso posterior de credenciales se interrumpió y no entregó un resultado de autenticación. Una verificación nueva de Metricool mostró su página de inicio de sesión. No se abrió el compositor, no se subieron archivos ni se solicitó programación desde la web.
 

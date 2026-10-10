@@ -1,0 +1,228 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-10T00:05:07.742Z",
+  "recorded_local_date": "2026-10-09",
+  "timezone": "America/Santiago",
+  "authority_recovered_commit": "7b0546a92bac289d915edb8ff04d8f5a848e4969",
+  "state": "P01_PUBLISHED__P02_P03_SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
+  "identity": {
+    "metricool_connection_name": "Primary",
+    "brand_id": 7292000,
+    "instagram_handle": "@herramientas_rentables_chile",
+    "timezone": "America/Santiago",
+    "basis": "CURRENT_NATIVE_GETBRANDSETTINGS_MATCH; PRIMARY_LINK_EXPLICITLY_SELECTED"
+  },
+  "resolved_contract": {
+    "new_schema_evidence": "Explicit link_id is now required and the Primary account was confirmed for the target brand",
+    "date_parser_error": "Text '2026-10-10T10:00:00' could not be parsed at index 19",
+    "correction": "Outer date uses ISO 8601 offset -03:00; info.publicationDate retains local dateTime and America/Santiago",
+    "p02_outer_date": "2026-10-10T10:00:00-03:00",
+    "p03_outer_date": "2026-10-12T10:00:00-03:00",
+    "media_rule": "Frozen HTTPS source URLs in info.media; optional mediaFiles omitted",
+    "prior_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json"
+  },
+  "deduplication": {
+    "before_p02": "ONLY_P01_NATIVE_PUBLISHED; NO_P02_OR_P03",
+    "after_p02_date_parse_error": "ONLY_P01; NO_POST_CREATED",
+    "before_p03": "ONE_VERIFIED_P02; NO_P03",
+    "final_posts_total": 3,
+    "p02_unique_matches": 1,
+    "p03_unique_matches": 1,
+    "p01_original_id_and_uuid_preserved": true
+  },
+  "p01": {
+    "id": 390841744,
+    "uuid": "-7309929264440589713",
+    "state": "PUBLISHED",
+    "public_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "modified": false
+  },
+  "p02": {
+    "id": 392475835,
+    "uuid": "-112021319106933967",
+    "publicationDate": {
+      "dateTime": "2026-10-10T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "creationDate": {
+      "dateTime": "2026-10-09T20:59:00",
+      "timezone": "America/Santiago"
+    },
+    "text": "Cuatro pasos antes de enviar tu próxima cotización.\n\n1. Cuenta el tiempo completo.\n2. Incluye tus costos.\n3. Deja por escrito el alcance y las revisiones.\n4. Define anticipo y saldo.\n\nEn el video usamos el cotizador real con un ejemplo ilustrativo en CLP. Ajusta horas, tarifa, costos y condiciones a tu servicio.\n\nEl cotizador es gratuito, está en español y funciona sin registro.\n\nPruébalo con los datos de tu próximo proyecto desde el enlace del perfil.\n\n#FreelanceChile #Cotizaciones #TrabajoIndependiente",
+    "providers": [
+      {
+        "network": "instagram",
+        "status": "PENDING",
+        "detailedStatus": "Pending"
+      }
+    ],
+    "media": [
+      "https://static.metricool.com/planner/202610/7292000-file-15257684189017423083.mp4"
+    ],
+    "mediaAltText": [
+      null
+    ],
+    "autoPublish": true,
+    "draft": false,
+    "instagramData": {
+      "autoPublish": true,
+      "type": "REEL",
+      "showReelOnFeed": true,
+      "isAiGenerated": false
+    },
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-112021319106933967",
+    "assets_commit": "e372ed596994058387e3bb3ea84067c40cdc762e",
+    "source_video_sha256": "a8f387da135ad71873579a942e4ece43b0733c853bd3fcc8a2d83731a502521e",
+    "source_video_url": "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/e372ed596994058387e3bb3ea84067c40cdc762e/docs/marketing/p02/deliverables/P02_demo_cotizador_R1.mp4",
+    "native_readback": "PASS",
+    "social_scheduled": true,
+    "social_published": false,
+    "public_post_url": null
+  },
+  "p03": {
+    "id": 392476131,
+    "uuid": "8775040772058204870",
+    "publicationDate": {
+      "dateTime": "2026-10-12T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "creationDate": {
+      "dateTime": "2026-10-09T21:00:00",
+      "timezone": "America/Santiago"
+    },
+    "text": "¿Cambió el alcance? Revisa la cotización antes de empezar.\n\nEn este ejemplo se acordó una landing page de hasta 5 secciones y 2 rondas de revisión. La nueva solicitud agrega 2 secciones y una ronda más.\n\nEstimación ilustrativa: 6 h para las secciones + 2 h para la revisión = 8 h adicionales. Estima el trabajo con tus propios datos; no es una tarifa ni un resultado de un cliente.\n\nAntes de aceptar, conversen sobre qué cambia, el precio, el plazo y las revisiones. Luego actualiza tu propuesta por escrito.\n\nEl cotizador gratuito permite revisar tiempo, costos y alcance. Está en español y funciona sin registro.\n\nPruébalo con los datos de tu próximo proyecto desde el enlace del perfil.\n\n#FreelanceChile #Cotizaciones #TrabajoIndependiente",
+    "providers": [
+      {
+        "network": "instagram",
+        "status": "PENDING",
+        "detailedStatus": "Pending"
+      }
+    ],
+    "media": [
+      "https://static.metricool.com/planner/202610/7292000-file-9516210452014621302.png",
+      "https://static.metricool.com/planner/202610/7292000-file-15676445075317815504.png",
+      "https://static.metricool.com/planner/202610/7292000-file-12580175963517978019.png",
+      "https://static.metricool.com/planner/202610/7292000-file-5331510493583447630.png",
+      "https://static.metricool.com/planner/202610/7292000-file-2054116985586148559.png"
+    ],
+    "mediaAltText": [
+      "Portada sobre cambios de alcance. Pregunta: ¿Puedes agregar esto también? Una entrega más también cambia el trabajo. Invitación a revisar lo acordado antes de aceptar. Dos propuestas ilustradas muestran cómo una entrega adicional amplía la lista de trabajo.",
+      "Propuesta inicial de ejemplo: landing page de hasta cinco secciones, dos rondas de revisión y textos e imágenes aportados por el cliente. Se indica que es un ejemplo ilustrativo.",
+      "Nueva solicitud ilustrativa: dos secciones adicionales estimadas en seis horas y una ronda de revisión adicional estimada en dos horas. Total: ocho horas adicionales por evaluar. Se invita a estimar las horas propias.",
+      "Invitación a acordar el cambio antes de empezar. Respuesta adaptable: Podemos sumar dos secciones y una ronda extra. Te enviaré el precio y el plazo con el alcance actualizado. Se recuerdan alcance, precio, plazo y revisiones.",
+      "Cierre: Recalcula antes de aceptar y actualiza tiempo, costos y alcance. Cotizador gratuito de Herramientas Rentables, en español y sin registro. Invitación a probarlo con el próximo proyecto desde el enlace del perfil."
+    ],
+    "autoPublish": true,
+    "draft": false,
+    "instagramData": {
+      "autoPublish": true,
+      "type": "POST",
+      "showReelOnFeed": true,
+      "isAiGenerated": true
+    },
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=8775040772058204870",
+    "assets_commit": "19d251a31f12213de3c16712a54bb694fc00812f",
+    "source_media_urls": [
+      "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/19d251a31f12213de3c16712a54bb694fc00812f/docs/marketing/p03/images/P03_01.png",
+      "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/19d251a31f12213de3c16712a54bb694fc00812f/docs/marketing/p03/images/P03_02.png",
+      "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/19d251a31f12213de3c16712a54bb694fc00812f/docs/marketing/p03/images/P03_03.png",
+      "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/19d251a31f12213de3c16712a54bb694fc00812f/docs/marketing/p03/images/P03_04.png",
+      "https://raw.githubusercontent.com/miguelcastill85-del/herramientas-rentables/19d251a31f12213de3c16712a54bb694fc00812f/docs/marketing/p03/images/P03_05.png"
+    ],
+    "native_readback": "PASS_5_IMAGES_AND_5_ALT_IN_ORDER",
+    "social_scheduled": true,
+    "social_published": false,
+    "public_post_url": null
+  },
+  "verification": [
+    {
+      "piece": "P02",
+      "pass": true,
+      "id": 392475835,
+      "uuid": "-112021319106933967",
+      "publicationDate": {
+        "dateTime": "2026-10-10T10:00:00",
+        "timezone": "America/Santiago"
+      },
+      "media_count": 1,
+      "alt_count": 0,
+      "provider": [
+        {
+          "network": "instagram",
+          "status": "PENDING",
+          "detailedStatus": "Pending"
+        }
+      ],
+      "autoPublish": true,
+      "unique_matches": 1
+    },
+    {
+      "piece": "P03",
+      "pass": true,
+      "id": 392476131,
+      "uuid": "8775040772058204870",
+      "publicationDate": {
+        "dateTime": "2026-10-12T10:00:00",
+        "timezone": "America/Santiago"
+      },
+      "media_count": 5,
+      "alt_count": 5,
+      "provider": [
+        {
+          "network": "instagram",
+          "status": "PENDING",
+          "detailedStatus": "Pending"
+        }
+      ],
+      "autoPublish": true,
+      "unique_matches": 1
+    }
+  ],
+  "media_verification": {
+    "metricool_cached_media_urls_returned": true,
+    "asset_bytes_regenerated": false,
+    "source_urls_are_immutable_commit_refs": true,
+    "native_cached_media_bytes_sha256": "NOT_RECHECKED",
+    "scope": "NATIVE_POST_ID_UUID_DATE_TYPE_TEXT_MEDIA_COUNT_ALT_AND_AUTOPUBLISH"
+  },
+  "browser_access": {
+    "google_method_selection": "SUBMITTED",
+    "google_identifier_step": "SUBMITTED",
+    "google_password_step": "INTERRUPTED_WITHOUT_AUTHENTICATION_RESULT",
+    "fresh_metricool_verification": "LOGIN_REQUIRED",
+    "browser_scheduling_submitted": false,
+    "credentials_or_tokens_saved": false,
+    "oauth_urls_saved": false,
+    "needed_for_successful_scheduling": false,
+    "new_secure_request_after_interruption": false
+  },
+  "followup": {
+    "existing_automation_id": "6a8b4712398481919c6d25cff889fc0b",
+    "title": "Crecimiento Herramientas Rentables",
+    "prompt_updated_and_read_back": true,
+    "new_task_created": false,
+    "schedule": "BEGIN:VEVENT\nDTSTART:20260823T180000Z\nRRULE:FREQ=DAILY;BYHOUR=14;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+    "timezone": "America/Santiago",
+    "timing_mode": "flexible_schedule",
+    "is_enabled": true,
+    "publication_check": "AFTER_EACH_SCHEDULED_TIME_REQUIRE_POSITIVE_PUBLISHED_WITH_MATCHING_REAL_URL; NO_DUPLICATE_CREATION"
+  },
+  "next_actions": [
+    "Verify P02 actual publication and real URL after 2026-10-10 10:00 America/Santiago",
+    "Verify P03 actual publication and real URL after 2026-10-12 10:00 America/Santiago",
+    "P04/V02 remains blocked until verified real Spanish doK54 source file is available; LinkedIn destination remains unidentified"
+  ],
+  "preservation": {
+    "p01_p02_p03_assets_unchanged": true,
+    "products_and_prices_unchanged": true,
+    "site_version": 17,
+    "site_redeployed": false,
+    "scope": "MARKETING_DOCUMENTATION_ONLY"
+  },
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_plan_activated": false,
+    "metricool_plan_constraint": "FREE"
+  },
+  "actual_publication_times_and_results": "P02_P03_UNOBSERVED_FUTURE_SCHEDULES_ONLY"
+}

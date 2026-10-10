@@ -1,7 +1,25 @@
 # Herramientas Rentables — Campaña orgánica de 14 días
 
-Preparada el 2026-10-07; actualizada el 2026-10-08. Estado: **P01 R2 publicada con URL nativa confirmada; P02 R1 y P03 R1 preparadas y auditadas**.
+Preparada el 2026-10-07; actualizada el 2026-10-09. Estado: **P01 R2 publicada; P02 R1 y P03 R1 programadas y verificadas, pendientes de publicación efectiva**.
 Inicio: fecha real de la primera publicación verificada. Gasto monetario realizado: **CLP 0**.
+
+
+## Programación vigente — 2026-10-09
+
+| Pieza | Fecha de publicación automática (Santiago) | ID Metricool | Estado |
+| --- | --- | --- | --- |
+| P02 R1 | 2026-10-10 10:00 | 392475835 | PENDING; programación verificada |
+| P03 R1 | 2026-10-12 10:00 | 392476131 | PENDING; programación verificada |
+
+P02 UUID: -112021319106933967. P03 UUID: 8775040772058204870. Ambas conservan texto y medios congelados; una sola coincidencia de cada pieza en GET. P03 incluye cinco ALT exactos y isAiGenerated=true. draft=false y autoPublish=true tanto general como Instagram. Las fechas anteriores ahora sí son programaciones confirmadas. Receipt vigente: `docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json`.
+
+El bloqueo nativo está resuelto: el argumento exterior date necesita ISO 8601 con offset -03:00; info.publicationDate conserva hora local y America/Santiago. El esquema actual exige seleccionar la conexión Primary que identifica la marca 7292000; la conexión de Helena es independiente. Usar URLs inmutables en info.media, sin el helper de archivos locales.
+
+La revisión diaria existente “Crecimiento Herramientas Rentables” recibió este estado y se verificó el prompt por lectura posterior. Se conservaron ID, título, horario, timezone, timing_mode y estado activo. Su siguiente acción es comprobar publicación efectiva y URL real después de cada horario; ausencia de cola no es prueba. No recrear ni reprogramar P02/P03.
+
+El acceso web volvió a mostrar login tras interrumpirse el paso seguro de contraseña Google. No es necesario para las programaciones nativas ya confirmadas. No se guardaron credenciales, cookies, tokens ni URLs OAuth. Los apartados posteriores de bloqueos son históricos y quedan superados para programación.
+
+Siguiente creativo: P04/V02, pendiente del archivo español real verificado. Gasto CLP 0, Free, productos y sitio v17 conservados. Resultados de P02/P03 aún no observados.
 
 ## Decisión sobre idiomas
 
@@ -177,7 +195,7 @@ Las cuatro descargas del mismo pedido gratuito de prueba no son cuatro ventas ni
 
 La selección de públicos, textos, cadencia y criterios de revisión son propuestas de esta campaña.
 
-## Seguimiento operativo del 2026-10-08
+## Historial — seguimiento operativo del 2026-10-08
 
 - P01: sigue PENDING, un único UUID -7309929264440589713, ID 390841744, autoPublish=true, draft=false, 2026-10-08 10:00 America/Santiago. Cinco imágenes, texto y cinco textos alternativos coinciden exactamente con R2. URL real: no observada.
 - P02: video y material completos y auditados, sin ID/UUID de Metricool ni URL social. No confundir una fecha propuesta con programación.
@@ -189,7 +207,7 @@ La selección de públicos, textos, cadencia y criterios de revisión son propue
 
 Receipts de continuidad: `docs/receipts/HR_P01_STATUS_CHECK_2026-10-08.json`, `HR_P02_ASSETS_READY_2026-10-08.json`, `HR_P02_METRICOOL_DEFERRED_2026-10-08.json` y `HR_GROWTH_REVIEW_CONTINUATION_2026-10-08.json`.
 
-## Checkpoint vigente: P01 publicada y P03 preparada
+## Historial — P01 publicada y P03 preparada (2026-10-08)
 
 P01: Metricool devuelve PUBLISHED y URL real https://www.instagram.com/p/DeO_-4OCNl4/, con contenido e identidad coincidentes. Día 1: 2026-10-08, por el intervalo observado dentro de la misma fecha civil de Santiago; hora exacta de publicación no observada. Analítica: aún sin filas, no significa cero resultados. Este estado posterior reemplaza los pendientes históricos de las secciones anteriores.
 
@@ -203,7 +221,7 @@ La revisión “Crecimiento Herramientas Rentables”, ID 6a8b4712398481919c6d25
 
 Creativo independiente siguiente: P04/V02; recuperar el archivo real del sistema español antes de representar funciones o pantallas. Mantener productos cerrados, sitio v17, archivos P01/P02/P03 congelados, plan Free y CLP 0. Publicación real P01 confirmada; métricas y ventas atribuibles aún no observadas.
 
-## Comprobación de acceso web — 2026-10-09T04:44:36.792Z
+## Historial de acceso web — 2026-10-09T04:44:36.792Z
 
 El usuario autorizó la vía web para programar P02/P03. La selección segura de Google avanzó sólo al método de acceso; el paso posterior de credenciales se interrumpió y no entregó un resultado de autenticación. Una verificación nueva de Metricool mostró su página de inicio de sesión. No se abrió el compositor, no se subieron archivos ni se solicitó programación desde la web.
 

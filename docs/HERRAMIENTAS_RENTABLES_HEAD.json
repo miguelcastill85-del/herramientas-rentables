@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "P02 remains first operational pending. Identity and deduplication were reconfirmed on 2026-10-09; P02/P03 remain unscheduled and analytics rows remain unobserved. Native schema is unchanged and browser authentication is unverified, so no blind write was repeated. Resume only with new concrete contract evidence or a positively authenticated Metricool session. P04/V02 requires the real Spanish CLP 8.990 source file before truthful creative work."
+    "P02 and P03 are scheduled with automatic publication and verified native IDs/UUIDs. Use the existing daily review to verify actual publication and matching real URLs after their respective times; do not duplicate. P04/V02 needs the verified real Spanish product source file."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-09T04:44:36.792Z",
+  "updated_at_utc": "2026-10-10T00:05:07.742Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_NATIVE_PUBLISHED_URL_CONFIRMED__P02_P03_FROZEN_UNSCHEDULED__NATIVE_CONTRACT_AND_BROWSER_LOGIN_BLOCKED",
+    "state": "P01_PUBLISHED__P02_P03_SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -268,14 +268,14 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "P02 remains first operational pending. Identity and deduplication reconfirmed on 2026-10-09; P02/P03 remain absent. Native create schema is unchanged and no corrected contract evidence exists, while the browser fallback still lacks positive authenticated-session evidence. Do not repeat failed create or sign-in requests. Resume only with a concrete native contract fix or verified authenticated Metricool session. P04/V02 also pauses until the real Spanish CLP 8.990 source file is verified.",
+    "next_action": "Check actual publication and real URL for P02 after Oct 10 10:00 and P03 after Oct 12 10:00 America/Santiago using their existing IDs/UUIDs. Keep the existing daily review; never duplicate either scheduled post. Next creative P04/V02 requires the verified real Spanish source file.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-09T17:20:16Z",
+    "metricool_last_checked_at_utc": "2026-10-10T00:05:07.742Z",
     "network_connection_blocker": null,
-    "browser_authentication": "LOGIN_REQUIRED_AFTER_INTERRUPTED_SECURE_GOOGLE_SIGNIN_AND_FRESH_TARGET_VERIFICATION",
+    "browser_authentication": "LOGIN_REQUIRED_NOT_NEEDED_FOR_SUCCESSFUL_NATIVE_SCHEDULING",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
     "connection_checkpoint_commit_sha": "783471bbdf98d265d92e3436af67a5809628b020",
     "social_scheduled": false,
@@ -293,15 +293,15 @@
     "metricool_media_byte_integrity": "PASS_5_OF_5_EXACT_R2_SHA256",
     "source_images_commit_sha": "d86fb464185a3ef4aeef914344a70662271d814e",
     "followup_automation_id": "6a8b4712398481919c6d25cff889fc0b",
-    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_BROWSER_AUTH_BLOCK_WITHOUT_REPEATED_SIGNIN",
+    "followup_automation": "EXISTING_DAILY_GROWTH_REVIEW_UPDATED_AND_READ_BACK_FOR_P02_P03_PUBLICATION_CHECKS",
     "latest_publication_check_receipt": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
     "campaign_start": "2026-10-08",
     "metrics_state": "UNOBSERVED_EMPTY_POSTS_AND_REELS_ROWS_NOT_ZERO_RESULTS",
-    "followup_automation_receipt": "docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json",
+    "followup_automation_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
     "p02": {
       "piece": "P02",
       "asset_revision": "R1",
-      "state": "FROZEN_ASSETS_LOCAL_QA_PASS_NATIVE_SCHEDULING_BLOCKED",
+      "state": "SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
       "checkpoint": "docs/marketing/P02_PUBLICATION_CHECKPOINT_2026-10-08.md",
       "assets_receipt": "docs/receipts/HR_P02_ASSETS_READY_2026-10-08.json",
       "assets_commit_sha": "e372ed596994058387e3bb3ea84067c40cdc762e",
@@ -311,10 +311,10 @@
       "duration_seconds": 32,
       "format": "1080x1920_H264_MP4_30FPS",
       "source": "REAL_SITE_SCREENSHOTS",
-      "social_scheduled": false,
+      "social_scheduled": true,
       "social_published": false,
-      "scheduled_post_id": null,
-      "scheduled_post_uuid": null,
+      "scheduled_post_id": 392475835,
+      "scheduled_post_uuid": "-112021319106933967",
       "public_post_url": null,
       "proposed_date_if_p01_published_2026_10_08": "2026-10-10T10:00:00 America/Santiago",
       "scheduling_gate": "SATISFIED_POSITIVE_P01_NATIVE_PUBLISHED_PUBLIC_URL",
@@ -325,11 +325,27 @@
       "cash_spent_clp": 0,
       "scheduling_gate_satisfied": true,
       "scheduling_gate_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
-      "scheduling_status": "NO_CONFIRMED_CREATION; INVALID_ARGUMENT",
-      "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
-      "scheduling_attempts_after_p01_url": 3,
+      "scheduling_status": "SCHEDULED_NATIVE_GET_READBACK_PASS",
+      "scheduling_block_receipt": null,
+      "scheduling_attempts_after_p01_url": 5,
       "browser_access_receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
-      "browser_schedule_attempts": 0
+      "browser_schedule_attempts": 0,
+      "assets_state": "FROZEN_LOCAL_QA_PASS",
+      "scheduled_at": {
+        "dateTime": "2026-10-10T10:00:00",
+        "timezone": "America/Santiago"
+      },
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=-112021319106933967",
+      "scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+      "historical_scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "autoPublish": true,
+      "draft": false,
+      "metricool_media_urls": [
+        "https://static.metricool.com/planner/202610/7292000-file-15257684189017423083.mp4"
+      ],
+      "native_media_acceptance": "CACHE_URLS_RETURNED_AND_POST_SCHEDULE_READ_BACK",
+      "latest_browser_access_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+      "publication_status": "PENDING"
     },
     "publication_status": "PUBLISHED",
     "publication_evidence": "docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json",
@@ -338,7 +354,7 @@
     "p03": {
       "piece": "P03",
       "revision": "R1",
-      "state": "FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED",
+      "state": "SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
       "checkpoint": "docs/marketing/P03_PUBLICATION_CHECKPOINT_2026-10-08.md",
       "assets_receipt": "docs/receipts/HR_P03_ASSETS_READY_2026-10-08.json",
       "assets_commit_sha": "19d251a31f12213de3c16712a54bb694fc00812f",
@@ -349,28 +365,50 @@
       ],
       "pdf_path": "docs/marketing/p03/P03_Carrusel_R1.pdf",
       "zip_path": "docs/marketing/p03/P03_Paquete_R1.zip",
-      "social_scheduled": false,
+      "social_scheduled": true,
       "social_published": false,
-      "scheduled_post_id": null,
-      "scheduled_post_uuid": null,
+      "scheduled_post_id": 392476131,
+      "scheduled_post_uuid": "8775040772058204870",
       "public_post_url": null,
       "proposed_date": "2026-10-12T10:00:00 America/Santiago",
       "cash_spent_clp": 0,
-      "scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
-      "scheduling_attempts": 0,
-      "deferred_reason": "P02_NATIVE_CREATE_CONTRACT_UNRESOLVED",
+      "scheduling_block_receipt": null,
+      "scheduling_attempts": 1,
+      "deferred_reason": null,
       "browser_access_receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
-      "browser_schedule_attempts": 0
+      "browser_schedule_attempts": 0,
+      "assets_state": "FROZEN_LOCAL_QA_PASS",
+      "scheduled_at": {
+        "dateTime": "2026-10-12T10:00:00",
+        "timezone": "America/Santiago"
+      },
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=8775040772058204870",
+      "scheduling_status": "SCHEDULED_NATIVE_GET_READBACK_PASS",
+      "scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+      "historical_scheduling_block_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "autoPublish": true,
+      "draft": false,
+      "metricool_media_urls": [
+        "https://static.metricool.com/planner/202610/7292000-file-9516210452014621302.png",
+        "https://static.metricool.com/planner/202610/7292000-file-15676445075317815504.png",
+        "https://static.metricool.com/planner/202610/7292000-file-12580175963517978019.png",
+        "https://static.metricool.com/planner/202610/7292000-file-5331510493583447630.png",
+        "https://static.metricool.com/planner/202610/7292000-file-2054116985586148559.png"
+      ],
+      "native_media_acceptance": "CACHE_URLS_RETURNED_AND_POST_SCHEDULE_READ_BACK",
+      "latest_browser_access_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+      "publication_status": "PENDING",
+      "instagram_is_ai_generated": true
     },
     "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
-    "latest_campaign_checkpoint": "docs/receipts/HR_GROWTH_REVIEW_2026-10-09.json",
+    "latest_campaign_checkpoint": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
     "historical_scheduling_verified": true,
-    "pending_social_posts_observed": 0,
+    "pending_social_posts_observed": 2,
     "published_social_posts_observed": 1,
     "native_scheduling_blocker": {
-      "state": "INVALID_ARGUMENT_AFTER_COMPLETE_CONTRACT_CORRECTION",
-      "receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
-      "retry_without_new_evidence": false
+      "state": "RESOLVED_WITH_EXPLICIT_PRIMARY_CONNECTION_AND_ISO_OFFSET_DATE",
+      "historical_receipt": "docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json",
+      "resolution_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json"
     },
     "browser_fallback_authorization": {
       "authorized": true,
@@ -381,11 +419,13 @@
     },
     "browser_access_blocker": {
       "state": "LOGIN_REQUIRED",
-      "receipt": "docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json",
+      "receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+      "blocks_current_scheduling": false,
       "new_signin_request_after_interruption": false
     },
     "previous_followup_automation_receipts": [
-      "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json"
+      "docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json",
+      "docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json"
     ],
     "latest_bounded_review_receipt": "docs/receipts/HR_GROWTH_REVIEW_2026-10-09.json",
     "latest_bounded_review_commit_sha": "71c74062915c90c65b3f6e625eab7c7ebba0668e",
@@ -397,6 +437,7 @@
       "repository_search_results": 0,
       "creative_generated": false,
       "receipt": "docs/receipts/HR_GROWTH_REVIEW_2026-10-09.json"
-    }
+    },
+    "latest_scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json"
   }
 }

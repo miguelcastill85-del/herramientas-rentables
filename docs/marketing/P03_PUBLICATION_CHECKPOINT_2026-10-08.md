@@ -1,6 +1,6 @@
 # Herramientas Rentables - P03 R1: cambios de alcance
 
-Actualizado el 2026-10-08T23:07:36.288Z. Estado: **FROZEN_ASSETS_LOCAL_QA_PASS_UNSCHEDULED**.
+Actualizado el 2026-10-09. Estado: **SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION**.
 
 Cinco PNG cuadrados 1254 × 1254, PDF de cinco páginas, paquete ZIP de once archivos, textos Instagram y LinkedIn, cinco textos alternativos y transcripción. Revisión visual de las cinco imágenes y páginas PASS. Píxeles RGB incrustados en el PDF coinciden exactamente con los PNG; enlace real al cotizador en el cierre. ZIP con CRC y contenido exacto PASS. OCR complementario reconoce parcialmente la tipografía grande; cifras y acentos se verificaron visualmente. No se afirma PDF etiquetado.
 
@@ -12,17 +12,21 @@ Caso ilustrativo: landing page de hasta 5 secciones, 2 rondas y material del cli
 
 P01 tiene URL real nativa confirmada: https://www.instagram.com/p/DeO_-4OCNl4/. Evidencia: docs/receipts/HR_P01_PUBLICATION_VERIFIED_2026-10-08.json. La hora programada no equivale a una hora real observada y la analítica permanece sin filas.
 
-P03 sigue sin ID, UUID ni URL social. Primero conciliar/programar P02; después deduplicar P03 por primer renglón exacto “¿Cambió el alcance? Revisa la cotización antes de empezar.” y medios. Día 5: 2026-10-12 a las 10:00 America/Santiago. Usar las cinco URLs inmutables del commit anterior y ALT preparados; verificar GET con draft=false y publicación automática. LinkedIn: destino todavía no identificado.
+P03 está **programada para 2026-10-12 a las 10:00 America/Santiago** después de conciliar P02. ID: **392476131**. UUID: **8775040772058204870**. La lectura nativa confirmó una única P03 con texto exacto, cinco imágenes en orden, cinco ALT exactos, tipo POST, draft=false y autoPublish=true tanto general como Instagram. Se envió isAiGenerated=true por el origen de sus ilustraciones. Estado PENDING: todavía sin publicación efectiva ni URL social real.
+
+Planificador: https://app.metricool.com/planner/calendar?blogId=7292000&openWithPostUuid=8775040772058204870
+
+Receipt vigente: `docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json`. Revisión existente actualizada y leída nuevamente, conservando horario, zona y estado activo. LinkedIn: destino todavía no identificado.
 
 Reutilizar Crecimiento Herramientas Rentables, ID 6a8b4712398481919c6d25cff889fc0b. Próximo creativo: P04/V02, después de comprobar su archivo español real. Conservar P01/P02/P03, productos y sitio v17. Gasto CLP 0, Metricool Free.
 
-## Cierre operativo 2026-10-08T23:31:26.739Z
+## Historial — cierre operativo 2026-10-08T23:31:26.739Z (superado)
 
 P02 devolvió INVALID_ARGUMENT aun después de una corrección documentada del contrato nativo. La conciliación posterior contiene únicamente P01 PUBLISHED. P03 no tuvo solicitud de creación: cero intentos, ningún ID/UUID y ninguna programación o publicación confirmada. 2026-10-12 10:00 Santiago sigue siendo una propuesta. El bloqueo afecta la escritura nativa; los cinco PNG, PDF, ZIP, textos y ALT siguen congelados y completos. Receipt: docs/receipts/HR_P02_P03_NATIVE_SCHEDULING_BLOCK_2026-10-08.json.
 
 No repetir peticiones fallidas ni regenerar el carrusel. Reanudar con una corrección nueva y concreta del contrato, deduplicar y conciliar P02 primero; si se retrasa, conservar dos días civiles antes de P03. La revisión diaria existente se actualizó y verificó sin cambiar horario ni identidad: docs/receipts/HR_GROWTH_REVIEW_P01_P03_CONTINUATION_2026-10-08.json. Mantener gasto CLP 0 y Free.
 
-## Comprobación de acceso web — 2026-10-09T04:44:36.792Z
+## Historial de acceso web — 2026-10-09T04:44:36.792Z
 
 El usuario autorizó la vía web para programar P02/P03. La selección segura de Google avanzó sólo al método de acceso; el paso posterior de credenciales se interrumpió y no entregó un resultado de autenticación. Una verificación nueva de Metricool mostró su página de inicio de sesión. No se abrió el compositor, no se subieron archivos ni se solicitó programación desde la web.
 
