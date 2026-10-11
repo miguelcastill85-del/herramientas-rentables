@@ -1,6 +1,6 @@
 {
   "project": "Herramientas Rentables",
-  "updated_at": "2026-10-10",
+  "updated_at": "2026-10-11",
   "source_of_truth": "GitHub main + Sites saved/deployed version",
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "P02 is published with native URL https://www.instagram.com/reel/DeUJXXtiGwr/ and matching ID/UUID/content. Do not duplicate. P03 remains PENDING for 2026-10-12 10:00 America/Santiago; verify once after its time and persist a matching real URL. P02/P01 analytics remain unobserved because posts and Reels returned no rows. P04/V02 requires the verified real Spanish CLP 8.990 source file."
+    "P01/P02 remain published and P03 remains scheduled for 2026-10-12 10:00 America/Santiago. Monitoring is temporarily identity-blocked because the Metricool schema no longer exposes link_id and the implicit connection resolves to brand 7337741 with no networks instead of Primary brand 7292000. Do not use that account. Retry only when Primary is selectable or positively confirmed; then verify P03 and analytics without duplicating posts."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-10T17:54:47Z",
+  "updated_at_utc": "2026-10-11T17:22:11Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -268,12 +268,12 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "P02 is published with native matching Reel URL. Do not duplicate or edit it. Verify P03 once after 2026-10-12 10:00 America/Santiago using existing ID 392476131 and UUID 8775040772058204870. Continue querying non-deprecated P02 analytics; empty rows remain unobserved, not zero. P04/V02 still requires the verified real Spanish CLP 8.990 source file.",
+    "next_action": "P01 and P02 remain published and P03 remains scheduled for 2026-10-12 10:00 America/Santiago. The 2026-10-11 Metricool schema no longer exposed link_id; its implicit connection resolved to brand 7337741 with no networks, not Primary brand 7292000. No queue or analytics data were read from the wrong connection. Resume verification only when Primary can be selected or positively confirmed, then verify P03 once after its time.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-10T17:54:47Z",
+    "metricool_last_checked_at_utc": "2026-10-11T17:22:11Z",
     "network_connection_blocker": null,
     "browser_authentication": "LOGIN_REQUIRED_NOT_NEEDED_FOR_SUCCESSFUL_NATIVE_SCHEDULING",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
@@ -406,7 +406,7 @@
       "instagram_is_ai_generated": true
     },
     "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
-    "latest_campaign_checkpoint": "docs/receipts/HR_P02_PUBLICATION_VERIFIED_2026-10-10.json",
+    "latest_campaign_checkpoint": "docs/receipts/HR_METRICOOL_PRIMARY_CONNECTION_BLOCK_2026-10-11.json",
     "historical_scheduling_verified": true,
     "pending_social_posts_observed": 1,
     "published_social_posts_observed": 2,
@@ -443,6 +443,14 @@
       "creative_generated": false,
       "receipt": "docs/receipts/HR_GROWTH_REVIEW_2026-10-09.json"
     },
-    "latest_scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json"
+    "latest_scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
+    "connection_monitoring_blocker": {
+      "state": "PRIMARY_LINK_SELECTION_NOT_EXPOSED_IMPLICIT_CONNECTION_POINTS_TO_BRAND_7337741_WITH_NO_NETWORKS",
+      "expected_brand_id": 7292000,
+      "expected_handle": "@herramientas_rentables_chile",
+      "wrong_implicit_brand_id": 7337741,
+      "other_account_data_used": false,
+      "receipt": "docs/receipts/HR_METRICOOL_PRIMARY_CONNECTION_BLOCK_2026-10-11.json"
+    }
   }
 }
