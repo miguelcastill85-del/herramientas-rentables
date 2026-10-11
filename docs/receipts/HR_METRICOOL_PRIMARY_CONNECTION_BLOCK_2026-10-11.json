@@ -1,0 +1,65 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-11T17:22:11Z",
+  "local_datetime": "2026-10-11T14:22:11-03:00",
+  "authority_recovered_commit": "ed0b0b551761318bdcf31a71f6a847e7a48af348",
+  "status": "METRICOOL_PRIMARY_CONNECTION_SELECTION_UNAVAILABLE_BOUNDED_REVIEW_STOPPED",
+  "expected_identity": {
+    "link_name": "Primary",
+    "prior_link_id": "link_6ac651de88a48191a45f9e111da03637",
+    "brand_id": 7292000,
+    "instagram_handle": "@herramientas_rentables_chile",
+    "timezone": "America/Santiago"
+  },
+  "observed_connector_state": {
+    "link_id_exposed_by_current_schema": false,
+    "getBrandSettings_result": "INVALID_ARGUMENT",
+    "implicit_brand_id": 7337741,
+    "message": "This brand doesn't have any social network connected yet.",
+    "matches_expected_identity": false,
+    "suspected_other_account_data_used": false
+  },
+  "bounded_actions": {
+    "github_authority_reconciled": true,
+    "metricool_identity_attempts": 2,
+    "first_attempt": "Explicit prior Primary link_id rejected because current schema does not define link_id.",
+    "second_attempt": "No-link call resolved to brand 7337741 with no connected social network.",
+    "queue_queried": false,
+    "analytics_queried": false,
+    "writes_attempted": false,
+    "browser_login_opened": false,
+    "repeated_retry_loop": false
+  },
+  "preserved_state": {
+    "p01": {
+      "status": "PUBLISHED",
+      "id": 390841744,
+      "uuid": "-7309929264440589713",
+      "url": "https://www.instagram.com/p/DeO_-4OCNl4/"
+    },
+    "p02": {
+      "status": "PUBLISHED",
+      "id": 392475835,
+      "uuid": "-112021319106933967",
+      "url": "https://www.instagram.com/reel/DeUJXXtiGwr/"
+    },
+    "p03": {
+      "status": "SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
+      "id": 392476131,
+      "uuid": "8775040772058204870",
+      "scheduled": "2026-10-12T10:00:00 America/Santiago"
+    },
+    "assets_regenerated": false,
+    "posts_created_edited_or_reprogrammed": false,
+    "site_redeployed": false,
+    "products_modified": false
+  },
+  "performance_metrics": "NOT_CHECKED_THIS_REVIEW_DUE_IDENTITY_GUARD",
+  "next_action": "Retry only when the Metricool tool exposes account selection again or its implicit connection is positively confirmed as Primary brand 7292000. Then verify P03 after its scheduled time and query non-deprecated analytics.",
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "metricool_plan": "FREE",
+    "payhip_plan": "FREE"
+  }
+}
