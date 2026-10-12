@@ -1,6 +1,6 @@
 # Herramientas Rentables - P03 R1: cambios de alcance
 
-Actualizado el 2026-10-09. Estado: **SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION**.
+Actualizado el 2026-10-12. Estado: **SCHEDULED_TIME_PASSED_PUBLICATION_UNVERIFIED_IDENTITY_BLOCK**.
 
 Cinco PNG cuadrados 1254 × 1254, PDF de cinco páginas, paquete ZIP de once archivos, textos Instagram y LinkedIn, cinco textos alternativos y transcripción. Revisión visual de las cinco imágenes y páginas PASS. Píxeles RGB incrustados en el PDF coinciden exactamente con los PNG; enlace real al cotizador en el cierre. ZIP con CRC y contenido exacto PASS. OCR complementario reconoce parcialmente la tipografía grande; cifras y acentos se verificaron visualmente. No se afirma PDF etiquetado.
 
@@ -35,3 +35,11 @@ La cola nativa comprobada en 2026-10-09T04:41:28.369Z contiene únicamente P01 3
 Se cierra esta comprobación sin nuevas peticiones de acceso ni bucle de espera. Reanudar con una sesión Metricool positivamente autenticada o una corrección concreta y nueva del contrato nativo; confirmar identidad, deduplicar y verificar mediante GET cada creación. La autorización de usar el navegador permanece vigente, pero no demuestra una sesión abierta. La revisión diaria existente recibió este estado, conservando ID, título, horario, zona, timing_mode y estado activo; no se creó otra.
 
 Receipt de acceso: docs/receipts/HR_METRICOOL_BROWSER_ACCESS_BLOCK_2026-10-09.json. Receipt de revisión: docs/receipts/HR_GROWTH_REVIEW_BROWSER_CONTINUATION_2026-10-09.json. Conservar archivos congelados, P01 publicada, productos, precios y sitio v17. Gasto CLP 0, plan Free. No se registraron credenciales, cookies, tokens ni URLs de OAuth.
+
+## Verificación posterior al horario — 2026-10-12
+
+El horario programado de P03 ya pasó. No fue posible verificar publicación efectiva porque el esquema actual de Metricool no expone `link_id` y la conexión implícita corresponde a la marca 7337741, `@naradelreves`, no a Primary 7292000 `@herramientas_rentables_chile`. Para preservar la separación de cuentas no se consultaron cola ni analítica desde esa identidad.
+
+Este bloqueo no demuestra fallo ni ausencia de publicación. P03 conserva ID 392476131, UUID 8775040772058204870 y su programación previamente verificada. No fue recreada, editada ni reprogramada. La URL pública sigue sin observarse. Receipt: `docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-12.json`.
+
+Reanudar únicamente cuando Primary vuelva a estar seleccionable o Metricool confirme positivamente la marca 7292000. Entonces conciliar el ID/UUID y exigir `PUBLISHED` con `publicUrl`, o texto/URL coincidentes mediante IGPO03/IGPO06.
