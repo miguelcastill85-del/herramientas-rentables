@@ -1,0 +1,71 @@
+{
+  "project": "Herramientas Rentables",
+  "piece": "P03",
+  "recorded_at_utc": "2026-10-12T17:33:33Z",
+  "local_datetime": "2026-10-12T14:33:33-03:00",
+  "authority_recovered_commit": "173e9c020724c1dc77659d87ede459a66b3fb557",
+  "status": "P03_AFTER_SCHEDULE_PUBLICATION_UNVERIFIED_PRIMARY_CONNECTION_NOT_SELECTABLE",
+  "expected_identity": {
+    "prior_link_name": "Primary",
+    "prior_link_id": "link_6ac651de88a48191a45f9e111da03637",
+    "brand_id": 7292000,
+    "instagram_handle": "@herramientas_rentables_chile",
+    "timezone": "America/Santiago"
+  },
+  "observed_connector_identity": {
+    "schema_exposes_link_id": false,
+    "brand_id": 7337741,
+    "instagram_handle": "@naradelreves",
+    "owner_username": "acuariodenero@gmail.com",
+    "timezone": "America/Santiago",
+    "matches_expected_identity": false,
+    "data_used_for_herramientas_rentables": false
+  },
+  "p03": {
+    "expected_post_id": 392476131,
+    "expected_uuid": "8775040772058204870",
+    "scheduled_datetime": {
+      "dateTime": "2026-10-12T10:00:00",
+      "timezone": "America/Santiago"
+    },
+    "scheduled_time_has_passed": true,
+    "prior_state": "SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
+    "current_publication_status": "UNVERIFIED_DUE_IDENTITY_GUARD",
+    "public_url": null,
+    "queue_queried": false,
+    "analytics_queried": false,
+    "absence_inferred_as_publication": false,
+    "duplicate_created": false,
+    "edited": false,
+    "reprogrammed": false
+  },
+  "preserved": {
+    "p01": {
+      "status": "PUBLISHED",
+      "id": 390841744,
+      "uuid": "-7309929264440589713",
+      "url": "https://www.instagram.com/p/DeO_-4OCNl4/"
+    },
+    "p02": {
+      "status": "PUBLISHED",
+      "id": 392475835,
+      "uuid": "-112021319106933967",
+      "url": "https://www.instagram.com/reel/DeUJXXtiGwr/"
+    },
+    "products_modified": false,
+    "assets_regenerated": false,
+    "site_redeployed": false
+  },
+  "public_search": {
+    "exact_text_queries_run": true,
+    "matching_instagram_result_found": false,
+    "interpretation": "No public search evidence; does not prove failure or absence."
+  },
+  "next_action": "When Metricool exposes Primary or positively confirms brand 7292000, reconcile P03 by ID/UUID and require PUBLISHED with native publicUrl or matching IGPO03/IGPO06. Do not use Nara data or duplicate P03.",
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "metricool_plan": "FREE",
+    "payhip_plan": "FREE"
+  }
+}
