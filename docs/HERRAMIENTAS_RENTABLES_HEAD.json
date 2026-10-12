@@ -1,6 +1,6 @@
 {
   "project": "Herramientas Rentables",
-  "updated_at": "2026-10-11",
+  "updated_at": "2026-10-12",
   "source_of_truth": "GitHub main + Sites saved/deployed version",
   "site": {
     "project_id": "appgprj_6a8cebd4d0d081919db9529b91dd2843",
@@ -226,10 +226,10 @@
   "next_actions": [
     "DP-FREELANCE-001 release objective is complete: preserve the audited immutable package, Payhip listing at CLP 19990 and existing Site version 17. No additional download verification or source rebuild is required for these identical bytes.",
     "Keep telemetry, media and DP-FREELANCE-002 as separate historical workstreams; their earlier pending states are not proof of paid sales, settlement or further publication.",
-    "P01/P02 remain published and P03 remains scheduled for 2026-10-12 10:00 America/Santiago. Monitoring is temporarily identity-blocked because the Metricool schema no longer exposes link_id and the implicit connection resolves to brand 7337741 with no networks instead of Primary brand 7292000. Do not use that account. Retry only when Primary is selectable or positively confirmed; then verify P03 and analytics without duplicating posts."
+    "P03's scheduled time has passed, but publication remains unverified because Metricool no longer exposes Primary selection and the implicit connection is @naradelreves brand 7337741. No Nara data was used and P03 was not duplicated. Restore or select Primary brand 7292000, then reconcile P03 by existing ID/UUID and persist the real URL and analytics."
   ],
   "completion": "COMPLETE_DP001_V2_2_AUDIT_PACKAGE_PAYHIP_LISTING_SITE_PUBLICATION_AND_BUYER_DELIVERY; CASH_SPENT_0",
-  "updated_at_utc": "2026-10-11T17:22:11Z",
+  "updated_at_utc": "2026-10-12T17:33:33Z",
   "previous_validation": {
     "command": "pnpm validate",
     "status": "PASS_FOR_PUBLISHED_CODE_SHA",
@@ -253,7 +253,7 @@
   "organic_marketing": {
     "authority": "docs/marketing/P01_PUBLICATION_CHECKPOINT_2026-10-07.md",
     "campaign": "docs/marketing/Campana_Organica_14_Dias.md",
-    "state": "P01_P02_PUBLISHED__P03_SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
+    "state": "P01_P02_PUBLISHED__P03_SCHEDULED_TIME_PASSED_PUBLICATION_UNVERIFIED_IDENTITY_BLOCK",
     "prepared_piece": "P01",
     "asset_revision": "R2",
     "assets_receipt": "docs/receipts/HR_P01_R2_PROFESSIONAL_REVIEW_2026-10-07.json",
@@ -268,12 +268,12 @@
     "plugin_connection": "METRICOOL_CONNECTED_TO_CHATGPT",
     "plan_gate": "FREE_ONLY_NO_PAID_PROMOTIONS",
     "quote_link": "https://herramientas-rentables-negocios.miguelcastill85.chatgpt.site/cotizacion-freelance-chile#cotizador",
-    "next_action": "P01 and P02 remain published and P03 remains scheduled for 2026-10-12 10:00 America/Santiago. The 2026-10-11 Metricool schema no longer exposed link_id; its implicit connection resolved to brand 7337741 with no networks, not Primary brand 7292000. No queue or analytics data were read from the wrong connection. Resume verification only when Primary can be selected or positively confirmed, then verify P03 once after its time.",
+    "next_action": "P03 scheduled time has passed, but publication cannot be verified while Metricool omits link_id and resolves implicitly to @naradelreves brand 7337741. Do not use Nara data or duplicate P03. When Primary brand 7292000 is selectable or positively confirmed, reconcile P03 by ID 392476131 and UUID 8775040772058204870 and persist PUBLISHED publicUrl or matching IGPO03/IGPO06.",
     "instagram_display_name": "Herramientas Freelance Chile",
     "instagram_account_type": "CREATOR_VISIBLE_IN_OWNER_SCREENSHOT",
     "metricool_brand_id": 7292000,
     "metricool_timezone": "America/Santiago",
-    "metricool_last_checked_at_utc": "2026-10-11T17:22:11Z",
+    "metricool_last_checked_at_utc": "2026-10-12T17:33:33Z",
     "network_connection_blocker": null,
     "browser_authentication": "LOGIN_REQUIRED_NOT_NEEDED_FOR_SUCCESSFUL_NATIVE_SCHEDULING",
     "metricool_historical_data": "PRE_SWITCH_HISTORY_MAY_BELONG_TO_WRONG_ACCOUNT; RECORD_SWITCH_TIME_AND_DO_NOT_ATTRIBUTE_OLD_DATA_TO_HR",
@@ -359,7 +359,7 @@
     "p03": {
       "piece": "P03",
       "revision": "R1",
-      "state": "SCHEDULED_AUTOPUBLISH_PENDING_PUBLICATION",
+      "state": "SCHEDULED_TIME_PASSED_PUBLICATION_UNVERIFIED_IDENTITY_BLOCK",
       "checkpoint": "docs/marketing/P03_PUBLICATION_CHECKPOINT_2026-10-08.md",
       "assets_receipt": "docs/receipts/HR_P03_ASSETS_READY_2026-10-08.json",
       "assets_commit_sha": "19d251a31f12213de3c16712a54bb694fc00812f",
@@ -402,11 +402,15 @@
       ],
       "native_media_acceptance": "CACHE_URLS_RETURNED_AND_POST_SCHEDULE_READ_BACK",
       "latest_browser_access_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
-      "publication_status": "PENDING",
-      "instagram_is_ai_generated": true
+      "publication_status": "UNVERIFIED_DUE_IDENTITY_GUARD",
+      "instagram_is_ai_generated": true,
+      "verification_receipt": "docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-12.json",
+      "scheduled_time_passed": true,
+      "last_verification_attempt_at": "2026-10-12T14:33:33-03:00",
+      "failure_or_absence_proven": false
     },
     "next_creative_piece": "P04_VERIFY_REAL_SPANISH_PRODUCT_BEFORE_V02",
-    "latest_campaign_checkpoint": "docs/receipts/HR_METRICOOL_PRIMARY_CONNECTION_BLOCK_2026-10-11.json",
+    "latest_campaign_checkpoint": "docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-12.json",
     "historical_scheduling_verified": true,
     "pending_social_posts_observed": 1,
     "published_social_posts_observed": 2,
@@ -445,12 +449,13 @@
     },
     "latest_scheduling_receipt": "docs/receipts/HR_P02_P03_METRICOOL_SCHEDULE_2026-10-09.json",
     "connection_monitoring_blocker": {
-      "state": "PRIMARY_LINK_SELECTION_NOT_EXPOSED_IMPLICIT_CONNECTION_POINTS_TO_BRAND_7337741_WITH_NO_NETWORKS",
+      "state": "PRIMARY_LINK_SELECTION_NOT_EXPOSED_IMPLICIT_CONNECTION_IS_NARA",
       "expected_brand_id": 7292000,
       "expected_handle": "@herramientas_rentables_chile",
       "wrong_implicit_brand_id": 7337741,
+      "wrong_implicit_handle": "@naradelreves",
       "other_account_data_used": false,
-      "receipt": "docs/receipts/HR_METRICOOL_PRIMARY_CONNECTION_BLOCK_2026-10-11.json"
+      "receipt": "docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-12.json"
     }
   }
 }
