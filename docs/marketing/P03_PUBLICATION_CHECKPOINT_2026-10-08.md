@@ -43,3 +43,12 @@ El horario programado de P03 ya pasó. No fue posible verificar publicación efe
 Este bloqueo no demuestra fallo ni ausencia de publicación. P03 conserva ID 392476131, UUID 8775040772058204870 y su programación previamente verificada. No fue recreada, editada ni reprogramada. La URL pública sigue sin observarse. Receipt: `docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-12.json`.
 
 Reanudar únicamente cuando Primary vuelva a estar seleccionable o Metricool confirme positivamente la marca 7292000. Entonces conciliar el ID/UUID y exigir `PUBLISHED` con `publicUrl`, o texto/URL coincidentes mediante IGPO03/IGPO06.
+
+
+## Seguimiento de identidad — 2026-10-13
+
+La comprobación única de identidad no recuperó Primary 7292000. Metricool resolvió al blog implícito 7337741 y devolvió que esa marca no tiene redes conectadas. No se consultaron cola ni analítica con esa identidad y no se usaron datos ajenos.
+
+Una búsqueda pública por el texto exacto de P03 y por el handle objetivo no encontró una coincidencia inequívoca. Esto se registra como **no observado**, no como fallo o ausencia de publicación. P03 conserva ID 392476131, UUID 8775040772058204870 y permanece sin recreación, edición ni reprogramación.
+
+Reanudar sólo cuando Metricool confirme positivamente Primary 7292000. Receipt: `docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-13.json`.
