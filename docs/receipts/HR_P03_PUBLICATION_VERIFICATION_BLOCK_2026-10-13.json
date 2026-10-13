@@ -1,0 +1,55 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-13T17:28:43Z",
+  "recorded_local_date": "2026-10-13",
+  "timezone": "America/Santiago",
+  "state": "P03_PUBLICATION_UNVERIFIED_PRIMARY_CONNECTION_STILL_UNAVAILABLE",
+  "authority_before_write": "9622db57715e4f5b1fbc127361ed278f35ff4fdc",
+  "expected_identity": {
+    "connection": "Primary",
+    "brand_id": 7292000,
+    "instagram_handle": "@herramientas_rentables_chile",
+    "timezone": "America/Santiago"
+  },
+  "metricool_identity_check": {
+    "attempted_once": true,
+    "result": "WRONG_IMPLICIT_BRAND_NO_CONNECTED_NETWORKS",
+    "implicit_brand_id": 7337741,
+    "connector_message": "This brand doesn't have any social network connected yet.",
+    "primary_selectable": false,
+    "link_id_exposed": false,
+    "treated_as_target_business_data": false
+  },
+  "p03": {
+    "id": 392476131,
+    "uuid": "8775040772058204870",
+    "scheduled_for": "2026-10-12T10:00:00-03:00",
+    "publication_status": "UNVERIFIED_DUE_IDENTITY_GUARD",
+    "public_url": null,
+    "recreated": false,
+    "edited": false,
+    "reprogrammed": false
+  },
+  "public_search": {
+    "queries": [
+      "site:instagram.com \"¿Cambió el alcance? Revisa la cotización antes de empezar.\"",
+      "site:instagram.com/herramientas_rentables_chile \"Cambió el alcance\""
+    ],
+    "exact_match_found": false,
+    "interpretation": "NOT_OBSERVED; NOT EVIDENCE OF FAILURE OR ABSENCE"
+  },
+  "preserved": {
+    "p01_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "p02_url": "https://www.instagram.com/reel/DeUJXXtiGwr/",
+    "p01_p02_p03_assets_unchanged": true,
+    "products_prices_site_v17_unchanged": true
+  },
+  "next_action": "When Metricool positively confirms Primary brand 7292000, reconcile P03 by existing ID/UUID and persist matching PUBLISHED publicUrl or IGPO03/IGPO06 plus observed metrics.",
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "paid_plan_activated": false,
+    "metricool_plan": "Free",
+    "payhip_plan": "Free"
+  }
+}
