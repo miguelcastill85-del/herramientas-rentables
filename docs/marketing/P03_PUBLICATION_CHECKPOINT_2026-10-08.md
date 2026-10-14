@@ -52,3 +52,12 @@ La comprobación única de identidad no recuperó Primary 7292000. Metricool res
 Una búsqueda pública por el texto exacto de P03 y por el handle objetivo no encontró una coincidencia inequívoca. Esto se registra como **no observado**, no como fallo o ausencia de publicación. P03 conserva ID 392476131, UUID 8775040772058204870 y permanece sin recreación, edición ni reprogramación.
 
 Reanudar sólo cuando Metricool confirme positivamente Primary 7292000. Receipt: `docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-13.json`.
+
+
+## Confirmación de separación de cuentas — 2026-10-14
+
+Metricool expone ahora positivamente el blog implícito 7337741 con Instagram `naradelreves`. Esto confirma que la conexión actual pertenece a Nara y no a Primary 7292000 `@herramientas_rentables_chile`. No se consultaron cola ni analítica de Nara.
+
+La búsqueda pública por el texto exacto y el handle objetivo no encontró una coincidencia inequívoca de P03. El resultado permanece **no observado**, no fallido. Se preservan ID 392476131, UUID 8775040772058204870, activos y programación previa; no hubo recreación, edición ni reprogramación.
+
+Reanudar sólo tras confirmar Primary 7292000. Receipt: `docs/receipts/HR_P03_PUBLICATION_VERIFICATION_BLOCK_2026-10-14.json`.
