@@ -1,0 +1,57 @@
+{
+  "project": "Herramientas Rentables",
+  "recorded_at_utc": "2026-10-14T17:20:45Z",
+  "recorded_local_date": "2026-10-14",
+  "timezone": "America/Santiago",
+  "state": "P03_PUBLICATION_UNVERIFIED_WRONG_IMPLICIT_IDENTITY_POSITIVELY_CONFIRMED_AS_NARA",
+  "authority_before_write": "17e6653307dad15d3d553dfc18c20bee9ce9a8c4",
+  "expected_identity": {
+    "connection": "Primary",
+    "brand_id": 7292000,
+    "instagram_handle": "@herramientas_rentables_chile",
+    "timezone": "America/Santiago"
+  },
+  "metricool_identity_check": {
+    "attempted_once": true,
+    "result": "WRONG_IMPLICIT_BRAND_POSITIVELY_IDENTIFIED",
+    "implicit_brand_id": 7337741,
+    "implicit_brand_label": "naradelreves",
+    "instagram_connected_handle": "naradelreves",
+    "owner_username": "acuariodenero@gmail.com",
+    "timezone": "America/Santiago",
+    "primary_selectable": false,
+    "link_id_exposed": false,
+    "queue_or_analytics_queried": false,
+    "wrong_identity_data_attributed_to_business": false
+  },
+  "change_since_previous_review": "On 2026-10-13 blog 7337741 returned no connected networks; on 2026-10-14 it positively exposes Instagram naradelreves. This confirms it is not the Herramientas Rentables Primary connection.",
+  "p03": {
+    "id": 392476131,
+    "uuid": "8775040772058204870",
+    "scheduled_for": "2026-10-12T10:00:00-03:00",
+    "publication_status": "UNVERIFIED_DUE_IDENTITY_GUARD",
+    "public_url": null,
+    "recreated": false,
+    "edited": false,
+    "reprogrammed": false
+  },
+  "public_search": {
+    "exact_text_and_handle_queries": 3,
+    "unambiguous_p03_match_found": false,
+    "unrelated_instagram_result_ignored": true,
+    "interpretation": "NOT_OBSERVED; NOT EVIDENCE OF FAILURE OR ABSENCE"
+  },
+  "preserved": {
+    "p01_url": "https://www.instagram.com/p/DeO_-4OCNl4/",
+    "p02_url": "https://www.instagram.com/reel/DeUJXXtiGwr/",
+    "assets_products_prices_download_site_v17_unchanged": true
+  },
+  "next_action": "Restore/select Metricool Primary brand 7292000; then reconcile existing P03 ID/UUID and persist matching PUBLISHED publicUrl or IGPO03/IGPO06 with observed metrics.",
+  "economics": {
+    "cash_spent_clp": 0,
+    "paid_ads": false,
+    "paid_plan_activated": false,
+    "metricool_plan": "Free",
+    "payhip_plan": "Free"
+  }
+}
